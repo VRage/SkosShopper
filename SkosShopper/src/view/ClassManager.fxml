@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="343.0" prefWidth="622.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ClassManagerController">
+   <children>
+      <TableView fx:id="tableView" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="671.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <columns>
+            <TableColumn fx:id="tableView_class" prefWidth="75.0" text="Classname" />
+            <TableColumn fx:id="tableView_desc" prefWidth="604.0" text="Description" />
+         </columns>
+      </TableView>
+      <Button layoutX="634.0" layoutY="211.0" mnemonicParsing="false" text="Edit Mode" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="211.0" />
+      <Button layoutX="537.0" layoutY="211.0" mnemonicParsing="false" text="Remove" AnchorPane.rightAnchor="100.0" />
+   </children>
+   <effect>
+      <Blend />
+   </effect>
+</AnchorPane>
