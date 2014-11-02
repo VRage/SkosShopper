@@ -45,7 +45,10 @@ public class ClassManagerController implements Initializable{
 		tableView_desc.setCellValueFactory(new Callback<CellDataFeatures<OntClass, String>, ObservableValue<String>>() {
 		     public ObservableValue<String> call(CellDataFeatures<OntClass, String> p) {
 		    	 SimpleStringProperty s = new SimpleStringProperty();
-		    	 s.set(p.getValue().getLabel(null));
+		    	 if(p.getValue().hasSuperClass())
+		    		 s.set(p.getValue().getSuperClass().getLocalName());
+		    	 else
+		    		 s.set(p.getValue().getLabel(null));
 		         return  s;
 		     }
 		  });
@@ -65,7 +68,11 @@ public class ClassManagerController implements Initializable{
 	    while(classes.hasNext()){
 	        OntClass thisClass = (OntClass) classes.next();
 	        data.add(thisClass);
-	    	
+	        ExtendedIterator subclasses = thisClass.listSubClasses();
+	        while(subclasses.hasNext()){
+	        	OntClass thisSubClass = (OntClass) subclasses.next();
+	        	data.add(thisSubClass);
+	        }
 	    }
 	}
 	
