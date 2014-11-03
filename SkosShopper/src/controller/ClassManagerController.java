@@ -29,7 +29,6 @@ public class ClassManagerController implements Initializable{
 	//defines date which will be shown in the table
 	final ObservableList<OntClass> data = FXCollections.observableArrayList();
 	
-	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		//customized CellValueFactory for OntClass on Class Column
 		tableView_class.setCellValueFactory(new Callback<CellDataFeatures<OntClass, String>, ObservableValue<String>>() {
