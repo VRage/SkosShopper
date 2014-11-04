@@ -98,3 +98,476 @@ org.apache.jena.riot.RiotException: <C:\Users\vrage\Documents\SpiderOak Hive\stu
 	at com.sun.glass.ui.win.WinApplication$$Lambda$37/1109371569.run(Unknown Source)
 	at java.lang.Thread.run(Unknown Source)
 2014-11-04 11:13:08 INFO  Main:26 - app started without errors
+2014-11-04 12:39:58 TRACE SystemUtils:38 - Using thread classloader
+2014-11-04 12:39:58 TRACE LocatorFile:158 - Not found: location-mapping.ttl
+2014-11-04 12:39:58 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-04 12:39:58 TRACE LocatorFile:158 - Not found: location-mapping.rdf
+2014-11-04 12:39:58 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-04 12:39:58 TRACE LocatorFile:158 - Not found: location-mapping.n3
+2014-11-04 12:39:58 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-04 12:39:58 TRACE LocatorFile:158 - Not found: etc/location-mapping.rdf
+2014-11-04 12:39:58 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-04 12:39:58 TRACE LocatorFile:158 - Not found: etc/location-mapping.n3
+2014-11-04 12:39:58 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-04 12:39:58 TRACE LocatorFile:158 - Not found: etc/location-mapping.ttl
+2014-11-04 12:39:58 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-04 12:39:58 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-04 12:39:59 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+2014-11-04 12:39:59 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+2014-11-04 12:39:59 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-04 12:39:59 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-04 12:39:59 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-04 12:39:59 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-04 12:39:59 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-04 12:39:59 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+2014-11-04 12:39:59 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+2014-11-04 12:39:59 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+2014-11-04 12:39:59 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-04 12:39:59 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-04 12:39:59 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-04 12:39:59 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-04 12:39:59 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-04 12:39:59 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+2014-11-04 12:39:59 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-04 12:39:59 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-04 12:39:59 DEBUG FileManager:179 - Add location: LocatorFile
+2014-11-04 12:39:59 DEBUG FileManager:179 - Add location: LocatorURL
+2014-11-04 12:39:59 DEBUG FileManager:179 - Add location: ClassLoaderLocator
+2014-11-04 12:39:59 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-04 12:39:59 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-04 12:39:59 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-04 12:39:59 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-04 12:39:59 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-04 12:39:59 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-04 12:39:59 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-04 12:39:59 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-04 12:39:59 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-04 12:39:59 DEBUG FileManager:567 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-04 12:39:59 DEBUG StreamManager:112 - Not mapped: C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl
+2014-11-04 12:39:59 DEBUG StreamManager:93 - open(C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl)
+2014-11-04 12:39:59 DEBUG StreamManager:112 - Not mapped: C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl
+2014-11-04 12:39:59 TRACE LocatorFile:158 - Not found: C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl
+2014-11-04 12:39:59 TRACE LocatorHTTP:42 - Not found : C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl
+2014-11-04 12:39:59 TRACE LocatorFTP:42 - Not found : C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl
+2014-11-04 12:39:59 TRACE LocatorClassLoader:61 - Failed to open: C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl
+2014-11-04 12:39:59 ERROR ClassManagerController:79 - could not load file
+com.hp.hpl.jena.shared.NotFoundException: C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl
+	at org.apache.jena.riot.adapters.RDFReaderRIOT_Web.read(RDFReaderRIOT_Web.java:72)
+	at com.hp.hpl.jena.rdf.model.impl.ModelCom.read(ModelCom.java:241)
+	at com.hp.hpl.jena.ontology.impl.OntModelImpl.readDelegate(OntModelImpl.java:3107)
+	at com.hp.hpl.jena.ontology.impl.OntModelImpl.read(OntModelImpl.java:2198)
+	at com.hp.hpl.jena.ontology.impl.OntModelImpl.read(OntModelImpl.java:2122)
+	at controller.ClassManagerController.getClassName(ClassManagerController.java:65)
+	at controller.ClassManagerController.initialize(ClassManagerController.java:59)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.access$2600(Unknown Source)
+	at javafx.fxml.FXMLLoader$IncludeElement.constructValue(Unknown Source)
+	at javafx.fxml.FXMLLoader$ValueElement.processStartElement(Unknown Source)
+	at javafx.fxml.FXMLLoader.processStartElement(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.load(Unknown Source)
+	at application.Main.start(Main.java:21)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$153(Unknown Source)
+	at com.sun.javafx.application.LauncherImpl$$Lambda$51/202910529.run(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$166(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$45/1051754451.run(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$164(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$47/499162309.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$165(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$46/1775282465.run(Unknown Source)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(Unknown Source)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$141(Unknown Source)
+	at com.sun.glass.ui.win.WinApplication$$Lambda$37/1109371569.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+2014-11-04 12:40:00 INFO  Main:26 - app started without errors
+2014-11-04 12:50:10 ERROR Main:28 - javafx.fxml.LoadException: 
+/C:/Users/Matt/git/SkosShopper/SkosShopper/bin/view/Main.fxml:22
+
+javafx.fxml.LoadException: 
+/C:/Users/Matt/git/SkosShopper/SkosShopper/bin/view/Main.fxml:22
+
+	at javafx.fxml.FXMLLoader.constructLoadException(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.load(Unknown Source)
+	at application.Main.start(Main.java:21)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$153(Unknown Source)
+	at com.sun.javafx.application.LauncherImpl$$Lambda$51/583067389.run(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$166(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$44/1051754451.run(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$164(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$47/2119806813.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$165(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$46/1775282465.run(Unknown Source)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(Unknown Source)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$141(Unknown Source)
+	at com.sun.glass.ui.win.WinApplication$$Lambda$37/1109371569.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: com.ctc.wstx.exc.WstxParsingException: Unexpected close tag </Tab>; expected </tabs>.
+ at [row,col {unknown-source}]: [22,29]
+	at com.ctc.wstx.sr.StreamScanner.constructWfcException(StreamScanner.java:630)
+	at com.ctc.wstx.sr.StreamScanner.throwParseError(StreamScanner.java:461)
+	at com.ctc.wstx.sr.BasicStreamReader.reportWrongEndElem(BasicStreamReader.java:3258)
+	at com.ctc.wstx.sr.BasicStreamReader.readEndElem(BasicStreamReader.java:3200)
+	at com.ctc.wstx.sr.BasicStreamReader.nextFromTree(BasicStreamReader.java:2832)
+	at com.ctc.wstx.sr.BasicStreamReader.next(BasicStreamReader.java:1019)
+	at javax.xml.stream.util.StreamReaderDelegate.next(Unknown Source)
+	... 23 more
+2014-11-04 13:00:42 ERROR Main:28 - javafx.fxml.LoadException: 
+/C:/Users/Matt/git/SkosShopper/SkosShopper/bin/view/Main.fxml:22
+
+javafx.fxml.LoadException: 
+/C:/Users/Matt/git/SkosShopper/SkosShopper/bin/view/Main.fxml:22
+
+	at javafx.fxml.FXMLLoader.constructLoadException(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.load(Unknown Source)
+	at application.Main.start(Main.java:21)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$153(Unknown Source)
+	at com.sun.javafx.application.LauncherImpl$$Lambda$51/1779040847.run(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$166(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$45/1051754451.run(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$164(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$47/541423010.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$165(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$46/1775282465.run(Unknown Source)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(Unknown Source)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$141(Unknown Source)
+	at com.sun.glass.ui.win.WinApplication$$Lambda$37/1109371569.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: com.ctc.wstx.exc.WstxParsingException: Unexpected close tag </Tab>; expected </tabs>.
+ at [row,col {unknown-source}]: [22,29]
+	at com.ctc.wstx.sr.StreamScanner.constructWfcException(StreamScanner.java:630)
+	at com.ctc.wstx.sr.StreamScanner.throwParseError(StreamScanner.java:461)
+	at com.ctc.wstx.sr.BasicStreamReader.reportWrongEndElem(BasicStreamReader.java:3258)
+	at com.ctc.wstx.sr.BasicStreamReader.readEndElem(BasicStreamReader.java:3200)
+	at com.ctc.wstx.sr.BasicStreamReader.nextFromTree(BasicStreamReader.java:2832)
+	at com.ctc.wstx.sr.BasicStreamReader.next(BasicStreamReader.java:1019)
+	at javax.xml.stream.util.StreamReaderDelegate.next(Unknown Source)
+	... 23 more
+2014-11-04 13:00:50 ERROR Main:28 - javafx.fxml.LoadException: 
+/C:/Users/Matt/git/SkosShopper/SkosShopper/bin/view/Main.fxml:22
+
+javafx.fxml.LoadException: 
+/C:/Users/Matt/git/SkosShopper/SkosShopper/bin/view/Main.fxml:22
+
+	at javafx.fxml.FXMLLoader.constructLoadException(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.load(Unknown Source)
+	at application.Main.start(Main.java:21)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$153(Unknown Source)
+	at com.sun.javafx.application.LauncherImpl$$Lambda$51/1449906789.run(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$166(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$45/1051754451.run(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$164(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$47/2119806813.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$165(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$46/1775282465.run(Unknown Source)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(Unknown Source)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$141(Unknown Source)
+	at com.sun.glass.ui.win.WinApplication$$Lambda$37/1109371569.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: com.ctc.wstx.exc.WstxParsingException: Unexpected close tag </Tab>; expected </tabs>.
+ at [row,col {unknown-source}]: [22,29]
+	at com.ctc.wstx.sr.StreamScanner.constructWfcException(StreamScanner.java:630)
+	at com.ctc.wstx.sr.StreamScanner.throwParseError(StreamScanner.java:461)
+	at com.ctc.wstx.sr.BasicStreamReader.reportWrongEndElem(BasicStreamReader.java:3258)
+	at com.ctc.wstx.sr.BasicStreamReader.readEndElem(BasicStreamReader.java:3200)
+	at com.ctc.wstx.sr.BasicStreamReader.nextFromTree(BasicStreamReader.java:2832)
+	at com.ctc.wstx.sr.BasicStreamReader.next(BasicStreamReader.java:1019)
+	at javax.xml.stream.util.StreamReaderDelegate.next(Unknown Source)
+	... 23 more
+2014-11-04 13:01:50 ERROR Main:28 - javafx.fxml.LoadException: 
+/C:/Users/Matt/git/SkosShopper/SkosShopper/bin/view/Main.fxml:22
+
+javafx.fxml.LoadException: 
+/C:/Users/Matt/git/SkosShopper/SkosShopper/bin/view/Main.fxml:22
+
+	at javafx.fxml.FXMLLoader.constructLoadException(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.load(Unknown Source)
+	at application.Main.start(Main.java:21)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$153(Unknown Source)
+	at com.sun.javafx.application.LauncherImpl$$Lambda$51/1779040847.run(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$166(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$45/1051754451.run(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$164(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$47/541423010.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$165(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$46/1775282465.run(Unknown Source)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(Unknown Source)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$141(Unknown Source)
+	at com.sun.glass.ui.win.WinApplication$$Lambda$37/1109371569.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: com.ctc.wstx.exc.WstxParsingException: Unexpected close tag </Tab>; expected </tabs>.
+ at [row,col {unknown-source}]: [22,29]
+	at com.ctc.wstx.sr.StreamScanner.constructWfcException(StreamScanner.java:630)
+	at com.ctc.wstx.sr.StreamScanner.throwParseError(StreamScanner.java:461)
+	at com.ctc.wstx.sr.BasicStreamReader.reportWrongEndElem(BasicStreamReader.java:3258)
+	at com.ctc.wstx.sr.BasicStreamReader.readEndElem(BasicStreamReader.java:3200)
+	at com.ctc.wstx.sr.BasicStreamReader.nextFromTree(BasicStreamReader.java:2832)
+	at com.ctc.wstx.sr.BasicStreamReader.next(BasicStreamReader.java:1019)
+	at javax.xml.stream.util.StreamReaderDelegate.next(Unknown Source)
+	... 23 more
+2014-11-04 13:01:50 ERROR Main:28 - javafx.fxml.LoadException: 
+/C:/Users/Matt/git/SkosShopper/SkosShopper/bin/view/Main.fxml:22
+
+javafx.fxml.LoadException: 
+/C:/Users/Matt/git/SkosShopper/SkosShopper/bin/view/Main.fxml:22
+
+	at javafx.fxml.FXMLLoader.constructLoadException(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.load(Unknown Source)
+	at application.Main.start(Main.java:21)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$153(Unknown Source)
+	at com.sun.javafx.application.LauncherImpl$$Lambda$51/1449906789.run(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$166(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$45/1051754451.run(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$164(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$47/2144869116.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$165(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$46/1775282465.run(Unknown Source)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(Unknown Source)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$141(Unknown Source)
+	at com.sun.glass.ui.win.WinApplication$$Lambda$37/1109371569.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: com.ctc.wstx.exc.WstxParsingException: Unexpected close tag </Tab>; expected </tabs>.
+ at [row,col {unknown-source}]: [22,29]
+	at com.ctc.wstx.sr.StreamScanner.constructWfcException(StreamScanner.java:630)
+	at com.ctc.wstx.sr.StreamScanner.throwParseError(StreamScanner.java:461)
+	at com.ctc.wstx.sr.BasicStreamReader.reportWrongEndElem(BasicStreamReader.java:3258)
+	at com.ctc.wstx.sr.BasicStreamReader.readEndElem(BasicStreamReader.java:3200)
+	at com.ctc.wstx.sr.BasicStreamReader.nextFromTree(BasicStreamReader.java:2832)
+	at com.ctc.wstx.sr.BasicStreamReader.next(BasicStreamReader.java:1019)
+	at javax.xml.stream.util.StreamReaderDelegate.next(Unknown Source)
+	... 23 more
+2014-11-04 13:02:42 TRACE SystemUtils:38 - Using thread classloader
+2014-11-04 13:02:42 TRACE LocatorFile:158 - Not found: location-mapping.ttl
+2014-11-04 13:02:42 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-04 13:02:42 TRACE LocatorFile:158 - Not found: location-mapping.rdf
+2014-11-04 13:02:42 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-04 13:02:42 TRACE LocatorFile:158 - Not found: location-mapping.n3
+2014-11-04 13:02:42 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-04 13:02:42 TRACE LocatorFile:158 - Not found: etc/location-mapping.rdf
+2014-11-04 13:02:42 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-04 13:02:42 TRACE LocatorFile:158 - Not found: etc/location-mapping.n3
+2014-11-04 13:02:42 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-04 13:02:42 TRACE LocatorFile:158 - Not found: etc/location-mapping.ttl
+2014-11-04 13:02:42 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-04 13:02:42 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-04 13:02:43 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+2014-11-04 13:02:43 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+2014-11-04 13:02:43 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-04 13:02:43 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-04 13:02:43 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-04 13:02:43 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-04 13:02:43 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-04 13:02:43 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+2014-11-04 13:02:43 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+2014-11-04 13:02:43 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+2014-11-04 13:02:43 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-04 13:02:43 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-04 13:02:43 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-04 13:02:43 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-04 13:02:43 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-04 13:02:43 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+2014-11-04 13:02:43 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-04 13:02:43 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-04 13:02:43 DEBUG FileManager:179 - Add location: LocatorFile
+2014-11-04 13:02:43 DEBUG FileManager:179 - Add location: LocatorURL
+2014-11-04 13:02:43 DEBUG FileManager:179 - Add location: ClassLoaderLocator
+2014-11-04 13:02:43 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-04 13:02:43 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-04 13:02:43 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-04 13:02:43 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-04 13:02:43 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-04 13:02:43 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-04 13:02:43 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-04 13:02:43 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-04 13:02:43 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-04 13:02:43 DEBUG FileManager:567 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-04 13:02:43 DEBUG StreamManager:112 - Not mapped: C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl
+2014-11-04 13:02:43 DEBUG StreamManager:93 - open(C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl)
+2014-11-04 13:02:43 DEBUG StreamManager:112 - Not mapped: C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl
+2014-11-04 13:02:43 TRACE LocatorFile:158 - Not found: C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl
+2014-11-04 13:02:43 TRACE LocatorHTTP:42 - Not found : C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl
+2014-11-04 13:02:43 TRACE LocatorFTP:42 - Not found : C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl
+2014-11-04 13:02:43 TRACE LocatorClassLoader:61 - Failed to open: C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl
+2014-11-04 13:02:43 ERROR ClassManagerController:79 - could not load file
+com.hp.hpl.jena.shared.NotFoundException: C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl
+	at org.apache.jena.riot.adapters.RDFReaderRIOT_Web.read(RDFReaderRIOT_Web.java:72)
+	at com.hp.hpl.jena.rdf.model.impl.ModelCom.read(ModelCom.java:241)
+	at com.hp.hpl.jena.ontology.impl.OntModelImpl.readDelegate(OntModelImpl.java:3107)
+	at com.hp.hpl.jena.ontology.impl.OntModelImpl.read(OntModelImpl.java:2198)
+	at com.hp.hpl.jena.ontology.impl.OntModelImpl.read(OntModelImpl.java:2122)
+	at controller.ClassManagerController.getClassName(ClassManagerController.java:65)
+	at controller.ClassManagerController.initialize(ClassManagerController.java:59)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.access$2600(Unknown Source)
+	at javafx.fxml.FXMLLoader$IncludeElement.constructValue(Unknown Source)
+	at javafx.fxml.FXMLLoader$ValueElement.processStartElement(Unknown Source)
+	at javafx.fxml.FXMLLoader.processStartElement(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.load(Unknown Source)
+	at application.Main.start(Main.java:21)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$153(Unknown Source)
+	at com.sun.javafx.application.LauncherImpl$$Lambda$51/257872164.run(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$166(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$44/1051754451.run(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$164(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$47/550672346.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$165(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$46/1775282465.run(Unknown Source)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(Unknown Source)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$141(Unknown Source)
+	at com.sun.glass.ui.win.WinApplication$$Lambda$37/1109371569.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+2014-11-04 13:02:43 INFO  Main:26 - app started without errors
+2014-11-04 13:09:16 TRACE SystemUtils:38 - Using thread classloader
+2014-11-04 13:09:16 TRACE LocatorFile:158 - Not found: location-mapping.ttl
+2014-11-04 13:09:16 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-04 13:09:16 TRACE LocatorFile:158 - Not found: location-mapping.rdf
+2014-11-04 13:09:16 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-04 13:09:16 TRACE LocatorFile:158 - Not found: location-mapping.n3
+2014-11-04 13:09:16 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-04 13:09:16 TRACE LocatorFile:158 - Not found: etc/location-mapping.rdf
+2014-11-04 13:09:16 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-04 13:09:16 TRACE LocatorFile:158 - Not found: etc/location-mapping.n3
+2014-11-04 13:09:16 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-04 13:09:16 TRACE LocatorFile:158 - Not found: etc/location-mapping.ttl
+2014-11-04 13:09:16 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-04 13:09:16 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-04 13:09:16 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+2014-11-04 13:09:16 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+2014-11-04 13:09:16 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-04 13:09:16 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-04 13:09:16 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-04 13:09:16 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-04 13:09:16 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-04 13:09:16 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+2014-11-04 13:09:16 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+2014-11-04 13:09:16 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+2014-11-04 13:09:16 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-04 13:09:16 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-04 13:09:16 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-04 13:09:16 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-04 13:09:16 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-04 13:09:16 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+2014-11-04 13:09:16 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-04 13:09:16 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-04 13:09:16 DEBUG FileManager:179 - Add location: LocatorFile
+2014-11-04 13:09:16 DEBUG FileManager:179 - Add location: LocatorURL
+2014-11-04 13:09:16 DEBUG FileManager:179 - Add location: ClassLoaderLocator
+2014-11-04 13:09:16 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-04 13:09:16 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-04 13:09:16 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-04 13:09:16 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-04 13:09:16 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-04 13:09:16 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-04 13:09:16 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-04 13:09:16 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-04 13:09:16 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-04 13:09:16 DEBUG FileManager:567 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-04 13:09:17 DEBUG StreamManager:112 - Not mapped: C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl
+2014-11-04 13:09:17 DEBUG StreamManager:93 - open(C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl)
+2014-11-04 13:09:17 DEBUG StreamManager:112 - Not mapped: C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl
+2014-11-04 13:09:17 TRACE LocatorFile:158 - Not found: C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl
+2014-11-04 13:09:17 TRACE LocatorHTTP:42 - Not found : C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl
+2014-11-04 13:09:17 TRACE LocatorFTP:42 - Not found : C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl
+2014-11-04 13:09:17 TRACE LocatorClassLoader:61 - Failed to open: C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl
+2014-11-04 13:09:17 ERROR ClassManagerController:79 - could not load file
+com.hp.hpl.jena.shared.NotFoundException: C:\Users\vrage\Documents\SpiderOak Hive\studium\5_Semester\projekt\SKOS\SkosCamera.owl
+	at org.apache.jena.riot.adapters.RDFReaderRIOT_Web.read(RDFReaderRIOT_Web.java:72)
+	at com.hp.hpl.jena.rdf.model.impl.ModelCom.read(ModelCom.java:241)
+	at com.hp.hpl.jena.ontology.impl.OntModelImpl.readDelegate(OntModelImpl.java:3107)
+	at com.hp.hpl.jena.ontology.impl.OntModelImpl.read(OntModelImpl.java:2198)
+	at com.hp.hpl.jena.ontology.impl.OntModelImpl.read(OntModelImpl.java:2122)
+	at controller.ClassManagerController.getClassName(ClassManagerController.java:65)
+	at controller.ClassManagerController.initialize(ClassManagerController.java:59)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.access$2600(Unknown Source)
+	at javafx.fxml.FXMLLoader$IncludeElement.constructValue(Unknown Source)
+	at javafx.fxml.FXMLLoader$ValueElement.processStartElement(Unknown Source)
+	at javafx.fxml.FXMLLoader.processStartElement(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml.FXMLLoader.load(Unknown Source)
+	at application.Main.start(Main.java:21)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$153(Unknown Source)
+	at com.sun.javafx.application.LauncherImpl$$Lambda$51/1449906789.run(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$166(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$45/1051754451.run(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$164(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$47/2119806813.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$165(Unknown Source)
+	at com.sun.javafx.application.PlatformImpl$$Lambda$46/1775282465.run(Unknown Source)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(Unknown Source)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$141(Unknown Source)
+	at com.sun.glass.ui.win.WinApplication$$Lambda$37/1109371569.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+2014-11-04 13:09:17 INFO  Main:26 - app started without errors

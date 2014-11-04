@@ -15,6 +15,11 @@
                <children>
                   <TabPane prefHeight="375.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <tabs>
+                        <Tab text="Class Editor">
+                          <content>
+                              <fx:include source="../../bin/view/Alternative_ClassEditor.fxml" />
+                           </content>
+                        </Tab>
                         <Tab fx:id="tabMain" text="Main">
                            <content>
                               <fx:include source="../../bin/view/ServerConnect.fxml" />
