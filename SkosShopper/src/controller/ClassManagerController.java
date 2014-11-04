@@ -1,6 +1,8 @@
 package controller;
 
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 import org.apache.log4j.Logger;
@@ -61,8 +63,11 @@ public class ClassManagerController implements Initializable{
 	
 	public void getClassName(){
 		try{
+//			The problem is that it's expecting a URI, not a file name. It's treating C:... as an (unknown) URI scheme 'C'.			
+//			model.read("C:\\Users\\vrage\\Documents\\SpiderOak Hive\\studium\\5_Semester\\projekt\\SKOS\\SkosCamera.owl");
+		Path input = Paths.get("C:\\Users\\vrage\\Documents\\SpiderOak Hive\\studium\\5_Semester\\projekt\\SKOS\\", "skoscamera.rdf");
 		OntModel model = ModelFactory.createOntologyModel();
-		model.read("C:\\Users\\vrage\\Documents\\SpiderOak Hive\\studium\\5_Semester\\projekt\\SKOS\\SkosCamera.owl");
+		model.read(input.toUri().toString(), "RDF/XML") ;
 //		model.read("./camera.owl");
 		
 	    ExtendedIterator classes = model.listClasses();
