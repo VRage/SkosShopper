@@ -3,6 +3,8 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import org.apache.log4j.Logger;
+
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -22,6 +24,7 @@ import javafx.util.Callback;
 
 public class ClassManagerController implements Initializable{
 
+	public static final Logger log = Logger.getLogger(ClassManagerController.class);
 	@FXML TableView<OntClass> tableView = new TableView<OntClass>();
 	@FXML TableColumn<OntClass, String> tableView_class;
 	@FXML TableColumn<OntClass, String> tableView_desc;
@@ -57,11 +60,10 @@ public class ClassManagerController implements Initializable{
 	}
 	
 	public void getClassName(){
-		
+		try{
 		OntModel model = ModelFactory.createOntologyModel();
-		model.read("./camera.owl");
-		
-		
+		model.read("C:\\Users\\vrage\\Documents\\SpiderOak Hive\\studium\\5_Semester\\projekt\\SKOS\\SkosCamera.owl");
+//		model.read("./camera.owl");
 		
 	    ExtendedIterator classes = model.listClasses();
 	    while(classes.hasNext()){
@@ -73,6 +75,9 @@ public class ClassManagerController implements Initializable{
 	        	data.add(thisSubClass);
 	        }
 	    }
+		} catch(Exception e){
+			log.error("could not load file", e);
+		}
 	}
 	
 }
