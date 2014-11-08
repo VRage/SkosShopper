@@ -2,13 +2,17 @@ package controller;
 
 import java.awt.Desktop;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.stage.FileChooser;
@@ -60,14 +64,37 @@ public class MenuController implements Initializable{
 		}
 	}
 	
+	public static void importOnthologyFile(String path)
+	{
+	    Model model = FileManager.get().loadModel(path);
+	    
+	    try {
+			FusekiModel.getAccessor().add(model);
+		} catch (NoDatasetAccessorException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	
 	
 	public void showSettingsOnStart(ActionEvent e) throws NoDatasetGraphException, NoServerConfigException
 	{
 		System.out.println("show settings window");
 		
-		Stage startupSettings = new Stage();
+		try {
+			Parent popup = FXMLLoader.load(getClass().getResource("/view/SettingsStartup.fxml"));
+			Scene popupScene = new Scene(popup);
+			Stage popupStage = new Stage();
+			popupStage.setScene(popupScene);
+			popupStage.show();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		
         //Fill stage with content
-		startupSettings.show();
+		
 	}
 
 }

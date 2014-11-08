@@ -17,11 +17,11 @@
                </font>
             </Label>
             <Label layoutX="117.0" layoutY="42.0" text="Status:" />
-            <Button fx:id="startStopFuseki" layoutX="39.0" layoutY="37.0" mnemonicParsing="false" onAction="#startStopFuseki" text="Start" />
+            <Button fx:id="startStopFuseki" layoutX="39.0" layoutY="37.0" mnemonicParsing="false" onAction="#startStopFuseki" text="Stop" />
             <Label layoutX="301.0" layoutY="18.0" text="Version:" />
             <Label layoutX="373.0" layoutY="18.0" prefHeight="17.0" prefWidth="389.0" text="Jetty 7.2.1.v20101111" />
             <Label layoutX="301.0" layoutY="42.0" text="Started:" />
-            <Label fx:id="fusekiStatus" layoutX="168.0" layoutY="42.0" mnemonicParsing="false" text="not running" textFill="#c83232" />
+            <Label fx:id="fusekiStatus" layoutX="168.0" layoutY="42.0" mnemonicParsing="false" text="running" textFill="#32c832" />
             <Button fx:id="checkServer" layoutX="693.0" layoutY="37.0" mnemonicParsing="false" onAction="#checkServer" text="checkServer" />
             
          </children>
