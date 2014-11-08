@@ -252,6 +252,7 @@ public class FusekiModel {
 	
 	public static Model getAllTriples()
 	{
+		System.out.println("IN FusekiModel.getAllTriples()");
 		String s;
 		
 		GraphLoadUtils glu = new GraphLoadUtils();
@@ -262,7 +263,7 @@ public class FusekiModel {
 		s = graph.toString();
 		
 		
-		System.out.println(s);
+		//System.out.println(s);
 		
 		return model;
 	}
