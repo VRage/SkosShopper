@@ -133,18 +133,6 @@
 #################################################################
 
 
-###  http://www.w3.org/2008/05/skos-xl#definition
-
-:definition rdf:type owl:AnnotationProperty .
-
-
-
-###  http://www.w3.org/2008/05/skos-xl#scopeNote
-
-:scopeNote rdf:type owl:AnnotationProperty .
-
-
-
 ###  http://www.w3.org/2004/02/skos/core#changeNote
 
 skos:changeNote rdf:type owl:AnnotationProperty ;
@@ -228,7 +216,7 @@ skos:note rdf:type owl:AnnotationProperty ;
           rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> .
 
 
-
+		  
 ###  http://www.w3.org/2004/02/skos/core#scopeNote
 
 skos:scopeNote rdf:type owl:AnnotationProperty ;
@@ -252,7 +240,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty ;
 #################################################################
 
 
-###   http://www.w3.org/2008/05/skos-xl#altLabel
+###  http://www.w3.org/2008/05/skos-xl#altLabel
 
 :altLabel rdf:type owl:ObjectProperty ;
           
@@ -262,69 +250,14 @@ skos:scopeNote rdf:type owl:AnnotationProperty ;
           
           :definition "The property skosxl:altLabel is used to associate an skosxl:Label with a skos:Concept. The property is analogous to skos:altLabel."@en ;
           
-          rdfs:range :Label ;
-          
           rdfs:seeAlso skos:altLabel ;
           
-          rdfs:isDefinedBy <http://www.w3.org/2008/05/skos-xl> .
-
-
-
-###   http://www.w3.org/2008/05/skos-xl#hiddenLabel
-
-:hiddenLabel rdf:type owl:ObjectProperty ;
-             
-             rdfs:label "hidden label"@en ;
-             
-             rdfs:comment "If C skosxl:hiddenLabel L and L skosxl:literalForm V, then C skos:hiddenLabel V."@en ;
-             
-             :definition "The property skosxl:hiddenLabel is used to associate an skosxl:Label with a skos:Concept. The property is analogous to skos:hiddenLabel."@en ;
-             
-             rdfs:range :Label ;
-             
-             rdfs:seeAlso skos:hiddenLabel ;
-             
-             rdfs:isDefinedBy <http://www.w3.org/2008/05/skos-xl> .
-
-
-
-###  http://www.w3.org/2008/05/skos-xl#labelRelation
-
-:labelRelation rdf:type owl:ObjectProperty ,
-                        owl:SymmetricProperty ;
-               
-               rdfs:label "label relation"@en ;
-               
-               :definition "The property skosxl:labelRelation is used for representing binary ('direct') relations between instances of the class skosxl:Label."@en ;
-               
-               :scopeNote "skosxl:labelRelation is not intended to be used directly, but rather as the basis for a design pattern which can be refined for more specific labeling scenarios."@en ;
-               
-               rdfs:range :Label ;
-               
-               rdfs:domain :Label ;
-               
-               rdfs:isDefinedBy <http://www.w3.org/2008/05/skos-xl> .
-
-
-
-###  http://www.w3.org/2008/05/skos-xl#prefLabel
-
-:prefLabel rdf:type owl:ObjectProperty ;
-           
-           rdfs:label "preferred label"@en ;
-           
-           rdfs:comment "If C skosxl:prefLabel L and L skosxl:literalForm V, then X skos:prefLabel V."@en ;
-           
-           :definition "The property skosxl:prefLabel is used to associate an skosxl:Label with a skos:Concept. The property is analogous to skos:prefLabel."@en ;
-           
-           rdfs:range :Label ;
-           
-           rdfs:seeAlso skos:prefLabel ;
-           
-           rdfs:isDefinedBy <http://www.w3.org/2008/05/skos-xl> .
-
-
-
+          rdfs:isDefinedBy <http://www.w3.org/2008/05/skos-xl> ;
+          
+          rdfs:range :Label .
+		  
+		  
+		  
 ###  http://www.w3.org/2004/02/skos/core#broadMatch
 
 skos:broadMatch rdf:type owl:ObjectProperty ;
@@ -430,6 +363,24 @@ skos:hasTopConcept rdf:type owl:ObjectProperty ;
 
 
 
+###  http://www.w3.org/2008/05/skos-xl#hiddenLabel
+
+:hiddenLabel rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "hidden label"@en ;
+             
+             rdfs:comment "If C skosxl:hiddenLabel L and L skosxl:literalForm V, then C skos:hiddenLabel V."@en ;
+             
+             :definition "The property skosxl:hiddenLabel is used to associate an skosxl:Label with a skos:Concept. The property is analogous to skos:hiddenLabel."@en ;
+             
+             rdfs:seeAlso skos:hiddenLabel ;
+             
+             rdfs:isDefinedBy <http://www.w3.org/2008/05/skos-xl> ;
+             
+             rdfs:range :Label .
+			 
+			 
+			 
 ###  http://www.w3.org/2004/02/skos/core#inScheme
 
 skos:inScheme rdf:type owl:ObjectProperty ;
@@ -446,6 +397,25 @@ skos:inScheme rdf:type owl:ObjectProperty ;
 
 
 
+###  http://www.w3.org/2008/05/skos-xl#labelRelation
+
+:labelRelation rdf:type owl:ObjectProperty ,
+                        owl:SymmetricProperty ;
+               
+               rdfs:label "label relation"@en ;
+               
+               :definition "The property skosxl:labelRelation is used for representing binary ('direct') relations between instances of the class skosxl:Label."@en ;
+               
+               :scopeNote "skosxl:labelRelation is not intended to be used directly, but rather as the basis for a design pattern which can be refined for more specific labeling scenarios."@en ;
+               
+               rdfs:isDefinedBy <http://www.w3.org/2008/05/skos-xl> ;
+               
+               rdfs:range :Label ;
+               
+               rdfs:domain :Label .
+			   
+			   
+			   
 ###  http://www.w3.org/2004/02/skos/core#mappingRelation
 
 skos:mappingRelation rdf:type owl:ObjectProperty ;
@@ -554,6 +524,24 @@ skos:narrowerTransitive rdf:type owl:ObjectProperty ,
 
 
 
+###  http://www.w3.org/2008/05/skos-xl#prefLabel
+
+:prefLabel rdf:type owl:ObjectProperty ;
+           
+           rdfs:label "preferred label"@en ;
+           
+           rdfs:comment "If C skosxl:prefLabel L and L skosxl:literalForm V, then X skos:prefLabel V."@en ;
+           
+           :definition "The property skosxl:prefLabel is used to associate an skosxl:Label with a skos:Concept. The property is analogous to skos:prefLabel."@en ;
+           
+           rdfs:seeAlso skos:prefLabel ;
+           
+           rdfs:isDefinedBy <http://www.w3.org/2008/05/skos-xl> ;
+           
+           rdfs:range :Label .
+		   
+		   
+		   
 ###  http://www.w3.org/2004/02/skos/core#related
 
 skos:related rdf:type owl:ObjectProperty ,
@@ -632,24 +620,6 @@ skos:topConceptOf rdf:type owl:ObjectProperty ;
 #################################################################
 
 
-###  http://www.semanticweb.org/anonymous/ontologies/2014/10/untitled-ontology-11#literalForm
-
-:literalForm rdf:type owl:DatatypeProperty ;
-             
-             rdfs:label "literal form"@en ;
-             
-             rdfs:comment "If two instances of the class skosxl:Label have the same literal form, they are not necessarily the same resource."@en ;
-             
-             :definition "The property skosxl:literalForm is used to give the literal form of an skosxl:Label."@en ;
-             
-             rdfs:comment "The range of skosxl:literalForm is the class of RDF plain literals."@en ;
-             
-             rdfs:domain :Label ;
-             
-             rdfs:isDefinedBy <http://www.w3.org/2008/05/skos-xl> .
-
-
-
 ###  http://www.w3.org/2004/02/skos/core#notation
 
 skos:notation rdf:type owl:DatatypeProperty ;
@@ -671,23 +641,6 @@ skos:notation rdf:type owl:DatatypeProperty ;
 #    Classes
 #
 #################################################################
-
-
-###  http://www.semanticweb.org/anonymous/ontologies/2014/10/untitled-ontology-11#Label
-
-:Label rdf:type owl:Class ;
-       
-       rdfs:label "Label"@en ;
-       
-       rdfs:subClassOf [ rdf:type owl:Restriction ;
-                         owl:onProperty :literalForm ;
-                         owl:cardinality "1"^^xsd:nonNegativeInteger
-                       ] ;
-       
-       :definition "A special class of lexical entities."@en ;
-       
-       rdfs:isDefinedBy <http://www.w3.org/2008/05/skos-xl> .
-
 
 
 ###  http://www.w3.org/1999/02/22-rdf-syntax-ns#List
@@ -768,129 +721,18 @@ skos:OrderedCollection rdf:type owl:Class ;
 #################################################################
 
 
-###  http://www.semanticweb.org/anonymous/ontologies/2014/10/untitled-ontology-11#CameraLabel
-
-:CameraLabel rdf:type :Label ,
-                      owl:NamedIndividual ;
-             
-             :literalForm "Camera"^^xsd:string .
-
-
-
-###  http://www.w3.org/2004/02/skos/core#Bag
-
-skos:Bag rdf:type owl:NamedIndividual ,
-                  skos:Concept ;
-         
-         :prefLabel skos:BagLabel .
-
-
-
-###  http://www.w3.org/2004/02/skos/core#BagLabel
-
-skos:BagLabel rdf:type :Label ,
-                       owl:NamedIndividual ;
-              
-              :literalForm "Bag"^^xsd:string .
-
-
-
 ###  http://www.w3.org/2004/02/skos/core#Camera
 
 skos:Camera rdf:type owl:NamedIndividual ,
-                     skos:Concept ;
-            
-            :prefLabel :CameraLabel ;
-            
-            :altLabel skos:CameraAltLabel .
+                     skos:Concept .
+skos:Camera :prefLabel :CameraLabel .
 
 
 
-###  http://www.w3.org/2004/02/skos/core#CameraAltLabel
+###  http://www.w3.org/2008/05/skos-xl#CameraLabel
 
-skos:CameraAltLabel rdf:type :Label ,
-                             owl:NamedIndividual ;
-                    
-                    :literalForm "Cam"^^xsd:string .
-
-
-
-###  http://www.w3.org/2004/02/skos/core#Objective
-
-skos:Objective rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               
-			   :altLabel skos:ObjectiveAltLabel ;
-			   
-               :prefLabel skos:ObjectiveLabel .
-
-
-
-###  http://www.w3.org/2004/02/skos/core#ObjectiveAltLabel
-
-skos:ObjectiveAltLabel rdf:type :Label ,
-                                owl:NamedIndividual ;
-                       
-                       :literalForm "Lens"^^xsd:string .
-
-
-
-###  http://www.w3.org/2004/02/skos/core#ObjectiveLabel
-
-skos:ObjectiveLabel rdf:type :Label ,
-                             owl:NamedIndividual ;
-                    
-                    :literalForm "Objective"^^xsd:string .
-
-
-
-###  http://www.w3.org/2004/02/skos/core#ReflexCamera
-
-skos:ReflexCamera rdf:type owl:NamedIndividual ,
-                           skos:Concept ;
-                  
-                  skos:broader skos:Camera ;
-                  
-                  :altLabel skos:ReflexCameraAltLabel ;
-                  
-                  :prefLabel skos:ReflexCameraLabel .
-
-
-
-###  http://www.w3.org/2004/02/skos/core#ReflexCameraAltLabel
-
-skos:ReflexCameraAltLabel rdf:type :Label ,
-                                   owl:NamedIndividual ;
-                          
-                          :literalForm "SLR Camera"^^xsd:string .
-
-
-
-###  http://www.w3.org/2004/02/skos/core#ReflexCameraLabel
-
-skos:ReflexCameraLabel rdf:type :Label ,
-                                owl:NamedIndividual ;
-                       
-                       :literalForm "Reflex Camera"^^xsd:string .
-
-
-
-###  http://www.w3.org/2004/02/skos/core#Tripod
-
-skos:Tripod rdf:type owl:NamedIndividual ,
-                     skos:Concept ;
-            
-            :prefLabel skos:TripodLabel .
-
-
-
-###  http://www.w3.org/2004/02/skos/core#TripodLabel
-
-skos:TripodLabel rdf:type :Label ,
-                          owl:NamedIndividual ;
-                 
-                 :literalForm "Tripod"^^xsd:string .
-
+:CameraLabel rdf:type owl:NamedIndividual ,
+                      :Label .
 
 
 

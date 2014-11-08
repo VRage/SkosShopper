@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import model.FusekiModel;
+import model.TripleModel;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -62,7 +63,7 @@ public class TriplesShowController implements Initializable{
 		
 		ObservableList<TripleOwn> items = tableTriples.getItems();
 		
-		Model model = FusekiModel.getAllTriples();
+		Model model = TripleModel.getAllTriples();
 		String tString = model.toString();
 		StmtIterator stmti = model.listStatements();
 		

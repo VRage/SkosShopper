@@ -57,7 +57,7 @@ public class MenuController implements Initializable{
 	    Model model = FileManager.get().loadModel(file.getAbsolutePath());
 	    
 	    try {
-			FusekiModel.getAccessor().add(model);
+			FusekiModel.getDatasetAccessor().add(model);
 		} catch (NoDatasetAccessorException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -69,7 +69,7 @@ public class MenuController implements Initializable{
 	    Model model = FileManager.get().loadModel(path);
 	    
 	    try {
-			FusekiModel.getAccessor().add(model);
+			FusekiModel.getDatasetAccessor().add(model);
 		} catch (NoDatasetAccessorException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

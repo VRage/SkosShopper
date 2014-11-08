@@ -34,19 +34,12 @@ public class ProductsCreateController implements Initializable {
 		
 		String[] productListMade = ProductFactory.getCreatableProductsAsString();
 		
+		
 		ObservableList<String> productListCurr = productsAddable.getItems();
 		String[] productListCurr2 = (String[]) productListCurr.toArray(new String[productListCurr.size()]);
 		
 		if(!Arrays.equals(productListCurr2, productListMade))
-			productListCurr.addAll(productListMade);
-		
-//		for(int i = 0; i < productList.length; i++)
-//		{
-//			System.out.println(productList[i]);
-//			products.add(productList[i]);
-//		}
-		
-		
+			productListCurr.setAll(productListMade);
 		
 	}
 

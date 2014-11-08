@@ -131,7 +131,7 @@ public class FusekiModel {
 	// = = = = = = = = = = getter
 	
 	// return datasetAccessor
-	public static DatasetAccessor getAccessor() throws NoDatasetAccessorException {
+	public static DatasetAccessor getDatasetAccessor() throws NoDatasetAccessorException {
 		if(FusekiModel.datasetAccessor == null)
 			throw new NoDatasetAccessorException("No DatasetAccessor created.");
 		return FusekiModel.datasetAccessor;
@@ -250,22 +250,6 @@ public class FusekiModel {
 	
 	// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = COMPLEX GETTER & SETTER
 	
-	public static Model getAllTriples()
-	{
-		System.out.println("IN FusekiModel.getAllTriples()");
-		String s;
-		
-		GraphLoadUtils glu = new GraphLoadUtils();
-		Model model = FusekiModel.datasetAccessor.getModel();
-		Graph graph = model.getGraph();
-		
-		
-		s = graph.toString();
-		
-		
-		//System.out.println(s);
-		
-		return model;
-	}
+
 }
 

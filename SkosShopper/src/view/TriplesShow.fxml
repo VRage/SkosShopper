@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 
-
-<AnchorPane prefHeight="207.0" prefWidth="219.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.TriplesShowController">
+<AnchorPane prefHeight="207.0" prefWidth="219.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TriplesShowController">
    <children>
-      <Pane layoutY="-3.0" prefHeight="300.0" prefWidth="815.0">
+      <Pane layoutY="-3.0" prefHeight="500.0" prefWidth="1000.0">
          <children>
-            <ScrollPane layoutY="49.0" prefHeight="252.0" prefWidth="815.0">
+            <ScrollPane layoutY="49.0" prefHeight="450.0" prefWidth="1000.0">
                <content>
-                  <TableView fx:id="tableTriples" prefHeight="242.0" prefWidth="798.0">
+                  <TableView fx:id="tableTriples" prefWidth="997.0">
                     <columns>
                     
-                      <TableColumn fx:id="object" prefWidth="170.0" text="Object">
+                      <TableColumn fx:id="object" prefWidth="326.0" text="Object">
                       	<cellValueFactory><PropertyValueFactory property="object" /></cellValueFactory>
                       </TableColumn>
                       
-                      <TableColumn fx:id="predicate" minWidth="3.0" prefWidth="174.0" text="Predicate">
+                      <TableColumn fx:id="predicate" minWidth="3.0" prefWidth="335.0" text="Predicate">
                       	<cellValueFactory><PropertyValueFactory property="predicate" /></cellValueFactory>
                       </TableColumn>
                       
-                      <TableColumn fx:id="subject" prefWidth="75.0" text="Subject">
+                      <TableColumn fx:id="subject" prefWidth="322.0" text="Subject">
                       	<cellValueFactory><PropertyValueFactory property="subject" /></cellValueFactory>
                       </TableColumn>
                       
