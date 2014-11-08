@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="815.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+   <children>
+      <BorderPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TabPane prefHeight="375.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <tabs>
+                        <Tab text="Class Editor">
+                          <content>
+                              <fx:include source="../../bin/view/Alternative_ClassEditor.fxml" />
+                           </content>
+                        </Tab>
+                        <Tab fx:id="tabMain" text="Main">
+                           <content>
+                              <fx:include source="../../bin/view/ServerConnect.fxml" />
+                           </content></Tab>
+                        <Tab fx:id="tabTriplestore" text="Triplestore">
+                           <content>
+                              <fx:include source="../../bin/view/Triplestore.fxml" />
+                           </content></Tab>
+                        <Tab fx:id="tabNewTriple" text="New Triple">
+                           <content>
+                              <fx:include source="../../bin/view/Triples.fxml" />
+                           </content></Tab>
+                        <Tab fx:id="tabClassManager" text="Class Manager">
+                           <content>
+                              <fx:include source="../../bin/view/ClassManager.fxml" />
+                           </content></Tab>
+                        <Tab fx:id="tabClassEditor" text="Class Editor">
+                           <content>
+                              <fx:include source="../../bin/view/ClassEditor.fxml" />
+                           </content></Tab>
+                     </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+         </center>
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+               <menus>
+                  <Menu mnemonicParsing="false" text="File">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Edit">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Help">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="282.0" prefWidth="415.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ClassEditorController">
+   <children>
+      <Label layoutX="8.0" layoutY="14.0" />
+      <ImageView fitHeight="80.0" fitWidth="88.0" layoutX="294.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="10.0">
+         <image>
+            <Image url="@../../Drawable/aa79d02e10166736.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="14.0" layoutY="10.0" mnemonicParsing="false" text="Add Product" />
+      <Button layoutX="326.0" layoutY="94.0" mnemonicParsing="false" text="Add Image" AnchorPane.rightAnchor="10.0" />
+      <Button layoutX="342.0" layoutY="121.0" mnemonicParsing="false" text="Remove" AnchorPane.rightAnchor="10.0" />
+      <ScrollPane layoutX="8.0" layoutY="82.0" prefHeight="200.0" prefWidth="276.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="100.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="303.0">
+               <children>
+                  <TextField layoutX="112.0" layoutY="2.0" />
+                  <Label layoutX="14.0" layoutY="6.0" text="ProduktID" />
+                  <Label layoutX="14.0" layoutY="36.0" text="Marke" />
+                  <TextField layoutX="112.0" layoutY="32.0" />
+                  <Label layoutX="14.0" layoutY="65.0" text="Beschreibender Text" />
+                  <TextArea layoutX="14.0" layoutY="82.0" prefHeight="107.0" prefWidth="278.0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets></AnchorPane>
+        </content>
+      </ScrollPane>
+      <Accordion layoutX="97.0" layoutY="10.0">
+        <panes>
+          <TitledPane animated="false" text="Produkt">
+               <content>
+                  <TitledPane animated="false" text="Kamera" />
+               </content>
+            </TitledPane>
+        </panes>
+      </Accordion>
+      <Button layoutX="340.0" layoutY="256.0" mnemonicParsing="false" text="Bestätigen" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+   </children>
+</AnchorPane>

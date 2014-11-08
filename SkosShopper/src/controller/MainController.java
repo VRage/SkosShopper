@@ -1,15 +1,31 @@
 package controller;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-import javafx.fxml.Initializable;
+public class MainController extends Application{
+	
+	public Parent root;
+	public Scene scene;
+	public Stage primaryStage; 
+	
+	public void adminMode()
+	{
 
-public class MainController implements Initializable{
+	}
+	
+	public void simpleMode()
+	{
+		System.out.println("Simple mode active");
+	}
 
-	public void initialize(URL location, ResourceBundle resources) {
+	@Override
+	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
-	
+
 }

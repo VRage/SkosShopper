@@ -1,0 +1,13 @@
+09:51:20 INFO  Server               :: Dataset path = /ds
+09:51:23 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+09:51:23 INFO  Server               :: Incoming connections limited to localhost
+09:51:23 INFO  Server               :: Started 2014/11/08 09:51:23 MEZ on port 3030
+09:52:19 INFO  Fuseki               :: [1] POST http://localhost:3030/ds/upload
+09:52:19 INFO  Fuseki               :: [1] Upload: Filename: books.ttl, Content-Type=application/octet-stream, Charset=null => Turtle
+09:52:19 INFO  Fuseki               :: [1] Upload: Graph: default (17 triple(s))
+09:52:19 INFO  Fuseki               :: [1] 200 OK (269 ms) 
+09:53:32 INFO  Fuseki               :: [2] POST http://localhost:3030/ds/upload
+09:53:32 INFO  Fuseki               :: [2] Upload: Filename: tst-01.ttl, Content-Type=application/octet-stream, Charset=null => Turtle
+09:53:32 WARN  Fuseki               :: [line: 23, col: 9 ] Bad IRI: <file:/C:/Users/carmencheh/thesis/git.owl> Code: 57/REQUIRED_COMPONENT_MISSING in AUTHORITY: A component that is required by the scheme is missing.
+09:53:32 INFO  Fuseki               :: [2] Upload: Graph: default (76 triple(s))
+09:53:32 INFO  Fuseki               :: [2] 200 OK (87 ms) 

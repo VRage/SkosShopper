@@ -1,0 +1,405 @@
+17:21:44 INFO  Server               :: Dataset path = /ds
+17:21:53 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+17:21:53 INFO  Server               :: Incoming connections limited to localhost
+17:21:53 INFO  Server               :: Started 2014/11/07 17:21:53 MEZ on port 3030
+17:21:53 ERROR Server               :: SPARQLServer: Failed to start server: Address already in use: bind
+17:48:10 INFO  Server               :: Dataset path = /ds
+17:49:43 INFO  Server               :: Dataset path = /ds
+17:49:57 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+17:49:57 INFO  Server               :: Incoming connections limited to localhost
+17:49:57 INFO  Server               :: Started 2014/11/07 17:49:57 MEZ on port 3030
+17:50:11 INFO  Server               :: Stopped 2014/11/07 17:50:11 MEZ on port 3030
+17:52:48 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+17:52:48 INFO  Server               :: Incoming connections limited to localhost
+17:52:48 INFO  Server               :: Started 2014/11/07 17:52:48 MEZ on port 3030
+17:52:50 INFO  Server               :: Stopped 2014/11/07 17:52:50 MEZ on port 3030
+17:53:23 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+17:53:23 INFO  Server               :: Incoming connections limited to localhost
+17:53:23 INFO  Server               :: Started 2014/11/07 17:53:23 MEZ on port 3030
+18:00:14 INFO  Server               :: Dataset path = /ds
+18:00:14 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+18:00:14 INFO  Server               :: Incoming connections limited to localhost
+18:00:14 INFO  Server               :: Started 2014/11/07 18:00:14 MEZ on port 3030
+18:07:20 INFO  Server               :: Dataset path = /ds
+18:07:22 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+18:07:22 INFO  Server               :: Incoming connections limited to localhost
+18:07:22 INFO  Server               :: Started 2014/11/07 18:07:22 MEZ on port 3030
+18:07:25 INFO  Server               :: Stopped 2014/11/07 18:07:25 MEZ on port 3030
+18:08:05 INFO  Server               :: Dataset path = /ds
+18:08:05 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+18:08:05 INFO  Server               :: Incoming connections limited to localhost
+18:08:05 INFO  Server               :: Started 2014/11/07 18:08:05 MEZ on port 3030
+18:08:08 INFO  Server               :: Stopped 2014/11/07 18:08:08 MEZ on port 3030
+18:11:04 INFO  Server               :: Dataset path = /ds
+18:11:04 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+18:11:04 INFO  Server               :: Incoming connections limited to localhost
+18:11:04 INFO  Server               :: Started 2014/11/07 18:11:04 MEZ on port 3030
+18:11:08 INFO  Server               :: Stopped 2014/11/07 18:11:08 MEZ on port 3030
+18:13:07 INFO  Server               :: Dataset path = /ds
+18:13:07 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+18:13:07 INFO  Server               :: Incoming connections limited to localhost
+18:13:07 INFO  Server               :: Started 2014/11/07 18:13:07 MEZ on port 3030
+18:15:41 INFO  Server               :: Dataset path = /ds
+18:15:43 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+18:15:43 INFO  Server               :: Incoming connections limited to localhost
+18:15:43 INFO  Server               :: Started 2014/11/07 18:15:43 MEZ on port 3030
+18:16:41 INFO  Server               :: Dataset path = /ds
+18:16:41 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+18:16:41 INFO  Server               :: Incoming connections limited to localhost
+18:16:41 INFO  Server               :: Started 2014/11/07 18:16:41 MEZ on port 3030
+18:16:41 ERROR Server               :: SPARQLServer: Failed to start server: Address already in use: bind
+18:16:53 INFO  Server               :: Dataset path = /ds
+18:16:59 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+18:16:59 INFO  Server               :: Incoming connections limited to localhost
+18:16:59 INFO  Server               :: Started 2014/11/07 18:16:59 MEZ on port 3030
+18:16:59 ERROR Server               :: SPARQLServer: Failed to start server: Address already in use: bind
+18:30:55 INFO  Server               :: Dataset path = /ds
+18:31:00 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+18:31:00 INFO  Server               :: Incoming connections limited to localhost
+18:31:00 INFO  Server               :: Started 2014/11/07 18:31:00 MEZ on port 3030
+18:31:00 ERROR Server               :: SPARQLServer: Failed to start server: Address already in use: bind
+18:31:46 INFO  Server               :: Dataset path = /ds
+18:32:51 INFO  Server               :: Dataset path = /ds
+18:38:09 INFO  Server               :: Dataset path = /ds
+18:38:09 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+18:38:09 INFO  Server               :: Incoming connections limited to localhost
+18:38:09 INFO  Server               :: Started 2014/11/07 18:38:09 MEZ on port 3030
+18:40:43 INFO  Server               :: Dataset path = /ds
+18:40:43 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+18:40:43 INFO  Server               :: Incoming connections limited to localhost
+18:40:43 INFO  Server               :: Started 2014/11/07 18:40:43 MEZ on port 3030
+18:40:44 ERROR Server               :: SPARQLServer: Failed to start server: Address already in use: bind
+18:41:35 INFO  Server               :: Dataset path = /ds
+18:41:35 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+18:41:35 INFO  Server               :: Incoming connections limited to localhost
+18:41:35 INFO  Server               :: Started 2014/11/07 18:41:35 MEZ on port 3030
+18:44:35 INFO  Server               :: Dataset path = /ds
+18:44:35 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+18:44:35 INFO  Server               :: Incoming connections limited to localhost
+18:44:35 INFO  Server               :: Started 2014/11/07 18:44:35 MEZ on port 3030
+18:44:40 INFO  Server               :: Stopped 2014/11/07 18:44:40 MEZ on port 3030
+18:48:16 INFO  Server               :: Dataset path = /ds
+18:48:36 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+18:48:36 INFO  Server               :: Incoming connections limited to localhost
+18:48:36 INFO  Server               :: Started 2014/11/07 18:48:36 MEZ on port 3030
+18:50:34 INFO  Server               :: Dataset path = /ds
+18:50:37 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+18:50:37 INFO  Server               :: Incoming connections limited to localhost
+18:50:37 INFO  Server               :: Started 2014/11/07 18:50:37 MEZ on port 3030
+18:51:21 INFO  Server               :: Dataset path = /ds
+18:51:24 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+18:51:24 INFO  Server               :: Incoming connections limited to localhost
+18:51:24 INFO  Server               :: Started 2014/11/07 18:51:24 MEZ on port 3030
+18:58:43 INFO  Fuseki               :: [1] POST http://localhost:3030/ds/upload
+18:58:43 INFO  Fuseki               :: [1] Upload: Filename: books.ttl, Content-Type=application/octet-stream, Charset=null => Turtle
+18:58:43 INFO  Fuseki               :: [1] Upload: Graph: default (17 triple(s))
+18:58:43 INFO  Fuseki               :: [1] 200 OK (189 ms) 
+19:22:29 INFO  Server               :: Dataset path = /ds
+19:22:32 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+19:22:32 INFO  Server               :: Incoming connections limited to localhost
+19:22:32 INFO  Server               :: Started 2014/11/07 19:22:32 MEZ on port 3030
+19:38:12 INFO  Server               :: Dataset path = /ds
+19:38:15 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+19:38:15 INFO  Server               :: Incoming connections limited to localhost
+19:38:15 INFO  Server               :: Started 2014/11/07 19:38:15 MEZ on port 3030
+19:45:47 INFO  Server               :: Dataset path = /ds
+19:45:48 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+19:45:48 INFO  Server               :: Incoming connections limited to localhost
+19:45:48 INFO  Server               :: Started 2014/11/07 19:45:48 MEZ on port 3030
+19:45:48 ERROR Server               :: SPARQLServer: Failed to start server: Address already in use: bind
+19:47:59 INFO  Server               :: Dataset path = /ds
+19:48:00 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+19:48:00 INFO  Server               :: Incoming connections limited to localhost
+19:48:00 INFO  Server               :: Started 2014/11/07 19:48:00 MEZ on port 3030
+19:48:00 ERROR Server               :: SPARQLServer: Failed to start server: Address already in use: bind
+19:49:05 INFO  Server               :: Dataset path = /ds
+19:49:54 INFO  Server               :: Dataset path = /ds
+19:50:05 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+19:50:05 INFO  Server               :: Incoming connections limited to localhost
+19:50:05 INFO  Server               :: Started 2014/11/07 19:50:05 MEZ on port 3030
+19:51:40 INFO  Server               :: Dataset path = /ds
+19:51:52 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+19:51:52 INFO  Server               :: Incoming connections limited to localhost
+19:51:52 INFO  Server               :: Started 2014/11/07 19:51:52 MEZ on port 3030
+19:51:52 ERROR Server               :: SPARQLServer: Failed to start server: Address already in use: bind
+19:52:32 INFO  Server               :: Dataset path = /ds
+19:53:13 INFO  Server               :: Dataset path = /ds
+19:53:16 INFO  Server               :: Stopped 2014/11/07 19:53:16 MEZ on port 3030
+19:53:18 INFO  Server               :: Stopped 2014/11/07 19:53:18 MEZ on port 3030
+19:53:32 INFO  Server               :: Stopped 2014/11/07 19:53:32 MEZ on port 3030
+19:53:42 INFO  Server               :: Stopped 2014/11/07 19:53:42 MEZ on port 3030
+19:55:04 INFO  Server               :: Dataset path = /ds
+19:55:11 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+19:55:11 INFO  Server               :: Incoming connections limited to localhost
+19:55:11 INFO  Server               :: Started 2014/11/07 19:55:11 MEZ on port 3030
+19:56:55 INFO  Server               :: Dataset path = /ds
+19:57:02 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+19:57:02 INFO  Server               :: Incoming connections limited to localhost
+19:57:02 INFO  Server               :: Started 2014/11/07 19:57:02 MEZ on port 3030
+19:58:18 INFO  Server               :: Dataset path = /ds
+19:58:21 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+19:58:21 INFO  Server               :: Incoming connections limited to localhost
+19:58:21 INFO  Server               :: Started 2014/11/07 19:58:21 MEZ on port 3030
+20:01:29 INFO  Server               :: Dataset path = /ds
+20:01:32 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+20:01:32 INFO  Server               :: Incoming connections limited to localhost
+20:01:32 INFO  Server               :: Started 2014/11/07 20:01:32 MEZ on port 3030
+20:02:50 INFO  Server               :: Dataset path = /ds
+20:02:51 INFO  Server               :: Stopped 2014/11/07 20:02:51 MEZ on port 3030
+20:02:59 INFO  Server               :: Stopped 2014/11/07 20:02:59 MEZ on port 3030
+20:03:52 INFO  Server               :: Dataset path = /ds
+20:03:55 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+20:03:55 INFO  Server               :: Incoming connections limited to localhost
+20:03:55 INFO  Server               :: Started 2014/11/07 20:03:55 MEZ on port 3030
+20:11:50 INFO  Server               :: Dataset path = /ds
+20:11:50 INFO  Server               :: Dataset path = /ds
+20:11:53 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+20:11:53 INFO  Server               :: Incoming connections limited to localhost
+20:11:53 INFO  Server               :: Started 2014/11/07 20:11:53 MEZ on port 3030
+20:14:16 INFO  Server               :: Dataset path = /ds
+20:14:19 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+20:14:19 INFO  Server               :: Incoming connections limited to localhost
+20:14:19 INFO  Server               :: Started 2014/11/07 20:14:19 MEZ on port 3030
+20:14:59 INFO  Server               :: Dataset path = /ds
+20:15:02 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+20:15:02 INFO  Server               :: Incoming connections limited to localhost
+20:15:02 INFO  Server               :: Started 2014/11/07 20:15:02 MEZ on port 3030
+20:20:51 INFO  Server               :: Dataset path = /ds
+20:20:54 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+20:20:54 INFO  Server               :: Incoming connections limited to localhost
+20:20:54 INFO  Server               :: Started 2014/11/07 20:20:54 MEZ on port 3030
+20:21:10 INFO  Fuseki               :: [1] GET http://localhost:3030/ds/query?query=&output=text&stylesheet=
+20:21:10 INFO  Fuseki               :: [1] 400 SPARQL Query: Empty query string (7 ms) 
+20:21:22 INFO  Fuseki               :: [2] GET http://localhost:3030/ds/query?query=ASK+%7B+%7D&output=text&stylesheet=
+20:21:22 INFO  Fuseki               :: [2] Query = ASK { }
+20:21:22 INFO  Fuseki               :: [2] exec/ask
+20:21:22 INFO  Fuseki               :: [2] 200 OK (246 ms) 
+20:21:41 INFO  Fuseki               :: [3] GET http://localhost:3030/ds/query?query=SELECT+%7B%3Fx+%3Fy+%3Fz%7D%0D%0A&output=text&stylesheet=
+20:21:41 INFO  Fuseki               :: [3] Query = SELECT {?x ?y ?z}  
+20:21:41 INFO  Fuseki               :: [3] 400 Parse error: 
+SELECT {?x ?y ?z}
+
+Encountered " "{" "{ "" at line 1, column 8.
+Was expecting one of:
+    <IRIref> ...
+    <PNAME_NS> ...
+    <PNAME_LN> ...
+    <VAR1> ...
+    <VAR2> ...
+    "distinct" ...
+    "reduced" ...
+    "exists" ...
+    "not" ...
+    "count" ...
+    "min" ...
+    "max" ...
+    "sum" ...
+    "avg" ...
+    "sample" ...
+    "group_concat" ...
+    "bound" ...
+    "coalesce" ...
+    "if" ...
+    "bnode" ...
+    "iri" ...
+    "uri" ...
+    "call" ...
+    "str" ...
+    "strlang" ...
+    "strdt" ...
+    "datatype" ...
+    "lang" ...
+    "langmatches" ...
+    "isURI" ...
+    "isIRI" ...
+    "isBlank" ...
+    "isLiteral" ...
+    "isNumeric" ...
+    "regex" ...
+    "sameTerm" ...
+    "RAND" ...
+    "ABS" ...
+    "CEIL" ...
+    "FLOOR" ...
+    "ROUND" ...
+    "CONCAT" ...
+    "SUBSTR" ...
+    "STRLEN" ...
+    "REPLACE" ...
+    "UCASE" ...
+    "LCASE" ...
+    "ENCODE_FOR_URI" ...
+    "CONTAINS" ...
+    "STRSTARTS" ...
+    "STRENDS" ...
+    "STRBEFORE" ...
+    "STRAFTER" ...
+    "YEAR" ...
+    "MONTH" ...
+    "DAY" ...
+    "HOURS" ...
+    "MINUTES" ...
+    "SECONDS" ...
+    "TIMEZONE" ...
+    "TZ" ...
+    "NOW" ...
+    "UUID" ...
+    "STRUUID" ...
+    "VERSION" ...
+    "MD5" ...
+    "SHA1" ...
+    "SHA256" ...
+    "SHA384" ...
+    "SHA512" ...
+    "true" ...
+    "false" ...
+    <INTEGER> ...
+    <DECIMAL> ...
+    <DOUBLE> ...
+    <INTEGER_POSITIVE> ...
+    <DECIMAL_POSITIVE> ...
+    <DOUBLE_POSITIVE> ...
+    <INTEGER_NEGATIVE> ...
+    <DECIMAL_NEGATIVE> ...
+    <DOUBLE_NEGATIVE> ...
+    <STRING_LITERAL1> ...
+    <STRING_LITERAL2> ...
+    <STRING_LITERAL_LONG1> ...
+    <STRING_LITERAL_LONG2> ...
+    "(" ...
+    "*" ...
+     (6 ms) 
+20:21:54 INFO  Fuseki               :: [4] GET http://localhost:3030/ds/query?query=SELECT+*+WHERE+%7B%3Fx+%3Fy+%3Fz%7D%0D%0A&output=text&stylesheet=
+20:21:54 INFO  Fuseki               :: [4] Query = SELECT * WHERE {?x ?y ?z}  
+20:21:54 INFO  Fuseki               :: [4] exec/select
+20:21:54 INFO  Fuseki               :: [4] 200 OK (49 ms) 
+20:22:02 INFO  Fuseki               :: [5] POST http://localhost:3030/ds/upload
+20:22:02 INFO  Fuseki               :: [5] Upload: Filename: books.ttl, Content-Type=application/octet-stream, Charset=null => Turtle
+20:22:02 INFO  Fuseki               :: [5] Upload: Graph: default (17 triple(s))
+20:22:02 INFO  Fuseki               :: [5] 200 OK (146 ms) 
+20:22:09 INFO  Fuseki               :: [6] GET http://localhost:3030/ds/query?query=SELECT+*+WHERE+%7B%3Fx+%3Fy+%3Fz%7D%0D%0A&output=text&stylesheet=
+20:22:09 INFO  Fuseki               :: [6] Query = SELECT * WHERE {?x ?y ?z}  
+20:22:09 INFO  Fuseki               :: [6] exec/select
+20:22:09 INFO  Fuseki               :: [6] 200 OK (41 ms) 
+20:24:54 INFO  Fuseki               :: [7] POST http://localhost:3030/ds/upload
+20:24:54 INFO  Fuseki               :: [7] Upload: Filename: tst-01.owl, Content-Type=application/octet-stream, Charset=null => RDF/XML
+20:24:54 ERROR Fuseki               :: [line: 1, col: 1 ] Content is not allowed in prolog.
+20:24:54 INFO  Fuseki               :: [7] 400 Parse error: [line: 1, col: 1 ] Content is not allowed in prolog. (100 ms) 
+20:30:10 INFO  Fuseki               :: [8] POST http://localhost:3030/ds/upload
+20:30:10 INFO  Fuseki               :: [8] Upload: Filename: tst-01.ttl, Content-Type=application/octet-stream, Charset=null => Turtle
+20:30:10 WARN  Fuseki               :: [line: 23, col: 9 ] Bad IRI: <file:/C:/Users/carmencheh/thesis/git.owl> Code: 57/REQUIRED_COMPONENT_MISSING in AUTHORITY: A component that is required by the scheme is missing.
+20:30:10 INFO  Fuseki               :: [8] Upload: Graph: default (76 triple(s))
+20:30:10 INFO  Fuseki               :: [8] 200 OK (82 ms) 
+20:54:00 INFO  Server               :: Dataset path = /ds
+20:54:03 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+20:54:03 INFO  Server               :: Incoming connections limited to localhost
+20:54:03 INFO  Server               :: Started 2014/11/07 20:54:03 MEZ on port 3030
+20:56:40 INFO  Server               :: Dataset path = /ds
+20:56:42 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+20:56:42 INFO  Server               :: Incoming connections limited to localhost
+20:56:42 INFO  Server               :: Started 2014/11/07 20:56:42 MEZ on port 3030
+20:57:18 INFO  Server               :: Dataset path = /ds
+20:57:21 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+20:57:21 INFO  Server               :: Incoming connections limited to localhost
+20:57:21 INFO  Server               :: Started 2014/11/07 20:57:21 MEZ on port 3030
+20:58:04 INFO  Server               :: Dataset path = /ds
+20:58:06 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+20:58:06 INFO  Server               :: Incoming connections limited to localhost
+20:58:06 INFO  Server               :: Started 2014/11/07 20:58:06 MEZ on port 3030
+20:59:39 INFO  Server               :: Dataset path = /ds
+20:59:42 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+20:59:42 INFO  Server               :: Incoming connections limited to localhost
+20:59:42 INFO  Server               :: Started 2014/11/07 20:59:42 MEZ on port 3030
+21:00:39 INFO  Server               :: Dataset path = /ds
+21:00:42 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+21:00:42 INFO  Server               :: Incoming connections limited to localhost
+21:00:42 INFO  Server               :: Started 2014/11/07 21:00:42 MEZ on port 3030
+21:01:11 INFO  Server               :: Dataset path = /ds
+21:01:14 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+21:01:14 INFO  Server               :: Incoming connections limited to localhost
+21:01:14 INFO  Server               :: Started 2014/11/07 21:01:14 MEZ on port 3030
+21:02:17 INFO  Server               :: Dataset path = /ds
+21:02:18 INFO  Server               :: Stopped 2014/11/07 21:02:18 MEZ on port 3030
+21:02:20 INFO  Server               :: Stopped 2014/11/07 21:02:20 MEZ on port 3030
+21:03:23 INFO  Server               :: Dataset path = /ds
+21:03:26 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+21:03:26 INFO  Server               :: Incoming connections limited to localhost
+21:03:26 INFO  Server               :: Started 2014/11/07 21:03:26 MEZ on port 3030
+21:06:26 INFO  Server               :: Dataset path = /ds
+21:06:29 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+21:06:29 INFO  Server               :: Incoming connections limited to localhost
+21:06:29 INFO  Server               :: Started 2014/11/07 21:06:29 MEZ on port 3030
+21:07:08 INFO  Server               :: Dataset path = /ds
+21:07:10 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+21:07:10 INFO  Server               :: Incoming connections limited to localhost
+21:07:10 INFO  Server               :: Started 2014/11/07 21:07:10 MEZ on port 3030
+21:08:38 INFO  Server               :: Dataset path = /ds
+21:08:40 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+21:08:40 INFO  Server               :: Incoming connections limited to localhost
+21:08:40 INFO  Server               :: Started 2014/11/07 21:08:40 MEZ on port 3030
+21:09:02 INFO  Fuseki               :: [1] POST http://localhost:3030/ds/upload
+21:09:02 INFO  Fuseki               :: [1] Upload: Filename: books.ttl, Content-Type=application/octet-stream, Charset=null => Turtle
+21:09:02 INFO  Fuseki               :: [1] Upload: Graph: default (17 triple(s))
+21:09:02 INFO  Fuseki               :: [1] 200 OK (150 ms) 
+21:24:50 INFO  Server               :: Dataset path = /ds
+21:24:53 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+21:24:53 INFO  Server               :: Incoming connections limited to localhost
+21:24:53 INFO  Server               :: Started 2014/11/07 21:24:53 MEZ on port 3030
+21:25:10 INFO  Fuseki               :: [1] POST http://localhost:3030/ds/upload
+21:25:10 INFO  Fuseki               :: [1] Upload: Filename: books.ttl, Content-Type=application/octet-stream, Charset=null => Turtle
+21:25:10 INFO  Fuseki               :: [1] Upload: Graph: default (17 triple(s))
+21:25:10 INFO  Fuseki               :: [1] 200 OK (169 ms) 
+21:25:30 INFO  Server               :: Stopped 2014/11/07 21:25:30 MEZ on port 3030
+21:25:40 INFO  Server               :: Dataset path = /ds
+21:25:43 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+21:25:43 INFO  Server               :: Incoming connections limited to localhost
+21:25:43 INFO  Server               :: Started 2014/11/07 21:25:43 MEZ on port 3030
+21:25:50 INFO  Server               :: Stopped 2014/11/07 21:25:50 MEZ on port 3030
+21:28:54 INFO  Server               :: Dataset path = /ds
+21:28:57 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+21:28:57 INFO  Server               :: Incoming connections limited to localhost
+21:28:57 INFO  Server               :: Started 2014/11/07 21:28:57 MEZ on port 3030
+21:29:06 INFO  Fuseki               :: [1] POST http://localhost:3030/ds/upload
+21:29:06 INFO  Fuseki               :: [1] Upload: Filename: books.ttl, Content-Type=application/octet-stream, Charset=null => Turtle
+21:29:06 INFO  Fuseki               :: [1] Upload: Graph: default (17 triple(s))
+21:29:06 INFO  Fuseki               :: [1] 200 OK (165 ms) 
+21:30:21 INFO  Server               :: Dataset path = /ds
+21:30:24 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+21:30:24 INFO  Server               :: Incoming connections limited to localhost
+21:30:24 INFO  Server               :: Started 2014/11/07 21:30:24 MEZ on port 3030
+21:30:39 INFO  Fuseki               :: [1] POST http://localhost:3030/ds/upload
+21:30:39 INFO  Fuseki               :: [1] Upload: Filename: books.ttl, Content-Type=application/octet-stream, Charset=null => Turtle
+21:30:39 INFO  Fuseki               :: [1] Upload: Graph: default (17 triple(s))
+21:30:39 INFO  Fuseki               :: [1] 200 OK (173 ms) 
+21:31:44 INFO  Server               :: Dataset path = /ds
+21:31:47 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+21:31:47 INFO  Server               :: Incoming connections limited to localhost
+21:31:47 INFO  Server               :: Started 2014/11/07 21:31:47 MEZ on port 3030
+21:31:53 INFO  Fuseki               :: [1] POST http://localhost:3030/ds/upload
+21:31:53 INFO  Fuseki               :: [1] Upload: Filename: books.ttl, Content-Type=application/octet-stream, Charset=null => Turtle
+21:31:53 INFO  Fuseki               :: [1] Upload: Graph: default (17 triple(s))
+21:31:53 INFO  Fuseki               :: [1] 200 OK (181 ms) 
+21:33:58 INFO  Server               :: Dataset path = /ds
+21:34:01 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+21:34:01 INFO  Server               :: Incoming connections limited to localhost
+21:34:01 INFO  Server               :: Started 2014/11/07 21:34:01 MEZ on port 3030
+21:34:07 INFO  Fuseki               :: [1] POST http://localhost:3030/ds/upload
+21:34:07 INFO  Fuseki               :: [1] Upload: Filename: books.ttl, Content-Type=application/octet-stream, Charset=null => Turtle
+21:34:08 INFO  Fuseki               :: [1] Upload: Graph: default (17 triple(s))
+21:34:08 INFO  Fuseki               :: [1] 200 OK (166 ms) 
+21:37:03 INFO  Server               :: Dataset path = /ds
+21:37:06 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+21:37:06 INFO  Server               :: Incoming connections limited to localhost
+21:37:06 INFO  Server               :: Started 2014/11/07 21:37:06 MEZ on port 3030
+21:37:14 INFO  Fuseki               :: [1] POST http://localhost:3030/ds/upload
+21:37:14 INFO  Fuseki               :: [1] Upload: Filename: books.ttl, Content-Type=application/octet-stream, Charset=null => Turtle
+21:37:14 INFO  Fuseki               :: [1] Upload: Graph: default (17 triple(s))
+21:37:14 INFO  Fuseki               :: [1] 200 OK (166 ms) 
+21:38:21 INFO  Server               :: Dataset path = /ds
+21:38:24 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+21:38:24 INFO  Server               :: Incoming connections limited to localhost
+21:38:24 INFO  Server               :: Started 2014/11/07 21:38:24 MEZ on port 3030
+21:38:32 INFO  Fuseki               :: [1] POST http://localhost:3030/ds/upload
+21:38:32 INFO  Fuseki               :: [1] Upload: Filename: books.ttl, Content-Type=application/octet-stream, Charset=null => Turtle
+21:38:32 INFO  Fuseki               :: [1] Upload: Graph: default (17 triple(s))
+21:38:32 INFO  Fuseki               :: [1] 200 OK (162 ms) 
