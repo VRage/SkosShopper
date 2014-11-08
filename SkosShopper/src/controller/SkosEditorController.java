@@ -29,6 +29,7 @@ import org.apache.log4j.Logger;
 
 import com.hp.hpl.jena.ontology.DatatypeProperty;
 import com.hp.hpl.jena.ontology.Individual;
+import com.hp.hpl.jena.ontology.ObjectProperty;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -51,12 +52,14 @@ public class SkosEditorController implements Initializable {
 	private ObservableList<String> items =FXCollections.observableArrayList();
 	private ArrayList<Individual> liste_indi = new ArrayList<Individual>();
 	private OntModel model = ModelFactory.createOntologyModel();
-	private OntClass selectedOntClass;
+	private static OntClass selectedOntClass;
 	private Individual selectedIndividual;
 	private String NS = "";
 	
 	@SuppressWarnings("unchecked")
 	public void initialize(URL location, ResourceBundle resources) {
+		btn_addLabel.setDisable(true);
+		label_uri2.setText("");
 		label_uri.setText(NS);
 		tree_Classes.setRoot(root);
 		root.setExpanded(true);
@@ -72,8 +75,9 @@ public class SkosEditorController implements Initializable {
         		NS = liste_classes.get(index).getNameSpace();
 //        		System.out.println(treeItem.toString());
                 String s = tree_Classes.getSelectionModel().getSelectedItem().toString().substring(18, tree_Classes.getSelectionModel().getSelectedItem().toString().length()-2);
-                selectedOntClass = model.getOntClass(s);
+                selectedOntClass = model.getOntClass(NS+s);
                 listIndi(s);
+                
                 }
                 
                 
@@ -132,10 +136,12 @@ public class SkosEditorController implements Initializable {
 	@FXML private void addIndi(ActionEvent event){
         Object antwort = JOptionPane.showInputDialog(null, "Enter name of Individual", "Eingabefenster",
                JOptionPane.INFORMATION_MESSAGE, null, null, null);
+        if(antwort!=null){
         String s = tree_Classes.getSelectionModel().getSelectedItem().toString().substring(18, tree_Classes.getSelectionModel().getSelectedItem().toString().length()-2);
         model.getOntClass(NS + s).createIndividual( NS +  ((String) antwort));;
 
         listIndi(s);
+        }
 	}
 	
 	public void listIndi(String ontclass)
@@ -143,6 +149,7 @@ public class SkosEditorController implements Initializable {
 		
 		items.clear();
 		liste_indi.clear();
+		selectedIndividual = null;
 		OntClass indiClass = model.getOntClass(NS + ontclass);
 		ExtendedIterator indilist = indiClass.listInstances();
 		while(indilist.hasNext()){
@@ -172,20 +179,28 @@ public class SkosEditorController implements Initializable {
 	}
 	
 	@FXML private void addLabel(ActionEvent event){
+		if((selectedOntClass.getLocalName().equals("Concept"))&&(selectedIndividual != null)){
+			
         Object antwort = JOptionPane.showInputDialog(null, "Enter name of Label", "Eingabefenster",
                 JOptionPane.INFORMATION_MESSAGE, null, null, null);
+        if(antwort!=null){
         String name = (String) antwort;
         model.getOntClass("http://www.w3.org/2008/05/skos-xl#Label").createIndividual("http://www.w3.org/2008/05/skos-xl#LabelFor"+name);
 		Individual indi = model.getIndividual("http://www.w3.org/2008/05/skos-xl#LabelFor"+name);
 		DatatypeProperty dprop = model.getDatatypeProperty("http://www.w3.org/2008/05/skos-xl#literalForm");
 			log.info("datatypeProp"+dprop.getLocalName());
 			indi.addProperty(dprop, model.createLiteral( name, "de" ) );
+			ObjectProperty Oprop = model.getObjectProperty("http://www.w3.org/2008/05/skos-xl#prefLabel");
+			model.add(selectedIndividual, Oprop, indi);
+		}
+		}
         
 	}
  
 	@FXML private void handleMouseClicked(MouseEvent event){
 		selectedIndividual = model.getIndividual(liste_indi.get(listview_indi.getSelectionModel().getSelectedIndex()).getURI());
 		label_uri2.setText(liste_indi.get(listview_indi.getSelectionModel().getSelectedIndex()).getURI());
+		btn_addLabel.setDisable(false);
 	}
 	
 }
