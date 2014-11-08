@@ -47,6 +47,11 @@
                            <content>
                               <fx:include source="ProductsCreate.fxml" />
                            </content></Tab>
+                        <Tab text="SKOSEditor">
+                          <content>
+                            <fx:include source="SkosEditor.fxml" />
+                          </content>
+                        </Tab>
                      </tabs>
                   </TabPane>
                   
