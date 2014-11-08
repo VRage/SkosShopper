@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.net.URL;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -25,6 +23,9 @@ import javafx.scene.input.MouseEvent;
 
 import javax.swing.JOptionPane;
 
+import main.Main;
+import model.FusekiModel;
+
 import org.apache.log4j.Logger;
 
 import com.hp.hpl.jena.ontology.DatatypeProperty;
@@ -32,6 +33,7 @@ import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.ObjectProperty;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 
@@ -61,40 +63,43 @@ public class SkosEditorController implements Initializable {
 		btn_addLabel.setDisable(true);
 		label_uri2.setText("");
 		label_uri.setText(NS);
-		tree_Classes.setRoot(root);
-		root.setExpanded(true);
-		loadOntologi();
 		tree_Classes.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+            	loadOntologi();
                 
                 TreeItem treeItem = (TreeItem)newValue;
-                if(!treeItem.getValue().toString().equals("Classes")){
-        		int index = tree_Classes.getSelectionModel().getSelectedIndex()-1;
-        		label_uri.setText(liste_classes.get(index).getURI());
-        		NS = liste_classes.get(index).getNameSpace();
-//        		System.out.println(treeItem.toString());
-                String s = tree_Classes.getSelectionModel().getSelectedItem().toString().substring(18, tree_Classes.getSelectionModel().getSelectedItem().toString().length()-2);
-                selectedOntClass = model.getOntClass(NS+s);
-                listIndi(s);
-                
+                if(treeItem != null){
+		            if(!treeItem.getValue().toString().equals("Classes")){
+		        		int index = tree_Classes.getSelectionModel().getSelectedIndex()-1;
+		        		label_uri.setText(liste_classes.get(index).getURI());
+		        		NS = liste_classes.get(index).getNameSpace();
+		//        		System.out.println(treeItem.toString());
+		                String s = tree_Classes.getSelectionModel().getSelectedItem().toString().substring(18, tree_Classes.getSelectionModel().getSelectedItem().toString().length()-2);
+		                selectedOntClass = model.getOntClass(NS+s);
+		                listIndi(s);
+	                
+	                }
                 }
-                
                 
             }
 		});
-		fillTree();
+		tree_Classes.setRoot(root);
+		
+		
 		listview_indi.setItems(items);;
 	}
 
 	public void loadOntologi() {
+		if(model.isEmpty()){
 		try{
-		Path input = Paths.get("C:\\Users\\VRage\\workspace\\Skos\\", "test.owl");
-		
-		model.read(input.toUri().toString(), "RDF/XML");
+//		Path input = Paths.get("C:\\Users\\VRage\\workspace\\Skos\\", "test.owl");
+//		
+//		model.read(input.toUri().toString(), "RDF/XML");
 		
 //		model.read("./test1.rdf");
-		
+			Model m = FusekiModel.getDatasetAccessor().getModel();
+		model.add(m);
 		ExtendedIterator classes = model.listClasses();
 		while(classes.hasNext()){
 			OntClass thisClass = (OntClass) classes.next();
@@ -110,12 +115,13 @@ public class SkosEditorController implements Initializable {
 			
 		}
 
-		
+		fillTree();
 		
 		log.info("Ontologie loaded");
 		}catch(Exception e){
-			log.error(e);
+			log.error(e,e );
 		}
+	}
 	}
 	
 	public void fillTree(){
