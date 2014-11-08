@@ -11,3 +11,7 @@
 09:53:32 WARN  Fuseki               :: [line: 23, col: 9 ] Bad IRI: <file:/C:/Users/carmencheh/thesis/git.owl> Code: 57/REQUIRED_COMPONENT_MISSING in AUTHORITY: A component that is required by the scheme is missing.
 09:53:32 INFO  Fuseki               :: [2] Upload: Graph: default (76 triple(s))
 09:53:32 INFO  Fuseki               :: [2] 200 OK (87 ms) 
+12:53:03 INFO  Server               :: Dataset path = /ds
+12:53:06 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+12:53:06 INFO  Server               :: Incoming connections limited to localhost
+12:53:06 INFO  Server               :: Started 2014/11/08 12:53:06 MEZ on port 3030
