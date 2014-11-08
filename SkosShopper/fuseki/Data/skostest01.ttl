@@ -687,13 +687,7 @@ skos:notation rdf:type owl:DatatypeProperty ;
        :definition "A special class of lexical entities."@en ;
        
        rdfs:isDefinedBy <http://www.w3.org/2008/05/skos-xl> .
-
-
-
-###  http://www.w3.org/1999/02/22-rdf-syntax-ns#List
-
-rdf:List rdf:type owl:Class .
-
+	   
 
 
 ###  http://www.w3.org/2004/02/skos/core#Collection
