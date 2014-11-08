@@ -46,7 +46,7 @@ public class Main extends Application {
 	{
 		try {
 			FusekiModel.startStopFuseki();
-			MenuController.importOnthologyFile("./fuseki/Data/books.ttl");
+			MenuController.importOnthologyFile("./fuseki/Data/skostest01.ttl");
 		} catch (NoDatasetGraphException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
