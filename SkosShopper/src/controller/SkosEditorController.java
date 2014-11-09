@@ -1,11 +1,10 @@
 package controller;
 
+import java.awt.List;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.net.URL;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -27,8 +26,6 @@ import javafx.scene.input.MouseEvent;
 
 import javax.swing.JOptionPane;
 
-import model.FusekiModel;
-
 import org.apache.log4j.Logger;
 
 import com.hp.hpl.jena.ontology.DatatypeProperty;
@@ -36,8 +33,9 @@ import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.ObjectProperty;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 
 public class SkosEditorController implements Initializable {
@@ -240,6 +238,7 @@ public class SkosEditorController implements Initializable {
 		label_uri2.setText(liste_indi.get(listview_indi.getSelectionModel().getSelectedIndex()).getURI());
 		btn_addLabel.setDisable(false);
 		grp_addProp.setDisable(false);
+		showProperties(selectedIndividual);
 	}
 	
 	@FXML private void addProp(ActionEvent event){
@@ -273,6 +272,28 @@ public class SkosEditorController implements Initializable {
 			indis.add(indi.getLocalName());
 			log.info("Individual added: "+indi.getLocalName());
 			indiNS.add(indi.getURI());
+		}
+	}
+	private void showProperties(Individual selectedIndividual){
+		// Property Window ID: listview_dataprop
+		StmtIterator iterProperties = selectedIndividual.listProperties();
+		ObservableList<String> items =FXCollections.observableArrayList();
+		String predicate;
+		String object;
+		while(iterProperties.hasNext()){
+			Statement nextProperty = iterProperties.next();
+			if(nextProperty.getPredicate().getNameSpace().equals(skosNS) || nextProperty.getPredicate().getNameSpace().equals(skosxlNS)){
+				predicate = nextProperty.getPredicate().getLocalName();
+				object = nextProperty.getObject().asResource().getLocalName();
+				
+				items.add(predicate + "\n" + object + "\n\n");
+			}
+			listview_dataprop.setItems(items);
+//			System.out.println(nextProperty);
+//			System.out.println(nextProperty.getPredicate().getLocalName());
+//			System.out.println(nextProperty.getObject().asResource().getLocalName());
+//			System.out.println(skosNS);
+			
 		}
 	}
 }
