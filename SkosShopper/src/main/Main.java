@@ -26,11 +26,11 @@ public class Main extends Application {
 	public void start(Stage primaryStage) 
 	{
 		try {
+			startup();
 			Main.root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
 			Main.scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.show();
-			startup();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
