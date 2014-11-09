@@ -1,0 +1,668 @@
+@prefix : <rdf.getting-started.net/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <rdf.getting-started.net/ontology/> .
+
+<rdf.getting-started.net/ontology/> rdf:type owl:Ontology .
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  rdf.getting-started.net/ontology/canContain
+
+:canContain rdf:type owl:ObjectProperty ;
+            
+            rdfs:subPropertyOf owl:topObjectProperty .
+
+
+
+###  rdf.getting-started.net/ontology/canUse
+
+:canUse rdf:type owl:FunctionalProperty ,
+                 owl:InverseFunctionalProperty ,
+                 owl:ObjectProperty ,
+                 owl:SymmetricProperty ;
+        
+        rdfs:subPropertyOf owl:topObjectProperty .
+
+
+
+###  rdf.getting-started.net/ontology/hasAttribute
+
+:hasAttribute rdf:type owl:ObjectProperty .
+
+
+
+###  rdf.getting-started.net/ontology/hasColor
+
+:hasColor rdf:type owl:ObjectProperty .
+
+
+
+###  rdf.getting-started.net/ontology/hasEAN
+
+:hasEAN rdf:type owl:AsymmetricProperty ,
+                 owl:IrreflexiveProperty ,
+                 owl:ObjectProperty .
+
+
+
+###  rdf.getting-started.net/ontology/hasLenseMount
+
+:hasLenseMount rdf:type owl:FunctionalProperty ,
+                        owl:ObjectProperty ;
+               
+               rdfs:subPropertyOf owl:topObjectProperty .
+
+
+
+###  rdf.getting-started.net/ontology/isBrand
+
+:isBrand rdf:type owl:ObjectProperty .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  rdf.getting-started.net/ontology/#Attribute
+
+<rdf.getting-started.net/ontology/#Attribute> rdf:type owl:Class .
+
+
+
+###  rdf.getting-started.net/ontology/#Product
+
+<rdf.getting-started.net/ontology/#Product> rdf:type owl:Class .
+
+
+
+###  rdf.getting-started.net/ontology/#Attribute/Camera
+
+<rdf.getting-started.net/ontology/#Attribute/Camera> rdf:type owl:Class ;
+                                                     
+                                                     rdfs:subClassOf <rdf.getting-started.net/ontology/#Attribute> .
+
+
+
+###  rdf.getting-started.net/ontology/#Attribute/General
+
+<rdf.getting-started.net/ontology/#Attribute/General> rdf:type owl:Class ;
+                                                      
+                                                      rdfs:subClassOf <rdf.getting-started.net/ontology/#Attribute> .
+
+
+
+###  rdf.getting-started.net/ontology/#Attribute/Camera/Display
+
+<rdf.getting-started.net/ontology/#Attribute/Camera/Display> rdf:type owl:Class ;
+                                                             
+                                                             rdfs:subClassOf <rdf.getting-started.net/ontology/#Attribute/Camera> .
+
+
+
+###  rdf.getting-started.net/ontology/#Attribute/Camera/Resolution
+
+<rdf.getting-started.net/ontology/#Attribute/Camera/Resolution> rdf:type owl:Class ;
+                                                                
+                                                                rdfs:subClassOf <rdf.getting-started.net/ontology/#Attribute/Camera> .
+
+
+
+###  rdf.getting-started.net/ontology/#Attribute/General/Brand
+
+<rdf.getting-started.net/ontology/#Attribute/General/Brand> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:subClassOf <rdf.getting-started.net/ontology/#Attribute/General> .
+
+
+
+###  rdf.getting-started.net/ontology/#Attribute/General/Color
+
+<rdf.getting-started.net/ontology/#Attribute/General/Color> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:subClassOf <rdf.getting-started.net/ontology/#Attribute/General> .
+
+
+
+###  rdf.getting-started.net/ontology/#Attribute/General/IdentificationNumber
+
+<rdf.getting-started.net/ontology/#Attribute/General/IdentificationNumber> rdf:type owl:Class ;
+                                                                           
+                                                                           rdfs:subClassOf <rdf.getting-started.net/ontology/#Attribute/General> .
+
+
+
+###  rdf.getting-started.net/ontology/#Attribute/General/Price
+
+<rdf.getting-started.net/ontology/#Attribute/General/Price> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:subClassOf <rdf.getting-started.net/ontology/#Attribute/General> .
+
+
+
+###  rdf.getting-started.net/ontology/#Attribute/General/Weight
+
+<rdf.getting-started.net/ontology/#Attribute/General/Weight> rdf:type owl:Class ;
+                                                             
+                                                             rdfs:subClassOf <rdf.getting-started.net/ontology/#Attribute/General> .
+
+
+
+###  rdf.getting-started.net/ontology/#Attribute/General/IdentificationNumber/EanNumber
+
+<rdf.getting-started.net/ontology/#Attribute/General/IdentificationNumber/EanNumber> rdf:type owl:Class ;
+                                                                                     
+                                                                                     rdfs:subClassOf <rdf.getting-started.net/ontology/#Attribute/General/IdentificationNumber> .
+
+
+
+###  rdf.getting-started.net/ontology/#Attribute/General/IdentificationNumber/InternNumber
+
+<rdf.getting-started.net/ontology/#Attribute/General/IdentificationNumber/InternNumber> rdf:type owl:Class ;
+                                                                                        
+                                                                                        rdfs:subClassOf <rdf.getting-started.net/ontology/#Attribute/General/IdentificationNumber> .
+
+
+
+###  rdf.getting-started.net/ontology/#Product/Bag
+
+<rdf.getting-started.net/ontology/#Product/Bag> rdf:type owl:Class ;
+                                                
+                                                rdfs:subClassOf <rdf.getting-started.net/ontology/#Product> .
+
+
+
+###  rdf.getting-started.net/ontology/#Product/Camera
+
+<rdf.getting-started.net/ontology/#Product/Camera> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf <rdf.getting-started.net/ontology/#Product> .
+
+
+
+###  rdf.getting-started.net/ontology/#Product/Objective
+
+<rdf.getting-started.net/ontology/#Product/Objective> rdf:type owl:Class ;
+                                                      
+                                                      rdfs:subClassOf <rdf.getting-started.net/ontology/#Product> .
+
+
+
+###  rdf.getting-started.net/ontology/#Product/Tripod
+
+<rdf.getting-started.net/ontology/#Product/Tripod> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf <rdf.getting-started.net/ontology/#Product> .
+
+
+
+###  rdf.getting-started.net/ontology/#Product/Camera/ActionCamera
+
+<rdf.getting-started.net/ontology/#Product/Camera/ActionCamera> rdf:type owl:Class ;
+                                                                
+                                                                rdfs:subClassOf <rdf.getting-started.net/ontology/#Product/Camera> .
+
+
+
+###  rdf.getting-started.net/ontology/#Product/Camera/ReflexCamera
+
+<rdf.getting-started.net/ontology/#Product/Camera/ReflexCamera> rdf:type owl:Class ;
+                                                                
+                                                                rdfs:subClassOf <rdf.getting-started.net/ontology/#Product/Camera> .
+
+
+
+###  rdf.getting-started.net/ontology/#Product/Tripod/Quickpod
+
+<rdf.getting-started.net/ontology/#Product/Tripod/Quickpod> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:subClassOf <rdf.getting-started.net/ontology/#Product/Tripod> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Bag
+
+<rdf.getting-started.net/ontology/Attribute/Bag> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:subClassOf <rdf.getting-started.net/ontology/#Attribute> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Lense
+
+<rdf.getting-started.net/ontology/Attribute/Lense> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf <rdf.getting-started.net/ontology/#Attribute> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Tripod
+
+<rdf.getting-started.net/ontology/Attribute/Tripod> rdf:type owl:Class ;
+                                                    
+                                                    rdfs:subClassOf <rdf.getting-started.net/ontology/#Attribute> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Unit
+
+<rdf.getting-started.net/ontology/Attribute/Unit> rdf:type owl:Class ;
+                                                  
+                                                  rdfs:subClassOf <rdf.getting-started.net/ontology/#Attribute> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Bag/Volume
+
+<rdf.getting-started.net/ontology/Attribute/Bag/Volume> rdf:type owl:Class ;
+                                                        
+                                                        rdfs:subClassOf <rdf.getting-started.net/ontology/Attribute/Bag> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Lense/Diaphragm
+
+<rdf.getting-started.net/ontology/Attribute/Lense/Diaphragm> rdf:type owl:Class ;
+                                                             
+                                                             rdfs:subClassOf <rdf.getting-started.net/ontology/Attribute/Lense> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Lense/LenseMount
+
+<rdf.getting-started.net/ontology/Attribute/Lense/LenseMount> rdf:type owl:Class ;
+                                                              
+                                                              rdfs:subClassOf <rdf.getting-started.net/ontology/Attribute/Lense> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Tripod/Legs
+
+<rdf.getting-started.net/ontology/Attribute/Tripod/Legs> rdf:type owl:Class ;
+                                                         
+                                                         rdfs:subClassOf <rdf.getting-started.net/ontology/Attribute/Tripod> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Tripod/Level
+
+<rdf.getting-started.net/ontology/Attribute/Tripod/Level> rdf:type owl:Class ;
+                                                          
+                                                          rdfs:subClassOf <rdf.getting-started.net/ontology/Attribute/Tripod> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Unit/Gramm
+
+<rdf.getting-started.net/ontology/Attribute/Unit/Gramm> rdf:type owl:Class ;
+                                                        
+                                                        rdfs:subClassOf <rdf.getting-started.net/ontology/Attribute/Unit> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Unit/Liter
+
+<rdf.getting-started.net/ontology/Attribute/Unit/Liter> rdf:type owl:Class ;
+                                                        
+                                                        rdfs:subClassOf <rdf.getting-started.net/ontology/Attribute/Unit> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Unit/Millimeter
+
+<rdf.getting-started.net/ontology/Attribute/Unit/Millimeter> rdf:type owl:Class ;
+                                                             
+                                                             rdfs:subClassOf <rdf.getting-started.net/ontology/Attribute/Unit> .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  rdf.getting-started.net/ontology/Attribute/Bag/Volume/2
+
+<rdf.getting-started.net/ontology/Attribute/Bag/Volume/2> rdf:type owl:NamedIndividual ,
+                                                                   <rdf.getting-started.net/ontology/Attribute/Bag/Volume> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Bag/Volume/2.5
+
+<rdf.getting-started.net/ontology/Attribute/Bag/Volume/2.5> rdf:type owl:NamedIndividual ,
+                                                                     <rdf.getting-started.net/ontology/Attribute/Bag/Volume> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Bag/Volume/3
+
+<rdf.getting-started.net/ontology/Attribute/Bag/Volume/3> rdf:type owl:NamedIndividual ,
+                                                                   <rdf.getting-started.net/ontology/Attribute/Bag/Volume> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Brand/Canon
+
+<rdf.getting-started.net/ontology/Attribute/Brand/Canon> rdf:type owl:NamedIndividual ,
+                                                                  <rdf.getting-started.net/ontology/#Attribute/General/Brand> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Brand/GoPro
+
+<rdf.getting-started.net/ontology/Attribute/Brand/GoPro> rdf:type owl:NamedIndividual ,
+                                                                  <rdf.getting-started.net/ontology/#Attribute/General/Brand> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Brand/Nikon
+
+<rdf.getting-started.net/ontology/Attribute/Brand/Nikon> rdf:type owl:NamedIndividual ,
+                                                                  <rdf.getting-started.net/ontology/#Attribute/General/Brand> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Camera/Display/No
+
+<rdf.getting-started.net/ontology/Attribute/Camera/Display/No> rdf:type owl:NamedIndividual ,
+                                                                        <rdf.getting-started.net/ontology/#Attribute/Camera/Display> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Camera/Display/Yes
+
+<rdf.getting-started.net/ontology/Attribute/Camera/Display/Yes> rdf:type owl:NamedIndividual ,
+                                                                         <rdf.getting-started.net/ontology/#Attribute/Camera/Display> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Camera/Resolution/16.0
+
+<rdf.getting-started.net/ontology/Attribute/Camera/Resolution/16.0> rdf:type owl:NamedIndividual ,
+                                                                             <rdf.getting-started.net/ontology/#Attribute/Camera/Resolution> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Camera/Resolution/22.3
+
+<rdf.getting-started.net/ontology/Attribute/Camera/Resolution/22.3> rdf:type owl:NamedIndividual ,
+                                                                             <rdf.getting-started.net/ontology/#Attribute/Camera/Resolution> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Color/Black
+
+<rdf.getting-started.net/ontology/Attribute/Color/Black> rdf:type owl:NamedIndividual ,
+                                                                  <rdf.getting-started.net/ontology/#Attribute/General/Color> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Color/Grey
+
+<rdf.getting-started.net/ontology/Attribute/Color/Grey> rdf:type owl:NamedIndividual ,
+                                                                 <rdf.getting-started.net/ontology/#Attribute/General/Color> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Color/Silver
+
+<rdf.getting-started.net/ontology/Attribute/Color/Silver> rdf:type owl:NamedIndividual ,
+                                                                   <rdf.getting-started.net/ontology/#Attribute/General/Color> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Color/White
+
+<rdf.getting-started.net/ontology/Attribute/Color/White> rdf:type owl:NamedIndividual ,
+                                                                  <rdf.getting-started.net/ontology/#Attribute/General/Color> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/IdentificationNumber/EanNumber/8714574583242
+
+<rdf.getting-started.net/ontology/Attribute/IdentificationNumber/EanNumber/8714574583242> rdf:type owl:NamedIndividual ,
+                                                                                                   <rdf.getting-started.net/ontology/#Attribute/General/IdentificationNumber/EanNumber> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/IdentificationNumber/InternNumber/04238
+
+<rdf.getting-started.net/ontology/Attribute/IdentificationNumber/InternNumber/04238> rdf:type owl:NamedIndividual ,
+                                                                                              <rdf.getting-started.net/ontology/#Attribute/General/IdentificationNumber/InternNumber> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/IdentificationNumber/InternNumber/10378
+
+<rdf.getting-started.net/ontology/Attribute/IdentificationNumber/InternNumber/10378> rdf:type owl:NamedIndividual ,
+                                                                                              <rdf.getting-started.net/ontology/#Attribute/General/IdentificationNumber/InternNumber> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/IdentificationNumber/InternNumber/16819
+
+<rdf.getting-started.net/ontology/Attribute/IdentificationNumber/InternNumber/16819> rdf:type owl:NamedIndividual ,
+                                                                                              <rdf.getting-started.net/ontology/#Attribute/General/IdentificationNumber/InternNumber> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/IdentificationNumber/InternNumber/23564
+
+<rdf.getting-started.net/ontology/Attribute/IdentificationNumber/InternNumber/23564> rdf:type owl:NamedIndividual ,
+                                                                                              <rdf.getting-started.net/ontology/#Attribute/General/IdentificationNumber/InternNumber> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/IdentificationNumber/InternNumber/97568
+
+<rdf.getting-started.net/ontology/Attribute/IdentificationNumber/InternNumber/97568> rdf:type owl:NamedIndividual ,
+                                                                                              <rdf.getting-started.net/ontology/#Attribute/General/IdentificationNumber/InternNumber> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Lense/Diaphragm/120
+
+<rdf.getting-started.net/ontology/Attribute/Lense/Diaphragm/120> rdf:type owl:NamedIndividual ,
+                                                                          <rdf.getting-started.net/ontology/Attribute/Lense/Diaphragm> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Lense/Diaphragm/50
+
+<rdf.getting-started.net/ontology/Attribute/Lense/Diaphragm/50> rdf:type owl:NamedIndividual ,
+                                                                         <rdf.getting-started.net/ontology/Attribute/Lense/Diaphragm> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Lense/Diaphragm/70
+
+<rdf.getting-started.net/ontology/Attribute/Lense/Diaphragm/70> rdf:type owl:NamedIndividual ,
+                                                                         <rdf.getting-started.net/ontology/Attribute/Lense/Diaphragm> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Lense/LenseMount/Canon-EF-Mount
+
+<rdf.getting-started.net/ontology/Attribute/Lense/LenseMount/Canon-EF-Mount> rdf:type owl:NamedIndividual ,
+                                                                                      <rdf.getting-started.net/ontology/Attribute/Lense/LenseMount> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Price/2500-00
+
+<rdf.getting-started.net/ontology/Attribute/Price/2500-00> rdf:type owl:NamedIndividual ,
+                                                                    <rdf.getting-started.net/ontology/#Attribute/General/Price> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Price/39-90
+
+<rdf.getting-started.net/ontology/Attribute/Price/39-90> rdf:type owl:NamedIndividual ,
+                                                                  <rdf.getting-started.net/ontology/#Attribute/General/Price> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Tripod/Legs/1
+
+<rdf.getting-started.net/ontology/Attribute/Tripod/Legs/1> rdf:type owl:NamedIndividual ,
+                                                                    <rdf.getting-started.net/ontology/Attribute/Tripod/Legs> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Tripod/Legs/2
+
+<rdf.getting-started.net/ontology/Attribute/Tripod/Legs/2> rdf:type owl:NamedIndividual ,
+                                                                    <rdf.getting-started.net/ontology/Attribute/Tripod/Legs> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Tripod/Legs/3
+
+<rdf.getting-started.net/ontology/Attribute/Tripod/Legs/3> rdf:type owl:NamedIndividual ,
+                                                                    <rdf.getting-started.net/ontology/Attribute/Tripod/Legs> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Tripod/Legs/4
+
+<rdf.getting-started.net/ontology/Attribute/Tripod/Legs/4> rdf:type owl:NamedIndividual ,
+                                                                    <rdf.getting-started.net/ontology/Attribute/Tripod/Legs> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Tripod/Level/No
+
+<rdf.getting-started.net/ontology/Attribute/Tripod/Level/No> rdf:type owl:NamedIndividual ,
+                                                                      <rdf.getting-started.net/ontology/Attribute/Tripod/Level> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Tripod/Level/Yes
+
+<rdf.getting-started.net/ontology/Attribute/Tripod/Level/Yes> rdf:type owl:NamedIndividual ,
+                                                                       <rdf.getting-started.net/ontology/Attribute/Tripod/Level> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Weight/1369
+
+<rdf.getting-started.net/ontology/Attribute/Weight/1369> rdf:type owl:NamedIndividual ,
+                                                                  <rdf.getting-started.net/ontology/#Attribute/General/Weight> .
+
+
+
+###  rdf.getting-started.net/ontology/Attribute/Weight/650
+
+<rdf.getting-started.net/ontology/Attribute/Weight/650> rdf:type owl:NamedIndividual ,
+                                                                 <rdf.getting-started.net/ontology/#Attribute/General/Weight> .
+
+
+
+###  rdf.getting-started.net/ontology/Product/Bag/Bag001
+
+<rdf.getting-started.net/ontology/Product/Bag/Bag001> rdf:type owl:NamedIndividual ,
+                                                               <rdf.getting-started.net/ontology/#Product/Bag> .
+
+
+
+###  rdf.getting-started.net/ontology/Product/Bag/Bag002
+
+<rdf.getting-started.net/ontology/Product/Bag/Bag002> rdf:type owl:NamedIndividual ,
+                                                               <rdf.getting-started.net/ontology/#Product/Bag> .
+
+
+
+###  rdf.getting-started.net/ontology/Product/Camera/ActionCamera/Camera001
+
+<rdf.getting-started.net/ontology/Product/Camera/ActionCamera/Camera001> rdf:type owl:NamedIndividual ,
+                                                                                  <rdf.getting-started.net/ontology/#Product/Camera/ActionCamera> .
+
+
+
+###  rdf.getting-started.net/ontology/Product/Camera/ReflexCamera/Camera002
+
+<rdf.getting-started.net/ontology/Product/Camera/ReflexCamera/Camera002> rdf:type owl:NamedIndividual ,
+                                                                                  <rdf.getting-started.net/ontology/#Product/Camera/ReflexCamera> .
+
+
+
+###  rdf.getting-started.net/ontology/Product/Camera/ReflexCamera/Camera003
+
+<rdf.getting-started.net/ontology/Product/Camera/ReflexCamera/Camera003> rdf:type owl:NamedIndividual ,
+                                                                                  <rdf.getting-started.net/ontology/#Product/Camera/ReflexCamera> .
+
+
+
+###  rdf.getting-started.net/ontology/Product/Camera/ReflexCamera/Canon-EOS-5D-MarkIII
+
+<rdf.getting-started.net/ontology/Product/Camera/ReflexCamera/Canon-EOS-5D-MarkIII> rdf:type owl:NamedIndividual ,
+                                                                                             <rdf.getting-started.net/ontology/#Product/Camera/ReflexCamera> ;
+                                                                                    
+                                                                                    :isBrand <rdf.getting-started.net/ontology/Attribute/Brand/Canon> ;
+                                                                                    
+                                                                                    :hasEAN <rdf.getting-started.net/ontology/Attribute/IdentificationNumber/EanNumber/8714574583242> ;
+                                                                                    
+                                                                                    :hasLenseMount <rdf.getting-started.net/ontology/Attribute/Lense/LenseMount/Canon-EF-Mount> .
+
+
+
+###  rdf.getting-started.net/ontology/Product/Objective/Canon-EF-50mm-001
+
+<rdf.getting-started.net/ontology/Product/Objective/Canon-EF-50mm-001> rdf:type owl:NamedIndividual ,
+                                                                                <rdf.getting-started.net/ontology/#Product/Objective> ;
+                                                                       
+                                                                       :hasLenseMount <rdf.getting-started.net/ontology/Attribute/Lense/LenseMount/Canon-EF-Mount> .
+
+
+
+###  rdf.getting-started.net/ontology/Product/Objective/Objective002
+
+<rdf.getting-started.net/ontology/Product/Objective/Objective002> rdf:type owl:NamedIndividual ,
+                                                                           <rdf.getting-started.net/ontology/#Product/Objective> .
+
+
+
+###  rdf.getting-started.net/ontology/Product/Tripod/Tripod001
+
+<rdf.getting-started.net/ontology/Product/Tripod/Tripod001> rdf:type owl:NamedIndividual ,
+                                                                     <rdf.getting-started.net/ontology/#Product/Tripod> .
+
+
+
+###  rdf.getting-started.net/ontology/Product/Tripod/Tripod002
+
+<rdf.getting-started.net/ontology/Product/Tripod/Tripod002> rdf:type owl:NamedIndividual ,
+                                                                     <rdf.getting-started.net/ontology/#Product/Tripod> .
+
+
+
+###  rdf.getting-started.net/ontology/Product/Tripod/Quickpod/Quickpod001
+
+<rdf.getting-started.net/ontology/Product/Tripod/Quickpod/Quickpod001> rdf:type owl:NamedIndividual ,
+                                                                                <rdf.getting-started.net/ontology/#Product/Tripod/Quickpod> .
+
+
+
+
+###  Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net
+
