@@ -182,7 +182,7 @@ public class TripleModel {
 	}
 	
 	
-	//public static Model getMod
+	//public static Model getMod abc
 	
 	
 	public static Model getModelByPredicateAndOther(String pre, String other, Model fromModel, int mode)
