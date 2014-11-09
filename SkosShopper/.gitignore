@@ -1,2 +1,4 @@
 /bin/
 /logs/
+/SkosShopper/fuseki/log
+/SkosShopper/fuseki/Data/outputfromProgramm.owl
