@@ -23,6 +23,7 @@
                               <fx:include source="Overview.fxml" />
                            </content>
                         </Tab>
+                        <!-- 
                         <Tab fx:id="tabClassesShow" text="Show Classes">
                            <content>
                               <fx:include source="ClassesShow.fxml" />
@@ -31,13 +32,20 @@
                            <content>
                               <fx:include source="ClassesCreate.fxml" />
                            </content></Tab>
+                        -->
                         <Tab fx:id="tabTriplesShow" text="Triples">
                            <content>
                               <fx:include source="TriplesShow.fxml" />
                            </content></Tab>
+                        <!-- 
                         <Tab fx:id="tabTriplesCreate" text="Create Triple">
                            <content>
                               <fx:include source="TriplesCreate.fxml" />
+                           </content></Tab>
+                        -->
+                        <Tab fx:id="tabProductsCategories" text="Product Categories">
+                           <content>
+                              <fx:include source="ProductsCategories.fxml" />
                            </content></Tab>
                         <Tab fx:id="tabProductsShow" text="Products">
                            <content>

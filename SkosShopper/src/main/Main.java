@@ -37,16 +37,26 @@ public class Main extends Application {
 
 	}
 	
+	
+	@Override
+	public void stop() throws NoDatasetGraphException, NoServerConfigException
+	{
+		FusekiModel.startStopFuseki();
+	}
+	
+	
 	public static void main(String[] args) {
 		launch(args);
 		
 	}
+	
 	
 	private static void startup()
 	{
 		try {
 			FusekiModel.startStopFuseki();
 			MenuController.importOnthologyFile("./fuseki/Data/skostest01.ttl");
+			//MenuController.importOnthologyFile("./fuseki/Data/dani-ont2.ttl");
 		} catch (NoDatasetGraphException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
