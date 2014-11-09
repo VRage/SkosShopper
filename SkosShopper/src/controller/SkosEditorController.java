@@ -238,7 +238,8 @@ public class SkosEditorController implements Initializable {
 		label_uri2.setText(liste_indi.get(listview_indi.getSelectionModel().getSelectedIndex()).getURI());
 		btn_addLabel.setDisable(false);
 		grp_addProp.setDisable(false);
-		showProperties(selectedIndividual);
+		showObjectProperties(selectedIndividual);
+		showDataProperties(selectedIndividual);
 	}
 	
 	@FXML private void addProp(ActionEvent event){
@@ -274,8 +275,9 @@ public class SkosEditorController implements Initializable {
 			indiNS.add(indi.getURI());
 		}
 	}
-	private void showProperties(Individual selectedIndividual){
+	private void showObjectProperties(Individual selectedIndividual){
 		// Property Window ID: listview_dataprop
+		listview_dataprop.setItems(null);
 		StmtIterator iterProperties = selectedIndividual.listProperties();
 		ObservableList<String> items =FXCollections.observableArrayList();
 		String predicate = "";
@@ -284,12 +286,9 @@ public class SkosEditorController implements Initializable {
 			Statement nextProperty = iterProperties.next();
 			if(nextProperty.getPredicate().getNameSpace().equals(skosNS) || nextProperty.getPredicate().getNameSpace().equals(skosxlNS)){
 				try {
-					predicate = nextProperty.getPredicate().getLocalName();
-					if(nextProperty.getObject().isLiteral()){
-						object = nextProperty.getObject().asLiteral().toString();
-						items.add(predicate + "\n" + object + "\n\n");
-					}
-					else if (nextProperty.getObject().isResource()){
+					
+					if (nextProperty.getObject().isResource()){
+						predicate = model.getObjectProperty(nextProperty.getPredicate().getURI()).getLabel("en");
 						object = nextProperty.getObject().asResource().getLocalName();
 						items.add(predicate + "\n" + object + "\n\n");
 					}
@@ -306,6 +305,34 @@ public class SkosEditorController implements Initializable {
 //			System.out.println(nextProperty.getObject().asResource().getLocalName());
 //			System.out.println(skosNS);
 			
+		}
+	}
+	
+	private void showDataProperties(Individual selectedIndividual){
+		// Property Window ID: listview_objprop
+		listview_objprop.setItems(null);
+		StmtIterator iterProperties = selectedIndividual.listProperties();
+		ObservableList<String> items =FXCollections.observableArrayList();
+		String predicate = "";
+		String object = "";
+		while(iterProperties.hasNext()){
+			Statement nextProperty = iterProperties.next();
+			if(nextProperty.getPredicate().getNameSpace().equals(skosNS) || nextProperty.getPredicate().getNameSpace().equals(skosxlNS)){
+				try {
+					
+					if (nextProperty.getObject().isLiteral()){
+						predicate = nextProperty.getPredicate().getLocalName();
+						object = nextProperty.getObject().asLiteral().toString();
+						items.add(predicate + "\n" + object + "\n\n");
+					}
+					log.info(object);		
+				} catch (ResourceRequiredException e) {
+					log.error(e, e);
+				}		
+			}
+			if(!items.isEmpty()){
+				listview_objprop.setItems(items);
+			}
 		}
 	}
 }
