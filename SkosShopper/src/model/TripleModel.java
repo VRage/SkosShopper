@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.apache.jena.fuseki.migrate.GraphLoadUtils;
+import org.apache.log4j.Logger;
 
 import com.hp.hpl.jena.graph.Graph;
 import com.hp.hpl.jena.rdf.model.Model;
@@ -16,14 +17,16 @@ import javafx.beans.property.SimpleStringProperty;
 
 import com.hp.hpl.jena.rdf.model.Statement;
 
+import controller.ProductCategoryController;
 import exceptions.fuseki_exceptions.NoDatasetAccessorException;
 
 public class TripleModel {
 	
+	public static final Logger log = Logger.getLogger(TripleModel.class);
 	
 	public static Model getAllTriples()
 	{
-		System.out.println("IN FusekiModel.getAllTriples()");
+		log.info("getAllTriples() START");
 		String s;
 		
 		GraphLoadUtils glu = new GraphLoadUtils();
@@ -32,23 +35,29 @@ public class TripleModel {
 		try {
 			model = FusekiModel.getDatasetAccessor().getModel();
 			Graph graph = model.getGraph();
+			log.info("getAllTriples() END");
 			return model;
 		} catch (NoDatasetAccessorException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			log.info("getAllTriples() END");
 			return null;
 		}
+
+	}
+	
+	
+	public static String[] getPrefLablesOfSkosConcepts()
+	{
 		
-				
 		
-		//System.out.println(s);
-		
-		
+		return null;
 	}
 	
 	
 	public static Model getTriplesBySkosConcept(Model model)
 	{
+		log.info("getTriplesBySkosConcept() START");
 		//final Set<Statement> foundTriples = new HashSet<Statement>();
 		Model result = ModelFactory.createDefaultModel();
 		
@@ -68,18 +77,44 @@ public class TripleModel {
 				{
 					//objects.add(stmt.getSubject().toString().substring(stmt.getSubject().toString().lastIndexOf("#")+1));
 					result.add(stmt);
-					System.out.println("found skos#concept: "+stmt.getSubject().toString());
+					log.info("found skos#concept: "+stmt.getSubject().toString());
+					
 				}
 			}
 
 		}
 		
+		log.info("getTriplesBySkosConcept END");
 		return result;
+	}
+	
+	
+	public static Set<String> getSkosConceptURIs()
+	{
+		log.info("getSkosConceptURIs() START");
+		
+		Model m = ModelFactory.createDefaultModel();
+		m = getTriplesBySkosConcept(getAllTriples());
+		
+		StmtIterator stmti = m.listStatements();
+		
+		Set<String> uris = new HashSet<String>();
+		
+		while(stmti.hasNext())
+		{
+			Statement stmt = stmti.nextStatement();
+			uris.add(stmt.getSubject().toString());
+		}
+		
+		log.info("getSkosConceptURIs() END");
+		return uris;
 	}
 	
 	
 	public static Model getLabelsByConcept(Model modelAllTriples, Model modelSkosConcepts)
 	{
+		log.info("getLabelsByConcept() START");
+		
 		Model result = ModelFactory.createDefaultModel();
 		
 		StmtIterator allIt = modelAllTriples.listStatements();
@@ -97,11 +132,12 @@ public class TripleModel {
 				if(allItem.getSubject().equals(concItem.getSubject()) && allItem.getPredicate().toString().contains("#prefLabel"))
 				{
 					result.add(allItem);
-					System.out.println("found skos-xl#prefLabel: "+allItem.getObject().toString());
+					log.info("found skos-xl#prefLabel: "+allItem.getObject().toString());
 				}
 			}
 		}
 		
+		log.info("getLabelsByConcept() END");
 		return result;
 	}
 	
@@ -123,6 +159,8 @@ public class TripleModel {
 	
 	public static Model getLiteralOfPrefLabel(Model modelConceptLabels, Model modelAllTriples)
 	{
+		log.info("getLiteralOfPrefLabel() START");
+		
 		Model result = ModelFactory.createDefaultModel();
 		
 		StmtIterator allIt = modelAllTriples.listStatements();
@@ -140,11 +178,12 @@ public class TripleModel {
 				if(allItem.getSubject().equals(prefItem.getObject()) && allItem.getPredicate().toString().contains("#literalForm"))
 				{
 					result.add(allItem);
-					System.out.println("found skos-xl#prefLabel: "+allItem.getObject().toString());
+					log.info("found skos-xl#prefLabel: "+allItem.getObject().toString());
 				}
 			}
 		}
 		
+		log.info("getLiteralOfPrefLabel() END");
 		return result;
 	}
 	
@@ -208,13 +247,13 @@ public class TripleModel {
 				if(s1.getPredicate().toString().contains(pre));
 				{
 					resultTemp.add(s1);
-					System.out.println("(1)FIND-PRE > "+s1.getPredicate().toString()+" ---CONTAINS STRING--> "+pre);
+					log.info("(1)FIND-PRE > "+s1.getPredicate().toString()+" ---CONTAINS STRING--> "+pre);
 				}
 			} else if(mode == 2) {
 				if(s1.getPredicate().toString().endsWith(pre));
 				{
 					resultTemp.add(s1);
-					System.out.println("(1)FIND-PRE > "+s1.getPredicate().toString()+" ---ENDS WITH--> "+pre);
+					log.info("(1)FIND-PRE > "+s1.getPredicate().toString()+" ---ENDS WITH--> "+pre);
 				}
 			}
 		}
@@ -238,7 +277,7 @@ public class TripleModel {
 				if(s2.getSubject().toString().contains(other) || s2.getObject().toString().contains(other))
 				{
 					result.add(s2);
-					System.out.println("(1)FIND-SUB > "+s2.getSubject().toString()+" ---CONTAINS STRING--> "+other);
+					log.info("(1)FIND-SUB > "+s2.getSubject().toString()+" ---CONTAINS STRING--> "+other);
 				}
 				
 			} else if(mode == 2) {
@@ -246,27 +285,27 @@ public class TripleModel {
 				if(s2.getSubject().toString().endsWith(other))
 				{
 					result.add(s2);
-					System.out.println("(1)FIND-SUB > "+s2.getSubject().toString()+" ---ENDS WITH--> "+other);
+					log.info("(1)FIND-SUB > "+s2.getSubject().toString()+" ---ENDS WITH--> "+other);
 				}
 				
 				if(s2.getObject().toString().endsWith(other))
 				{
 					result.add(s2);
-					System.out.println("(1)FIND-OBJ > "+s2.getObject().toString()+" ---ENDS WITH--> "+other);
+					log.info("(1)FIND-OBJ > "+s2.getObject().toString()+" ---ENDS WITH--> "+other);
 				}
 				
 			}
 
 		}
 		
-		System.out.println("----testoutput for fond getModelByPredicateAndOther("+pre+", "+other+")");
+		log.info("----testoutput for fond getModelByPredicateAndOther("+pre+", "+other+")");
 		
 		StmtIterator finalIt = result.listStatements();
 		
 		while(finalIt.hasNext())
 		{
 			Statement stmt = finalIt.nextStatement();
-			System.out.println("Statement: "+stmt);
+			log.info("Statement: "+stmt);
 		}
 			
 		

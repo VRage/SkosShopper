@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -14,10 +15,12 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 
+import controller.SkosEditorController;
 import controller.TriplesShowController.TripleOwn;
 
 public class ProductFactory {
 	
+	public static final Logger log = Logger.getLogger(ProductFactory.class);
 	private static boolean firstLoaded;
 	
 	public static String[] getCreatableProductsAsString()
@@ -61,12 +64,24 @@ public class ProductFactory {
 		
 		Model test = TripleModel.getModelByPredicateAndOther("#type", "#Concept", TripleModel.getAllTriples(), 2);
 		
-		System.out.println("test: "+test.toString());
+		//System.out.println("test: "+test.toString());
 		
 		//-------------------
 		
 		return result;
 
 	}
+	
+	
+	
+	public static String[] getCreatableProductsAsURI()
+	{
+		final Set<String> productNames = TripleModel.getSkosConceptURIs();
+		String[] result = productNames.toArray(new String[productNames.size()]);
+		Arrays.sort(result);
+		return result;
+	}
+	
+	
 
 }
