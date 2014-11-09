@@ -57,6 +57,14 @@ public class ProductFactory {
 		String[] result = productNames.toArray(new String[productNames.size()]);
 		Arrays.sort(result);
 		
+		//-------------- TEST
+		
+		Model test = TripleModel.getModelByPredicateAndOther("#type", "#Concept", TripleModel.getAllTriples(), 2);
+		
+		System.out.println("test: "+test.toString());
+		
+		//-------------------
+		
 		return result;
 
 	}

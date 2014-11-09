@@ -147,6 +147,132 @@ public class TripleModel {
 		
 		return result;
 	}
+	
+	
+	public static Model getObjectByPredicateAndSubject(String predicate, String subject, Model fromModel)
+	{
+		Model resultTemp = ModelFactory.createDefaultModel();
+		Model result = ModelFactory.createDefaultModel();
+		
+		StmtIterator modelStartIter = fromModel.listStatements();
+		
+		while(modelStartIter.hasNext())
+		{
+			Statement s1 = modelStartIter.nextStatement();
+			
+			if(s1.getPredicate().equals(predicate))
+			{
+				resultTemp.add(s1);
+			}
+		}
+		
+		StmtIterator modelTempIter = resultTemp.listStatements();
+		
+		while(modelTempIter.hasNext())
+		{
+			Statement s2 = modelTempIter.nextStatement();
+			
+			if(s2.getSubject().equals(subject))
+			{
+				result.add(s2);
+			}
+		}
+		
+		return result;
+	}
+	
+	
+	//public static Model getMod
+	
+	
+	public static Model getModelByPredicateAndOther(String pre, String other, Model fromModel, int mode)
+	{
+		Model resultTemp = ModelFactory.createDefaultModel();
+		Model result = ModelFactory.createDefaultModel();
+		
+		StmtIterator modelStartIter = fromModel.listStatements();
+		
+		while(modelStartIter.hasNext())
+		{
+			Statement s1 = modelStartIter.nextStatement();
+			
+			if(mode == 0)
+			{
+				if(s1.getPredicate().equals(pre))
+				{
+					resultTemp.add(s1);
+				}
+				
+			} else if(mode == 1){
+				
+				if(s1.getPredicate().toString().contains(pre));
+				{
+					resultTemp.add(s1);
+					System.out.println("(1)FIND-PRE > "+s1.getPredicate().toString()+" ---CONTAINS STRING--> "+pre);
+				}
+			} else if(mode == 2) {
+				if(s1.getPredicate().toString().endsWith(pre));
+				{
+					resultTemp.add(s1);
+					System.out.println("(1)FIND-PRE > "+s1.getPredicate().toString()+" ---ENDS WITH--> "+pre);
+				}
+			}
+		}
+		
+		StmtIterator modelTempIter = resultTemp.listStatements();
+		
+		while(modelTempIter.hasNext())
+		{
+			Statement s2 = modelTempIter.nextStatement();
+			
+			if(mode == 0)
+			{
+				
+				if(s2.getObject().equals(other) || s2.getSubject().equals(other))
+				{
+					result.add(s2);
+				}
+				
+			} else if(mode == 1){
+				
+				if(s2.getSubject().toString().contains(other) || s2.getObject().toString().contains(other))
+				{
+					result.add(s2);
+					System.out.println("(1)FIND-SUB > "+s2.getSubject().toString()+" ---CONTAINS STRING--> "+other);
+				}
+				
+			} else if(mode == 2) {
+				
+				if(s2.getSubject().toString().endsWith(other))
+				{
+					result.add(s2);
+					System.out.println("(1)FIND-SUB > "+s2.getSubject().toString()+" ---ENDS WITH--> "+other);
+				}
+				
+				if(s2.getObject().toString().endsWith(other))
+				{
+					result.add(s2);
+					System.out.println("(1)FIND-OBJ > "+s2.getObject().toString()+" ---ENDS WITH--> "+other);
+				}
+				
+			}
+
+		}
+		
+		System.out.println("----testoutput for fond getModelByPredicateAndOther("+pre+", "+other+")");
+		
+		StmtIterator finalIt = result.listStatements();
+		
+		while(finalIt.hasNext())
+		{
+			Statement stmt = finalIt.nextStatement();
+			System.out.println("Statement: "+stmt);
+		}
+			
+		
+		
+		return result;
+	}
 
 
 }
