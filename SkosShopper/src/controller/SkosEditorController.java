@@ -325,7 +325,7 @@ public class SkosEditorController implements Initializable {
 						object = nextProperty.getObject().asLiteral().toString();
 						items.add(predicate + "\n" + object + "\n\n");
 					}
-					log.info(object);		
+							
 				} catch (ResourceRequiredException e) {
 					log.error(e, e);
 				}		

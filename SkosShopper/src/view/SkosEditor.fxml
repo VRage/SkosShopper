@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="507.0" prefWidth="834.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SkosEditorController">
+<AnchorPane prefHeight="507.0" prefWidth="784.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SkosEditorController">
    <children>
       <TreeView fx:id="tree_Classes" prefHeight="146.0" prefWidth="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Label layoutX="155.0" layoutY="14.0" text="ClassURI:" />
@@ -33,9 +33,9 @@
          </children>
       </Group>
       <Label layoutX="26.0" layoutY="150.0" text="Individual of Class" />
-      <ListView fx:id="listview_objprop" layoutX="611.0" layoutY="56.0" prefHeight="193.0" prefWidth="223.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <ListView fx:id="listview_dataprop" layoutX="611.0" layoutY="59.0" prefHeight="200.0" prefWidth="223.0" AnchorPane.bottomAnchor="248.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="59.0" />
-      <Label layoutX="612.0" layoutY="23.0" text="Object properties of selected Individual" AnchorPane.rightAnchor="14.0" />
-      <Label layoutX="612.0" layoutY="276.0" text="Data properties of selected Individual" AnchorPane.bottomAnchor="214.0" AnchorPane.rightAnchor="24.0" />
+      <ListView fx:id="listview_objprop" layoutX="611.0" layoutY="56.0" prefHeight="193.0" prefWidth="223.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="561.0" AnchorPane.rightAnchor="0.0" />
+      <ListView fx:id="listview_dataprop" layoutX="611.0" layoutY="59.0" prefHeight="200.0" prefWidth="223.0" AnchorPane.bottomAnchor="248.0" AnchorPane.leftAnchor="561.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="59.0" />
+      <Label layoutX="561.0" layoutY="31.0" text="Object properties of selected Individual" AnchorPane.leftAnchor="561.0" />
+      <Label layoutX="561.0" layoutY="288.0" text="Data properties of selected Individual" AnchorPane.bottomAnchor="202.0" AnchorPane.leftAnchor="561.0" />
    </children>
 </AnchorPane>
