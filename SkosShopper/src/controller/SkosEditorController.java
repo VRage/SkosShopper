@@ -1,6 +1,5 @@
 package controller;
 
-import java.awt.List;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -34,6 +33,7 @@ import com.hp.hpl.jena.ontology.ObjectProperty;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.ResourceRequiredException;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
@@ -278,17 +278,29 @@ public class SkosEditorController implements Initializable {
 		// Property Window ID: listview_dataprop
 		StmtIterator iterProperties = selectedIndividual.listProperties();
 		ObservableList<String> items =FXCollections.observableArrayList();
-		String predicate;
-		String object;
+		String predicate = "";
+		String object = "";
 		while(iterProperties.hasNext()){
 			Statement nextProperty = iterProperties.next();
 			if(nextProperty.getPredicate().getNameSpace().equals(skosNS) || nextProperty.getPredicate().getNameSpace().equals(skosxlNS)){
-				predicate = nextProperty.getPredicate().getLocalName();
-				object = nextProperty.getObject().asResource().getLocalName();
-				
-				items.add(predicate + "\n" + object + "\n\n");
+				try {
+					predicate = nextProperty.getPredicate().getLocalName();
+					if(nextProperty.getObject().isLiteral()){
+						object = nextProperty.getObject().asLiteral().toString();
+						items.add(predicate + "\n" + object + "\n\n");
+					}
+					else if (nextProperty.getObject().isResource()){
+						object = nextProperty.getObject().asResource().getLocalName();
+						items.add(predicate + "\n" + object + "\n\n");
+					}
+					log.info(object);		
+				} catch (ResourceRequiredException e) {
+					log.error(e, e);
+				}		
 			}
-			listview_dataprop.setItems(items);
+			if(!items.isEmpty()){
+				listview_dataprop.setItems(items);
+			}
 //			System.out.println(nextProperty);
 //			System.out.println(nextProperty.getPredicate().getLocalName());
 //			System.out.println(nextProperty.getObject().asResource().getLocalName());
