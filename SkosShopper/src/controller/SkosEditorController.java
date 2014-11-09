@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -14,7 +16,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TreeItem;
@@ -23,7 +27,6 @@ import javafx.scene.input.MouseEvent;
 
 import javax.swing.JOptionPane;
 
-import main.Main;
 import model.FusekiModel;
 
 import org.apache.log4j.Logger;
@@ -45,28 +48,42 @@ public class SkosEditorController implements Initializable {
 	@FXML	private Label label_uri2;
 	@FXML	private TreeView tree_Classes;
 	@FXML	private ListView<String> listview_indi;
+	@FXML	private ListView<String> listview_objprop;
+	@FXML	private ListView<String> listview_dataprop;
 	@FXML   private Button btn_show;
+	@FXML 	private Button btn_addProp;
+	@FXML 	private Group grp_addProp;
+	@FXML	private ChoiceBox choicebox_properties;
+	@FXML	private ChoiceBox choicebox_indi;
 	
 	
 	public static final Logger log = Logger.getLogger(SkosEditorController.class);
 	final TreeItem<String> root = new TreeItem<String>("Classes");
 	private ArrayList<OntClass> liste_classes = new ArrayList<OntClass>();
 	private ObservableList<String> items =FXCollections.observableArrayList();
+	private ObservableList<String> props =FXCollections.observableArrayList();
+	private ArrayList<String> propNS = new ArrayList<String>();
+	private ArrayList<String> indiNS = new ArrayList<String>();
+	private ObservableList<String> indis =FXCollections.observableArrayList();
 	private ArrayList<Individual> liste_indi = new ArrayList<Individual>();
 	private OntModel model = ModelFactory.createOntologyModel();
 	private static OntClass selectedOntClass;
 	private Individual selectedIndividual;
 	private String NS = "";
+	private String baseNS ="";
+	private String skosNS ="";
+	private String skosxlNS ="";
 	
 	@SuppressWarnings("unchecked")
 	public void initialize(URL location, ResourceBundle resources) {
 		btn_addLabel.setDisable(true);
+		grp_addProp.setDisable(true);
 		label_uri2.setText("");
 		label_uri.setText(NS);
+		loadOntologi();
 		tree_Classes.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
-            	loadOntologi();
                 
                 TreeItem treeItem = (TreeItem)newValue;
                 if(treeItem != null){
@@ -86,20 +103,32 @@ public class SkosEditorController implements Initializable {
 		});
 		tree_Classes.setRoot(root);
 		
-		
-		listview_indi.setItems(items);;
+		choicebox_indi.setItems(indis);
+		choicebox_properties.setItems(props);
+		listview_indi.setItems(items);
 	}
 
 	public void loadOntologi() {
 		if(model.isEmpty()){
 		try{
-//		Path input = Paths.get("C:\\Users\\VRage\\workspace\\Skos\\", "test.owl");
+//		Path input = Paths.get("C:\\Users\\VRage\\Documents\\SpiderOak Hive\\studium\\5_Semester\\projekt\\", "test1.rdf");
 //		
 //		model.read(input.toUri().toString(), "RDF/XML");
 		
-//		model.read("./test1.rdf");
-			Model m = FusekiModel.getDatasetAccessor().getModel();
-		model.add(m);
+		model.read("./fuseki/Data/test1.rdf");
+//			Model m = FusekiModel.getDatasetAccessor().getModel();
+//		model.add(m);
+		
+		baseNS = model.getNsPrefixURI("");
+		log.info("Base NS set to: "+baseNS);
+		skosNS = model.getNsPrefixURI("skos");
+		log.info("Skos NS set to: "+skosNS);
+		skosxlNS = model.getNsPrefixURI("skos-xl");
+		log.info("Skosxl NS set to: "+skosxlNS);
+
+		
+		
+		
 		ExtendedIterator classes = model.listClasses();
 		while(classes.hasNext()){
 			OntClass thisClass = (OntClass) classes.next();
@@ -114,8 +143,11 @@ public class SkosEditorController implements Initializable {
 			}
 			
 		}
-
+		listProps();
+		listIndis();
+		
 		fillTree();
+
 		
 		log.info("Ontologie loaded");
 		}catch(Exception e){
@@ -169,7 +201,7 @@ public class SkosEditorController implements Initializable {
 
 	@FXML private void printToConsole(ActionEvent event){
 		try {
-		File file = new File("./test.owl");
+		File file = new File("./fuseki/Data/outputfromProgramm.owl");
 			FileOutputStream out = new FileOutputStream(file);
 			model.write(out, "RDF/XML");
 			log.info("label hinzufügen");
@@ -191,12 +223,12 @@ public class SkosEditorController implements Initializable {
                 JOptionPane.INFORMATION_MESSAGE, null, null, null);
         if(antwort!=null){
         String name = (String) antwort;
-        model.getOntClass("http://www.w3.org/2008/05/skos-xl#Label").createIndividual("http://www.w3.org/2008/05/skos-xl#LabelFor"+name);
-		Individual indi = model.getIndividual("http://www.w3.org/2008/05/skos-xl#LabelFor"+name);
-		DatatypeProperty dprop = model.getDatatypeProperty("http://www.w3.org/2008/05/skos-xl#literalForm");
+        model.getOntClass(skosxlNS+"Label").createIndividual(baseNS+"LabelFor"+name);
+		Individual indi = model.getIndividual(baseNS+"LabelFor"+name);
+		DatatypeProperty dprop = model.getDatatypeProperty(skosxlNS+"literalForm");
 			log.info("datatypeProp"+dprop.getLocalName());
 			indi.addProperty(dprop, model.createLiteral( name, "de" ) );
-			ObjectProperty Oprop = model.getObjectProperty("http://www.w3.org/2008/05/skos-xl#prefLabel");
+			ObjectProperty Oprop = model.getObjectProperty(skosxlNS+"prefLabel");
 			model.add(selectedIndividual, Oprop, indi);
 		}
 		}
@@ -207,6 +239,40 @@ public class SkosEditorController implements Initializable {
 		selectedIndividual = model.getIndividual(liste_indi.get(listview_indi.getSelectionModel().getSelectedIndex()).getURI());
 		label_uri2.setText(liste_indi.get(listview_indi.getSelectionModel().getSelectedIndex()).getURI());
 		btn_addLabel.setDisable(false);
+		grp_addProp.setDisable(false);
 	}
 	
+	@FXML private void addProp(ActionEvent event){
+		if(!choicebox_properties.getSelectionModel().isEmpty() &&!choicebox_indi.getSelectionModel().isEmpty()){
+			int index_prop  =choicebox_properties.getSelectionModel().getSelectedIndex();
+			String NSofprop = propNS.get(index_prop);
+			ObjectProperty oProp = model.getObjectProperty(NSofprop);
+			log.info("Objectpropertie selected: "+ oProp.getNameSpace());
+			int index_indi  =choicebox_indi.getSelectionModel().getSelectedIndex();
+			String NSofindi = indiNS.get(index_indi);		
+			Individual individual = model.getIndividual(NSofindi);
+			log.info("Individual selected: "+ individual.getLocalName());
+			model.add(selectedIndividual, oProp, individual);
+		}
+		
+	}
+	
+	private void listProps(){
+		ExtendedIterator list_prop = model.listObjectProperties();
+		while(list_prop.hasNext()){
+			ObjectProperty prop = (ObjectProperty) list_prop.next();
+			props.add(prop.getLabel("en"));			
+			propNS.add(prop.getURI());
+			log.info("property added: "+prop.getLocalName());
+		}
+	}
+	private void listIndis(){
+		ExtendedIterator list_indis = model.listIndividuals();
+		while(list_indis.hasNext()){
+			Individual indi = (Individual) list_indis.next();
+			indis.add(indi.getLocalName());
+			log.info("Individual added: "+indi.getLocalName());
+			indiNS.add(indi.getURI());
+		}
+	}
 }
