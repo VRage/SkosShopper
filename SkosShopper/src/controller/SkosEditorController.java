@@ -14,6 +14,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -74,11 +75,14 @@ public class SkosEditorController implements Initializable {
 	
 	@SuppressWarnings("unchecked")
 	public void initialize(URL location, ResourceBundle resources) {
+		
 		btn_addLabel.setDisable(true);
 		grp_addProp.setDisable(true);
 		label_uri2.setText("");
 		label_uri.setText(NS);
 		loadOntologi();
+		listview_indi.setCursor(Cursor.HAND);
+		tree_Classes.cursorProperty().set(Cursor.HAND);
 		tree_Classes.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
@@ -104,6 +108,7 @@ public class SkosEditorController implements Initializable {
 		choicebox_indi.setItems(indis);
 		choicebox_properties.setItems(props);
 		listview_indi.setItems(items);
+		
 	}
 
 	public void loadOntologi() {
@@ -192,6 +197,7 @@ public class SkosEditorController implements Initializable {
 			Individual indivi = (Individual) indilist.next();
 			liste_indi.add(indivi);
 			items.add(indivi.getLocalName());
+			
 		}
 		
 		
@@ -234,12 +240,14 @@ public class SkosEditorController implements Initializable {
 	}
  
 	@FXML private void handleMouseClicked(MouseEvent event){
-		selectedIndividual = model.getIndividual(liste_indi.get(listview_indi.getSelectionModel().getSelectedIndex()).getURI());
-		label_uri2.setText(liste_indi.get(listview_indi.getSelectionModel().getSelectedIndex()).getURI());
-		btn_addLabel.setDisable(false);
-		grp_addProp.setDisable(false);
-		showObjectProperties(selectedIndividual);
-		showDataProperties(selectedIndividual);
+		if(!listview_indi.getSelectionModel().isEmpty()){
+			selectedIndividual = model.getIndividual(liste_indi.get(listview_indi.getSelectionModel().getSelectedIndex()).getURI());
+			label_uri2.setText(liste_indi.get(listview_indi.getSelectionModel().getSelectedIndex()).getURI());
+			btn_addLabel.setDisable(false);
+			grp_addProp.setDisable(false);
+			showObjectProperties(selectedIndividual);
+			showDataProperties(selectedIndividual);
+		}
 	}
 	
 	@FXML private void addProp(ActionEvent event){
@@ -335,4 +343,7 @@ public class SkosEditorController implements Initializable {
 			}
 		}
 	}
+
+	
+	
 }
