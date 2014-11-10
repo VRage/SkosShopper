@@ -311,7 +311,7 @@ public class SkosEditorController implements Initializable {
 						if (nextProperty.getObject().isResource()){
 							predicate = model.getObjectProperty(nextProperty.getPredicate().getURI()).getLabel("en");
 							object = nextProperty.getObject().asResource().getLocalName();
-							items.add(predicate + "\n" + object + "\n\n");
+							items.add("'"+predicate+"'" + "  " + object + "\n\n");
 						}
 							
 					} catch (ResourceRequiredException e) {
@@ -345,7 +345,7 @@ public class SkosEditorController implements Initializable {
 						if (nextProperty.getObject().isLiteral()){
 							predicate = nextProperty.getPredicate().getLocalName();
 							object = nextProperty.getObject().asLiteral().toString();
-							items.add(predicate + "\n" + object + "\n\n");
+							items.add("'"+predicate +"'"+ "  " + object + "\n\n");
 						}
 								
 					} catch (ResourceRequiredException e) {
