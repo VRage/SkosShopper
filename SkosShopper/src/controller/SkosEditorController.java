@@ -179,7 +179,7 @@ public class SkosEditorController implements Initializable {
                JOptionPane.INFORMATION_MESSAGE, null, null, null);
         if(antwort!=null){
         String s = tree_Classes.getSelectionModel().getSelectedItem().toString().substring(18, tree_Classes.getSelectionModel().getSelectedItem().toString().length()-2);
-        model.getOntClass(NS + s).createIndividual( baseNS +  ((String) antwort));;
+        model.getOntClass(NS + s).createIndividual( baseNS +  ((String) antwort));
         int length = baseNS.length();
         String indinamespace =  model.getIndividual( baseNS +  ((String) antwort)).getNameSpace();
         if(!(length == indinamespace.length())){
@@ -194,10 +194,26 @@ public class SkosEditorController implements Initializable {
         			model.getOntClass(NS + s).createIndividual(newindi+ss);
         			newindi = newindi+ss+"/";
         			log.info("new individual added: "+ ss);
+        			
         		}else{
         			newindi = tempindi.getURI()+"/";
         		}
         		log.info(ss);
+        	}
+        	newindi = baseNS;
+        	if(stringarray.length>0){
+	        	for(int i =0;i<stringarray.length;i++){
+	        		Individual tempindi = model.getIndividual(newindi+stringarray[i]);
+	        		ObjectProperty oProp = model.getObjectProperty(skosNS+"narrower");
+	        		if(i <stringarray.length-1){
+	        			Individual nextindi = model.getIndividual(newindi+stringarray[i]+"/"+stringarray[i+1]);
+	        			model.add(tempindi, oProp, nextindi);
+	        		}else{
+	        			Individual nextindi = model.getIndividual(baseNS +  ((String) antwort));
+	        			model.add(tempindi, oProp, nextindi);
+	        		}
+	        		newindi = newindi+stringarray[i]+"/";
+	        	}
         	}
         }
         listIndi(s);
