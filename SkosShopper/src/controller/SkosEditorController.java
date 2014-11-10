@@ -179,8 +179,27 @@ public class SkosEditorController implements Initializable {
                JOptionPane.INFORMATION_MESSAGE, null, null, null);
         if(antwort!=null){
         String s = tree_Classes.getSelectionModel().getSelectedItem().toString().substring(18, tree_Classes.getSelectionModel().getSelectedItem().toString().length()-2);
-        model.getOntClass(NS + s).createIndividual( NS +  ((String) antwort));;
-
+        model.getOntClass(NS + s).createIndividual( baseNS +  ((String) antwort));;
+        int length = baseNS.length();
+        String indinamespace =  model.getIndividual( baseNS +  ((String) antwort)).getNameSpace();
+        if(!(length == indinamespace.length())){
+        	String superindi = indinamespace.substring(length, indinamespace.length()-1);
+        	log.info(superindi);
+        	String[] stringarray = superindi.split("/");
+        	String newindi = baseNS;
+        	for(String ss : stringarray){
+        		Individual tempindi = model.getIndividual(newindi+ss);
+        		if(tempindi==null)
+        		{
+        			model.getOntClass(NS + s).createIndividual(newindi+ss);
+        			newindi = newindi+ss+"/";
+        			log.info("new individual added: "+ ss);
+        		}else{
+        			newindi = tempindi.getURI()+"/";
+        		}
+        		log.info(ss);
+        	}
+        }
         listIndi(s);
         }
 	}
