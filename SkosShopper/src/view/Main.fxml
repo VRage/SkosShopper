@@ -37,6 +37,11 @@
                            <content>
                               <fx:include source="TriplesShow.fxml" />
                            </content></Tab>
+                        <Tab id="SparQl" text="SparQL Query">
+                          <content>
+                           <fx:include source = "SparQl.fxml"/>
+                          </content>
+                        </Tab>
                         <!-- 
                         <Tab fx:id="tabTriplesCreate" text="Create Triple">
                            <content>
@@ -58,6 +63,11 @@
                         <Tab text="SKOSEditor">
                           <content>
                             <fx:include source="SkosEditor.fxml" />
+                          </content>
+                        </Tab>
+                        <Tab text="Untitled Tab">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                           </content>
                         </Tab>
                      </tabs>

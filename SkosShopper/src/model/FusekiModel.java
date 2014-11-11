@@ -1,5 +1,8 @@
 package model;
 
+import java.util.Iterator;
+import java.util.concurrent.TimeUnit;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -26,19 +29,25 @@ import org.apache.log4j.PropertyConfigurator;
 
 
 
+
+
+
 import com.hp.hpl.jena.graph.Graph;
 import com.hp.hpl.jena.graph.Triple;
+import com.hp.hpl.jena.query.Dataset;
 import com.hp.hpl.jena.query.DatasetAccessor;
 import com.hp.hpl.jena.query.DatasetAccessorFactory;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
+import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.query.ResultSetFormatter;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.sparql.core.DatasetGraph;
 import com.hp.hpl.jena.sparql.core.DatasetGraphFactory;
+import com.hp.hpl.jena.sparql.util.Context;
 
 import exceptions.fuseki_exceptions.NoDatasetAccessorException;
 import exceptions.fuseki_exceptions.NoDatasetGraphException;
@@ -244,6 +253,18 @@ public class FusekiModel {
 		System.out.println("---"+"Active Server: "+check);
 		
 		return check;
+	}
+	public static String sendSparQLQuery(String Query){
+		Query query = QueryFactory.create(Query);
+		QueryExecution qe = QueryExecutionFactory.create ( Query, TripleModel.getAllTriples());
+		ResultSet rs = qe.execSelect();
+		
+		//ResultSetFormatter.out(System.out, query, m);
+		String output;
+		//ResultSetFormatter.out(System.out, rs, query);
+		output = ResultSetFormatter.asText(rs);
+
+		return output;
 	}
 	
 	

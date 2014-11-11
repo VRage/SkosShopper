@@ -34,13 +34,13 @@
                </font>
             </Label>
             <Label alignment="TOP_RIGHT" layoutX="14.0" layoutY="57.0" text="Amount Individuals:" />
-            <Label layoutX="14.0" layoutY="76.0" text="Amount ObjektProperties" />
-            <Label layoutX="14.0" layoutY="96.0" text="Amount DataProperties:" />
+            <Label layoutX="14.0" layoutY="76.0" text="Amount ObjektProperties" visible="false" />
+            <Label layoutX="14.0" layoutY="96.0" text="Amount DataProperties:" visible="false" />
             <Label fx:id="lblIndividuals" layoutX="192.0" layoutY="57.0" text="Label" />
-            <Label fx:id="lblObjektProperties" layoutX="192.0" layoutY="76.0" text="Label" />
-            <Label fx:id="lblDataProperties" layoutX="192.0" layoutY="96.0" text="Label" />
-            <Label layoutX="14.0" layoutY="116.0" text="Amount costum Classes" />
-            <Label fx:id="lblClasses" layoutX="192.0" layoutY="116.0" text="Label" />
+            <Label fx:id="lblObjektProperties" layoutX="192.0" layoutY="76.0" text="Label" visible="false" />
+            <Label fx:id="lblDataProperties" layoutX="192.0" layoutY="96.0" text="Label" visible="false" />
+            <Label layoutX="14.0" layoutY="40.0" text="Amount costum Classes" />
+            <Label fx:id="lblClasses" layoutX="192.0" layoutY="40.0" text="Label" />
          </children>
       </Pane>
    </children>
