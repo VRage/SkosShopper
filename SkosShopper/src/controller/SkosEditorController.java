@@ -26,6 +26,8 @@ import javafx.scene.input.MouseEvent;
 
 import javax.swing.JOptionPane;
 
+import model.TripleModel;
+
 import org.apache.log4j.Logger;
 
 import com.hp.hpl.jena.ontology.DatatypeProperty;
@@ -119,6 +121,7 @@ public class SkosEditorController implements Initializable {
 //		model.read(input.toUri().toString(), "RDF/XML");
 		
 		model.read("./fuseki/Data/test1.rdf");
+			//model = TripleModel.getAllTriples();
 //			Model m = FusekiModel.getDatasetAccessor().getModel();
 //		model.add(m);
 		
