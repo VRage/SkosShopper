@@ -3,7 +3,9 @@ package main;
 
 import java.io.IOException;
 
+import localozation.Language;
 import model.FusekiModel;
+import model.LanguageModel;
 import controller.MainController;
 import controller.MenuController;
 import exceptions.fuseki_exceptions.NoDatasetGraphException;
@@ -29,8 +31,11 @@ public class Main extends Application {
 			startup();
 			Main.root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
 			Main.scene = new Scene(root);
-			primaryStage.setScene(scene);
+			primaryStage.setScene(scene);	
 			primaryStage.show();
+			
+			//initialize all items with the correct values
+			LanguageModel.setLanguage(Language.ENGLISH_enEN);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

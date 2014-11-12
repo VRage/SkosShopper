@@ -1,0 +1,32 @@
+FXML ID's to identify elements sorted by FXML-File
+
+#####################################################
+Menu.fxml
+-----------------------------------------------------
+menuFile
+menuItemClose
+menuItemDelete
+
+menuLanguage
+menuItemEN
+menuItemGER
+
+menuHelp
+menuItemAbout
+
+settingsItem
+importOnthologyFileItem
+onStartItem
+#####################################################
+Overview.fxml
+-----------------------------------------------------
+labelFusekiServer
+labelStatusFuseki
+labelVersion
+labelStartedFuseki
+
+#Buttons with corrupt label
+#startStopFuseki must be updated depending on the status!!!
+startStopFuseki
+checkServer	
+#####################################################
