@@ -1,18 +1,17 @@
 package controller;
 
 import java.net.URL;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.ResourceBundle;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import model.FusekiModel;
 import model.TripleModel;
 
@@ -22,14 +21,12 @@ import com.hp.hpl.jena.ontology.DatatypeProperty;
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.ontology.OntTools.Path;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 
-import controller.TriplesShowController.TripleOwn;
 import exceptions.fuseki_exceptions.NoDatasetGraphException;
 import exceptions.fuseki_exceptions.NoServerConfigException;
 
@@ -44,6 +41,7 @@ public class OverviewController implements Initializable{
 	@FXML Label lblObjektProperties;
 	@FXML Label lblDataProperties;
 	@FXML Label lblClasses;
+	@FXML WebView WebView;
 
 	
 	public static final Logger log = Logger.getLogger(SkosEditorController.class);
@@ -59,6 +57,8 @@ public class OverviewController implements Initializable{
 		assert fusekiStatus != null : "fx:id=\"fusekiStatus\" was not injected: check your FXML file";
 		loadOntologie();
 		setLabels();
+		WebEngine webEngine =WebView.getEngine();
+		webEngine.load("http://localhost:3030");
 	}
 
 	
