@@ -1,7 +1,10 @@
 package controller;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -26,13 +29,25 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 import javafx.stage.FileChooser;
 import model.SKOSOntology;
+
+import org.semanticweb.owlapi.model.AddImport;
+import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
+import org.semanticweb.owlapi.model.OWLImportsDeclaration;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
+
+import com.hp.hpl.jena.query.Dataset;
+import com.hp.hpl.jena.query.DatasetAccessor;
+import com.hp.hpl.jena.query.DatasetAccessorFactory;
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.tdb.TDBFactory;
 
 public class SKOSOntologyController implements Initializable{
 	
 	@FXML	private Label lab1, lab2, labA, labB, labLang;
+	@FXML	private Button send;
 	@FXML	private Button btn_loadSKOS;
 	@FXML	private Button add;
 	@FXML	private Button add1;
@@ -73,6 +88,8 @@ public class SKOSOntologyController implements Initializable{
 	private ObservableList<String> annot;
 	private ObservableList<String> datatypes;
 	private ObservableList<String> userchoice;
+	private Model model = ModelFactory.createDefaultModel();
+	private DatasetAccessor ds;
 
 	public void initialize(URL location, ResourceBundle resources) {
 		skos = new SKOSOntology();
@@ -91,11 +108,24 @@ public class SKOSOntologyController implements Initializable{
 			}
 		});
 		
+		// Drag and Drop for Box A
 		dragBox.setOnDragOver(new EventHandler<DragEvent>() {
 
 			public void handle(DragEvent event) {
                 if (event.getTransferMode() == TransferMode.MOVE) {
                     dragBox.setText(event.getDragboard().getString());
+                }
+                
+                event.consume();
+			}
+		});
+		
+		// Drag and Drop for Box B
+		dragBox2.setOnDragOver(new EventHandler<DragEvent>() {
+
+			public void handle(DragEvent event) {
+                if (event.getTransferMode() == TransferMode.MOVE) {
+                    dragBox2.setText(event.getDragboard().getString());
                 }
                 
                 event.consume();
@@ -187,30 +217,36 @@ public class SKOSOntologyController implements Initializable{
 					} else if(box2.getValue() == object_properties.get(2)) {
 						skos.hasHiddenLabel(dragBox.getText(), dragBox2.getText());
 					} else if(box2.getValue() == object_properties.get(3)) {
-						skos.isInSemanticRelationWith(dragBox.getText(), dragBox2.getText());
+						skos.hasTopConcept(dragBox.getText(), dragBox2.getText());
 					} else if(box2.getValue() == object_properties.get(4)) {
-						skos.hasBroaderTransitive(dragBox.getText(), dragBox2.getText());
+						skos.isInScheme(dragBox.getText(), dragBox2.getText());
 					} else if(box2.getValue() == object_properties.get(5)) {
-						skos.hasBroader(dragBox.getText(), dragBox2.getText());
-					} else if(box2.getValue() == object_properties.get(6)) {
-						skos.hasBroaderMatch(dragBox.getText(), dragBox2.getText());
+						skos.isTopConceptOf(dragBox.getText(), dragBox2.getText());
+					}else if(box2.getValue() == object_properties.get(6)) {
+						skos.isInSemanticRelationWith(dragBox.getText(), dragBox2.getText());
 					} else if(box2.getValue() == object_properties.get(7)) {
-						skos.hasNarrowerTransitive(dragBox.getText(), dragBox2.getText());
+						skos.hasBroaderTransitive(dragBox.getText(), dragBox2.getText());
 					} else if(box2.getValue() == object_properties.get(8)) {
-						skos.hasNarrower(dragBox.getText(), dragBox2.getText());
+						skos.hasBroader(dragBox.getText(), dragBox2.getText());
 					} else if(box2.getValue() == object_properties.get(9)) {
+						skos.hasBroaderMatch(dragBox.getText(), dragBox2.getText());
+					} else if(box2.getValue() == object_properties.get(10)) {
+						skos.hasNarrowerTransitive(dragBox.getText(), dragBox2.getText());
+					} else if(box2.getValue() == object_properties.get(11)) {
+						skos.hasNarrower(dragBox.getText(), dragBox2.getText());
+					} else if(box2.getValue() == object_properties.get(12)) {
 						skos.hasNarrowMatch(dragBox.getText(), dragBox2.getText());
-					} else if(box2.getValue() == object_properties.get(10)) {
+					} else if(box2.getValue() == object_properties.get(13)) {
 						skos.hasRelated(dragBox.getText(), dragBox2.getText());
-					} else if(box2.getValue() == object_properties.get(11)) {
+					} else if(box2.getValue() == object_properties.get(14)) {
 						skos.hasRelatedMatch(dragBox.getText(), dragBox2.getText());
-					} else if(box2.getValue() == object_properties.get(12)){
+					} else if(box2.getValue() == object_properties.get(15)){
 						skos.isInMappingRelationWith(dragBox.getText(), dragBox2.getText());
-					} else if(box2.getValue() == object_properties.get(10)) {
+					} else if(box2.getValue() == object_properties.get(16)) {
 						skos.hasCloseMatch(dragBox.getText(), dragBox2.getText());
-					} else if(box2.getValue() == object_properties.get(11)) {
+					} else if(box2.getValue() == object_properties.get(17)) {
 						skos.hasExactMatch(dragBox.getText(), dragBox2.getText());
-					} else if(box2.getValue() == object_properties.get(12)){
+					} else if(box2.getValue() == object_properties.get(18)){
 						skos.hasRelatedLabel(dragBox.getText(), dragBox2.getText());
 					}
 				}
@@ -291,6 +327,30 @@ public class SKOSOntologyController implements Initializable{
 		
 	}
 	
+	@FXML public void send_to_fuseki(ActionEvent event) throws OWLOntologyStorageException {
+
+    	OWLImportsDeclaration importDeclaraton = skos.getDataFactory().getOWLImportsDeclaration(IRI.create("http://www.w3.org/2008/05/skos-xl"));
+        skos.getOntology().getOWLOntologyManager().applyChange(new AddImport(skos.getOntology(), importDeclaraton));
+        skos.getManager().saveOntology(skos.getOntology(), System.out);
+		String serviceURI = "http://localhost:3030/ds/data";
+		DatasetAccessorFactory factory = null;
+		ds = factory.createHTTP(serviceURI);
+		model = ds.getModel();
+		ByteArrayOutputStream out = new ByteArrayOutputStream();
+		skos.getManager().saveOntology(skos.getOntology(), out);
+		byte[] data = out.toByteArray();
+		ByteArrayInputStream istream = new ByteArrayInputStream(data);
+		model.write(out);
+	}
+	
+	@FXML public void getFromFuseki(ActionEvent event) {
+		String serviceURI = "http://localhost:3030/ds/data";
+		DatasetAccessorFactory factory = null;
+		ds = factory.createHTTP(serviceURI);
+		model = ds.getModel();
+		model.write(System.out);
+	}
+	
 	@FXML public void option_event(ActionEvent event) {
 		if(box1.getValue() == userchoice.get(0)) {
 			if(language.isVisible()) {
@@ -367,6 +427,9 @@ public class SKOSOntologyController implements Initializable{
 				"has preferred label",
 				"has alternative label",
 				"has hidden label",
+				"has top concept",
+				"is top concept of",
+				"is in scheme with",
 				"is in semantic relation with",
 				"has broader transitive",
 				"has broader",

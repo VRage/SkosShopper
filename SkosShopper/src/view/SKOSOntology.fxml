@@ -51,5 +51,6 @@
       <Label fx:id="lab1" layoutX="865.0" layoutY="220.0" text="Literal Form" visible="false" />
       <ComboBox fx:id="box3" layoutX="863.0" layoutY="286.0" prefHeight="25.0" prefWidth="164.0" visible="false" />
       <Label fx:id="lab2" layoutX="869.0" layoutY="271.0" text="Datatype" visible="false" />
+      <Button fx:id="send" layoutX="989.0" layoutY="299.0" mnemonicParsing="false" onAction="#send_to_fuseki" text="send to fuseki" />
    </children>
 </AnchorPane>
