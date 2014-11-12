@@ -4,6 +4,7 @@ public class Language_enEN extends Language{
 	public Language_enEN(){
 		initMenuItems();
 		initOverviewItems();
+		initMaintems();
 	}
 	
 	private void initMenuItems(){
@@ -33,5 +34,16 @@ public class Language_enEN extends Language{
 		startStopFusekiStarted="Start";
 		startStopFusekiStoped="Stop";
 		checkServer="Check Server";
+	}
+	
+	private void initMaintems(){
+		tabOverview="Overview";
+		tabTriplesShow="Triples";
+		tabSPARQLQuery="SparQL Query";
+		tabProductsCategories="Product Categories";
+		tabProductsShow="Products";
+		tabProductsCreate="Create Product";
+		tabSKOSEditorLite="SKOS Editor Lite";
+		tabSKOSOntology="SKOS Editor";
 	}
 }

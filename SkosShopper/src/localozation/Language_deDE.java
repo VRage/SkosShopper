@@ -4,6 +4,7 @@ public class Language_deDE extends Language{
 	public Language_deDE(){
 		initMenuItems();
 		initOverviewItems();
+		initMaintems();
 	}
 	
 	private void initMenuItems(){
@@ -33,5 +34,16 @@ public class Language_deDE extends Language{
 		startStopFusekiStarted="Start";
 		startStopFusekiStoped="Stop";
 		checkServer="Überprüfe Server";
+	}
+	
+	private void initMaintems(){
+		tabOverview="Übersicht";
+		tabTriplesShow="Tripel";
+		tabSPARQLQuery="SparQL Abfrage";
+		tabProductsCategories="Produkt Kategorien";
+		tabProductsShow="Produkte";
+		tabProductsCreate="Produkte Erstellen";
+		tabSKOSEditorLite="SKOS Editor Lite";
+		tabSKOSOntology="SKOS Editor";
 	}
 }

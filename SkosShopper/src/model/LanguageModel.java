@@ -1,7 +1,12 @@
 package model;
 
+import java.util.Iterator;
+
+import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import localozation.Language;
 import localozation.Language_deDE;
 import localozation.Language_enEN;
@@ -44,6 +49,7 @@ public class LanguageModel {
 	
 	private static void updateView(){
 		updateOverviewItems();
+		updateMainviewItems();
 	}
 	
 	private static void updateOverviewItems(){
@@ -72,6 +78,44 @@ public class LanguageModel {
 			return 5.5* (newString.length() - oldString.length());
 		}
 		return -5.5*(oldString.length() - newString.length());
+	}
+	
+	private static void updateMainviewItems(){
+		TabPane pane = (TabPane) Main.scene.lookup("#mainTabPane");
+		ObservableList<Tab> test = pane.getTabs();
+		Iterator i = test.iterator();
+		while(i.hasNext()){
+			Tab tab = (Tab) i.next();
+			String id = tab.getId();
+			
+			if(id != null){
+			
+				if(id.equals("tabOverview"))
+					tab.setText(LanguageModel.getSelectedLanguage().tabOverview);
+				
+				if(id.equals("tabTriplesShow"))
+					tab.setText(LanguageModel.getSelectedLanguage().tabTriplesShow);
+				
+				if(id.equals("tabSPARQLQuery"))
+					tab.setText(LanguageModel.getSelectedLanguage().tabSPARQLQuery);
+				
+				if(id.equals("tabProductsCategories"))
+					tab.setText(LanguageModel.getSelectedLanguage().tabProductsCategories);
+				
+				if(id.equals("tabProductsShow"))
+					tab.setText(LanguageModel.getSelectedLanguage().tabProductsShow);
+				
+				if(id.equals("tabProductsCreate"))
+					tab.setText(LanguageModel.getSelectedLanguage().tabProductsCreate);
+				
+				if(id.equals("tabSKOSEditorLite"))
+					tab.setText(LanguageModel.getSelectedLanguage().tabSKOSEditorLite);
+				
+				if(id.equals("tabSKOSOntology"))
+					tab.setText(LanguageModel.getSelectedLanguage().tabSKOSOntology);
+			}
+		}
+		
 	}
 	
 }

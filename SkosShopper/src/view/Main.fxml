@@ -16,7 +16,7 @@
                
                
                
-                  <TabPane prefHeight="500.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TabPane fx:id="mainTabPane" prefHeight="500.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <tabs>
                         <Tab fx:id="tabOverview" text="Overview">
                           <content>
@@ -37,9 +37,9 @@
                            <content>
                               <fx:include source="TriplesShow.fxml" />
                            </content></Tab>
-                        <Tab id="SparQl" text="SparQL Query">
+                        <Tab fx:id="tabSPARQLQuery" text="SparQL Query">
                           <content>
-                           <fx:include source = "SparQl.fxml"/>
+                           <fx:include source="SparQl.fxml" />
                           </content>
                         </Tab>
                         <!-- 
@@ -60,7 +60,7 @@
                            <content>
                               <fx:include source="ProductsCreate.fxml" />
                            </content></Tab>
-                        <Tab text="SKOSEditor">
+                        <Tab fx:id="tabSKOSEditorLite" text="SKOSEditor">
                           <content>
                             <fx:include source="SkosEditor.fxml" />
                           </content>

@@ -30,6 +30,16 @@ public abstract class Language {
 	//Buttons with corrupt label
 	public static String startStopFusekiStarted;
 	public static String startStopFusekiStoped;
-	public static String checkServer;	
+	public static String checkServer;
+	
+	/** Main.fxml Items **/
+	public static String tabOverview;
+	public static String tabTriplesShow;
+	public static String tabSPARQLQuery;
+	public static String tabProductsCategories;
+	public static String tabProductsShow;
+	public static String tabProductsCreate;
+	public static String tabSKOSEditorLite;
+	public static String tabSKOSOntology;
 
 }
