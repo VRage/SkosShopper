@@ -256,7 +256,7 @@ public class FusekiModel {
 	}
 	public static String sendSparQLQuery(String Query){
 		Query query = QueryFactory.create(Query);
-		QueryExecution qe = QueryExecutionFactory.create ( Query, TripleModel.getAllTriples());
+		QueryExecution qe = QueryExecutionFactory.create ( Query, ModelFacade.getAllTriples());
 		ResultSet rs = qe.execSelect();
 		
 		//ResultSetFormatter.out(System.out, query, m);

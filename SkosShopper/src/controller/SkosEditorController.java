@@ -26,7 +26,7 @@ import javafx.scene.input.MouseEvent;
 
 import javax.swing.JOptionPane;
 
-import model.TripleModel;
+import model.ModelFacade;
 
 import org.apache.log4j.Logger;
 

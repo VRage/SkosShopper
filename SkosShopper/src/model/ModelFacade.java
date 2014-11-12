@@ -20,9 +20,9 @@ import com.hp.hpl.jena.rdf.model.Statement;
 import controller.ProductCategoryController;
 import exceptions.fuseki_exceptions.NoDatasetAccessorException;
 
-public class TripleModel {
+public class ModelFacade {
 	
-	public static final Logger log = Logger.getLogger(TripleModel.class);
+	public static final Logger log = Logger.getLogger(ModelFacade.class);
 	
 	public static Model getAllTriples()
 	{
@@ -187,7 +187,8 @@ public class TripleModel {
 		return result;
 	}
 	
-	
+	// Buggy
+	/*
 	public static Model getObjectByPredicateAndSubject(String predicate, String subject, Model fromModel)
 	{
 		Model resultTemp = ModelFactory.createDefaultModel();
@@ -312,6 +313,7 @@ public class TripleModel {
 		
 		return result;
 	}
+	*/
 
 
 }

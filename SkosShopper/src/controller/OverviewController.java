@@ -13,7 +13,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import model.FusekiModel;
-import model.TripleModel;
+import model.ModelFacade;
 
 import org.apache.log4j.Logger;
 
@@ -150,7 +150,7 @@ public class OverviewController implements Initializable{
 		boolean serverStarted = FusekiModel.getServerStatus();
 		
 		
-		Model model = TripleModel.getAllTriples();
+		Model model = ModelFacade.getAllTriples();
 		String tString = model.toString();
 		StmtIterator stmti = model.listStatements();
 		
@@ -159,7 +159,7 @@ public class OverviewController implements Initializable{
 			Statement stmt = stmti.nextStatement();
 			
 
-		TripleModel.getAllTriples();
+		ModelFacade.getAllTriples();
 		}
 	}
 	

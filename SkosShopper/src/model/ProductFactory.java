@@ -39,13 +39,13 @@ public class ProductFactory {
 		 	Bag^^http...XMLSchema#string | un#literalForm | core#BagLabel
 		 */
 		
-		Model modelAllTriples = TripleModel.getAllTriples();
+		Model modelAllTriples = ModelFacade.getAllTriples();
 		
-		Model modelSkosConcepts = TripleModel.getTriplesBySkosConcept(modelAllTriples);
+		Model modelSkosConcepts = ModelFacade.getTriplesBySkosConcept(modelAllTriples);
 		
-		Model modelConceptLabels = TripleModel.getLabelsByConcept(modelAllTriples, modelSkosConcepts);
+		Model modelConceptLabels = ModelFacade.getLabelsByConcept(modelAllTriples, modelSkosConcepts);
 		
-		Model modelLabelLiterals = TripleModel.getLiteralOfPrefLabel(modelConceptLabels, modelAllTriples);
+		Model modelLabelLiterals = ModelFacade.getLiteralOfPrefLabel(modelConceptLabels, modelAllTriples);
 		
 		StmtIterator litIt = modelLabelLiterals.listStatements();
 		
@@ -62,7 +62,7 @@ public class ProductFactory {
 		
 		//-------------- TEST
 		
-		Model test = TripleModel.getModelByPredicateAndOther("#type", "#Concept", TripleModel.getAllTriples(), 2);
+		//Model test = ModelFacade.getModelByPredicateAndOther("#type", "#Concept", ModelFacade.getAllTriples(), 2);
 		
 		//System.out.println("test: "+test.toString());
 		
@@ -76,7 +76,7 @@ public class ProductFactory {
 	
 	public static String[] getCreatableProductsAsURI()
 	{
-		final Set<String> productNames = TripleModel.getSkosConceptURIs();
+		final Set<String> productNames = ModelFacade.getSkosConceptURIs();
 		String[] result = productNames.toArray(new String[productNames.size()]);
 		Arrays.sort(result);
 		return result;

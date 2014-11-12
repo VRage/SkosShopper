@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
 import java.util.Set;
 
 import model.ProductFactory;
-import model.TripleModel;
+import model.ModelFacade;
 
 import com.hp.hpl.jena.rdf.model.Model;
 
