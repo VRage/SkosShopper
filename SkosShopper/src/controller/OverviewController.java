@@ -2,15 +2,20 @@ package controller;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
+import javafx.collections.ListChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebHistory;
+import javafx.scene.web.WebHistory.Entry;
 import javafx.scene.web.WebView;
 import model.FusekiModel;
 import model.ModelFacade;
@@ -41,12 +46,17 @@ public class OverviewController implements Initializable{
 	@FXML Label lblObjektProperties;
 	@FXML Label lblDataProperties;
 	@FXML Label lblClasses;
-	@FXML WebView WebView;
+	@FXML WebView webView;
+	@FXML TextField txtFieldURL;
+	WebEngine webEngine;
+	WebHistory webHistory;
+	String url = "http://localhost:3030";
 
 	
 	public static final Logger log = Logger.getLogger(SkosEditorController.class);
 	private OntModel model = ModelFactory.createOntologyModel();
 	private String baseNS ="";
+	private ArrayList<Entry> browserHistory = new ArrayList<WebHistory.Entry>();
 	private ArrayList<OntClass> ObjektProperties = new ArrayList<OntClass>();
 	private ArrayList<OntClass> liste_classes = new ArrayList<OntClass>();
 	private ArrayList<Individual> liste_indi = new ArrayList<Individual>();
@@ -57,8 +67,28 @@ public class OverviewController implements Initializable{
 		assert fusekiStatus != null : "fx:id=\"fusekiStatus\" was not injected: check your FXML file";
 		loadOntologie();
 		setLabels();
-		WebEngine webEngine =WebView.getEngine();
-		webEngine.load("http://localhost:3030");
+		webEngine = webView.getEngine();
+		webEngine.load(url);
+		txtFieldURL.setText(url);
+		
+		webHistory = webEngine.getHistory();
+		webHistory.setMaxSize(3);
+		webHistory.getEntries().addListener(new 
+				ListChangeListener<WebHistory.Entry>(){
+
+					public void onChanged(
+							javafx.collections.ListChangeListener.Change<? extends Entry> c) {
+						// TODO Auto-generated method stub
+						c.next();
+						for (Entry e : c.getAddedSubList()) {
+							browserHistory.add(e);
+							url =e.getUrl();
+							txtFieldURL.setText(url);
+							System.out.println(e.getUrl());
+						}
+					}
+			
+		});
 	}
 
 	
@@ -161,6 +191,20 @@ public class OverviewController implements Initializable{
 
 		ModelFacade.getAllTriples();
 		}
+	}
+	@FXML private void backButtonOnAction(ActionEvent event ){
+		url = browserHistory.get(browserHistory.size()-2).getUrl();
+		System.out.println("URRRRL"+url);
+		for (Entry e : browserHistory) {
+			System.out.println("LOLOL"+e.getUrl());
+		}
+		System.out.println();
+		webEngine.load(url);
+		txtFieldURL.setText(url);
+		
+	}
+	private void onHistoryChanged (){
+		
 	}
 	
 
