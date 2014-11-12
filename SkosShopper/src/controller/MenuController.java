@@ -1,9 +1,7 @@
 package controller;
 
-import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -13,17 +11,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import main.Main;
 import model.FusekiModel;
 
-import org.apache.jena.riot.RiotException;
-
 import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.util.FileManager;
 
 import exceptions.fuseki_exceptions.NoDatasetAccessorException;
@@ -94,6 +89,18 @@ public class MenuController implements Initializable{
 		
 		
         //Fill stage with content
+		
+	}
+	
+	@FXML
+	private void setEnglish(){
+		// scene.lookup("#id")
+		Button test =(Button) Main.scene.lookup("#btn_addIndi");
+		test.setText("Fuckoff");
+	}
+	
+	@FXML
+	private void setGerman(){
 		
 	}
 
