@@ -59,7 +59,7 @@ public class SkosEditorController implements Initializable {
 	
 	
 	public static final Logger log = Logger.getLogger(SkosEditorController.class);
-	final TreeItem<String> root = new TreeItem<String>("Classes");
+	private final TreeItem<String> root = new TreeItem<String>("Classes");
 	private ArrayList<OntClass> liste_classes = new ArrayList<OntClass>();
 	private ObservableList<String> items =FXCollections.observableArrayList();
 	private ObservableList<String> props =FXCollections.observableArrayList();
@@ -219,6 +219,7 @@ public class SkosEditorController implements Initializable {
 	        	}
         	}
         }
+        listIndis();
         listIndi(s);
         }
 	}
@@ -325,6 +326,8 @@ public class SkosEditorController implements Initializable {
 		}
 	}
 	private void listIndis(){
+		indis.clear();
+		indiNS.clear();
 		ExtendedIterator list_indis = model.listIndividuals();
 		while(list_indis.hasNext()){
 			Individual indi = (Individual) list_indis.next();

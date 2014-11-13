@@ -11,12 +11,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import localozation.Language;
 import main.Main;
 import model.FusekiModel;
+import model.LanguageModel;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.util.FileManager;
@@ -27,11 +29,21 @@ import exceptions.fuseki_exceptions.NoServerConfigException;
 
 public class MenuController implements Initializable{
 	
-	@FXML
-	private MenuItem importOnthologyFileItem;
+	@FXML Menu menuFile;
+	@FXML MenuItem menuItemClose;
+	@FXML MenuItem menuItemDelete;
+
+	@FXML Menu menuLanguage;
+	@FXML MenuItem menuItemEN;
+	@FXML MenuItem menuItemGER;
+
+	@FXML Menu menuHelp;
+	@FXML MenuItem menuItemAbout;
+
+	@FXML MenuItem settingsItem;
+	@FXML MenuItem importOnthologyFileItem;
+	@FXML MenuItem onStartItem;
 	
-	@FXML
-	private MenuItem onStartItem;
 	
 	
 	public void initialize(URL fxmlPath, ResourceBundle resources) {
@@ -94,14 +106,36 @@ public class MenuController implements Initializable{
 	
 	@FXML
 	private void setEnglish(){
-		// scene.lookup("#id")
-		Button test =(Button) Main.scene.lookup("#btn_addIndi");
-		test.setText("Fuckoff");
+		LanguageModel.setLanguage(Language.ENGLISH_enEN);
+		updateMenuView();
 	}
 	
 	@FXML
 	private void setGerman(){
+		LanguageModel.setLanguage(Language.GERMAN_deDE);
+		updateMenuView();
+	}
+	
+	/**
+	 * because it is not possible to cast Menu or MenuItem from nodes given by
+	 * scene.lookup(String #id) the Menubar must be changed directly in this controller!
+	 */
+	private void updateMenuView(){
+		menuFile.setText(LanguageModel.getSelectedLanguage().menuFile);
+		menuItemClose.setText(LanguageModel.getSelectedLanguage().menuItemClose);
+		menuItemDelete.setText(LanguageModel.getSelectedLanguage().menuItemDelete);
+
+		menuLanguage.setText(LanguageModel.getSelectedLanguage().menuLanguage);
+		menuItemEN.setText(LanguageModel.getSelectedLanguage().menuItemEN);
+		menuItemGER.setText(LanguageModel.getSelectedLanguage().menuItemGER);
+
+		menuHelp.setText(LanguageModel.getSelectedLanguage().menuHelp);
+		menuItemAbout.setText(LanguageModel.getSelectedLanguage().menuItemAbout);
+
+		settingsItem.setText(LanguageModel.getSelectedLanguage().settingsItem);
+		importOnthologyFileItem.setText(LanguageModel.getSelectedLanguage().importOnthologyFileItem);
+		onStartItem.setText(LanguageModel.getSelectedLanguage().onStartItem);
 		
 	}
-
+	
 }

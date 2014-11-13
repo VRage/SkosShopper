@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.web.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
@@ -12,18 +13,18 @@
    <children>
       <Pane layoutX="14.0" layoutY="14.0" prefHeight="73.0" prefWidth="787.0" style="-fx-border-width: 1px; -fx-border-color: black;">
          <children>
-            <Label layoutX="10.0" layoutY="5.0" text="Fuseki Server">
+            <Label fx:id="labelFusekiServer" layoutX="10.0" layoutY="5.0" text="Fuseki Server">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="117.0" layoutY="42.0" text="Status:" />
+            <Label fx:id="labelStatusFuseki" layoutX="117.0" layoutY="42.0" text="Status:" />
             <Button fx:id="startStopFuseki" layoutX="39.0" layoutY="37.0" mnemonicParsing="false" onAction="#startStopFuseki" text="Stop" />
-            <Label layoutX="301.0" layoutY="18.0" text="Version:" />
+            <Label fx:id="labelVersion" layoutX="301.0" layoutY="18.0" text="Version:" />
             <Label layoutX="373.0" layoutY="18.0" prefHeight="17.0" prefWidth="389.0" text="Jetty 7.2.1.v20101111" />
-            <Label layoutX="301.0" layoutY="42.0" text="Started:" />
+            <Label fx:id="labelStartedFuseki" layoutX="301.0" layoutY="42.0" text="Started:" />
             <Label fx:id="fusekiStatus" layoutX="168.0" layoutY="42.0" mnemonicParsing="false" text="running" textFill="#32c832" />
-            <Button fx:id="checkServer" layoutX="693.0" layoutY="37.0" mnemonicParsing="false" onAction="#checkServer" text="checkServer" />
+            <Button fx:id="checkServer" alignment="CENTER_RIGHT" layoutX="693.0" layoutY="37.0" mnemonicParsing="false" onAction="#checkServer" text="checkServer" />
             
          </children>
       </Pane>
