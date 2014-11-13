@@ -55,21 +55,51 @@ public class LanguageModel {
 	private static void updateOverviewItems(){
 		// scene.lookup("#id")
 		//Button test =(Button) Main.scene.lookup("#btn_addIndi");
-		Label label = (Label) Main.scene.lookup("#labelFusekiServer");
-		label.setText(LanguageModel.getSelectedLanguage().labelFusekiServer);
-		
-		label = (Label) Main.scene.lookup("#labelVersion");
-		label.setText(LanguageModel.getSelectedLanguage().labelVersion);
-		
-		label = (Label) Main.scene.lookup("#labelStartedFuseki");
-		label.setLayoutX(label.getLayoutX() - computeRightPosition(LanguageModel.getSelectedLanguage().labelStartedFuseki, label.getText()));
-		label.setText(LanguageModel.getSelectedLanguage().labelStartedFuseki);
+		setLabelText("#labelFusekiServer", selectedLanguage.labelFusekiServer);
+		setLabelText("#labelVersion", selectedLanguage.labelVersion);
+		setLabelWithRightAllignment("#labelStartedFuseki", selectedLanguage.labelStartedFuseki);
 
-		Button button = (Button) Main.scene.lookup("#checkServer");
-		button.setLayoutX(button.getLayoutX() - computeRightPosition(LanguageModel.getSelectedLanguage().checkServer,button.getText()));
-		button.setText(LanguageModel.getSelectedLanguage().checkServer);
+		setButtonWithRightAllignment("#checkServer", selectedLanguage.checkServer);
 	}
 	
+	private static void updateMainviewItems(){
+		TabPane pane = (TabPane) Main.scene.lookup("#mainTabPane");
+		ObservableList<Tab> tabList = pane.getTabs();
+		Iterator i = tabList.iterator();
+		while(i.hasNext()){
+			Tab tab = (Tab) i.next();
+			String id = tab.getId();
+			
+			if(id != null){
+			
+				if(id.equals("tabOverview"))
+					tab.setText(selectedLanguage.tabOverview);
+				
+				if(id.equals("tabTriplesShow"))
+					tab.setText(selectedLanguage.tabTriplesShow);
+				
+				if(id.equals("tabSPARQLQuery"))
+					tab.setText(selectedLanguage.tabSPARQLQuery);
+				
+				if(id.equals("tabProductsCategories"))
+					tab.setText(selectedLanguage.tabProductsCategories);
+				
+				if(id.equals("tabProductsShow"))
+					tab.setText(selectedLanguage.tabProductsShow);
+				
+				if(id.equals("tabProductsCreate"))
+					tab.setText(selectedLanguage.tabProductsCreate);
+				
+				if(id.equals("tabSKOSEditorLite"))
+					tab.setText(selectedLanguage.tabSKOSEditorLite);
+				
+				if(id.equals("tabSKOSOntology"))
+					tab.setText(selectedLanguage.tabSKOSOntology);
+			}
+		}
+		
+	}
+
 	/** This method calculates a new x-position for a button or label when it has to be fixed on the right side and grow
 	 * to the left when the new text is longer than the old one
 	 */
@@ -80,42 +110,42 @@ public class LanguageModel {
 		return -5.5*(oldString.length() - newString.length());
 	}
 	
-	private static void updateMainviewItems(){
-		TabPane pane = (TabPane) Main.scene.lookup("#mainTabPane");
-		ObservableList<Tab> test = pane.getTabs();
-		Iterator i = test.iterator();
-		while(i.hasNext()){
-			Tab tab = (Tab) i.next();
-			String id = tab.getId();
-			
-			if(id != null){
-			
-				if(id.equals("tabOverview"))
-					tab.setText(LanguageModel.getSelectedLanguage().tabOverview);
-				
-				if(id.equals("tabTriplesShow"))
-					tab.setText(LanguageModel.getSelectedLanguage().tabTriplesShow);
-				
-				if(id.equals("tabSPARQLQuery"))
-					tab.setText(LanguageModel.getSelectedLanguage().tabSPARQLQuery);
-				
-				if(id.equals("tabProductsCategories"))
-					tab.setText(LanguageModel.getSelectedLanguage().tabProductsCategories);
-				
-				if(id.equals("tabProductsShow"))
-					tab.setText(LanguageModel.getSelectedLanguage().tabProductsShow);
-				
-				if(id.equals("tabProductsCreate"))
-					tab.setText(LanguageModel.getSelectedLanguage().tabProductsCreate);
-				
-				if(id.equals("tabSKOSEditorLite"))
-					tab.setText(LanguageModel.getSelectedLanguage().tabSKOSEditorLite);
-				
-				if(id.equals("tabSKOSOntology"))
-					tab.setText(LanguageModel.getSelectedLanguage().tabSKOSOntology);
-			}
+	private static void setButtonText(String id, String text){
+		Button button = (Button) Main.scene.lookup(id);
+		if(button != null){
+			button.setText(text);
 		}
-		
+		else
+			System.out.println("Button: '" + id + "' not found");
+	}
+	
+	private static void setButtonWithRightAllignment(String id, String text){
+		Button button = (Button) Main.scene.lookup(id);
+		if(button != null){
+			button.setLayoutX(button.getLayoutX() - computeRightPosition(text,button.getText()));
+			setButtonText(id, text);
+		}
+		else
+			System.out.println("Button: '" + id + "' not found");
+	}
+	
+	private static void setLabelText(String id, String text){
+		Label label = (Label) Main.scene.lookup(id);
+		if(label != null){
+			label.setText(text);
+		}
+		else
+			System.out.println("Label: '" + id + "' not found");
+	}
+	
+	private static void setLabelWithRightAllignment(String id, String text){
+		Label label = (Label) Main.scene.lookup(id);
+		if(label != null){
+			label.setLayoutX(label.getLayoutX() - computeRightPosition(text,label.getText()));
+			setLabelText(id, text);
+		}
+		else
+			System.out.println("Button: '" + id + "' not found");
 	}
 	
 }
