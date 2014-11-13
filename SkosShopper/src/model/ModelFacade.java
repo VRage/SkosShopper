@@ -17,7 +17,7 @@ import javafx.beans.property.SimpleStringProperty;
 
 import com.hp.hpl.jena.rdf.model.Statement;
 
-import controller.ProductCategoryController;
+import controller.ProductCategorySettingsController;
 import exceptions.fuseki_exceptions.NoDatasetAccessorException;
 
 public class ModelFacade {

@@ -184,7 +184,8 @@ public class OverviewController implements Initializable{
 		boolean serverStarted = FusekiModel.getServerStatus();
 		
 		
-		Model model = ModelFacade.getModelActive();
+		Model model = ModelFacade.getAllTriples();
+		//Model model = ModelFacade.getModelActive();			von Matze, weil error gab hab ich mal auskommentiert und das drüber hin gemacht, 13.11.2014, 17:43 Uhr
 		String tString = model.toString();
 		StmtIterator stmti = model.listStatements();
 		
@@ -193,7 +194,7 @@ public class OverviewController implements Initializable{
 			Statement stmt = stmti.nextStatement();
 			
 
-		ModelFacade.getModelActive();
+		//ModelFacade.getModelActive();							von Matze, weil error gab hab ich mal auskommentiert, 13.11.2014, 17:43 Uhr
 		}
 	}
 	@FXML private void backButtonOnAction(ActionEvent event ){

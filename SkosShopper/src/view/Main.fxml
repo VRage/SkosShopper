@@ -48,17 +48,17 @@
                               <fx:include source="TriplesCreate.fxml" />
                            </content></Tab>
                         -->
-                        <Tab fx:id="tabProductsCategories" text="Product Categories">
+                        <Tab fx:id="tabProductCategoriesSettings" text="Product &amp; Category Settings">
                            <content>
-                              <fx:include source="ProductsCategories.fxml" />
+                              <fx:include source="ProductCategoriesSettings.fxml" />
                            </content></Tab>
                         <Tab fx:id="tabProductsShow" text="Products">
                            <content>
                               <fx:include source="ProductsShow.fxml" />
                            </content></Tab>
-                        <Tab fx:id="tabProductsCreate" text="Create Product">
+                        <Tab fx:id="tabProductCreate" text="Create Product">
                            <content>
-                              <fx:include source="ProductsCreate.fxml" />
+                              <fx:include source="ProductCreate.fxml" />
                            </content></Tab>
                         <Tab fx:id="tabSKOSEditorLite" text="SKOSEditor">
                           <content>

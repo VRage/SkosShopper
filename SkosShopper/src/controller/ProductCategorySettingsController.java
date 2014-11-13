@@ -26,13 +26,13 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
 
-public class ProductCategoryController implements Initializable{
+public class ProductCategorySettingsController implements Initializable{
 	
 	@FXML	TreeView categoriesTreeView;
 	@FXML	Button btnCategoryCreate;
 	@FXML	ScrollPane categoryProperties;
 	
-	public static final Logger log = Logger.getLogger(ProductCategoryController.class);
+	public static final Logger log = Logger.getLogger(ProductCategorySettingsController.class);
 	private boolean initialized;
 	private EventHandler<MouseEvent> mouseEventHandler;
 	
