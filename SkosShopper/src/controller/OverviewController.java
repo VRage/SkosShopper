@@ -40,6 +40,7 @@ public class OverviewController implements Initializable{
 	
 	@FXML
 	private Button startStopFuseki;
+	@FXML Button btnHome;
 	@FXML
 	private Label fusekiStatus;
 	@FXML Label lblIndividuals;
@@ -50,7 +51,10 @@ public class OverviewController implements Initializable{
 	@FXML TextField txtFieldURL;
 	WebEngine webEngine;
 	WebHistory webHistory;
-	String url = "http://localhost:3030";
+	String port = "3030";
+	String initURL ="http://localhost:"; 
+	String url = initURL+port;
+	
 
 	
 	public static final Logger log = Logger.getLogger(SkosEditorController.class);
@@ -180,7 +184,7 @@ public class OverviewController implements Initializable{
 		boolean serverStarted = FusekiModel.getServerStatus();
 		
 		
-		Model model = ModelFacade.getAllTriples();
+		Model model = ModelFacade.getModelActive();
 		String tString = model.toString();
 		StmtIterator stmti = model.listStatements();
 		
@@ -189,7 +193,7 @@ public class OverviewController implements Initializable{
 			Statement stmt = stmti.nextStatement();
 			
 
-		ModelFacade.getAllTriples();
+		ModelFacade.getModelActive();
 		}
 	}
 	@FXML private void backButtonOnAction(ActionEvent event ){
@@ -205,6 +209,10 @@ public class OverviewController implements Initializable{
 	}
 	private void onHistoryChanged (){
 		
+	}
+	@FXML private void btnHomeOnAction(ActionEvent event){
+		webEngine.load(initURL+port);
+		txtFieldURL.setText(initURL+port);
 	}
 	
 

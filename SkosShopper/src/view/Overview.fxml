@@ -48,5 +48,6 @@
       <WebView fx:id="webView" layoutX="14.0" layoutY="180.0" prefHeight="260.0" prefWidth="627.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="220.0" />
       <Button layoutX="14.0" layoutY="184.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="&lt;" />
       <TextField fx:id="txtFieldURL" editable="false" layoutX="110.0" layoutY="184.0" prefHeight="25.0" prefWidth="491.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="184.0" />
+      <Button fx:id="btnHome" layoutX="47.0" layoutY="184.0" mnemonicParsing="false" onAction="#btnHomeOnAction" text="Fuseki Home" />
    </children>
 </AnchorPane>
