@@ -11,9 +11,9 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="555.0" prefWidth="231.0">
                <children>
-                  <Pane prefHeight="180.0" prefWidth="233.0" style="-fx-background-color: #D9D9D9;">
+                  <Pane prefHeight="48.0" prefWidth="233.0" style="-fx-background-color: #D9D9D9;">
                      <children>
-                        <TreeView layoutY="47.0" prefHeight="133.0" prefWidth="233.0" />
+                        <TreeView fx:id="categoriesTreeView" layoutY="47.0" prefHeight="133.0" prefWidth="233.0" />
                         <Pane layoutX="1.0" layoutY="1.0" prefHeight="45.0" prefWidth="233.0" style="-fx-background-color: #CCEEFF;">
                            <children>
                               <Label layoutX="9.0" layoutY="13.0" text="Produkt Kategorien">
@@ -25,7 +25,7 @@
                         </Pane>
                      </children>
                   </Pane>
-                  <Pane layoutY="185.0" prefHeight="180.0" prefWidth="233.0" style="-fx-background-color: #D9D9D9;">
+                  <Pane layoutY="185.0" prefHeight="45.0" prefWidth="233.0" style="-fx-background-color: #D9D9D9;">
                      <children>
                         <ListView layoutY="46.0" prefHeight="135.0" prefWidth="233.0" />
                         <Pane prefHeight="45.0" prefWidth="233.0" style="-fx-background-color: #EEFFCC;">
@@ -39,7 +39,7 @@
                         </Pane>
                      </children>
                   </Pane>
-                  <Pane layoutY="370.0" prefHeight="180.0" prefWidth="233.0" style="-fx-background-color: #D9D9D9;">
+                  <Pane layoutY="370.0" prefHeight="48.0" prefWidth="233.0" style="-fx-background-color: #D9D9D9;">
                      <children>
                         <Pane prefHeight="45.0" prefWidth="233.0" style="-fx-background-color: #FFEECC;">
                            <children>
