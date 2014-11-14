@@ -57,9 +57,9 @@ public class LanguageModel {
 		//Button test =(Button) Main.scene.lookup("#btn_addIndi");
 		setLabelText("#labelFusekiServer", selectedLanguage.labelFusekiServer);
 		setLabelText("#labelVersion", selectedLanguage.labelVersion);
-		setLabelWithRightAllignment("#labelStartedFuseki", selectedLanguage.labelStartedFuseki);
+		setLabelTextWithRightAllignment("#labelStartedFuseki", selectedLanguage.labelStartedFuseki);
 
-		setButtonWithRightAllignment("#checkServer", selectedLanguage.checkServer);
+		setButtonTextWithRightAllignment("#checkServer", selectedLanguage.checkServer);
 	}
 	
 	private static void updateMainviewItems(){
@@ -100,16 +100,6 @@ public class LanguageModel {
 		
 	}
 
-	/** This method calculates a new x-position for a button or label when it has to be fixed on the right side and grow
-	 * to the left when the new text is longer than the old one
-	 */
-	private static double computeRightPosition(String newString, String oldString){
-		if(newString.length() >= oldString.length()){
-			return 5.5* (newString.length() - oldString.length());
-		}
-		return -5.5*(oldString.length() - newString.length());
-	}
-	
 	private static void setButtonText(String id, String text){
 		Button button = (Button) Main.scene.lookup(id);
 		if(button != null){
@@ -119,7 +109,7 @@ public class LanguageModel {
 			System.out.println("Button: '" + id + "' not found");
 	}
 	
-	private static void setButtonWithRightAllignment(String id, String text){
+	private static void setButtonTextWithRightAllignment(String id, String text){
 		Button button = (Button) Main.scene.lookup(id);
 		if(button != null){
 			button.setLayoutX(button.getLayoutX() - computeRightPosition(text,button.getText()));
@@ -138,7 +128,7 @@ public class LanguageModel {
 			System.out.println("Label: '" + id + "' not found");
 	}
 	
-	private static void setLabelWithRightAllignment(String id, String text){
+	private static void setLabelTextWithRightAllignment(String id, String text){
 		Label label = (Label) Main.scene.lookup(id);
 		if(label != null){
 			label.setLayoutX(label.getLayoutX() - computeRightPosition(text,label.getText()));
@@ -146,6 +136,16 @@ public class LanguageModel {
 		}
 		else
 			System.out.println("Button: '" + id + "' not found");
+	}
+
+	/** This method calculates a new x-position for a button or label when it has to be fixed on the right side and grow
+	 * to the left when the new text is longer than the old one
+	 */
+	private static double computeRightPosition(String newString, String oldString){
+		if(newString.length() >= oldString.length()){
+			return 5.5* (newString.length() - oldString.length());
+		}
+		return -5.5*(oldString.length() - newString.length());
 	}
 	
 }
