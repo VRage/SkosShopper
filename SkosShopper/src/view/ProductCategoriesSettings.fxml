@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.*?>
 
-<AnchorPane fx:id="tabProductCategoriesSettings" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProductCategorySettingsController">
+<AnchorPane fx:id="tabProductCategoriesSettings" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProductCategorySettingsController">
    <children>
-      <GridPane fx:id="GridPane" minWidth="100.0" prefHeight="600.0" prefWidth="1000.0">
+      <GridPane fx:id="GridPane" minWidth="100.0" prefHeight="500.0" prefWidth="1000.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="20.0" minWidth="20.0" percentWidth="50.0" prefWidth="20.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="20.0" minWidth="20.0" percentWidth="25.0" prefWidth="20.0" />
           <ColumnConstraints hgrow="ALWAYS" maxWidth="80.0" minWidth="80.0" percentWidth="75.0" prefWidth="80.0" />
         </columnConstraints>
         <rowConstraints>
@@ -26,11 +26,11 @@
             </Pane>
             <ScrollPane fx:id="selectionPaneScrollPane" fitToHeight="true" prefHeight="557.0" prefWidth="233.0" style="-fx-background-color: #FFFFFF;" GridPane.rowIndex="1">
               <content>
-                <AnchorPane fx:id="selectionPaneAnchorPane" maxWidth="247.0" minHeight="549.0" minWidth="17.0" prefHeight="549.0" prefWidth="247.0" style="-fx-background-color: #FFFFFF;">
+                <AnchorPane fx:id="selectionPaneAnchorPane" maxWidth="247.0" minHeight="450.0" minWidth="17.0" prefHeight="450.0" prefWidth="247.0" style="-fx-background-color: #FFFFFF;">
                      <children>
                         <Pane fx:id="productCategoriesPane" layoutY="0.0" prefHeight="40.0">
                            <children>
-                              <TreeView fx:id="productCategoriesTreeView" layoutY="40.0" prefHeight="300.0" prefWidth="550.0" style="-fx-border-color: #FFFFFF;" visible="false" />
+                              <TreeView fx:id="productCategoriesTreeView" layoutY="40.0" prefHeight="300.0" style="-fx-border-color: #FFFFFF;" visible="false" />
                               <Pane fx:id="productCategoriesBtn" layoutX="-1.0" onMouseClicked="#openProductCategories" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #CCEEFF; -fx-border-color: #AAAAAA;">
                                  <children>
                                     <Label fx:id="productCategoriesLabel" layoutX="9.0" layoutY="10.0" text="Produkt Kategorien">
