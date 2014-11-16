@@ -210,103 +210,51 @@ public class ProductCategorySettingsController implements Initializable{
 		// Adding the Names of the ConceptSchemes as roots of the TreeView
 		String[] conceptSchemeNames = ProductFactory.getConceptSchemeAsStringArray();
 		
-		for(int i = 0; i < conceptSchemeNames.length; i++)
+		// will built the Tree only if there is a conceptScheme
+		if(conceptSchemeNames.length != 0)
 		{
-			System.out.println("#"+i+" ConceptSchemeLabel: "+conceptSchemeNames[i]);
-			
-			TreeItem root = new TreeItem();
-			root.setValue(conceptSchemeNames[i]);
-			root.setExpanded(true);
-			tv.setRoot(root);
-		}
 		
-		
-		// Adding the top Concepts to the root
-		/*String[] topConcepts = ProductFactory.getConceptURIsOfConceptScheme(tv.getRoot().getValue().toString());
-		
-		for(int i = 0; i < topConcepts.length; i++)
-		{
-			TreeItem item = new TreeItem();
-			item.setValue(topConcepts[i]);
-			//item.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEventHandler);
-			tv.getRoot().getChildren().add(item);
-			log.info("Added skos:Concept "+item.getValue().toString()+" to Product Category List");
-		}
-		*/
-		
-		
-		
-		// Iterate through all the root children and just print if they have narrower
-		//String[] conArr = ProductFactory.getConceptsOfConceptScheme(tv.getRoot().getValue().toString());
-		String[] conArr = ProductFactory.getConceptURIsOfConceptScheme(tv.getRoot().getValue().toString());
-		List<String> conList = Arrays.asList(conArr);
-		ListIterator<String> conIte = conList.listIterator();
-		
-		
-		//
-		//		VERSION 1
-		//
-		/*while(conIte.hasNext())
-		{
-			String uri = conIte.next();
-			boolean hasNarrower = ModelFacade.hasNarrower(uri);
-			TreeItem ti = new TreeItem();
-			ti.setValue(uri);
-			
-			log.info("> skos:narrower "+uri);
-			log.info("> "+hasNarrower);
-			
-			if(hasNarrower)
+			for(int i = 0; i < conceptSchemeNames.length; i++)
 			{
-				tv.getRoot().getChildren().add(addChilds(ti));
-			} else {
+				System.out.println("#"+i+" ConceptSchemeLabel: "+conceptSchemeNames[i]);
+				
+				TreeItem root = new TreeItem();
+				root.setValue(conceptSchemeNames[i]);
+				root.setExpanded(true);
+				tv.setRoot(root);
+			}
+			
+			
+			// Iterate through all the root children and just print if they have narrower
+			String[] conArr = ProductFactory.getConceptURIsOfConceptScheme(tv.getRoot().getValue().toString());
+			List<String> conList = Arrays.asList(conArr);
+			ListIterator<String> conIte = conList.listIterator();
+		
+			while(conIte.hasNext())
+			{
+				String uri = conIte.next();
+				boolean hasNarrower = ModelFacade.hasNarrower(uri);
+				TreeItem ti = new TreeItem();
+				ti.setValue(uri);
+				
+				log.info("> skos:narrower "+uri);
+				log.info("> "+hasNarrower);
+				
+				if(hasNarrower)
+				{
+					//tv.getRoot().getChildren().add(addChilds(tv.getRoot(), ti, ""));
+					addChilds(ti, "");
+				} else {
+					ti.setValue(ModelFacade.getLiteralByConcept(ti.getValue().toString()));
+				}
+				
 				tv.getRoot().getChildren().add(ti);
-			}
-		}*/
-		
-		
-		
-		//
-		//		VERSION 2
-		//
-		while(conIte.hasNext())
-		{
-			String uri = conIte.next();
-			boolean hasNarrower = ModelFacade.hasNarrower(uri);
-			TreeItem ti = new TreeItem();
-			ti.setValue(uri);
-			
-			log.info("> skos:narrower "+uri);
-			log.info("> "+hasNarrower);
-			
-			if(hasNarrower)
-			{
-				//tv.getRoot().getChildren().add(addChilds(tv.getRoot(), ti, ""));
-				addChilds(ti, "");
-			} else {
-				ti.setValue(ModelFacade.getLiteralByConcept(ti.getValue().toString()));
+				
 			}
 			
-			tv.getRoot().getChildren().add(ti);
+			StmtIterator stmti = ModelFacade.getNarrowerModel("http://rdf.getting-started.net/ontology/Camera").listStatements();
 			
 		}
-		
-
-		
-		
-		// Iterating through all root childs and add new childs if necessary
-		//ListIterator<TreeItem> treeIte = tv.getRoot().getChildren().listIterator();
-		
-		
-		StmtIterator stmti = ModelFacade.getNarrowerModel("http://rdf.getting-started.net/ontology/Camera").listStatements();
-		/*
-		while(treeIte.hasNext())
-		{
-			TreeItem treeCurr = treeIte.next();
-			treeCurr.getChildren().add(addChilds(treeCurr));
-		}
-		*/
-		
 
 	}
 	
@@ -366,59 +314,9 @@ public class ProductCategorySettingsController implements Initializable{
 		}
 		
 		root.setValue(ModelFacade.getLiteralByConcept(root.getValue().toString()));
-		
-		//root.setValue(ModelFacade.getLiteralByConcept(childURI));
-		//return root;
-		//child.setValue(ModelFacade.getLiteralByConcept(childURI));
-		//root.getChildren().add(child);
-		
-		
-		//log.info(pre+"> I add myslef to my parent "+child);
-		//root.getChildren().add(child);
 
 	}
-	
-
-	
-	//
-	//		VERSION 1
-	//
-	/*public static TreeItem addChilds(TreeItem currItem) {
 		
-		String uri = currItem.getValue().toString();
-		
-		if(ModelFacade.hasNarrower(uri))
-		{
-			Model model = ModelFacade.getNarrowerModel(uri);
-			
-			StmtIterator stmti = ModelFacade.getNarrowerModel(uri).listStatements();
-			
-			while(stmti.hasNext())
-			{
-				Statement stmt = stmti.nextStatement();
-				TreeItem ti = new TreeItem();
-				ti.setValue(stmt.getObject().toString());
-				
-				currItem.getChildren().add(addChilds(ti));
-				
-				
-				// puts subtrees everywhere
-				// currItem.getChildren().add(addChilds(ti));
-				
-				// this returns only the most child items of a subtree
-				// currItem.getChildren().add(ti);
-				// return addChilds(ti);
-			}
-	
-		} 
-		
-		currItem.setValue(ModelFacade.getLiteralByConcept(uri));
-		return currItem;
-
-	}*/
-	
-		
-	
 	
 	private void loadProperties()
 	{

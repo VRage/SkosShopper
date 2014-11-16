@@ -88,7 +88,7 @@ public class ProductFactory {
 		
 		String[] result = splitLiteral(modelLabelLiterals);
 		
-		if(result != null)
+		if(result != null && result.length != 0)
 			log.info("ConceptScheme[0] Name: "+result[0]);
 		else
 			log.info("ConceptScheme[] = null");
