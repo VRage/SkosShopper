@@ -742,6 +742,24 @@ mardj:CameraLabel rdf:type owl:NamedIndividual ,
 
 
 
+###  http://rdf.getting-started.net/ontology/HyperMacroObjective
+
+mardj:HyperMacroObjective rdf:type owl:NamedIndividual ,
+                                   skos:Concept ;
+                          
+                          skosxl:prefLabel mardj:HyperMacroObjectivePrefLabel .
+
+
+
+###  http://rdf.getting-started.net/ontology/HyperMacroObjectivePrefLabel
+
+mardj:HyperMacroObjectivePrefLabel rdf:type owl:NamedIndividual ,
+                                            skosxl:Label ;
+                                   
+                                   skosxl:literalForm "Hyper Macroobjective"^^xsd:string .
+
+
+
 ###  http://rdf.getting-started.net/ontology/MacroObjective
 
 mardj:MacroObjective rdf:type owl:NamedIndividual ,
@@ -749,7 +767,9 @@ mardj:MacroObjective rdf:type owl:NamedIndividual ,
                      
                      skosxl:prefLabel mardj:MacroObjectivePrefLabel ;
                      
-                     skos:broader mardj:Objective .
+                     skos:broader mardj:Objective ;
+                     
+                     skos:narrower mardj:SuperMacroObjective .
 
 
 
@@ -883,6 +903,26 @@ mardj:SuitcaseLabel rdf:type owl:NamedIndividual ,
                              skosxl:Label ;
                     
                     skosxl:literalForm "Suitcase"^^xsd:string .
+
+
+
+###  http://rdf.getting-started.net/ontology/SuperMacroObjective
+
+mardj:SuperMacroObjective rdf:type owl:NamedIndividual ,
+                                   skos:Concept ;
+                          
+                          skos:narrower mardj:HyperMacroObjective ;
+                          
+                          skosxl:prefLabel mardj:SuperMacroObjectivePrefLabel .
+
+
+
+###  http://rdf.getting-started.net/ontology/SuperMacroObjectivePrefLabel
+
+mardj:SuperMacroObjectivePrefLabel rdf:type owl:NamedIndividual ,
+                                            skosxl:Label ;
+                                   
+                                   skosxl:literalForm "Super_Macroobjective"^^xsd:string .
 
 
 

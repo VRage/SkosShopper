@@ -237,11 +237,16 @@ public class ProductCategorySettingsController implements Initializable{
 		
 		
 		// Iterate through all the root children and just print if they have narrower
-		//ListIterator<TreeItem> treeIte = tv.getRoot().getChildren().listIterator();
-		String[] conArr = ProductFactory.getConceptsOfConceptScheme(tv.getRoot().getValue().toString());
+		//String[] conArr = ProductFactory.getConceptsOfConceptScheme(tv.getRoot().getValue().toString());
+		String[] conArr = ProductFactory.getConceptURIsOfConceptScheme(tv.getRoot().getValue().toString());
 		List<String> conList = Arrays.asList(conArr);
 		ListIterator<String> conIte = conList.listIterator();
-		while(conIte.hasNext())
+		
+		
+		//
+		//		VERSION 1
+		//
+		/*while(conIte.hasNext())
 		{
 			String uri = conIte.next();
 			boolean hasNarrower = ModelFacade.hasNarrower(uri);
@@ -257,8 +262,36 @@ public class ProductCategorySettingsController implements Initializable{
 			} else {
 				tv.getRoot().getChildren().add(ti);
 			}
+		}*/
+		
+		
+		
+		//
+		//		VERSION 2
+		//
+		while(conIte.hasNext())
+		{
+			String uri = conIte.next();
+			boolean hasNarrower = ModelFacade.hasNarrower(uri);
+			TreeItem ti = new TreeItem();
+			ti.setValue(uri);
+			
+			log.info("> skos:narrower "+uri);
+			log.info("> "+hasNarrower);
+			
+			if(hasNarrower)
+			{
+				//tv.getRoot().getChildren().add(addChilds(tv.getRoot(), ti, ""));
+				addChilds(ti, "");
+			} else {
+				ti.setValue(ModelFacade.getLiteralByConcept(ti.getValue().toString()));
+			}
+			
+			tv.getRoot().getChildren().add(ti);
 			
 		}
+		
+
 		
 		
 		// Iterating through all root childs and add new childs if necessary
@@ -277,7 +310,80 @@ public class ProductCategorySettingsController implements Initializable{
 
 	}
 	
-	public static TreeItem addChilds(TreeItem currItem) {
+	
+	
+	
+	//
+	//		VERSION 2
+	//
+	public static void addChilds(TreeItem root, String pre) {
+		
+		String rootURI = root.getValue().toString();
+		
+		log.info(pre+"> I am "+root);
+		
+		if(ModelFacade.hasNarrower(rootURI))
+		{
+			log.info(pre+"> > I have children");
+			
+			Model model = ModelFacade.getNarrowerModel(rootURI);
+			
+			StmtIterator childs = model.listStatements();
+			ModelFacade.printModel(model, "-----------> ");
+			
+			while(childs.hasNext())
+			{
+				Statement childChild = childs.nextStatement();
+				TreeItem child = new TreeItem();
+				child.setValue(childChild.getObject().toString());
+				
+				log.info(pre+"> > > One Child is "+child);
+				
+				root.getChildren().add(child);
+				
+				log.info(pre+"> > > I added it to me: "+root);
+				
+				log.info(pre+"> > > I check him");
+				
+				addChilds(child, pre+"> > > ");
+			}
+			
+			log.info(pre+"> I have no more childs");
+			
+			ListIterator<TreeItem> it;
+			it = root.getChildren().listIterator();
+			
+			log.info(pre+"> My Childs are now:");
+			
+			while(it.hasNext())
+			{
+				TreeItem ti = it.next();
+				log.info(pre+"> "+ti);
+			}
+			
+		} else {
+			log.info(pre+"> I have no childs");
+		}
+		
+		root.setValue(ModelFacade.getLiteralByConcept(root.getValue().toString()));
+		
+		//root.setValue(ModelFacade.getLiteralByConcept(childURI));
+		//return root;
+		//child.setValue(ModelFacade.getLiteralByConcept(childURI));
+		//root.getChildren().add(child);
+		
+		
+		//log.info(pre+"> I add myslef to my parent "+child);
+		//root.getChildren().add(child);
+
+	}
+	
+
+	
+	//
+	//		VERSION 1
+	//
+	/*public static TreeItem addChilds(TreeItem currItem) {
 		
 		String uri = currItem.getValue().toString();
 		
@@ -294,112 +400,24 @@ public class ProductCategorySettingsController implements Initializable{
 				ti.setValue(stmt.getObject().toString());
 				
 				currItem.getChildren().add(addChilds(ti));
+				
+				
+				// puts subtrees everywhere
+				// currItem.getChildren().add(addChilds(ti));
+				
+				// this returns only the most child items of a subtree
+				// currItem.getChildren().add(ti);
+				// return addChilds(ti);
 			}
-			
-		}
-		return currItem;
-		
-		//TreeItem res = new TreeItem();
-		//res.setValue("Test");
-		//return res;
-		
-		/*
-		while(ModelFacade)
-		
-		if(ModelFacade.hasNarrower(currItem.getValue().toString()))
-		{
-			currItem.getChildren().addAll(addChilds());
-		}
-
-		
-		if(ModelFacade.hasNarrower(currItem.getValue().toString()))
-		{
-			return addChilds(currItem)
-			
-		} else {
-			return currItem;			
-		}
-		*/
-		
-	}
-		
-	/*
-	tv.getRoot().getChildren().addAll(mainCats);
-	Iterator<TreeItem> it = (Iterator) tv.getRoot().getChildren().iterator();
 	
-	while(it.hasNext())
-	{
-		TreeItem ti = it.next();
-		System.out.println(ti.getValue());
+		} 
 		
-		if(ti.getValue().toString().contains("Kameras"))
-			ti.getChildren().addAll(camCats);
-	}
-	*/
-		
-		
-		
-		
-		
-		
-		/*
+		currItem.setValue(ModelFacade.getLiteralByConcept(uri));
+		return currItem;
 
-		*/
-		
-		
-		/*
-		Set<TreeItem> mainCats = new HashSet<TreeItem>();
-		
-		mainCats.add(new TreeItem<String>("Kameras"));
-		mainCats.add(new TreeItem<String>("Objektive"));
-		mainCats.add(new TreeItem<String>("Taschen"));
-		
-		Set<TreeItem> camCats = new HashSet<TreeItem>();
-		
-		camCats.add(new TreeItem<String>("Spiegelreflex Kameara"));
-		camCats.add(new TreeItem<String>("Action Kamera"));
-		
-		
-		// ---------------------------------------------------
-		tv.getRoot().getChildren().addAll(mainCats);
-		Iterator<TreeItem> it = (Iterator) tv.getRoot().getChildren().iterator();
-		
-		while(it.hasNext())
-		{
-			TreeItem ti = it.next();
-			System.out.println(ti.getValue());
-			
-			if(ti.getValue().toString().contains("Kameras"))
-				ti.getChildren().addAll(camCats);
-		}
-		*/
-		
-		/*
-		
-		//String[] proCat = ProductFactory.getCreatableProductsAsURI();
-		String[] proCat = ProductFactory.getCreatableProductsAsString();
-		
-		for(int i = 0; i < proCat.length; i++)
-		{
-			TreeItem item = new TreeItem();
-			item.setValue(proCat[i]);
-			log.info("category found, URI:"+item.getValue().toString());
-		}
-		
-		Set<TreeItem> cats = new HashSet<TreeItem>();
-		
-		for(int i = 0; i < proCat.length; i++)
-		{
-			TreeItem item = new TreeItem();
-			item.setValue(proCat[i]);
-			//item.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEventHandler);
-			cats.add(item);
-			log.info("Added skos:Concept "+item.getValue().toString()+" to Product Category List");
-		}
-
-		tv.getRoot().getChildren().addAll(cats);
-		
 	}*/
+	
+		
 	
 	
 	private void loadProperties()

@@ -153,6 +153,8 @@ public class ProductFactory {
 	
 	public static String[] splitLiteral(Model model)
 	{
+		boolean logging = false;
+		
 		String[] result;
 		
 		StmtIterator stmti = model.listStatements();
@@ -162,6 +164,11 @@ public class ProductFactory {
 		while(stmti.hasNext())
 		{
 			Statement stmt = stmti.nextStatement();
+			
+			if(logging) log.info("splitLiteral() - splitting :"+stmt.getObject());
+			if(logging) log.info("splitLiteral() ... of      :"+stmt.getSubject());
+			if(logging) log.info("splitLiteral() ... results :"+StringUtils.substringBefore(stmt.getObject().toString(), "^^"));
+			
 			
 			if(stmt.getObject().toString().contains("^^"));
 			resultSet.add(StringUtils.substringBefore(stmt.getObject().toString(), "^^"));

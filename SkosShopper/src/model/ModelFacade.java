@@ -183,7 +183,9 @@ public class ModelFacade {
 	
 	public static Model getLabelsByConcept(Model modelAllTriples, Model modelSkosConcepts)
 	{
-		log.info("getLabelsByConcept() START");
+		boolean logging = false;
+		
+		if(logging) log.info("getLabelsByConcept() START");
 		
 		Model result = ModelFactory.createDefaultModel();
 		
@@ -202,12 +204,12 @@ public class ModelFacade {
 				if(allItem.getSubject().equals(concItem.getSubject()) && allItem.getPredicate().toString().contains("#prefLabel"))
 				{
 					result.add(allItem);
-					log.info("found skos-xl#prefLabel: "+allItem.getObject().toString());
+					if(logging) log.info("found skos-xl#prefLabel: "+allItem.getObject().toString());
 				}
 			}
 		}
 		
-		log.info("getLabelsByConcept() END");
+		if(logging) log.info("getLabelsByConcept() END");
 		return result;
 	}
 
@@ -298,8 +300,10 @@ public class ModelFacade {
 	
 	public static Model getLiteralOfPrefLabel(Model modelAllTriples, Model modelConceptLabels)
 	{
-		log.info("getLiteralOfPrefLabel() START");
-		log.info("getLiteralOfPrefLabel() Print Model to check:");
+		boolean logging = false;
+		
+		if(logging) log.info("getLiteralOfPrefLabel() START");
+		if(logging) log.info("getLiteralOfPrefLabel() Print Model to check:");
 		//printModel(modelConceptLabels, "ModelFacade.getLiteralOfPrefLabel() --- ");
 		
 		Model result = ModelFactory.createDefaultModel();
@@ -332,7 +336,7 @@ public class ModelFacade {
 			}
 		}
 		
-		log.info("getLiteralOfPrefLabel() END");
+		if(logging) log.info("getLiteralOfPrefLabel() END");
 		return result;
 	}
 		
@@ -340,6 +344,47 @@ public class ModelFacade {
 	
 	// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = OTHER METHODS
 	
+	
+	
+	public static String getLiteralByConcept(String uri)
+	{
+		boolean logging = false;
+		
+		if(logging) log.info("getLiteralByConcept() START");
+		
+		String name = "ERROR";
+		Model model = ModelFactory.createDefaultModel();
+		Model all = getAllTriples();
+		
+		StmtIterator stmti = all.listStatements();
+		
+		while(stmti.hasNext())
+		{
+			Statement stmt = stmti.nextStatement();
+			
+			if(stmt.getObject().toString().contains("#Concept") && stmt.getSubject().toString().contains(uri))
+			{
+				if(logging) log.info(">>>> "+stmt);
+				model.add(stmt);
+				break;
+			}
+		}
+		
+		model = getLabelsByConcept(model);
+		model = getLiteralOfPrefLabel(model);
+		
+		if(logging) printModel(model, "FOUND LITERALS: ");
+		
+		String[] temp = ProductFactory.splitLiteral(model);
+		
+		if(temp.length > 0) {
+			name = ProductFactory.splitLiteral(model)[0];
+		}
+		
+		if(logging) log.info("getLiteralByConcept() END");
+		
+		return name;
+	}
 	
 	
 	public static boolean hasNarrower(String uri)
@@ -361,7 +406,7 @@ public class ModelFacade {
 	
 	public static Model getNarrowerModel(String uri)
 	{
-		boolean logging = false;
+		boolean logging = true;
 		Model resultModel = ModelFactory.createDefaultModel();
 		
 		StmtIterator stmti = ModelFacade.getAllTriples().listStatements();
@@ -372,15 +417,15 @@ public class ModelFacade {
 		{
 			Statement stmt = stmti.nextStatement();
 			
-			if(logging) log.info("getNarrowerModel() - Predicate:"+stmt.getPredicate().toString());
+			//if(logging) log.info("getNarrowerModel() - Predicate:"+stmt.getPredicate().toString());
 			
-			if(stmt.getPredicate().toString().contains("#narrower"))
+			if(stmt.getPredicate().toString().endsWith("#narrower"))
 			{
 				if(logging) log.info("getNarrowerModel() -------> contains #narrower");
 				
 				if(logging) log.info("getNarrowerModel() -------> Subject: "+stmt.getSubject().toString());
 				
-				if(stmt.getSubject().toString().contains(uri))
+				if(stmt.getSubject().toString().equals(uri))
 				{
 					if(logging) log.info("getNarrowerModel() --------------> MATCH WITH "+uri);
 					if(logging) log.info("getNarrowerModel() -------------------> FOUND "+stmt.getObject().toString());
@@ -390,7 +435,7 @@ public class ModelFacade {
 			}
 		}
 		
-		if(logging) printModel(resultModel, "ModelFacade.getNarrowerModel()");
+		//if(logging) printModel(resultModel, "ModelFacade.getNarrowerModel()");
 		
 		return resultModel;
 	}
