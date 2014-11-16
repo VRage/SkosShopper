@@ -104,7 +104,7 @@ public class FusekiModel {
 		
 		PropertyConfigurator.configureAndWatch(FusekiModel.logPropertyPath);
 		
-		FusekiModel.datasetGraph = DatasetGraphFactory.createMem();
+		FusekiModel.datasetGraph = DatasetGraphFactory.createMemFixed();
 		FusekiModel.datasetAccessor = DatasetAccessorFactory.create(FusekiModel.datasetGraph);
 		FusekiModel.serverConfig = FusekiConfig.defaultConfiguration(FusekiModel.dataset, FusekiModel.datasetGraph, true, true);
 		FusekiModel.serverConfig.pages = FusekiModel.pageDirPath;

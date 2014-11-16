@@ -62,7 +62,7 @@
                            </content></Tab>
                         <Tab fx:id="tabSKOSEditorLite" text="SKOSEditor">
                           <content>
-                            <fx:include source="SkosEditor.fxml" />
+                            <fx:include fx:id="skoseditorlite" source="SkosEditor.fxml" />
                           </content>
                         </Tab>
 

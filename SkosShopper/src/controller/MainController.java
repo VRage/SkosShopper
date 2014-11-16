@@ -1,16 +1,18 @@
 package controller;
 
-import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class MainController extends Application{
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+
+public class MainController implements Initializable{
 	
-	public Parent root;
-	public Scene scene;
-	public Stage primaryStage; 
+	@FXML public SkosEditorController skoseditorliteController;
+	@FXML private TabPane mainTabPane;
+	@FXML private Tab tabSKOSEditorLite;
 	
 	public void adminMode()
 	{
@@ -22,10 +24,16 @@ public class MainController extends Application{
 		System.out.println("Simple mode active");
 	}
 
-	@Override
-	public void start(Stage primaryStage) throws Exception {
-		// TODO Auto-generated method stub
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		mainTabPane.getSelectionModel().selectedItemProperty()
+        .addListener((obs, oldTab, newTab) -> {
+            if (newTab == tabSKOSEditorLite) {
+            	skoseditorliteController.loadOntology();
+            }
+        });
 		
 	}
+
+
 
 }
