@@ -4,8 +4,9 @@
     <uri id="Imports Wizard Entry" name="http://www.w3.org/2004/02/skos/core" uri="skos.rdf"/>
     <uri id="User Entered Import Resolution" name="http://www.w3.org/2004/02/skos/core" uri="skostest01.ttl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1415470433341" name="http://www.semanticweb.org/rasheed/ontologies/2014/4/untitled-ontology-26" uri="camera.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1415470433341" name="http://www.w3.org/2004/02/skos/core" uri="skos.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1415470433341" name="http://www.w3.org/2008/05/skos-xl" uri="skos-xl.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1415900912159" name="http://www.semanticweb.org/rasheed/ontologies/2014/4/untitled-ontology-26" uri="camera.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1415900912159" name="http://www.w3.org/2004/02/skos/core" uri="skos.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1415900912159" name="duplicate:http://www.w3.org/2008/05/skos-xl" uri="skos-xl.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1415900912159" name="duplicate:http://www.w3.org/2008/05/skos-xl" uri="test1.rdf"/>
     </group>
 </catalog>

@@ -60,8 +60,8 @@ public class Main extends Application {
 	{
 		try {
 			FusekiModel.startStopFuseki();
-			MenuController.importOnthologyFile("./fuseki/Data/skostest01.ttl");
-			MenuController.importOnthologyFile("./fuseki/Data/dani-ont2.ttl");
+			MenuController.importOnthologyFile("./fuseki/Data/skostest03.ttl");
+			//MenuController.importOnthologyFile("./fuseki/Data/dani-ont2.ttl");
 		} catch (NoDatasetGraphException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

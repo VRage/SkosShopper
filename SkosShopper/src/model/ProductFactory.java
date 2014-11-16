@@ -23,6 +23,7 @@ public class ProductFactory {
 	public static final Logger log = Logger.getLogger(ProductFactory.class);
 	private static boolean firstLoaded;
 	
+	
 	public static String[] getCreatableProductsAsString()
 	{
 		// Triple is Statement
@@ -70,6 +71,106 @@ public class ProductFactory {
 		
 		return result;
 
+	}
+	
+	
+	public static String[] getConceptSchemeAsStringArray()
+	{
+		log.info("getConceptSchemeAsStringArray() START");
+		
+		Model modelConceptSchemes = ModelFacade.getModelOfConceptSchemes(ModelFacade.getAllTriples());
+
+		Model modelConceptSchemesLabels = ModelFacade.getLabelsByConceptScheme(ModelFacade.getAllTriples(), modelConceptSchemes);
+		ModelFacade.printModel(modelConceptSchemesLabels, "ProductFactory().getConceptSchemeAsStringArray()#1");					// 32
+		
+		Model modelLabelLiterals = ModelFacade.getLiteralOfPrefLabel(modelConceptSchemesLabels);		// 40
+		ModelFacade.printModel(modelLabelLiterals, "ProductFactory().getConceptSchemeAsStringArray()#2");
+		
+		String[] result = splitLiteral(modelLabelLiterals);
+		
+		if(result != null)
+			log.info("ConceptScheme[0] Name: "+result[0]);
+		else
+			log.info("ConceptScheme[] = null");
+		
+		
+		log.info("getConceptSchemeAsStringArray END");
+		
+		return result;
+	}
+	
+	
+	public static String[] getConceptsOfConceptScheme(String scheme)
+	{
+		Model modelConcepts = ModelFacade.getConceptsOfConceptScheme(scheme);
+		ModelFacade.printModel(modelConcepts, "getConceptsOfConceptScheme");
+		
+		
+		Model modelConceptLabels = ModelFacade.getLabelsByConcept(modelConcepts);
+		
+		Model modelLabelLiterals = ModelFacade.getLiteralOfPrefLabel(modelConceptLabels);
+		
+		ModelFacade.printModel(modelLabelLiterals, "getConceptsOfConceptScheme() -> modelLabelLiterals");
+		
+		StmtIterator litIt = modelLabelLiterals.listStatements();
+		
+		final Set<String> productNames = new HashSet<String>();
+		
+		while(litIt.hasNext())
+		{
+			Statement productName = litIt.nextStatement();
+			productNames.add(StringUtils.substringBefore(productName.getObject().toString(), "^^"));
+		}
+		
+		String[] result = productNames.toArray(new String[productNames.size()]);
+		Arrays.sort(result);
+		
+		return result;
+	}
+	
+	
+	public static String[] getConceptURIsOfConceptScheme(String scheme)
+	{
+		Model modelConcepts = ModelFacade.getConceptsOfConceptScheme(scheme);
+			
+		StmtIterator conIte = modelConcepts.listStatements();
+		
+		final Set<String> labelURIs = new HashSet<String>();
+		
+		while(conIte.hasNext())
+		{
+			Statement labelName = conIte.nextStatement();
+			labelURIs.add(labelName.getSubject().toString());
+		}
+		
+		String[] result = labelURIs.toArray(new String[labelURIs.size()]);
+		Arrays.sort(result);
+		
+		return result;
+	}
+	
+	
+	
+	public static String[] splitLiteral(Model model)
+	{
+		String[] result;
+		
+		StmtIterator stmti = model.listStatements();
+		
+		Set<String> resultSet = new HashSet<String>();
+		
+		while(stmti.hasNext())
+		{
+			Statement stmt = stmti.nextStatement();
+			
+			if(stmt.getObject().toString().contains("^^"));
+			resultSet.add(StringUtils.substringBefore(stmt.getObject().toString(), "^^"));
+		}
+		
+		result = resultSet.toArray(new String[resultSet.size()]);
+		Arrays.sort(result);
+		
+		return result;
 	}
 	
 	

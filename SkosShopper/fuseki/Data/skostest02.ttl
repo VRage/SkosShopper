@@ -1,4 +1,4 @@
-##### @prefix : <http://www.semanticweb.org/owl/owlapi/turtle#> .
+@prefix : <http://www.semanticweb.org/owl/owlapi/turtle#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -10,24 +10,21 @@
 @prefix mardj: <http://rdf.getting-started.net/ontology/> .
 @prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-##### @base <http://www.w3.org/2004/02/skos/core> .
 @base <http://rdf.getting-started.net/ontology/> .
 
-											   
-												   
-<http://rdf.getting-started.net/ontology/>	rdf:type	owl:Ontology ;
-											
-											dct:creator "Daniel Lung" ;
-											
-											dct:description "SKOS using test Ontology for testing a software"@en ;
-											
-											dct:contributor "Arkadius Pawlak" ,
-															"Jakob Nisin" ,
-															"Matthias Wildberg" ,
-															"Resit Dilek" ;
-															
-											dct:title "MARDJ Vocabulary"@en .
-
+<http://rdf.getting-started.net/ontology/> rdf:type owl:Ontology ;
+                                           
+                                           dct:contributor "Matthias Wildberg" ,
+                                                           "Arkadius Pawlak" ,
+                                                           "Jakob Nisin" ;
+                                           
+                                           dct:creator "Daniel Lung" ;
+                                           
+                                           dct:title "MARDJ Vocabulary"@en ;
+                                           
+                                           dct:contributor "Resit Dilek" ;
+                                           
+                                           dct:description "SKOS using test Ontology for testing a software"@en .
 
 
 #################################################################
@@ -721,7 +718,9 @@ mardj:Camera rdf:type owl:NamedIndividual ,
              
              skosxl:prefLabel mardj:CameraLabel ;
              
-             skos:inScheme mardj:Products .
+             skos:inScheme mardj:Products ;
+             
+             skos:narrower mardj:ReflexCamera .
 
 
 
@@ -768,11 +767,15 @@ mardj:MacroObjectivePrefLabel rdf:type owl:NamedIndividual ,
 mardj:Objective rdf:type owl:NamedIndividual ,
                          skos:Concept ;
                 
+                skos:narrower mardj:MacroObjective ;
+                
                 skosxl:altLabel mardj:ObjectiveAltLabel ;
                 
                 skosxl:prefLabel mardj:ObjectiveLabel ;
                 
-                skos:inScheme mardj:Products .
+                skos:inScheme mardj:Products ;
+                
+                skos:narrower mardj:TeleObjective .
 
 
 
@@ -791,6 +794,24 @@ mardj:ObjectiveLabel rdf:type owl:NamedIndividual ,
                               skosxl:Label ;
                      
                      skosxl:literalForm "Objective"^^xsd:string .
+
+
+
+###  http://rdf.getting-started.net/ontology/Products
+
+mardj:Products rdf:type owl:NamedIndividual ,
+                        skos:ConceptScheme ;
+               
+               skosxl:prefLabel mardj:ProductsPrefLabel .
+
+
+
+###  http://rdf.getting-started.net/ontology/ProductsPrefLabel
+
+mardj:ProductsPrefLabel rdf:type owl:NamedIndividual ,
+                                 skosxl:Label ;
+                        
+                        skosxl:literalForm "Products"^^xsd:string .
 
 
 
@@ -830,9 +851,9 @@ mardj:ReflexCameraLabel rdf:type owl:NamedIndividual ,
 mardj:Suitcase rdf:type owl:NamedIndividual ,
                         skos:Concept ;
                
-               skosxl:prefLabel mardj:SuitcaseLabel ;
+               skos:inScheme mardj:Products ;
                
-               skos:inScheme mardj:Products .
+               skosxl:prefLabel mardj:SuitcaseLabel .
 
 
 
@@ -870,9 +891,9 @@ mardj:TeleObjectivePrefLabel rdf:type owl:NamedIndividual ,
 mardj:Tripod rdf:type owl:NamedIndividual ,
                       skos:Concept ;
              
-             skosxl:prefLabel mardj:TripodLabel ;
+             skos:inScheme mardj:Products ;
              
-             skos:inScheme mardj:Products .
+             skosxl:prefLabel mardj:TripodLabel .
 
 
 
@@ -882,24 +903,6 @@ mardj:TripodLabel rdf:type owl:NamedIndividual ,
                            skosxl:Label ;
                   
                   skosxl:literalForm "Tripod"^^xsd:string .
-
-
-
-###  http://rdf.getting-started.net/ontology/Products
-
-mardj:Products rdf:type owl:NamedIndividual ,
-                       skos:ConceptScheme ;
-              
-              skosxl:prefLabel mardj:ProductsPrefLabel .
-
-
-
-###  http://rdf.getting-started.net/ontology/ProductsPrefLabel
-
-mardj:ProductsPrefLabel rdf:type owl:NamedIndividual ,
-                                skosxl:Label ;
-                       
-                       skosxl:literalForm "Products"^^xsd:string .
 
 
 

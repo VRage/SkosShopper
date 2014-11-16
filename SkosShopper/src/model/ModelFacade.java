@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import com.hp.hpl.jena.graph.Graph;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
@@ -22,11 +23,38 @@ import exceptions.fuseki_exceptions.NoDatasetAccessorException;
 
 public class ModelFacade {
 	
+	/*
+	 * 	
+	 * Triple is Statement
+	 * Object is RDFNode
+	 * Predicate is Property
+	 * Subject is Resource
+	 *
+	 * from concept to label
+	 *
+	 *	skos/core#Concept | rdf-syntax-ns#type | skos/core#Bag
+	 *	
+	 *	skos/core#BagLabel | un#prefLabel | skos/core#Bag
+	 *	
+	 *	Bag^^http...XMLSchema#string | un#literalForm | core#BagLabel
+	 * 
+	 */
+	
+	// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = VARIABLES
+	
+	
 	public static final Logger log = Logger.getLogger(ModelFacade.class);
+	
+	
+	
+	// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = GENERAL METHODS
+	
 	
 	public static Model getAllTriples()
 	{
-		log.info("getAllTriples() START");
+		boolean logging = false;
+		
+		if(logging) log.info("getAllTriples() START");
 		String s;
 		
 		GraphLoadUtils glu = new GraphLoadUtils();
@@ -35,24 +63,57 @@ public class ModelFacade {
 		try {
 			model = FusekiModel.getDatasetAccessor().getModel();
 			Graph graph = model.getGraph();
-			log.info("getAllTriples() END");
+			if(logging) log.info("getAllTriples() END");
 			return model;
 		} catch (NoDatasetAccessorException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			log.info("getAllTriples() END");
+			if(logging) log.info("getAllTriples() END");
 			return null;
 		}
 
 	}
 	
 	
+	
+	// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = CONCEPT METHODS
+	
+	public static Model getConceptsOfConceptScheme(String scheme)
+	{
+		Model resultModel = ModelFactory.createDefaultModel();
+		
+		Model allModel = getAllTriples();
+		
+		StmtIterator stmti = allModel.listStatements();
+		
+		while(stmti.hasNext())
+		{
+			Statement stmt = stmti.nextStatement();
+			
+			//log.info("----------");			
+			//log.info("check: "+stmt.getSubject().toString()+", "+stmt.getPredicate().toString()+", "+stmt.getObject().toString());
+			
+			if(stmt.getObject().toString().contains(scheme)) {
+				//log.info(">>> MATCH WITH "+scheme);
+				//log.info(">>> Predicate: "+stmt.getPredicate().toString());
+				//log.info(">>> Object:    "+stmt.getObject().toString());
+				
+				if(stmt.getPredicate().toString().contains("inScheme"))
+					resultModel.add(stmt);
+
+			} else {
+				//log.info("NO MATCH WITH "+scheme);
+			}
+		}
+		
+		return resultModel;
+	}
+	
 	public static String[] getPrefLablesOfSkosConcepts()
 	{
-		
-		
 		return null;
 	}
+	
 	
 	
 	public static Model getTriplesBySkosConcept(Model model)
@@ -89,6 +150,7 @@ public class ModelFacade {
 	}
 	
 	
+	
 	public static Set<String> getSkosConceptURIs()
 	{
 		log.info("getSkosConceptURIs() START");
@@ -109,6 +171,14 @@ public class ModelFacade {
 		log.info("getSkosConceptURIs() END");
 		return uris;
 	}
+	
+	
+	
+	public static Model getLabelsByConcept(Model modelSkosConcepts)
+	{
+		return getLabelsByConcept(getAllTriples(), modelSkosConcepts);
+	}
+	
 	
 	
 	public static Model getLabelsByConcept(Model modelAllTriples, Model modelSkosConcepts)
@@ -140,26 +210,53 @@ public class ModelFacade {
 		log.info("getLabelsByConcept() END");
 		return result;
 	}
-	
-	// Triple is Statement
-	// Object is RDFNode
-	// Predicate is Property
-	// Subject is Resource
-	
-	/* from concept to label
 
-	 	skos/core#Concept | rdf-syntax-ns#type | skos/core#Bag
-	 	
-	 	skos/core#BagLabel | un#prefLabel | skos/core#Bag
-	 	
-	 	Bag^^http...XMLSchema#string | un#literalForm | core#BagLabel
-	 */
+	
+	
+	// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = CONCEPT SCHEME METHODS
 	
 	
 	
-	public static Model getLiteralOfPrefLabel(Model modelConceptLabels, Model modelAllTriples)
+	public static Model getModelOfConceptSchemes(Model model)
 	{
-		log.info("getLiteralOfPrefLabel() START");
+		log.info("getModelOfConceptSchemes() START");
+		//final Set<Statement> foundTriples = new HashSet<Statement>();
+		Model resultModel = ModelFactory.createDefaultModel();
+		
+		
+		StmtIterator stmti = model.listStatements();
+
+		// get all Triples (Statements) which are a skos:concept
+		while(stmti.hasNext())
+		{
+			Statement stmt = stmti.nextStatement();
+			
+			RDFNode o = stmt.getObject();
+
+			if(o.toString().contains("skos/core#ConceptScheme"))
+			{
+				if(stmt.getPredicate().toString().contains("#type"))
+				{
+					//objects.add(stmt.getSubject().toString().substring(stmt.getSubject().toString().lastIndexOf("#")+1));
+					resultModel.add(stmt);
+					log.info("getModelOfConceptSchemes() found skos#concept: "+stmt.getSubject().toString());
+					
+				}
+			}
+
+		}
+		
+		printModel(resultModel, "ModelFacade.getModelOfConceptSchemes()");
+		
+		log.info("getModelOfConceptSchemes() END");
+		return resultModel;
+	}
+	
+	
+	
+	public static Model getLabelsByConceptScheme(Model modelAllTriples, Model modelSkosConceptSchemes)
+	{
+		log.info("getLabelsByConcept() START");
 		
 		Model result = ModelFactory.createDefaultModel();
 		
@@ -167,15 +264,15 @@ public class ModelFacade {
 		
 		while(allIt.hasNext())
 		{
-			StmtIterator prefIt = modelConceptLabels.listStatements();
+			StmtIterator concIt = modelSkosConceptSchemes.listStatements();
 			
 			Statement allItem = allIt.next();
 			
-			while(prefIt.hasNext())
+			while(concIt.hasNext())
 			{
-				Statement prefItem = prefIt.next();
+				Statement concItem = concIt.next();
 				
-				if(allItem.getSubject().equals(prefItem.getObject()) && allItem.getPredicate().toString().contains("#literalForm"))
+				if(allItem.getSubject().equals(concItem.getSubject()) && allItem.getPredicate().toString().contains("#prefLabel"))
 				{
 					result.add(allItem);
 					log.info("found skos-xl#prefLabel: "+allItem.getObject().toString());
@@ -183,137 +280,146 @@ public class ModelFacade {
 			}
 		}
 		
+		log.info("getLabelsByConcept() END");
+		return result;
+	}
+	
+	
+	
+	// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = LABEL METHODS
+	
+	
+	
+	public static Model getLiteralOfPrefLabel(Model modelConceptLabels)
+	{
+		return getLiteralOfPrefLabel(getAllTriples(), modelConceptLabels);
+	}
+	
+	
+	public static Model getLiteralOfPrefLabel(Model modelAllTriples, Model modelConceptLabels)
+	{
+		log.info("getLiteralOfPrefLabel() START");
+		log.info("getLiteralOfPrefLabel() Print Model to check:");
+		//printModel(modelConceptLabels, "ModelFacade.getLiteralOfPrefLabel() --- ");
+		
+		Model result = ModelFactory.createDefaultModel();
+		
+		StmtIterator allIt = modelAllTriples.listStatements();
+		
+		while(allIt.hasNext())
+		{
+			Statement allItem = allIt.next();
+			
+			StmtIterator prefIt = modelConceptLabels.listStatements();
+			
+			while(prefIt.hasNext())
+			{
+				Statement prefItem = prefIt.next();
+				
+				//log.info(">>> "+allItem.getSubject().toString()+" ?> "+prefItem.getObject().toString());
+				
+				if(allItem.getSubject().toString().equals(prefItem.getObject().toString()))
+				{
+					//log.info("-------> MATCH");
+					//log.info("-------> Predicate: "+allItem.getPredicate().toString());
+					
+					if(allItem.getPredicate().toString().contains("#literalForm"))
+					{
+						//log.info("--------------> MATCH");
+						result.add(allItem);
+					}
+				}
+			}
+		}
+		
 		log.info("getLiteralOfPrefLabel() END");
 		return result;
 	}
+		
 	
-	// Buggy
-	/*
-	public static Model getObjectByPredicateAndSubject(String predicate, String subject, Model fromModel)
+	
+	// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = OTHER METHODS
+	
+	
+	
+	public static boolean hasNarrower(String uri)
 	{
-		Model resultTemp = ModelFactory.createDefaultModel();
-		Model result = ModelFactory.createDefaultModel();
+		boolean logging = false;
 		
-		StmtIterator modelStartIter = fromModel.listStatements();
+		if(logging) log.info("=====> "+uri);
 		
-		while(modelStartIter.hasNext())
-		{
-			Statement s1 = modelStartIter.nextStatement();
-			
-			if(s1.getPredicate().equals(predicate))
-			{
-				resultTemp.add(s1);
-			}
-		}
+		Model model = getNarrowerModel(uri);
+		boolean result = false;
 		
-		StmtIterator modelTempIter = resultTemp.listStatements();
+		if(model.size() > 0)
+			return true;
+		else
+			return false;
 		
-		while(modelTempIter.hasNext())
-		{
-			Statement s2 = modelTempIter.nextStatement();
-			
-			if(s2.getSubject().equals(subject))
-			{
-				result.add(s2);
-			}
-		}
-		
-		return result;
 	}
 	
 	
-	//public static Model getMod abc
-	
-	
-	public static Model getModelByPredicateAndOther(String pre, String other, Model fromModel, int mode)
+	public static Model getNarrowerModel(String uri)
 	{
-		Model resultTemp = ModelFactory.createDefaultModel();
-		Model result = ModelFactory.createDefaultModel();
+		boolean logging = false;
+		Model resultModel = ModelFactory.createDefaultModel();
 		
-		StmtIterator modelStartIter = fromModel.listStatements();
+		StmtIterator stmti = ModelFacade.getAllTriples().listStatements();
 		
-		while(modelStartIter.hasNext())
+		if(logging) log.info("getNarrowerModel() - Looking for skos:narrower Match with "+uri);
+		
+		while(stmti.hasNext())
 		{
-			Statement s1 = modelStartIter.nextStatement();
+			Statement stmt = stmti.nextStatement();
 			
-			if(mode == 0)
+			if(logging) log.info("getNarrowerModel() - Predicate:"+stmt.getPredicate().toString());
+			
+			if(stmt.getPredicate().toString().contains("#narrower"))
 			{
-				if(s1.getPredicate().equals(pre))
-				{
-					resultTemp.add(s1);
-				}
+				if(logging) log.info("getNarrowerModel() -------> contains #narrower");
 				
-			} else if(mode == 1){
+				if(logging) log.info("getNarrowerModel() -------> Subject: "+stmt.getSubject().toString());
 				
-				if(s1.getPredicate().toString().contains(pre));
+				if(stmt.getSubject().toString().contains(uri))
 				{
-					resultTemp.add(s1);
-					log.info("(1)FIND-PRE > "+s1.getPredicate().toString()+" ---CONTAINS STRING--> "+pre);
-				}
-			} else if(mode == 2) {
-				if(s1.getPredicate().toString().endsWith(pre));
-				{
-					resultTemp.add(s1);
-					log.info("(1)FIND-PRE > "+s1.getPredicate().toString()+" ---ENDS WITH--> "+pre);
+					if(logging) log.info("getNarrowerModel() --------------> MATCH WITH "+uri);
+					if(logging) log.info("getNarrowerModel() -------------------> FOUND "+stmt.getObject().toString());
+					
+					resultModel.add(stmt);
 				}
 			}
 		}
 		
-		StmtIterator modelTempIter = resultTemp.listStatements();
+		if(logging) printModel(resultModel, "ModelFacade.getNarrowerModel()");
 		
-		while(modelTempIter.hasNext())
-		{
-			Statement s2 = modelTempIter.nextStatement();
-			
-			if(mode == 0)
-			{
-				
-				if(s2.getObject().equals(other) || s2.getSubject().equals(other))
-				{
-					result.add(s2);
-				}
-				
-			} else if(mode == 1){
-				
-				if(s2.getSubject().toString().contains(other) || s2.getObject().toString().contains(other))
-				{
-					result.add(s2);
-					log.info("(1)FIND-SUB > "+s2.getSubject().toString()+" ---CONTAINS STRING--> "+other);
-				}
-				
-			} else if(mode == 2) {
-				
-				if(s2.getSubject().toString().endsWith(other))
-				{
-					result.add(s2);
-					log.info("(1)FIND-SUB > "+s2.getSubject().toString()+" ---ENDS WITH--> "+other);
-				}
-				
-				if(s2.getObject().toString().endsWith(other))
-				{
-					result.add(s2);
-					log.info("(1)FIND-OBJ > "+s2.getObject().toString()+" ---ENDS WITH--> "+other);
-				}
-				
-			}
+		return resultModel;
+	}
+	
 
-		}
+	
+	public static void printModel(Model model, String identifier)
+	{
+		StmtIterator stmti = model.listStatements();
 		
-		log.info("----testoutput for fond getModelByPredicateAndOther("+pre+", "+other+")");
+		log.info(identifier+" PRINT MODEL >>>");
+		int i = 0;
 		
-		StmtIterator finalIt = result.listStatements();
-		
-		while(finalIt.hasNext())
+		while(stmti.hasNext())
 		{
-			Statement stmt = finalIt.nextStatement();
-			log.info("Statement: "+stmt);
-		}
+			Statement stmt = stmti.nextStatement();
 			
+			log.info("#"+i+"\t\t"+stmt.getSubject());
+			log.info("#"+i+"\t\t"+stmt.getPredicate());
+			log.info("#"+i+"\t\t"+stmt.getObject());
+			log.info("---");
+			
+			i++;
+		}
 		
-		
-		return result;
+		log.info(identifier+" PRINT MODEL <<<");
 	}
-	*/
+	
+	
 
 
 }
