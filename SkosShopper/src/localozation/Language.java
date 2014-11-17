@@ -41,5 +41,16 @@ public abstract class Language {
 	public static String tabProductCreate;
 	public static String tabSKOSEditorLite;
 	public static String tabSKOSOntology;
+	
+	/**ClasssesCreate.fxml Items **/
+	public static String checkboxClassesCreateFunctional;
+	public static String checkboxClassesCreateSymetric;
+	public static String checkboxClassesCreateReflexive;
+	public static String checkboxClassesCreateTransitive;
+	public static String checkboxClassesCreateInverseFunctional;
+	public static String checkboxClassesCreateAsymetric;
+	public static String checkboxClassesCreateIrreflexive;
+	public static String buttonClassesCreateResetFields;
+	public static String buttonClassesCreateSave;
 
 }

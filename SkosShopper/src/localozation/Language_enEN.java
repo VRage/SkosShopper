@@ -5,6 +5,7 @@ public class Language_enEN extends Language{
 		initMenuItems();
 		initOverviewItems();
 		initMaintems();
+		initClassesCreateItems();
 	}
 	
 	private void initMenuItems(){
@@ -45,5 +46,17 @@ public class Language_enEN extends Language{
 		tabProductCreate="Create Product";
 		tabSKOSEditorLite="SKOS Editor Lite";
 		tabSKOSOntology="SKOS Editor";
+	}
+	
+	private void initClassesCreateItems(){
+		checkboxClassesCreateFunctional="Functional";
+		checkboxClassesCreateSymetric="Symetric";
+		checkboxClassesCreateReflexive="Reflexive";
+		checkboxClassesCreateTransitive="Transitive";
+		checkboxClassesCreateInverseFunctional="Inverse Functional";
+		checkboxClassesCreateAsymetric="Asymetric";
+		checkboxClassesCreateIrreflexive="Irreflexive";
+		buttonClassesCreateResetFields="Reset Fields";
+		buttonClassesCreateSave="Save";
 	}
 }

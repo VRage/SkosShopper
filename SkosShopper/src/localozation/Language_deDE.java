@@ -5,6 +5,7 @@ public class Language_deDE extends Language{
 		initMenuItems();
 		initOverviewItems();
 		initMaintems();
+		initClassesCreateItems();
 	}
 	
 	private void initMenuItems(){
@@ -45,5 +46,17 @@ public class Language_deDE extends Language{
 		tabProductCreate="Produkte Erstellen";
 		tabSKOSEditorLite="SKOS Editor Lite";
 		tabSKOSOntology="SKOS Editor";
+	}
+	
+	private void initClassesCreateItems(){
+		checkboxClassesCreateFunctional="Funktional";
+		checkboxClassesCreateSymetric="Symmetrisch";
+		checkboxClassesCreateReflexive="Reflexiv";
+		checkboxClassesCreateTransitive="Transitiv";
+		checkboxClassesCreateInverseFunctional="Invers Funktional";
+		checkboxClassesCreateAsymetric="Asymmetrisch";
+		checkboxClassesCreateIrreflexive="Irreflexiv";
+		buttonClassesCreateResetFields="Felder zurücksetzen";
+		buttonClassesCreateSave="Speichern";
 	}
 }

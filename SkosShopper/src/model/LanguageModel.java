@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.Checkbox;
 import java.util.Iterator;
 
 import javafx.collections.ObservableList;
@@ -61,6 +62,22 @@ public class LanguageModel {
 
 		setButtonTextWithRightAllignment("#checkServer", selectedLanguage.checkServer);
 	}
+	
+//	private static void updateClassesCreateItems(){
+//		TabPane pane = (TabPane)Main.scene.lookup("#mainTabPane");
+//		ObservableList<Tab> tabs= pane.getTabs();
+//		Tab classesCreateTab = null;
+//		String classesCreateTabID = "";
+//		checkboxClassesCreateFunctional
+//		checkboxClassesCreateSymetric
+//		checkboxClassesCreateReflexive
+//		checkboxClassesCreateTransitive
+//		checkboxClassesCreateInverseFunctional
+//		checkboxClassesCreateAsymetric
+//		checkboxClassesCreateIrreflexive
+//		buttonClassesCreateResetFields
+//		buttonClassesCreateSave
+//	}
 	
 	private static void updateMainviewItems(){
 		TabPane pane = (TabPane) Main.scene.lookup("#mainTabPane");
@@ -126,6 +143,10 @@ public class LanguageModel {
 		}
 		else
 			System.out.println("Label: '" + id + "' not found");
+	}
+	
+	private static void setCheckBoxText(String id, String text){
+		//not implemendet yet
 	}
 	
 	private static void setLabelTextWithRightAllignment(String id, String text){

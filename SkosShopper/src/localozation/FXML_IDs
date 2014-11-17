@@ -29,6 +29,11 @@ labelStartedFuseki
 #startStopFuseki must be updated depending on the status!!!
 startStopFuseki
 checkServer	
+
+labelOverviewServerDataInfo
+labelOverviewAmountCustomClasses
+labelOverviewAmountIndividuals
+btnHome
 #####################################################
 Main.fxml
 -----------------------------------------------------
@@ -40,3 +45,16 @@ tabProductsShow
 tabProductsCreate
 tabSKOSEditorLite
 tabSKOSOntology
+######################################################
+ClassesCreate.fxml
+------------------------------------------------------
+checkboxClassesCreateFunctional
+checkboxClassesCreateSymetric
+checkboxClassesCreateReflexive
+checkboxClassesCreateTransitive
+checkboxClassesCreateInverseFunctional
+checkboxClassesCreateAsymetric
+checkboxClassesCreateIrreflexive
+buttonClassesCreateResetFields
+buttonClassesCreateSave
+
