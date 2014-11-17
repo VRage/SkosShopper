@@ -61,6 +61,12 @@ public class LanguageModel {
 		setLabelTextWithRightAllignment("#labelStartedFuseki", selectedLanguage.labelStartedFuseki);
 
 		setButtonTextWithRightAllignment("#checkServer", selectedLanguage.checkServer);
+		
+		setLabelText("#labelOverviewServerDataInfo", selectedLanguage.labelOverviewServerDataInfo);
+		setLabelText("#labelOverviewAmountCustomClasses", selectedLanguage.labelOverviewAmountCustomClasses);
+		setLabelText("#labelOverviewAmountIndividuals", selectedLanguage.labelOverviewAmountIndividuals);
+		
+		setButtonText("#btnHome", selectedLanguage.btnHome);
 	}
 	
 //	private static void updateClassesCreateItems(){

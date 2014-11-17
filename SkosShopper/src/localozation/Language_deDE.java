@@ -35,6 +35,11 @@ public class Language_deDE extends Language{
 		startStopFusekiStarted="Start";
 		startStopFusekiStoped="Stop";
 		checkServer="Überprüfe Server";
+		
+		labelOverviewServerDataInfo="Serverdaten Info";
+		labelOverviewAmountCustomClasses="Anzahl eigener Klassen";
+		labelOverviewAmountIndividuals="Anzahl Individuen";
+		btnHome="Fuseki Startseite";
 	}
 	
 	private void initMaintems(){

@@ -26,6 +26,11 @@ public abstract class Language {
 	public static String labelStatusFuseki;
 	public static String labelVersion;
 	public static String labelStartedFuseki;
+	
+	public static String labelOverviewServerDataInfo;
+	public static String labelOverviewAmountCustomClasses;
+	public static String labelOverviewAmountIndividuals;
+	public static String btnHome;
 
 	//Buttons with corrupt label
 	public static String startStopFusekiStarted;

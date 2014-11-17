@@ -35,6 +35,11 @@ public class Language_enEN extends Language{
 		startStopFusekiStarted="Start";
 		startStopFusekiStoped="Stop";
 		checkServer="Check Server";
+		
+		labelOverviewServerDataInfo="Serverdata Info";
+		labelOverviewAmountCustomClasses="Amount Custom Classes";
+		labelOverviewAmountIndividuals="Amount Individuals";
+		btnHome="Fuseki Home";
 	}
 	
 	private void initMaintems(){
