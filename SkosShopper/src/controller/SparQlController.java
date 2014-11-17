@@ -1,6 +1,8 @@
 package controller;
 
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -10,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import model.FusekiModel;
+import model.ModelFacadeTEST;
 
 
 public class SparQlController implements Initializable{
@@ -23,7 +26,10 @@ public class SparQlController implements Initializable{
 	}
 	@FXML private void buttonSendQuery(MouseEvent Event) {
 		// TODO Auto-generated method stub
+	
 		if(txtAreaQuery.getText()!= null)
-			txtAreaResult.setText(FusekiModel.sendSparQLQuery(txtAreaQuery.getText()));
+			
+			ModelFacadeTEST.getAktModel().write(System.out,"RDF/XML");
+			//txtAreaResult.setText(FusekiModel.sendSparQLQuery(txtAreaQuery.getText()));
 	}
 }
