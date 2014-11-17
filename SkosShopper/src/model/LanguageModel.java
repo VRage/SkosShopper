@@ -1,6 +1,5 @@
 package model;
 
-import java.awt.Checkbox;
 import java.util.Iterator;
 
 import javafx.collections.ObservableList;
@@ -8,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import localozation.Language;
 import localozation.Language_deDE;
 import localozation.Language_enEN;
@@ -51,6 +52,7 @@ public class LanguageModel {
 	private static void updateView(){
 		updateOverviewItems();
 		updateMainviewItems();
+		updateTriplesShowItems();
 	}
 	
 	private static void updateOverviewItems(){
@@ -84,6 +86,31 @@ public class LanguageModel {
 //		buttonClassesCreateResetFields
 //		buttonClassesCreateSave
 //	}
+	
+	private static void updateTriplesShowItems(){
+		setButtonText("loadTriplesFromServerBtn", selectedLanguage.loadTriplesFromServerBtn);
+		
+		TableView tc = (TableView) Main.scene.lookup("#tableTriples");
+		ObservableList<TableView> columns = tc.getColumns();
+		Iterator i = columns.iterator();
+		while(i.hasNext()){
+			TableColumn next = (TableColumn) i.next();
+			if(next.getId() != null){
+				System.out.println(next.getId());
+				if(next.getId().equals("object"))
+					next.setText(selectedLanguage.object);
+				if(next.getId().equals("subject"))
+					next.setText(selectedLanguage.subject);
+				if(next.getId().equals("predicate"))
+					next.setText(selectedLanguage.predicate);
+			}
+		
+		}
+//		object
+//		predicate
+//		subject
+		//tableTriples
+	}
 	
 	private static void updateMainviewItems(){
 		TabPane pane = (TabPane) Main.scene.lookup("#mainTabPane");

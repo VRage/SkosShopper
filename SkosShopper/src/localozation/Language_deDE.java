@@ -64,4 +64,13 @@ public class Language_deDE extends Language{
 		buttonClassesCreateResetFields="Felder zurücksetzen";
 		buttonClassesCreateSave="Speichern";
 	}
+	
+	private void initTriplesShowItems(){
+		
+	loadTriplesFromServerBtn="Lade Tripel vom Server";
+	object="Objekt";
+	predicate="Prädikat";
+	subject="Subjekt";
+	//tableTriples
+	}
 }

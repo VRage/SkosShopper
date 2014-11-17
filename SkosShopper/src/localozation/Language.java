@@ -57,5 +57,12 @@ public abstract class Language {
 	public static String checkboxClassesCreateIrreflexive;
 	public static String buttonClassesCreateResetFields;
 	public static String buttonClassesCreateSave;
+	
+	/** TriplesShow.fxml Items **/
+	public static String loadTriplesFromServerBtn;
+	public static String object;
+	public static String predicate;
+	public static String subject;
+	//tableTriples
 
 }

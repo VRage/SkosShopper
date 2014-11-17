@@ -57,4 +57,11 @@ checkboxClassesCreateAsymetric
 checkboxClassesCreateIrreflexive
 buttonClassesCreateResetFields
 buttonClassesCreateSave
-
+######################################################
+TriplesShow.fxml
+------------------------------------------------------
+loadTriplesFromServerBtn
+object
+predicate
+subject
+//tableTriples

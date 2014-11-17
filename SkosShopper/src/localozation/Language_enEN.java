@@ -6,6 +6,7 @@ public class Language_enEN extends Language{
 		initOverviewItems();
 		initMaintems();
 		initClassesCreateItems();
+		initTriplesShowItems();
 	}
 	
 	private void initMenuItems(){
@@ -63,5 +64,14 @@ public class Language_enEN extends Language{
 		checkboxClassesCreateIrreflexive="Irreflexive";
 		buttonClassesCreateResetFields="Reset Fields";
 		buttonClassesCreateSave="Save";
+	}
+	
+	private void initTriplesShowItems(){
+	
+	loadTriplesFromServerBtn="Load Triples from Server";
+	object="Object";
+	predicate="Predicate";
+	subject="Subject";
+	//tableTriples
 	}
 }
