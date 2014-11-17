@@ -40,9 +40,9 @@ public class Language_enEN extends Language{
 		tabOverview="Overview";
 		tabTriplesShow="Triples";
 		tabSPARQLQuery="SparQL Query";
-		tabProductsCategories="Product Categories";
+		tabProductCategoriesSettings="Product Categories";
 		tabProductsShow="Products";
-		tabProductsCreate="Create Product";
+		tabProductCreate="Create Product";
 		tabSKOSEditorLite="SKOS Editor Lite";
 		tabSKOSOntology="SKOS Editor";
 	}

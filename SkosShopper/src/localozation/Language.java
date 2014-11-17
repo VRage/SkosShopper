@@ -36,9 +36,9 @@ public abstract class Language {
 	public static String tabOverview;
 	public static String tabTriplesShow;
 	public static String tabSPARQLQuery;
-	public static String tabProductsCategories;
+	public static String tabProductCategoriesSettings;
 	public static String tabProductsShow;
-	public static String tabProductsCreate;
+	public static String tabProductCreate;
 	public static String tabSKOSEditorLite;
 	public static String tabSKOSOntology;
 

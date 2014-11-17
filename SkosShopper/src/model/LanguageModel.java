@@ -81,14 +81,14 @@ public class LanguageModel {
 				if(id.equals("tabSPARQLQuery"))
 					tab.setText(selectedLanguage.tabSPARQLQuery);
 				
-				if(id.equals("tabProductsCategories"))
-					tab.setText(selectedLanguage.tabProductsCategories);
+				if(id.equals("tabProductCategoriesSettings"))
+					tab.setText(selectedLanguage.tabProductCategoriesSettings);
 				
 				if(id.equals("tabProductsShow"))
 					tab.setText(selectedLanguage.tabProductsShow);
 				
-				if(id.equals("tabProductsCreate"))
-					tab.setText(selectedLanguage.tabProductsCreate);
+				if(id.equals("tabProductCreate"))
+					tab.setText(selectedLanguage.tabProductCreate);
 				
 				if(id.equals("tabSKOSEditorLite"))
 					tab.setText(selectedLanguage.tabSKOSEditorLite);

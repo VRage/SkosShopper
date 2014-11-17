@@ -40,9 +40,9 @@ public class Language_deDE extends Language{
 		tabOverview="Übersicht";
 		tabTriplesShow="Tripel";
 		tabSPARQLQuery="SparQL Abfrage";
-		tabProductsCategories="Produkt Kategorien";
+		tabProductCategoriesSettings="Produkt Kategorien";
 		tabProductsShow="Produkte";
-		tabProductsCreate="Produkte Erstellen";
+		tabProductCreate="Produkte Erstellen";
 		tabSKOSEditorLite="SKOS Editor Lite";
 		tabSKOSOntology="SKOS Editor";
 	}
