@@ -6,20 +6,20 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="507.0" prefWidth="784.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SkosEditorController">
+<AnchorPane prefHeight="507.0" prefWidth="911.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SkosEditorController">
    <children>
       <TreeView fx:id="tree_Classes" onMouseClicked="#selectOntClass" prefHeight="146.0" prefWidth="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Label layoutX="155.0" layoutY="14.0" text="ClassURI:" />
       <Label fx:id="label_uri" layoutX="237.0" layoutY="14.0" prefHeight="17.0" prefWidth="358.0" text="adress" AnchorPane.leftAnchor="237.0" AnchorPane.rightAnchor="0.0" />
-      <Button fx:id="btn_addIndi" layoutX="155.0" layoutY="62.0" mnemonicParsing="false" onAction="#addIndi" prefHeight="25.0" prefWidth="108.0" text="add Indivium" />
+      <Button fx:id="btn_addIndi" layoutX="155.0" layoutY="62.0" mnemonicParsing="false" onAction="#addIndi" text="%btnAddIndividual" />
       <ListView fx:id="listview_indi" layoutY="170.0" onMouseClicked="#selectIndividualOfOntClass" prefHeight="129.0" prefWidth="150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="170.0" />
-      <Button fx:id="btn_show" layoutX="426.0" layoutY="61.0" mnemonicParsing="false" onAction="#printToConsole" prefHeight="25.0" prefWidth="120.0" text="save" />
-      <Button fx:id="btn_addLabel" layoutX="290.0" layoutY="61.0" mnemonicParsing="false" onAction="#addLabel" prefHeight="25.0" prefWidth="108.0" text="add Label" />
+      <Button fx:id="btn_show" layoutX="505.0" layoutY="62.0" mnemonicParsing="false" onAction="#printToConsole" text="%btnsave" />
+      <Button fx:id="btn_addLabel" layoutX="329.0" layoutY="62.0" mnemonicParsing="false" onAction="#addLabel" text="%btnAddLabel" />
       <Label fx:id="label_uri2" layoutX="237.0" layoutY="31.0" prefHeight="17.0" prefWidth="358.0" text="Individuals" />
       <Label layoutX="155.0" layoutY="31.0" text="IndividualURI:" />
       <Group fx:id="grp_addProp" layoutX="2.0" layoutY="-63.0">
          <children>
-            <Button fx:id="btn_addProp" layoutX="459.0" layoutY="167.0" mnemonicParsing="false" onAction="#addProp" text="add Property" />
+            <Button fx:id="btn_addProp" layoutX="459.0" layoutY="167.0" mnemonicParsing="false" onAction="#addProp" text="%btnAddProperty" />
             <ChoiceBox fx:id="choicebox_indi" layoutX="309.0" layoutY="167.0" prefWidth="150.0">
                <tooltip>
                   <Tooltip text="Select a Individual for your this property" />
@@ -32,10 +32,10 @@
             </ChoiceBox>
          </children>
       </Group>
-      <Label layoutX="26.0" layoutY="150.0" text="Individual of Class" />
-      <ListView fx:id="listview_objprop" layoutX="611.0" layoutY="56.0" prefHeight="193.0" prefWidth="223.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="561.0" AnchorPane.rightAnchor="0.0" />
-      <ListView fx:id="listview_dataprop" layoutX="611.0" layoutY="59.0" prefHeight="200.0" prefWidth="223.0" AnchorPane.bottomAnchor="248.0" AnchorPane.leftAnchor="561.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="59.0" />
-      <Label layoutX="561.0" layoutY="31.0" text="Object properties of selected Individual" AnchorPane.leftAnchor="561.0" />
-      <Label layoutX="561.0" layoutY="288.0" text="Data properties of selected Individual" AnchorPane.bottomAnchor="202.0" AnchorPane.leftAnchor="561.0" />
+      <Label layoutX="26.0" layoutY="150.0" text="%IndiOfClass" />
+      <ListView fx:id="listview_objprop" layoutX="611.0" layoutY="56.0" prefHeight="193.0" prefWidth="285.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="626.0" AnchorPane.rightAnchor="0.0" />
+      <ListView fx:id="listview_dataprop" layoutX="611.0" layoutY="59.0" prefHeight="200.0" prefWidth="285.0" AnchorPane.bottomAnchor="248.0" AnchorPane.leftAnchor="626.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="59.0" />
+      <Label layoutX="577.0" layoutY="31.0" prefHeight="17.0" prefWidth="285.0" text="%Objectproperties" AnchorPane.leftAnchor="626.0" AnchorPane.rightAnchor="0.0" />
+      <Label layoutX="577.0" layoutY="288.0" text="%Dataproperties" AnchorPane.bottomAnchor="202.0" AnchorPane.leftAnchor="626.0" AnchorPane.rightAnchor="0.0" />
    </children>
 </AnchorPane>

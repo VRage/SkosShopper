@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 import javafx.beans.value.ChangeListener;
@@ -26,7 +27,10 @@ import javafx.scene.input.MouseEvent;
 
 import javax.swing.JOptionPane;
 
+import main.Main;
 import model.FusekiModel;
+import model.ModelFacade;
+import model.ModelFacadeTEST;
 
 import org.apache.log4j.Logger;
 
@@ -84,7 +88,7 @@ public class SkosEditorController implements Initializable {
 			.getLogger(SkosEditorController.class);
 	
 	//Variables for the Ontology Class-Treeview
-	private final TreeItem<String> root = new TreeItem<String>("Classes");
+	private TreeItem<String> root;
 	private ArrayList<OntClass> liste_classes = new ArrayList<OntClass>();
 	
 	//Variables for the ListView, Individuals of a Class
@@ -101,7 +105,7 @@ public class SkosEditorController implements Initializable {
 	
 	//In this class used Ontology Model
 	private OntModel model = ModelFactory
-			.createOntologyModel(OntModelSpec.OWL_DL_MEM);
+			.createOntologyModel( OntModelSpec.OWL_MEM);
 	
 	//Selected OntClass and Individual
 	private static OntClass selectedOntClass;
@@ -112,9 +116,13 @@ public class SkosEditorController implements Initializable {
 	private String baseNS = "";
 	private String skosNS = "";
 	private String skosxlNS = "";
+	
+	//Localized Resource Bundle
+	private ResourceBundle localizedBundle;
 
 	
 	public void initialize(URL location, ResourceBundle resources) {
+		root = new TreeItem<String>(resources.getString("SkosTreeView"));
 
 		btn_addLabel.setDisable(true);
 		grp_addProp.setDisable(true);
@@ -130,7 +138,7 @@ public class SkosEditorController implements Initializable {
 		choicebox_indi.setItems(indis);
 		choicebox_properties.setItems(props);
 		listview_indi.setItems(items);
-
+		localizedBundle = resources;
 	}
 
 	/**
@@ -144,7 +152,7 @@ public class SkosEditorController implements Initializable {
 	@FXML public void selectOntClass(MouseEvent e){
 				TreeItem treeItem = (TreeItem) tree_Classes.getSelectionModel().getSelectedItem();
 		if (treeItem != null) {
-			if (!treeItem.getValue().toString().equals("Classes")) {
+			if (!treeItem.getValue().toString().equals(localizedBundle.getString("SkosTreeView"))) {
 				
 				btn_addLabel.setDisable(false);
 				grp_addProp.setDisable(false);
@@ -189,8 +197,10 @@ public class SkosEditorController implements Initializable {
 				model.read("./fuseki/Data/test1.rdf");
 //				 model = TripleModel.getAllTriples();
 //				 Model m = FusekiModel.getDatasetAccessor().getModel();
-//				 model.add(m);
+//				 model.add(ModelFacadeTEST.getOntModel());
 
+//				model = ModelFacadeTEST.getAktModel();
+				
 				baseNS = model.getNsPrefixURI("");
 				log.info("Base NS set to: " + baseNS);
 				skosNS = model.getNsPrefixURI("skos");
@@ -202,7 +212,7 @@ public class SkosEditorController implements Initializable {
 				showOPropertiesInChoicebox();
 				showAllIndividualsInChoicebox();
 				showOntClassInTree();
-
+			
 				log.info("Ontologie loaded");
 			} catch (Exception e) {
 				log.error(e, e);
@@ -251,7 +261,7 @@ public class SkosEditorController implements Initializable {
 	@FXML
 	private void addIndi(ActionEvent event) {
 		Object antwort = JOptionPane.showInputDialog(null,
-				"Enter name of Individual", "Eingabefenster",
+				localizedBundle.getString("EnterIndi"), localizedBundle.getString("InputWindow"),
 				JOptionPane.INFORMATION_MESSAGE, null, null, null);
 		if (antwort != null) {
 			model.createIndividual(baseNS + ((String) antwort), selectedOntClass);
@@ -378,7 +388,7 @@ public class SkosEditorController implements Initializable {
 				&& (selectedIndividual != null)) {
 
 			Object antwort = JOptionPane.showInputDialog(null,
-					"Enter name of Label", "Eingabefenster",
+					localizedBundle.getString("EnterLabel"), localizedBundle.getString("InputWindow"),
 					JOptionPane.INFORMATION_MESSAGE, null, null, null);
 			if (antwort != null) {
 				String name = (String) antwort;
@@ -430,8 +440,8 @@ public class SkosEditorController implements Initializable {
 										.getSelectedIndex()).getURI())
 						.getLocalName();
 				int delete = JOptionPane.showConfirmDialog(null,
-						"Do you really want to Delete: " + selected,
-						"Delete Indivdual?", JOptionPane.YES_NO_OPTION);
+						localizedBundle.getString("delIndi")  + selected,
+						localizedBundle.getString("delIndiWindow"), JOptionPane.YES_NO_OPTION);
 				if (delete == JOptionPane.YES_OPTION) {
 					model.getIndividual(
 							liste_indi.get(
