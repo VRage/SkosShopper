@@ -27,6 +27,8 @@ import javafx.scene.input.MouseEvent;
 import javax.swing.JOptionPane;
 
 import model.FusekiModel;
+import model.ModelFacade;
+import model.ModelFacadeTEST;
 
 import org.apache.log4j.Logger;
 
@@ -185,8 +187,8 @@ public class SkosEditorController implements Initializable {
 				// "test1.rdf");
 				//
 				// model.read(input.toUri().toString(), "RDF/XML");
-
-				model.read("./fuseki/Data/test1.rdf");
+				model = ModelFacadeTEST.getOntModel();
+				//model.read("./fuseki/Data/test1.rdf");
 //				 model = TripleModel.getAllTriples();
 //				 Model m = FusekiModel.getDatasetAccessor().getModel();
 //				 model.add(m);
