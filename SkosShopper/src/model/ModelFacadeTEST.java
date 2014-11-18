@@ -7,6 +7,7 @@ import java.util.Set;
 
 import org.apache.log4j.Logger;
 
+import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.RDFNode;
@@ -20,6 +21,7 @@ public class ModelFacadeTEST {
 	public enum ModelState {FUSEKI, WEB, LOCAL};
 	static public ModelState aktState = ModelState.FUSEKI;
 	static Model model = ModelFactory.createDefaultModel();
+	static OntModel ontModel = ModelFactory.createOntologyModel();
 	
 	public static final Logger log = Logger.getLogger(ModelFacadeTEST.class);
 	
@@ -41,6 +43,9 @@ public class ModelFacadeTEST {
 		InputStream in = FileManager.get().open(filePath.getAbsolutePath());
 		model.read(in,null);
 		model.write(System.out);
+		ontModel.read(in, null);
+		ontModel.write(System.out);
+		
 	}
 	public  static void loadModelFromWeb(String filePath) {
 		// TODO Auto-generated method stub
@@ -48,6 +53,10 @@ public class ModelFacadeTEST {
 		InputStream in = FileManager.get().open(filePath);
 		model.read(in,null);
 		model.write(System.out);
+		ontModel.read(in, null);
+		ontModel.write(System.out);
+		ontModel.read(in, null);
+		ontModel.write(System.out);
 	}
 	public static void loadModelFromFuseki() throws NoDatasetAccessorException{
 		model = ModelFactory.createDefaultModel();
@@ -55,6 +64,9 @@ public class ModelFacadeTEST {
 	}
 	public static Model getAktModel(){
 		return model;
+	}
+	public static OntModel getOntModel (){
+		return ontModel;
 	}
 	/*
 	 * 	
