@@ -27,9 +27,14 @@ public class SparQlController implements Initializable{
 	@FXML private void buttonSendQuery(MouseEvent Event) {
 		// TODO Auto-generated method stub
 	
-		if(txtAreaQuery.getText()!= null)
+		if(txtAreaQuery.getText()!= null){
 			
-			ModelFacadeTEST.getAktModel().write(System.out,"RDF/XML");
+		//	ModelFacadeTEST.getAktModel().write(System.out,"RDF/XML");
+		System.out.println("ONTMODEL #######################");
+		ModelFacadeTEST.getOntModel().write(System.out,"RDF/XML");
+		System.out.println("MODEL #######################");
+		ModelFacadeTEST.getAktModel().write(System.out,"RDF/XML");
+		}
 			//txtAreaResult.setText(FusekiModel.sendSparQLQuery(txtAreaQuery.getText()));
 	}
 }

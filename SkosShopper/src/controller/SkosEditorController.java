@@ -193,8 +193,8 @@ public class SkosEditorController implements Initializable {
 				// "test1.rdf");
 				//
 				// model.read(input.toUri().toString(), "RDF/XML");
-
-				model.read("./fuseki/Data/test1.rdf");
+				model = ModelFacadeTEST.getOntModel();
+				//model.read("./fuseki/Data/test1.rdf");
 //				 model = TripleModel.getAllTriples();
 //				 Model m = FusekiModel.getDatasetAccessor().getModel();
 //				 model.add(ModelFacadeTEST.getOntModel());
