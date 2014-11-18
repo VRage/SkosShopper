@@ -3,6 +3,7 @@ package controller;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -15,10 +16,8 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import localozation.Language;
 import main.Main;
 import model.FusekiModel;
-import model.LanguageModel;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.util.FileManager;
@@ -28,6 +27,8 @@ import exceptions.fuseki_exceptions.NoDatasetGraphException;
 import exceptions.fuseki_exceptions.NoServerConfigException;
 
 public class MenuController implements Initializable{
+	private ResourceBundle bundleEN = ResourceBundle.getBundle("localization.bundle", Locale.forLanguageTag("en"));
+	private ResourceBundle bundleDE = ResourceBundle.getBundle("localization.bundle", Locale.forLanguageTag("de"));
 	
 	@FXML Menu menuFile;
 	@FXML MenuItem menuItemClose;
@@ -106,36 +107,24 @@ public class MenuController implements Initializable{
 	
 	@FXML
 	private void setEnglish(){
-		LanguageModel.setLanguage(Language.ENGLISH_enEN);
-		updateMenuView();
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"), bundleEN);
+			Main.scene.setRoot(root);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@FXML
 	private void setGerman(){
-		LanguageModel.setLanguage(Language.GERMAN_deDE);
-		updateMenuView();
-	}
-	
-	/**
-	 * because it is not possible to cast Menu or MenuItem from nodes given by
-	 * scene.lookup(String #id) the Menubar must be changed directly in this controller!
-	 */
-	private void updateMenuView(){
-		menuFile.setText(LanguageModel.getSelectedLanguage().menuFile);
-		menuItemClose.setText(LanguageModel.getSelectedLanguage().menuItemClose);
-		menuItemDelete.setText(LanguageModel.getSelectedLanguage().menuItemDelete);
-
-		menuLanguage.setText(LanguageModel.getSelectedLanguage().menuLanguage);
-		menuItemEN.setText(LanguageModel.getSelectedLanguage().menuItemEN);
-		menuItemGER.setText(LanguageModel.getSelectedLanguage().menuItemGER);
-
-		menuHelp.setText(LanguageModel.getSelectedLanguage().menuHelp);
-		menuItemAbout.setText(LanguageModel.getSelectedLanguage().menuItemAbout);
-
-		settingsItem.setText(LanguageModel.getSelectedLanguage().settingsItem);
-		importOnthologyFileItem.setText(LanguageModel.getSelectedLanguage().importOnthologyFileItem);
-		onStartItem.setText(LanguageModel.getSelectedLanguage().onStartItem);
-		
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"), bundleDE);
+			Main.scene.setRoot(root);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 }

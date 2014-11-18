@@ -2,19 +2,17 @@ package main;
 
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
-import localozation.Language;
-import model.FusekiModel;
-import model.LanguageModel;
-import controller.MainController;
-import controller.MenuController;
-import exceptions.fuseki_exceptions.NoDatasetGraphException;
-import exceptions.fuseki_exceptions.NoServerConfigException;
-import javafx.application.*;
+import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.*;
+import javafx.stage.Stage;
+import model.FusekiModel;
+import exceptions.fuseki_exceptions.NoDatasetGraphException;
+import exceptions.fuseki_exceptions.NoServerConfigException;
 	
 
 
@@ -23,19 +21,20 @@ public class Main extends Application {
 	public static Parent root;
 	public static Scene scene;
 	
+	ResourceBundle bundleEN = ResourceBundle.getBundle("localization.bundle", Locale.forLanguageTag("en"));
+	
 
 	@Override
 	public void start(Stage primaryStage) 
 	{
 		try {
 			startup();
-			Main.root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
+			Main.root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"), bundleEN);
 			Main.scene = new Scene(root);
 			primaryStage.setScene(scene);	
 			primaryStage.show();
 			
 			//initialize all items with the correct values
-			LanguageModel.setLanguage(Language.ENGLISH_enEN);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
