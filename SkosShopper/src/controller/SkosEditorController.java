@@ -1,38 +1,28 @@
 package controller;
 
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
-import javafx.scene.Group;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
 
 import javax.swing.JOptionPane;
-
-import main.Main;
-import model.FusekiModel;
-import model.ModelFacade;
-import model.ModelFacadeTEST;
 
 import org.apache.log4j.Logger;
 
@@ -43,7 +33,6 @@ import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.ontology.OntResource;
-import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.ResourceRequiredException;
 import com.hp.hpl.jena.rdf.model.Statement;
@@ -83,12 +72,13 @@ public class SkosEditorController implements Initializable {
 	@FXML
 	private Button btn_show;
 	@FXML
-	private Button btn_addProp;
+	private Button btn_addIndividual;
 	@FXML
-	private ChoiceBox choicebox_properties;
+	private TextField txtfield_individiaulname;
 	@FXML
-	private ChoiceBox choicebox_indi;
-
+	private TextField txtfield_IndiLabel;
+	
+	
 	// local j4log logger
 	public static final Logger log = Logger
 			.getLogger(SkosEditorController.class);
@@ -139,6 +129,7 @@ public class SkosEditorController implements Initializable {
 		listview_indi.setItems(items);
 		listview_classes.setItems(classes);
 		localizedBundle = resources;
+		
 	}
 
 	/**
