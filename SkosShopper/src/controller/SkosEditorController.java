@@ -17,10 +17,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.Group;
+import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TitledPane;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
@@ -57,15 +59,21 @@ public class SkosEditorController implements Initializable {
 
 	// Define FXML Elements
 	@FXML
-	private Button btn_addIndi;
+	private Accordion accordionpane;
 	@FXML
-	private Button btn_addLabel;
+	private TitledPane acc_addIndi;
+	@FXML
+	private TitledPane acc_editLabel;
+	@FXML
+	private TitledPane acc_addCollection;
+	@FXML
+	private TitledPane acc_editCollection;
 	@FXML
 	private Label label_uri;
 	@FXML
 	private Label label_uri2;
 	@FXML
-	private TreeView tree_Classes;
+	private ListView<String> listview_classes;
 	@FXML
 	private ListView<String> listview_indi;
 	@FXML
@@ -77,8 +85,6 @@ public class SkosEditorController implements Initializable {
 	@FXML
 	private Button btn_addProp;
 	@FXML
-	private Group grp_addProp;
-	@FXML
 	private ChoiceBox choicebox_properties;
 	@FXML
 	private ChoiceBox choicebox_indi;
@@ -87,8 +93,8 @@ public class SkosEditorController implements Initializable {
 	public static final Logger log = Logger
 			.getLogger(SkosEditorController.class);
 	
-	//Variables for the Ontology Class-Treeview
-	private TreeItem<String> root;
+	//Variables for the Ontology Class-Listview
+	private ObservableList<String> classes = FXCollections.observableArrayList();;
 	private ArrayList<OntClass> liste_classes = new ArrayList<OntClass>();
 	
 	//Variables for the ListView, Individuals of a Class
@@ -96,19 +102,19 @@ public class SkosEditorController implements Initializable {
 	private ArrayList<Individual> liste_indi = new ArrayList<Individual>();
 	
 	//Variables for the Dropdownmenu, ObjectProperties
-	private ObservableList<String> props = FXCollections.observableArrayList();
-	private ArrayList<String> propNS = new ArrayList<String>();
+//	private ObservableList<String> props = FXCollections.observableArrayList();
+//	private ArrayList<String> propNS = new ArrayList<String>();
 	
 	//Variables for the Dropdownmenu, Individuals
-	private ArrayList<String> indiNS = new ArrayList<String>();
-	private ObservableList<String> indis = FXCollections.observableArrayList();
+//	private ArrayList<String> indiNS = new ArrayList<String>();
+//	private ObservableList<String> indis = FXCollections.observableArrayList();
 	
 	//In this class used Ontology Model
 	private OntModel model = ModelFactory
 			.createOntologyModel( OntModelSpec.OWL_MEM);
 	
 	//Selected OntClass and Individual
-	private static OntClass selectedOntClass;
+	private OntClass selectedOntClass;
 	private Individual selectedIndividual;
 	
 	//Namespaces of the OntModel
@@ -122,22 +128,16 @@ public class SkosEditorController implements Initializable {
 
 	
 	public void initialize(URL location, ResourceBundle resources) {
-		root = new TreeItem<String>(resources.getString("SkosTreeView"));
-
-		btn_addLabel.setDisable(true);
-		grp_addProp.setDisable(true);
-		btn_addIndi.setDisable(true);
-		
+	
 		label_uri2.setText("");
 		label_uri.setText(OntClassNS);
 		
 		listview_indi.setCursor(Cursor.HAND);
-		tree_Classes.cursorProperty().set(Cursor.HAND);
-		tree_Classes.setRoot(root);
+		listview_classes.setCursor(Cursor.HAND);
 		
-		choicebox_indi.setItems(indis);
-		choicebox_properties.setItems(props);
+
 		listview_indi.setItems(items);
+		listview_classes.setItems(classes);
 		localizedBundle = resources;
 	}
 
@@ -150,31 +150,20 @@ public class SkosEditorController implements Initializable {
 	 * @param e
 	 */
 	@FXML public void selectOntClass(MouseEvent e){
-				TreeItem treeItem = (TreeItem) tree_Classes.getSelectionModel().getSelectedItem();
-		if (treeItem != null) {
-			if (!treeItem.getValue().toString().equals(localizedBundle.getString("SkosTreeView"))) {
-				
-				btn_addLabel.setDisable(false);
-				grp_addProp.setDisable(false);
-				btn_addIndi.setDisable(false);
-				
-				int index = tree_Classes.getSelectionModel().getSelectedIndex() - 1;
-				OntClassNS = liste_classes.get(index).getNameSpace();
+		if (!listview_classes.getSelectionModel().isEmpty())
+		{
+			selectedOntClass = model.getOntClass(liste_classes.get(
+					listview_classes.getSelectionModel().getSelectedIndex())
+					.getURI());
+			
+				OntClassNS = liste_classes.get(
+						listview_classes.getSelectionModel().getSelectedIndex())
+						.getURI();
 				label_uri.setText(OntClassNS);
 				
-				String s = treeItem.getValue().toString();
-				selectedOntClass = model.getOntClass(OntClassNS + s);
 				showIndividualsOfOntClass(selectedOntClass);
 
-			}else{
-				btn_addLabel.setDisable(true);
-				grp_addProp.setDisable(true);
-				btn_addIndi.setDisable(true);
-			}
-		}else{
-			btn_addLabel.setDisable(true);
-			grp_addProp.setDisable(true);
-			btn_addIndi.setDisable(true);
+			
 		}
 	}
 	
@@ -193,8 +182,8 @@ public class SkosEditorController implements Initializable {
 				// "test1.rdf");
 				//
 				// model.read(input.toUri().toString(), "RDF/XML");
-				model = ModelFacadeTEST.getOntModel();
-				//model.read("./fuseki/Data/test1.rdf");
+//				model = ModelFacadeTEST.getOntModel();
+				model.read("./fuseki/Data/test1.rdf");
 //				 model = TripleModel.getAllTriples();
 //				 Model m = FusekiModel.getDatasetAccessor().getModel();
 //				 model.add(ModelFacadeTEST.getOntModel());
@@ -209,8 +198,8 @@ public class SkosEditorController implements Initializable {
 				log.info("Skosxl NS set to: " + skosxlNS);
 
 
-				showOPropertiesInChoicebox();
-				showAllIndividualsInChoicebox();
+//				showOPropertiesInChoicebox();
+//				showAllIndividualsInChoicebox();
 				showOntClassInTree();
 			
 				log.info("Ontologie loaded");
@@ -227,25 +216,19 @@ public class SkosEditorController implements Initializable {
 	 * 
 	 */
 	public void showOntClassInTree() {
-		ExtendedIterator<OntClass> classes = model.listClasses();
-		while (classes.hasNext()) {
-			OntClass thisClass = (OntClass) classes.next();
-			String s = thisClass.toString();
-			if (s.contains(skosNS) || s.contains(skosxlNS)) {
-				liste_classes.add(thisClass);
-			}
-		}
+		classes.clear();
+		liste_classes.clear();
+		selectedOntClass = null;
 		
-		for (OntClass ontclass : liste_classes) {
-			TreeItem<String> empLeaf = new TreeItem<String>(
-					ontclass.getLocalName());
-			// while(ontclass.listInstances().hasNext()){
-			// Individual indi = (Individual) ontclass.listInstances().next();
-			// TreeItem<String> childLeaf = new
-			// TreeItem<String>(indi.getLocalName());
-			// empLeaf.getChildren().add(childLeaf);
-			// }
-			root.getChildren().add(empLeaf);
+		ExtendedIterator oclasslist = model.listClasses();
+		while (oclasslist.hasNext()) {
+
+				OntClass oclass = (OntClass) oclasslist.next();
+				if(oclass.toString().contains(skosNS)||oclass.toString().contains(skosxlNS)){
+					liste_classes.add(oclass);
+					classes.add(oclass.getLocalName());
+				}
+			
 		}
 		log.info("class added to List");
 
@@ -314,7 +297,7 @@ public class SkosEditorController implements Initializable {
 					}
 				}
 			}
-			showAllIndividualsInChoicebox();
+//			showAllIndividualsInChoicebox();
 			showIndividualsOfOntClass(selectedOntClass);
 		}
 	}
@@ -428,8 +411,7 @@ public class SkosEditorController implements Initializable {
 			label_uri2.setText(liste_indi.get(
 					listview_indi.getSelectionModel().getSelectedIndex())
 					.getURI());
-			btn_addLabel.setDisable(false);
-			grp_addProp.setDisable(false);
+
 			showObjectProperties(selectedIndividual);
 			showDataProperties(selectedIndividual);
 
@@ -463,51 +445,51 @@ public class SkosEditorController implements Initializable {
 	 * 
 	 * @param event
 	 */
-	@FXML
-	private void addProp(ActionEvent event) {
-		if (!choicebox_properties.getSelectionModel().isEmpty()
-				&& !choicebox_indi.getSelectionModel().isEmpty()) {
-			int index_prop = choicebox_properties.getSelectionModel()
-					.getSelectedIndex();
-			String NSofprop = propNS.get(index_prop);
-			ObjectProperty oProp = model.getObjectProperty(NSofprop);
-			log.info("Objectpropertie selected: " + oProp.getNameSpace());
-			int index_indi = choicebox_indi.getSelectionModel()
-					.getSelectedIndex();
-			String NSofindi = indiNS.get(index_indi);
-			Individual individual = model.getIndividual(NSofindi);
-			log.info("Individual selected: " + individual.getLocalName());
-			model.add(selectedIndividual, oProp, individual);
-		}
-
-	}
+//	@FXML
+//	private void addProp(ActionEvent event) {
+//		if (!choicebox_properties.getSelectionModel().isEmpty()
+//				&& !choicebox_indi.getSelectionModel().isEmpty()) {
+//			int index_prop = choicebox_properties.getSelectionModel()
+//					.getSelectedIndex();
+//			String NSofprop = propNS.get(index_prop);
+//			ObjectProperty oProp = model.getObjectProperty(NSofprop);
+//			log.info("Objectpropertie selected: " + oProp.getNameSpace());
+//			int index_indi = choicebox_indi.getSelectionModel()
+//					.getSelectedIndex();
+//			String NSofindi = indiNS.get(index_indi);
+//			Individual individual = model.getIndividual(NSofindi);
+//			log.info("Individual selected: " + individual.getLocalName());
+//			model.add(selectedIndividual, oProp, individual);
+//		}
+//
+//	}
 
 	/**
 	 * 
 	 * Show all Object properties in a choicebox from loaded Ontology
 	 * 
 	 */
-	private void showOPropertiesInChoicebox() {
-		ExtendedIterator list_prop = model.listObjectProperties();
-		while (list_prop.hasNext()) {
-			ObjectProperty prop = (ObjectProperty) list_prop.next();
-			props.add(prop.getLabel("en"));
-			propNS.add(prop.getURI());
-			log.info("property added: " + prop.getLocalName());
-		}
-	}
+//	private void showOPropertiesInChoicebox() {
+//		ExtendedIterator list_prop = model.listObjectProperties();
+//		while (list_prop.hasNext()) {
+//			ObjectProperty prop = (ObjectProperty) list_prop.next();
+//			props.add(prop.getLabel("en"));
+//			propNS.add(prop.getURI());
+//			log.info("property added: " + prop.getLocalName());
+//		}
+//	}
 
-	private void showAllIndividualsInChoicebox() {
-		indis.clear();
-		indiNS.clear();
-		ExtendedIterator list_indis = model.listIndividuals();
-		while (list_indis.hasNext()) {
-			Individual indi = (Individual) list_indis.next();
-			indis.add(indi.getLocalName());
-			log.info("Individual added: " + indi.getLocalName());
-			indiNS.add(indi.getURI());
-		}
-	}
+//	private void showAllIndividualsInChoicebox() {
+//		indis.clear();
+//		indiNS.clear();
+//		ExtendedIterator list_indis = model.listIndividuals();
+//		while (list_indis.hasNext()) {
+//			Individual indi = (Individual) list_indis.next();
+//			indis.add(indi.getLocalName());
+//			log.info("Individual added: " + indi.getLocalName());
+//			indiNS.add(indi.getURI());
+//		}
+//	}
 
 	/**
 	 * 

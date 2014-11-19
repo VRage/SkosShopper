@@ -6,36 +6,32 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="507.0" prefWidth="911.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SkosEditorController">
+
+<AnchorPane prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SkosEditorController">
    <children>
-      <TreeView fx:id="tree_Classes" onMouseClicked="#selectOntClass" prefHeight="146.0" prefWidth="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Label layoutX="155.0" layoutY="14.0" text="ClassURI:" />
-      <Label fx:id="label_uri" layoutX="237.0" layoutY="14.0" prefHeight="17.0" prefWidth="358.0" text="adress" AnchorPane.leftAnchor="237.0" AnchorPane.rightAnchor="0.0" />
-      <Button fx:id="btn_addIndi" layoutX="155.0" layoutY="62.0" mnemonicParsing="false" onAction="#addIndi" text="%btnAddIndividual" />
-      <ListView fx:id="listview_indi" layoutY="170.0" onMouseClicked="#selectIndividualOfOntClass" prefHeight="129.0" prefWidth="150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="170.0" />
-      <Button fx:id="btn_show" layoutX="505.0" layoutY="62.0" mnemonicParsing="false" onAction="#printToConsole" text="%btnsave" />
-      <Button fx:id="btn_addLabel" layoutX="329.0" layoutY="62.0" mnemonicParsing="false" onAction="#addLabel" text="%btnAddLabel" />
-      <Label fx:id="label_uri2" layoutX="237.0" layoutY="31.0" prefHeight="17.0" prefWidth="358.0" text="Individuals" />
-      <Label layoutX="155.0" layoutY="31.0" text="IndividualURI:" />
-      <Group fx:id="grp_addProp" layoutX="2.0" layoutY="-63.0">
-         <children>
-            <Button fx:id="btn_addProp" layoutX="459.0" layoutY="167.0" mnemonicParsing="false" onAction="#addProp" text="%btnAddProperty" />
-            <ChoiceBox fx:id="choicebox_indi" layoutX="309.0" layoutY="167.0" prefWidth="150.0">
-               <tooltip>
-                  <Tooltip text="Select a Individual for your this property" />
-               </tooltip>
-            </ChoiceBox>
-            <ChoiceBox fx:id="choicebox_properties" layoutX="153.0" layoutY="167.0" prefHeight="25.0" prefWidth="156.0">
-               <tooltip>
-                  <Tooltip text="Select a Objectproperty for you Individual" />
-               </tooltip>
-            </ChoiceBox>
-         </children>
-      </Group>
-      <Label layoutX="26.0" layoutY="150.0" text="%IndiOfClass" />
-      <ListView fx:id="listview_objprop" layoutX="611.0" layoutY="56.0" prefHeight="193.0" prefWidth="285.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="626.0" AnchorPane.rightAnchor="0.0" />
-      <ListView fx:id="listview_dataprop" layoutX="611.0" layoutY="59.0" prefHeight="200.0" prefWidth="285.0" AnchorPane.bottomAnchor="248.0" AnchorPane.leftAnchor="626.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="59.0" />
-      <Label layoutX="577.0" layoutY="31.0" prefHeight="17.0" prefWidth="285.0" text="%Objectproperties" AnchorPane.leftAnchor="626.0" AnchorPane.rightAnchor="0.0" />
-      <Label layoutX="577.0" layoutY="288.0" text="%Dataproperties" AnchorPane.bottomAnchor="202.0" AnchorPane.leftAnchor="626.0" AnchorPane.rightAnchor="0.0" />
+      <Label layoutX="231.0" layoutY="14.0" text="ClassURI:" />
+      <Label fx:id="label_uri" layoutX="313.0" layoutY="14.0" prefHeight="17.0" prefWidth="358.0" text="adress" AnchorPane.leftAnchor="313.0" />
+      <ListView fx:id="listview_indi" layoutY="281.0" onMouseClicked="#selectIndividualOfOntClass" prefHeight="226.0" prefWidth="231.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="281.0" />
+      <Label fx:id="label_uri2" layoutX="313.0" layoutY="31.0" prefHeight="17.0" prefWidth="358.0" text="Individuals" />
+      <Label layoutX="231.0" layoutY="31.0" text="IndividualURI:" />
+      <Label layoutX="14.0" layoutY="259.0" text="%IndiOfClass" />
+      <ListView fx:id="listview_objprop" layoutX="712.0" layoutY="56.0" prefHeight="193.0" prefWidth="288.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <ListView fx:id="listview_dataprop" layoutX="712.0" layoutY="59.0" prefHeight="200.0" prefWidth="288.0" AnchorPane.bottomAnchor="248.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="59.0" />
+      <Label layoutX="722.0" layoutY="40.0" prefHeight="17.0" prefWidth="278.0" text="%Objectproperties" AnchorPane.rightAnchor="0.0" />
+      <Label layoutX="722.0" layoutY="291.0" prefHeight="17.0" prefWidth="278.0" text="%Dataproperties" AnchorPane.bottomAnchor="199.0" AnchorPane.rightAnchor="0.0" />
+      <ListView fx:id="listview_classes" layoutY="59.0" onMouseClicked="#selectOntClass" prefHeight="171.0" prefWidth="231.0" />
+      <Label layoutX="14.0" layoutY="40.0" text="%SkosTreeView" />
+      <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="230.0" layoutY="59.0" prefHeight="446.0" prefViewportHeight="446.0" prefViewportWidth="457.0" prefWidth="483.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="287.0" AnchorPane.topAnchor="59.0">
+         <content>
+            <Accordion fx:id="accordionpane" layoutX="168.0" layoutY="59.0" prefHeight="446.0" prefWidth="407.0">
+              <panes>
+                <TitledPane fx:id="acc_addIndi" animated="false" text="%accordion_addIndi" />
+                <TitledPane fx:id="acc_editLabel" animated="false" prefHeight="239.0" prefWidth="375.0" text="%accordion_editLabel" />
+                  <TitledPane fx:id="acc_addCollection" animated="false" text="%accordion_addCollection" />
+                  <TitledPane fx:id="acc_editCollection" animated="false" prefHeight="371.0" prefWidth="442.0" text="%accordion_editCollection" />
+              </panes>
+            </Accordion>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
