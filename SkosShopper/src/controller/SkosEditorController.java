@@ -143,6 +143,7 @@ public class SkosEditorController implements Initializable {
 	@FXML public void selectOntClass(MouseEvent e){
 		if (!listview_classes.getSelectionModel().isEmpty())
 		{
+			txtfield_IndiLabel.setDisable(false);
 			selectedOntClass = model.getOntClass(liste_classes.get(
 					listview_classes.getSelectionModel().getSelectedIndex())
 					.getURI());
@@ -153,7 +154,22 @@ public class SkosEditorController implements Initializable {
 				label_uri.setText(OntClassNS);
 				
 				showIndividualsOfOntClass(selectedOntClass);
-
+			switch(selectedOntClass.getLocalName()){
+				case "Concept":
+					acc_addIndi.setExpanded(true);
+					break;
+				case "Label":
+					acc_editLabel.setExpanded(true);
+					txtfield_IndiLabel.setDisable(true);
+					break;
+				case "OrderedCollection":
+				case "Collection":
+					acc_addCollection.setExpanded(true);
+					break;
+				default:
+					break;
+			}
+				
 			
 		}
 	}
@@ -234,62 +250,65 @@ public class SkosEditorController implements Initializable {
 	 */
 	@FXML
 	private void addIndi(ActionEvent event) {
-		Object antwort = JOptionPane.showInputDialog(null,
-				localizedBundle.getString("EnterIndi"), localizedBundle.getString("InputWindow"),
-				JOptionPane.INFORMATION_MESSAGE, null, null, null);
-		if (antwort != null) {
-			model.createIndividual(baseNS + ((String) antwort), selectedOntClass);
-			int length = baseNS.length();
-			String indinamespace = model.getIndividual(
-					baseNS + ((String) antwort)).getNameSpace();
-			
-			/*
-			 * Very complicated string operations, probably PhD needed to understand.
-			 * 
-			 * Recipe to add multiple Individuals with one string input. Furthermore adding "has narrower" to the created Individuals.
-			 * 
-			 */
-			if (!(length == indinamespace.length())) {
-				String superindi = indinamespace.substring(length,
-						indinamespace.length() - 1);
-				log.info(superindi);
-				String[] stringarray = superindi.split("/");
-				String newindi = baseNS;
-				for (String ss : stringarray) {
-					Individual tempindi = model.getIndividual(newindi + ss);
-					if (tempindi == null) {
-						model.createIndividual(newindi + ss, selectedOntClass);
-						newindi = newindi + ss + "/";
-						log.info("new individual added: " + ss);
-
-					} else {
-						newindi = tempindi.getURI() + "/";
-					}
-					log.info(ss);
-				}
-				newindi = baseNS;
-				if (stringarray.length > 0) {
-					for (int i = 0; i < stringarray.length; i++) {
-						Individual tempindi = model.getIndividual(newindi
-								+ stringarray[i]);
-						ObjectProperty oProp = model.getObjectProperty(skosNS
-								+ "narrower");
-						if (i < stringarray.length - 1) {
-							Individual nextindi = model
-									.getIndividual(newindi + stringarray[i]
-											+ "/" + stringarray[i + 1]);
-							model.add(tempindi, oProp, nextindi);
+		if (!txtfield_individiaulname.getText().isEmpty()) {
+			log.info("start method addIndi");
+			String antwort = txtfield_individiaulname.getText();
+			if(model.getIndividual(baseNS + (antwort)) == null){
+				model.createIndividual(baseNS + (antwort), selectedOntClass);
+				int length = baseNS.length();
+				String indinamespace = model.getIndividual(
+						baseNS + (antwort)).getNameSpace();
+				
+				/*
+				 * Very complicated string operations, probably PhD needed to understand.
+				 * 
+				 * Recipe to add multiple Individuals with one string input. Furthermore adding "has narrower" to the created Individuals.
+				 * 
+				 */
+				if (!(length == indinamespace.length())) {
+					String superindi = indinamespace.substring(length,
+							indinamespace.length() - 1);
+					log.info(superindi);
+					String[] stringarray = superindi.split("/");
+					String newindi = baseNS;
+					for (String ss : stringarray) {
+						Individual tempindi = model.getIndividual(newindi + ss);
+						if (tempindi == null) {
+							model.createIndividual(newindi + ss, selectedOntClass);
+							newindi = newindi + ss + "/";
+							log.info("new individual added: " + ss);
+	
 						} else {
-							Individual nextindi = model.getIndividual(baseNS
-									+ ((String) antwort));
-							model.add(tempindi, oProp, nextindi);
+							newindi = tempindi.getURI() + "/";
 						}
-						newindi = newindi + stringarray[i] + "/";
+						log.info(ss);
+					}
+					newindi = baseNS;
+					if (stringarray.length > 0) {
+						for (int i = 0; i < stringarray.length; i++) {
+							Individual tempindi = model.getIndividual(newindi
+									+ stringarray[i]);
+							ObjectProperty oProp = model.getObjectProperty(skosNS
+									+ "narrower");
+							if (i < stringarray.length - 1) {
+								Individual nextindi = model
+										.getIndividual(newindi + stringarray[i]
+												+ "/" + stringarray[i + 1]);
+								model.add(tempindi, oProp, nextindi);
+							} else {
+								Individual nextindi = model.getIndividual(baseNS
+										+ ((String) antwort));
+								model.add(tempindi, oProp, nextindi);
+							}
+							newindi = newindi + stringarray[i] + "/";
+						}
 					}
 				}
+	//			showAllIndividualsInChoicebox();
+				showIndividualsOfOntClass(selectedOntClass);
+			}else{
+				log.info("Individual already exist");
 			}
-//			showAllIndividualsInChoicebox();
-			showIndividualsOfOntClass(selectedOntClass);
 		}
 	}
 
