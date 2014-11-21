@@ -56,6 +56,7 @@ public class OverviewController implements Initializable{
 	@FXML Label lblObjektProperties;
 	@FXML Label lblDataProperties;
 	@FXML Label lblClasses;
+	@FXML Label OverviewlblState;
 	@FXML WebView webView;
 	@FXML TextField txtFieldURL;
 	@FXML ChoiceBox OverviewChoiceBoxSource;
@@ -117,6 +118,7 @@ public class OverviewController implements Initializable{
 					break;
 				}
 			}
+			
 
 		});
 		
@@ -140,6 +142,7 @@ public class OverviewController implements Initializable{
 					}
 			
 		});
+		setLabels();
 	}
 	@FXML private void backButtonOnAction(ActionEvent event ){
 		url = browserHistory.get(browserHistory.size()-2).getUrl();
@@ -194,9 +197,10 @@ public class OverviewController implements Initializable{
 		default:
 			break;
 		}
+		setLabels();
 		Stage dialog = new Stage();
 		dialog.initStyle(StageStyle.UTILITY);
-		Scene scene = new Scene(new Group(new Text(200, 200, ModelFacadeTEST.modelToString()+"")));
+		Scene scene = new Scene(new Group(new Text(10, 10, ModelFacadeTEST.modelToString()+"")));
 		dialog.setScene(scene);
 		dialog.show();
 		
@@ -230,10 +234,11 @@ public class OverviewController implements Initializable{
 
 
 
-//	private void setLabels() {
-//		// TODO Auto-generated method stub
-//		//ModelFacadeTEST.modelToString();
-//	}
+	private void setLabels() {
+		// TODO Auto-generated method stub
+		//ModelFacadeTEST.modelToString();
+		OverviewlblState.setText(ModelFacadeTEST.aktState.toString().toLowerCase());
+	}
 	public void loadTriplesFromServer(ActionEvent event)
 	{
 		boolean serverStarted = FusekiModel.getServerStatus();

@@ -43,12 +43,14 @@
             <Label fx:id="lblDataProperties" layoutX="192.0" layoutY="96.0" text="Label" visible="false" />
             <Label fx:id="labelOverviewAmountCustomClasses" layoutX="14.0" layoutY="50.0" text="Amount costum Classes" />
             <Label fx:id="lblClasses" layoutX="192.0" layoutY="50.0" text="Label" />
-            <Label layoutX="14.0" layoutY="32.0" text="Data is currently load from Server " />
+            <Label layoutX="14.0" layoutY="32.0" text="Data is currently load from " />
             <Label layoutX="265.0" layoutY="32.0" text="Change to:" />
             <ChoiceBox fx:id="OverviewChoiceBoxSource" layoutX="330.0" layoutY="28.0" prefWidth="150.0" />
             <Button fx:id="OverviewBtnReload" layoutX="330.0" layoutY="55.0" mnemonicParsing="false" onAction="#OverviewbtnReloadDatasetOnAction" text="Reload" />
             <TextField fx:id="OverviewtxtField" layoutX="487.0" layoutY="28.0" promptText="http://www.w3.org/2004/02/skos/core#" visible="false" />
             <Button fx:id="OverviewbtnLoadFromStorage" layoutX="487.0" layoutY="28.0" mnemonicParsing="false" onAction="#OverviewBtnLoadDataFromStorageOnAction" text="load from local Storage" visible="false" />
+            <Button layoutX="383.0" layoutY="55.0" mnemonicParsing="false" text="add Ontologie" />
+            <Label fx:id="OverviewlblState" layoutX="158.0" layoutY="32.0" text="Label" />
          </children>
       </Pane>
       <WebView fx:id="webView" layoutX="14.0" layoutY="229.0" prefHeight="247.0" prefWidth="795.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="229.0" />
