@@ -1,7 +1,9 @@
 package model;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -46,7 +48,7 @@ public class ModelFacadeTEST {
 //		model.read(in,null);
 //		model.write(System.out);
 		ontModel.read(in, null);
-		ontModel.write(System.out);
+//		ontModel.write(System.out);
 		
 	}
 	public  static void loadModelFromWeb(String filePath) {
@@ -76,6 +78,29 @@ public class ModelFacadeTEST {
 	}
 	public static OntModel getOntModel (){
 		return ontModel;
+	}
+	public static String modelToString(){
+//		String result="";
+//		model.read(result);
+//		return result;
+		OutputStream output = new OutputStream()
+	    {
+	        private StringBuilder string = new StringBuilder();
+	        @Override
+	        public void write(int b) throws IOException {
+	            this.string.append((char) b );
+	        }
+
+	        //Netbeans IDE automatically overrides this toString()
+	        public String toString(){
+	            return this.string.toString();
+	        }
+	    };
+	    model.write(output);
+		return output.toString();
+	}
+	public static long size(){
+		return model.size();
 	}
 	/*
 	 * 	
