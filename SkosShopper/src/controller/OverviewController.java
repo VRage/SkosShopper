@@ -26,6 +26,9 @@ import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import javax.swing.JOptionPane;
+
 import model.FusekiModel;
 import model.ModelFacade;
 import model.ModelFacadeTEST;
@@ -168,12 +171,16 @@ public class OverviewController implements Initializable{
 		localFile = fileChooser.showOpenDialog(null);
 	}
 	@FXML private void OverviewbtnReloadDatasetOnAction(ActionEvent event) {
+		boolean ERROR =false;
+		String errorMessage="";
 		switch (pickedState) {
 		case FUSEKI:
 			try {
 				ModelFacadeTEST.loadModelFromFuseki();
 			} catch (NoDatasetAccessorException e) {
 				// TODO Auto-generated catch block
+				ERROR =true;
+				errorMessage = e.getMessage();
 				e.printStackTrace();
 			}
 			ModelFacadeTEST.setState(ModelState.FUSEKI);
@@ -185,24 +192,42 @@ public class OverviewController implements Initializable{
 				ModelFacadeTEST.setState(ModelState.WEB);
 			} catch (Exception e) {
 				// TODO: handle exception
-
+				ERROR =true;
+				errorMessage = "Keine/Falsche URL angegeben";
 			}
 			
 		break;
 		case LOCAL:
-			ModelFacadeTEST.loadModelFromLocal(localFile);
-			ModelFacadeTEST.setState(ModelState.LOCAL);
+			try {
+				ModelFacadeTEST.loadModelFromLocal(localFile);
+				ModelFacadeTEST.setState(ModelState.LOCAL);
+			} catch (Exception e) {
+				// TODO: handle exception
+				ERROR =true;
+				errorMessage = "Keine Datei ausgewählt";
+			}
+			
 		break;
 
 		default:
 			break;
 		}
-		setLabels();
 		Stage dialog = new Stage();
-		dialog.initStyle(StageStyle.UTILITY);
-		Scene scene = new Scene(new Group(new Text(10, 10, ModelFacadeTEST.modelToString()+"")));
-		dialog.setScene(scene);
-		dialog.show();
+		if(ERROR){
+	
+			JOptionPane.showMessageDialog(
+				    null, errorMessage,"FEHLER",
+				    
+				    JOptionPane.ERROR_MESSAGE);
+		}
+		else {
+			
+			JOptionPane.showMessageDialog(null, ModelFacadeTEST.modelToString());
+		}
+		
+		setLabels();
+		
+		
 		
 	}
 	
