@@ -1,41 +1,14 @@
 package controller;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.ResourceBundle;
-import java.util.Set;
 
-import model.FusekiModel;
-import model.ProductFactory;
-import model.ModelFacade;
-
-import com.hp.hpl.jena.query.DatasetAccessor;
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.Statement;
-import com.hp.hpl.jena.rdf.model.StmtIterator;
-import com.hp.hpl.jena.sparql.core.DatasetGraph;
-
-import exceptions.fuseki_exceptions.NoDatasetAccessorException;
-
-import org.apache.commons.lang3.StringUtils;
-import org.apache.jena.fuseki.server.ServerConfig;
-import org.apache.log4j.Logger;
-import org.apache.log4j.chainsaw.Main;
-
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Bounds;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
@@ -44,6 +17,14 @@ import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import model.ModelFacade;
+import model.ProductFactory;
+
+import org.apache.log4j.Logger;
+
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
 
 public class ProductCategorySettingsController implements Initializable{
 	
