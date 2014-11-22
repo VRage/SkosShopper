@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -25,6 +26,7 @@ import javafx.scene.input.MouseEvent;
 import javax.swing.JOptionPane;
 
 import org.apache.log4j.Logger;
+import org.apache.xerces.impl.xs.identity.Selector;
 
 import com.hp.hpl.jena.ontology.DatatypeProperty;
 import com.hp.hpl.jena.ontology.Individual;
@@ -77,6 +79,20 @@ public class SkosEditorController implements Initializable {
 	private TextField txtfield_individiaulname;
 	@FXML
 	private TextField txtfield_IndiLabel;
+	
+	@FXML 
+	private Label labelCollectionFromText;
+	@FXML 
+	private TextField textfieldCollectionName;
+	@FXML
+	private TextField textfieldCollectionLabelName;
+	@FXML
+	private ChoiceBox choiseBoxCollectionFilter;
+	@FXML
+	private ListView listviewCollectionChoise;
+	@FXML
+	private ListView listviewCollectionSelected;
+
 	
 	
 	// local j4log logger
@@ -608,13 +624,60 @@ public class SkosEditorController implements Initializable {
 		}
 	}
 	
+	/** Tries to create a new Collection with the given name as long as the
+	 * 	name doesn't already exist.
+	 */
+	@FXML public void createCollection(){
+
+		String collectionString = "/Collection/";
+		String collectionNameString = baseNS 
+				+ collectionString 
+				+ textfieldCollectionName.getText();
+		String collectionLabelString = baseNS 
+				+ "LabelForCollection" 
+				+ textfieldCollectionName.getText();
+		log.info(selectedOntClass == null);
+		if(model.getIndividual(collectionNameString) == null 
+				&& selectedOntClass != null){
+			
+			//Name must not be empty! 
+			if(!textfieldCollectionName.getText().equals("")){
+				//Collection must be seleted!
+				if(selectedOntClass.getLocalName().equals("Collection")){
+					log.info("Collection selected = true");
+					// Add Individual
+					model.createIndividual(collectionNameString, selectedOntClass);
+					
+					//optional Label
+					if(!textfieldCollectionLabelName.getText().isEmpty()){
+						model.getOntClass(skosxlNS + "Label").createIndividual(
+								collectionLabelString);
+					}
+					else{
+						log.info("No Label given");
+					}	
+				}
+				//not implemented yet!
+				else if (selectedOntClass.getLocalName().equals("OrderedCollection")){
+					log.info("Ordered Collection selected = true \n not implemented yet!");
+				}
+				else{
+					log.error("Neither Collection nor Ordered Collection selected!");
+				}// end if-else case collection or ordered collection selected
+			}
+			else{
+				log.error("Namefield Empty!");
+			}// end if-case textfield empty check
+		}
+		else{
+			log.error("Name for Collection already taken or No Ontclass selected!");
+		} // end if-else-case collection name already exist
+	}
+
 	@FXML public void insertToCollection(){
 		
 	}
 	@FXML public void deleteFromCollection(){
-		
-	}
-	@FXML public void createCollection(){
 		
 	}
 
