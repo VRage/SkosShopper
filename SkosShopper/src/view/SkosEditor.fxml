@@ -38,7 +38,19 @@
                            </children>
                         </AnchorPane>
                      </content></TitledPane>
-                <TitledPane fx:id="acc_editLabel" animated="false" prefHeight="239.0" prefWidth="375.0" text="%accordion_editLabel" />
+                <TitledPane fx:id="acc_editLabel" animated="false" prefHeight="239.0" prefWidth="375.0" text="%accordion_editLabel">
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="39.0" layoutY="182.0" text="%selectedindividual" AnchorPane.leftAnchor="20.0" />
+                              <Label fx:id="selectedIndiLocalname" layoutX="168.6" layoutY="182.0" prefHeight="17.0" prefWidth="248.0" text="name of inidivudal" AnchorPane.leftAnchor="159.0" AnchorPane.rightAnchor="20.0" />
+                              <TextField fx:id="txtfield_editLabel" layoutX="40.0" layoutY="248.0" prefHeight="25.0" prefWidth="278.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="179.80000000000007" AnchorPane.topAnchor="248.0" />
+                              <Label layoutX="40.0" layoutY="219.0" text="%Label" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="219.0" />
+                              <Button fx:id="btn_editLabel" layoutX="302.0" layoutY="258.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="127.0" text="%btnAddLabel" AnchorPane.rightAnchor="20.0" />
+                              <TextArea editable="false" layoutX="40.0" layoutY="30.0" prefHeight="108.0" prefWidth="411.0" text="%editLabelExample" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                           </children>
+                        </AnchorPane>
+                     </content></TitledPane>
                   <TitledPane fx:id="acc_addCollection" animated="false" text="%accordion_addCollection">
                      <content>
                         <ScrollPane fitToWidth="true" pannable="true">

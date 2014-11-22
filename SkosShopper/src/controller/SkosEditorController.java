@@ -77,7 +77,10 @@ public class SkosEditorController implements Initializable {
 	private TextField txtfield_individiaulname;
 	@FXML
 	private TextField txtfield_IndiLabel;
-	
+	@FXML
+	private TextField txtfield_editLabel;
+	@FXML
+	private Button btn_editLabel;
 	
 	// local j4log logger
 	public static final Logger log = Logger
@@ -101,7 +104,7 @@ public class SkosEditorController implements Initializable {
 	
 	//In this class used Ontology Model
 	private OntModel model = ModelFactory
-			.createOntologyModel( OntModelSpec.OWL_MEM);
+			.createOntologyModel( OntModelSpec.OWL_MEM_TRANS_INF);
 	
 	//Selected OntClass and Individual
 	private OntClass selectedOntClass;
