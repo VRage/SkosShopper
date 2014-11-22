@@ -4452,3 +4452,1659 @@
 03:27:45 INFO  SkosEditorController :: class added to List
 03:27:45 INFO  SkosEditorController :: Ontologie loaded
 03:29:01 INFO  Server               :: Stopped 2014/11/15 03:29:01 MEZ on port 3030
+15:01:55 INFO  Server               :: Dataset path = /ds
+15:01:57 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:01:57 INFO  Server               :: Incoming connections limited to localhost
+15:01:57 INFO  Server               :: Started 2014/11/22 15:01:57 MEZ on port 3030
+15:01:58 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:01:58 INFO  ProductCategorySettingsController :: loadCategories()
+15:01:58 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:01:58 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:01:58 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:01:58 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:01:58 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:01:58 INFO  ModelFacade          :: getLabelsByConcept() START
+15:01:58 INFO  ModelFacade          :: getLabelsByConcept() END
+15:01:58 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:01:58 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:01:58 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:01:58 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:01:58 INFO  ProductFactory       :: ConceptScheme[] = null
+15:01:58 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:03:03 INFO  Server               :: Dataset path = /ds
+15:03:05 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:03:05 INFO  Server               :: Incoming connections limited to localhost
+15:03:05 INFO  Server               :: Started 2014/11/22 15:03:05 MEZ on port 3030
+15:03:06 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:03:06 INFO  ProductCategorySettingsController :: loadCategories()
+15:03:06 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:03:06 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:03:06 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:03:06 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:03:06 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:03:06 INFO  ModelFacade          :: getLabelsByConcept() START
+15:03:06 INFO  ModelFacade          :: getLabelsByConcept() END
+15:03:06 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:03:06 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:03:06 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:03:06 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:03:06 INFO  ProductFactory       :: ConceptScheme[] = null
+15:03:06 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:03:23 INFO  Server               :: Stopped 2014/11/22 15:03:23 MEZ on port 3030
+15:03:32 INFO  Server               :: Dataset path = /ds
+15:03:34 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:03:34 INFO  Server               :: Incoming connections limited to localhost
+15:03:34 INFO  Server               :: Started 2014/11/22 15:03:34 MEZ on port 3030
+15:03:35 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:03:35 INFO  ProductCategorySettingsController :: loadCategories()
+15:03:35 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:03:35 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:03:35 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:03:35 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:03:35 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:03:35 INFO  ModelFacade          :: getLabelsByConcept() START
+15:03:35 INFO  ModelFacade          :: getLabelsByConcept() END
+15:03:35 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:03:35 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:03:35 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:03:35 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:03:35 INFO  ProductFactory       :: ConceptScheme[] = null
+15:03:35 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:10:07 INFO  Config               :: Service: :service1
+15:10:07 INFO  Config               ::   name = ds
+15:10:07 INFO  Config               ::   query = /ds/query
+15:10:07 INFO  Config               ::   query = /ds/sparql
+15:10:07 INFO  Config               ::   update = /ds/update
+15:10:07 INFO  Config               ::   upload = /ds/upload
+15:10:07 INFO  Config               ::   graphStore(RW) = /ds/data
+15:10:07 INFO  Config               ::   graphStore(R) = /ds/get
+15:10:09 INFO  Config               :: Service: :service2
+15:10:09 INFO  Config               ::   name = books
+15:10:09 INFO  Config               ::   query = /books/sparql
+15:10:09 INFO  Config               ::   query = /books/query
+15:10:09 INFO  Config               ::   update = /books/update
+15:10:09 INFO  Config               ::   upload = /books/upload
+15:10:09 INFO  Config               ::   graphStore(RW) = /books/data
+15:10:09 INFO  Config               ::   graphStore(R) = /books/get
+15:10:09 INFO  Server               :: Dataset path = /ds
+15:10:09 INFO  Server               :: Dataset path = /books
+15:10:12 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:10:12 INFO  Server               :: Started 2014/11/22 15:10:12 MEZ on port 3030
+15:10:13 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:10:13 INFO  ProductCategorySettingsController :: loadCategories()
+15:10:13 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:10:13 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:10:13 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:10:13 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:10:13 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:10:13 INFO  ModelFacade          :: getLabelsByConcept() START
+15:10:13 INFO  ModelFacade          :: getLabelsByConcept() END
+15:10:13 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:10:13 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:10:13 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:10:13 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:10:13 INFO  ProductFactory       :: ConceptScheme[] = null
+15:10:13 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:10:45 INFO  Config               :: Service: :service1
+15:10:45 INFO  Config               ::   name = ds
+15:10:45 INFO  Config               ::   query = /ds/query
+15:10:45 INFO  Config               ::   query = /ds/sparql
+15:10:45 INFO  Config               ::   update = /ds/update
+15:10:45 INFO  Config               ::   upload = /ds/upload
+15:10:45 INFO  Config               ::   graphStore(RW) = /ds/data
+15:10:45 INFO  Config               ::   graphStore(R) = /ds/get
+15:10:46 INFO  Config               :: Service: :service2
+15:10:46 INFO  Config               ::   name = books
+15:10:46 INFO  Config               ::   query = /books/sparql
+15:10:46 INFO  Config               ::   query = /books/query
+15:10:46 INFO  Config               ::   update = /books/update
+15:10:46 INFO  Config               ::   upload = /books/upload
+15:10:46 INFO  Config               ::   graphStore(RW) = /books/data
+15:10:46 INFO  Config               ::   graphStore(R) = /books/get
+15:10:46 INFO  Server               :: Dataset path = /ds
+15:10:46 INFO  Server               :: Dataset path = /books
+15:10:49 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:10:49 INFO  Server               :: Started 2014/11/22 15:10:49 MEZ on port 3030
+15:10:50 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:10:50 INFO  ProductCategorySettingsController :: loadCategories()
+15:10:50 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:10:50 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:10:50 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:10:50 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:10:50 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:10:50 INFO  ModelFacade          :: getLabelsByConcept() START
+15:10:50 INFO  ModelFacade          :: getLabelsByConcept() END
+15:10:50 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:10:50 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:10:50 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:10:50 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:10:50 INFO  ProductFactory       :: ConceptScheme[] = null
+15:10:50 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:13:38 INFO  Config               :: Service: :service1
+15:13:38 INFO  Config               ::   name = ds
+15:13:38 INFO  Config               ::   query = /ds/query
+15:13:38 INFO  Config               ::   query = /ds/sparql
+15:13:38 INFO  Config               ::   update = /ds/update
+15:13:38 INFO  Config               ::   upload = /ds/upload
+15:13:38 INFO  Config               ::   graphStore(RW) = /ds/data
+15:13:38 INFO  Config               ::   graphStore(R) = /ds/get
+15:13:39 INFO  Config               :: Service: :service2
+15:13:39 INFO  Config               ::   name = books
+15:13:39 INFO  Config               ::   query = /books/sparql
+15:13:39 INFO  Config               ::   query = /books/query
+15:13:39 INFO  Config               ::   update = /books/update
+15:13:39 INFO  Config               ::   upload = /books/upload
+15:13:39 INFO  Config               ::   graphStore(RW) = /books/data
+15:13:39 INFO  Config               ::   graphStore(R) = /books/get
+15:13:39 INFO  Server               :: Dataset path = /ds
+15:13:39 INFO  Server               :: Dataset path = /books
+15:13:41 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:13:41 INFO  Server               :: Started 2014/11/22 15:13:41 MEZ on port 3030
+15:13:42 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:13:42 INFO  ProductCategorySettingsController :: loadCategories()
+15:13:42 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:13:42 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:13:42 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:13:42 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:13:42 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:13:42 INFO  ModelFacade          :: getLabelsByConcept() START
+15:13:42 INFO  ModelFacade          :: getLabelsByConcept() END
+15:13:42 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:13:42 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:13:42 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:13:42 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:13:42 INFO  ProductFactory       :: ConceptScheme[] = null
+15:13:42 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:15:50 INFO  Config               :: Service: :service1
+15:15:50 INFO  Config               ::   name = ds
+15:15:50 INFO  Config               ::   query = /ds/query
+15:15:50 INFO  Config               ::   query = /ds/sparql
+15:15:50 INFO  Config               ::   update = /ds/update
+15:15:50 INFO  Config               ::   upload = /ds/upload
+15:15:50 INFO  Config               ::   graphStore(RW) = /ds/data
+15:15:50 INFO  Config               ::   graphStore(R) = /ds/get
+15:15:51 INFO  Config               :: Service: :service2
+15:15:51 INFO  Config               ::   name = books
+15:15:51 INFO  Config               ::   query = /books/sparql
+15:15:51 INFO  Config               ::   query = /books/query
+15:15:51 INFO  Config               ::   update = /books/update
+15:15:51 INFO  Config               ::   upload = /books/upload
+15:15:51 INFO  Config               ::   graphStore(RW) = /books/data
+15:15:51 INFO  Config               ::   graphStore(R) = /books/get
+15:15:51 INFO  Server               :: Dataset path = /ds
+15:15:51 INFO  Server               :: Dataset path = /books
+15:15:54 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:15:54 INFO  Server               :: Started 2014/11/22 15:15:54 MEZ on port 3030
+15:15:54 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:15:54 INFO  ProductCategorySettingsController :: loadCategories()
+15:15:54 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:15:54 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:15:54 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:15:54 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:15:54 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:15:54 INFO  ModelFacade          :: getLabelsByConcept() START
+15:15:54 INFO  ModelFacade          :: getLabelsByConcept() END
+15:15:54 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:15:54 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:15:54 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:15:54 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:15:54 INFO  ProductFactory       :: ConceptScheme[] = null
+15:15:54 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:19:00 INFO  Config               :: Service: :service1
+15:19:00 INFO  Config               ::   name = ds
+15:19:00 INFO  Config               ::   query = /ds/query
+15:19:00 INFO  Config               ::   query = /ds/sparql
+15:19:00 INFO  Config               ::   update = /ds/update
+15:19:00 INFO  Config               ::   upload = /ds/upload
+15:19:00 INFO  Config               ::   graphStore(RW) = /ds/data
+15:19:00 INFO  Config               ::   graphStore(R) = /ds/get
+15:19:00 INFO  Config               :: Service: :service2
+15:19:00 INFO  Config               ::   name = books
+15:19:00 INFO  Config               ::   query = /books/sparql
+15:19:00 INFO  Config               ::   query = /books/query
+15:19:00 INFO  Config               ::   update = /books/update
+15:19:00 INFO  Config               ::   upload = /books/upload
+15:19:00 INFO  Config               ::   graphStore(RW) = /books/data
+15:19:00 INFO  Config               ::   graphStore(R) = /books/get
+15:19:00 INFO  Server               :: Dataset path = /ds
+15:19:00 INFO  Server               :: Dataset path = /books
+15:19:03 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:19:03 INFO  Server               :: Started 2014/11/22 15:19:03 MEZ on port 3030
+15:19:04 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:19:04 INFO  ProductCategorySettingsController :: loadCategories()
+15:19:04 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:19:04 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:19:04 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:19:04 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:19:04 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:19:04 INFO  ModelFacade          :: getLabelsByConcept() START
+15:19:04 INFO  ModelFacade          :: getLabelsByConcept() END
+15:19:04 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:19:04 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:19:04 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:19:04 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:19:04 INFO  ProductFactory       :: ConceptScheme[] = null
+15:19:04 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:20:01 INFO  Server               :: Stopped 2014/11/22 15:20:01 MEZ on port 3030
+15:20:16 INFO  Config               :: Service: :service1
+15:20:16 INFO  Config               ::   name = ds
+15:20:16 INFO  Config               ::   query = /ds/query
+15:20:16 INFO  Config               ::   query = /ds/sparql
+15:20:16 INFO  Config               ::   update = /ds/update
+15:20:16 INFO  Config               ::   upload = /ds/upload
+15:20:16 INFO  Config               ::   graphStore(RW) = /ds/data
+15:20:16 INFO  Config               ::   graphStore(R) = /ds/get
+15:20:16 INFO  Config               :: Service: :service2
+15:20:16 INFO  Config               ::   name = books
+15:20:16 INFO  Config               ::   query = /books/sparql
+15:20:16 INFO  Config               ::   query = /books/query
+15:20:16 INFO  Config               ::   update = /books/update
+15:20:16 INFO  Config               ::   upload = /books/upload
+15:20:16 INFO  Config               ::   graphStore(RW) = /books/data
+15:20:16 INFO  Config               ::   graphStore(R) = /books/get
+15:20:17 INFO  Server               :: Dataset path = /ds
+15:20:17 INFO  Server               :: Dataset path = /books
+15:20:19 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:20:19 INFO  Server               :: Started 2014/11/22 15:20:19 MEZ on port 3030
+15:20:20 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:20:20 INFO  ProductCategorySettingsController :: loadCategories()
+15:20:20 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:20:20 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:20:20 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:20:20 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:20:20 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:20:20 INFO  ModelFacade          :: getLabelsByConcept() START
+15:20:20 INFO  ModelFacade          :: getLabelsByConcept() END
+15:20:20 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:20:20 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:20:20 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:20:20 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:20:20 INFO  ProductFactory       :: ConceptScheme[] = null
+15:20:20 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:21:59 INFO  Config               :: Service: :service1
+15:21:59 INFO  Config               ::   name = ds
+15:21:59 INFO  Config               ::   query = /ds/query
+15:21:59 INFO  Config               ::   query = /ds/sparql
+15:21:59 INFO  Config               ::   update = /ds/update
+15:21:59 INFO  Config               ::   upload = /ds/upload
+15:21:59 INFO  Config               ::   graphStore(RW) = /ds/data
+15:21:59 INFO  Config               ::   graphStore(R) = /ds/get
+15:21:59 INFO  Config               :: Service: :service2
+15:21:59 INFO  Config               ::   name = books
+15:21:59 INFO  Config               ::   query = /books/sparql
+15:21:59 INFO  Config               ::   query = /books/query
+15:21:59 INFO  Config               ::   update = /books/update
+15:21:59 INFO  Config               ::   upload = /books/upload
+15:21:59 INFO  Config               ::   graphStore(RW) = /books/data
+15:21:59 INFO  Config               ::   graphStore(R) = /books/get
+15:22:00 INFO  Server               :: Dataset path = /ds
+15:22:00 INFO  Server               :: Dataset path = /books
+15:22:02 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:22:02 INFO  Server               :: Started 2014/11/22 15:22:02 MEZ on port 3030
+15:22:03 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:22:03 INFO  ProductCategorySettingsController :: loadCategories()
+15:22:03 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:22:03 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:22:03 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:22:03 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:22:03 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:22:03 INFO  ModelFacade          :: getLabelsByConcept() START
+15:22:03 INFO  ModelFacade          :: getLabelsByConcept() END
+15:22:03 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:22:03 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:22:03 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:22:03 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:22:03 INFO  ProductFactory       :: ConceptScheme[] = null
+15:22:03 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:23:54 INFO  Config               :: Service: :service1
+15:23:54 INFO  Config               ::   name = ds
+15:23:54 INFO  Config               ::   query = /ds/query
+15:23:54 INFO  Config               ::   query = /ds/sparql
+15:23:54 INFO  Config               ::   update = /ds/update
+15:23:54 INFO  Config               ::   upload = /ds/upload
+15:23:54 INFO  Config               ::   graphStore(RW) = /ds/data
+15:23:54 INFO  Config               ::   graphStore(R) = /ds/get
+15:23:55 INFO  Config               :: Service: :service2
+15:23:55 INFO  Config               ::   name = books
+15:23:55 INFO  Config               ::   query = /books/sparql
+15:23:55 INFO  Config               ::   query = /books/query
+15:23:55 INFO  Config               ::   update = /books/update
+15:23:55 INFO  Config               ::   upload = /books/upload
+15:23:55 INFO  Config               ::   graphStore(RW) = /books/data
+15:23:55 INFO  Config               ::   graphStore(R) = /books/get
+15:23:55 INFO  Server               :: Dataset path = /ds
+15:23:55 INFO  Server               :: Dataset path = /books
+15:23:57 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:23:57 INFO  Server               :: Started 2014/11/22 15:23:57 MEZ on port 3030
+15:23:58 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:23:58 INFO  ProductCategorySettingsController :: loadCategories()
+15:23:58 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:23:58 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:23:58 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:23:58 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:23:58 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:23:58 INFO  ModelFacade          :: getLabelsByConcept() START
+15:23:58 INFO  ModelFacade          :: getLabelsByConcept() END
+15:23:58 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:23:58 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:23:58 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:23:58 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:23:58 INFO  ProductFactory       :: ConceptScheme[] = null
+15:23:58 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:25:42 INFO  Config               :: Service: :service1
+15:25:42 INFO  Config               ::   name = ds
+15:25:42 INFO  Config               ::   query = /ds/query
+15:25:42 INFO  Config               ::   query = /ds/sparql
+15:25:42 INFO  Config               ::   update = /ds/update
+15:25:42 INFO  Config               ::   upload = /ds/upload
+15:25:42 INFO  Config               ::   graphStore(RW) = /ds/data
+15:25:42 INFO  Config               ::   graphStore(R) = /ds/get
+15:25:42 INFO  Config               :: Service: :service2
+15:25:42 INFO  Config               ::   name = books
+15:25:42 INFO  Config               ::   query = /books/sparql
+15:25:42 INFO  Config               ::   query = /books/query
+15:25:42 INFO  Config               ::   update = /books/update
+15:25:42 INFO  Config               ::   upload = /books/upload
+15:25:42 INFO  Config               ::   graphStore(RW) = /books/data
+15:25:42 INFO  Config               ::   graphStore(R) = /books/get
+15:25:43 INFO  Server               :: Dataset path = /ds
+15:25:43 INFO  Server               :: Dataset path = /books
+15:25:45 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:25:45 INFO  Server               :: Started 2014/11/22 15:25:45 MEZ on port 3030
+15:25:46 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:25:46 INFO  ProductCategorySettingsController :: loadCategories()
+15:25:46 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:25:46 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:25:46 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:25:46 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:25:46 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:25:46 INFO  ModelFacade          :: getLabelsByConcept() START
+15:25:46 INFO  ModelFacade          :: getLabelsByConcept() END
+15:25:46 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:25:46 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:25:46 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:25:46 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:25:46 INFO  ProductFactory       :: ConceptScheme[] = null
+15:25:46 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:26:21 INFO  Fuseki               :: [1] GET http://localhost:3030/ds/data?default=
+15:26:22 INFO  Fuseki               :: [1] 200 OK (955 ms) 
+15:26:30 INFO  Config               :: Service: :service1
+15:26:30 INFO  Config               ::   name = ds
+15:26:30 INFO  Config               ::   query = /ds/query
+15:26:30 INFO  Config               ::   query = /ds/sparql
+15:26:30 INFO  Config               ::   update = /ds/update
+15:26:30 INFO  Config               ::   upload = /ds/upload
+15:26:30 INFO  Config               ::   graphStore(RW) = /ds/data
+15:26:30 INFO  Config               ::   graphStore(R) = /ds/get
+15:26:30 INFO  Config               :: Service: :service2
+15:26:30 INFO  Config               ::   name = books
+15:26:30 INFO  Config               ::   query = /books/sparql
+15:26:30 INFO  Config               ::   query = /books/query
+15:26:30 INFO  Config               ::   update = /books/update
+15:26:30 INFO  Config               ::   upload = /books/upload
+15:26:30 INFO  Config               ::   graphStore(RW) = /books/data
+15:26:30 INFO  Config               ::   graphStore(R) = /books/get
+15:26:31 INFO  Server               :: Dataset path = /ds
+15:26:31 INFO  Server               :: Dataset path = /books
+15:26:33 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:26:33 INFO  Server               :: Started 2014/11/22 15:26:33 MEZ on port 3030
+15:26:34 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:26:34 INFO  ProductCategorySettingsController :: loadCategories()
+15:26:34 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:26:34 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:26:34 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:26:34 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:26:34 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:26:34 INFO  ModelFacade          :: getLabelsByConcept() START
+15:26:34 INFO  ModelFacade          :: getLabelsByConcept() END
+15:26:34 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:26:34 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:26:34 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:26:34 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:26:34 INFO  ProductFactory       :: ConceptScheme[] = null
+15:26:34 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:26:42 INFO  Fuseki               :: [1] GET http://localhost:3030/ds/data?default=
+15:26:43 INFO  Fuseki               :: [1] 200 OK (872 ms) 
+15:26:57 INFO  Fuseki               :: [2] GET http://localhost:3030/books/data?default=
+15:26:57 INFO  Fuseki               :: [2] 200 OK (1 ms) 
+15:27:03 INFO  Fuseki               :: [3] GET http://localhost:3030/books/data?default=
+15:27:03 INFO  Fuseki               :: [3] 200 OK (1 ms) 
+15:28:44 INFO  Config               :: Service: :service1
+15:28:44 INFO  Config               ::   name = ds
+15:28:44 INFO  Config               ::   query = /ds/query
+15:28:44 INFO  Config               ::   query = /ds/sparql
+15:28:44 INFO  Config               ::   update = /ds/update
+15:28:44 INFO  Config               ::   upload = /ds/upload
+15:28:44 INFO  Config               ::   graphStore(RW) = /ds/data
+15:28:44 INFO  Config               ::   graphStore(R) = /ds/get
+15:28:44 INFO  Config               :: Service: :service2
+15:28:44 INFO  Config               ::   name = books
+15:28:44 INFO  Config               ::   query = /books/sparql
+15:28:44 INFO  Config               ::   query = /books/query
+15:28:44 INFO  Config               ::   update = /books/update
+15:28:44 INFO  Config               ::   upload = /books/upload
+15:28:44 INFO  Config               ::   graphStore(RW) = /books/data
+15:28:44 INFO  Config               ::   graphStore(R) = /books/get
+15:28:44 INFO  Server               :: Dataset path = /ds
+15:28:44 INFO  Server               :: Dataset path = /books
+15:28:47 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:28:47 INFO  Server               :: Started 2014/11/22 15:28:47 MEZ on port 3030
+15:28:48 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:28:48 INFO  ProductCategorySettingsController :: loadCategories()
+15:28:48 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:28:48 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:28:48 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:28:48 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:28:48 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:28:48 INFO  ModelFacade          :: getLabelsByConcept() START
+15:28:48 INFO  ModelFacade          :: getLabelsByConcept() END
+15:28:48 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:28:48 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:28:48 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:28:48 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:28:48 INFO  ProductFactory       :: ConceptScheme[] = null
+15:28:48 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:35:43 INFO  Config               :: Service: :service1
+15:35:43 INFO  Config               ::   name = ds
+15:35:43 INFO  Config               ::   query = /ds/query
+15:35:43 INFO  Config               ::   query = /ds/sparql
+15:35:43 INFO  Config               ::   update = /ds/update
+15:35:43 INFO  Config               ::   upload = /ds/upload
+15:35:43 INFO  Config               ::   graphStore(RW) = /ds/data
+15:35:43 INFO  Config               ::   graphStore(R) = /ds/get
+15:35:44 INFO  Config               :: Service: :service2
+15:35:44 INFO  Config               ::   name = books
+15:35:44 INFO  Config               ::   query = /books/sparql
+15:35:44 INFO  Config               ::   query = /books/query
+15:35:44 INFO  Config               ::   update = /books/update
+15:35:44 INFO  Config               ::   upload = /books/upload
+15:35:44 INFO  Config               ::   graphStore(RW) = /books/data
+15:35:44 INFO  Config               ::   graphStore(R) = /books/get
+15:35:44 INFO  Server               :: Dataset path = /ds
+15:35:44 INFO  Server               :: Dataset path = /books
+15:35:46 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:35:46 INFO  Server               :: Started 2014/11/22 15:35:46 MEZ on port 3030
+15:35:47 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:35:47 INFO  ProductCategorySettingsController :: loadCategories()
+15:35:47 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:35:47 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:35:47 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:35:47 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:35:47 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:35:47 INFO  ModelFacade          :: getLabelsByConcept() START
+15:35:47 INFO  ModelFacade          :: getLabelsByConcept() END
+15:35:47 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:35:47 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:35:47 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:35:47 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:35:47 INFO  ProductFactory       :: ConceptScheme[] = null
+15:35:47 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:35:55 INFO  Server               :: Stopped 2014/11/22 15:35:55 MEZ on port 3030
+15:36:03 INFO  Config               :: Service: :service1
+15:36:03 INFO  Config               ::   name = ds
+15:36:03 INFO  Config               ::   query = /ds/query
+15:36:03 INFO  Config               ::   query = /ds/sparql
+15:36:03 INFO  Config               ::   update = /ds/update
+15:36:03 INFO  Config               ::   upload = /ds/upload
+15:36:03 INFO  Config               ::   graphStore(RW) = /ds/data
+15:36:03 INFO  Config               ::   graphStore(R) = /ds/get
+15:36:04 INFO  Config               :: Service: :service2
+15:36:04 INFO  Config               ::   name = books
+15:36:04 INFO  Config               ::   query = /books/sparql
+15:36:04 INFO  Config               ::   query = /books/query
+15:36:04 INFO  Config               ::   update = /books/update
+15:36:04 INFO  Config               ::   upload = /books/upload
+15:36:04 INFO  Config               ::   graphStore(RW) = /books/data
+15:36:04 INFO  Config               ::   graphStore(R) = /books/get
+15:36:04 INFO  Server               :: Dataset path = /ds
+15:36:04 INFO  Server               :: Dataset path = /books
+15:36:06 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:36:06 INFO  Server               :: Started 2014/11/22 15:36:06 MEZ on port 3030
+15:36:07 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:36:07 INFO  ProductCategorySettingsController :: loadCategories()
+15:36:07 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:36:07 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:36:07 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:36:07 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:36:07 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:36:07 INFO  ModelFacade          :: getLabelsByConcept() START
+15:36:07 INFO  ModelFacade          :: getLabelsByConcept() END
+15:36:07 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:36:07 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:36:07 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:36:07 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:36:07 INFO  ProductFactory       :: ConceptScheme[] = null
+15:36:07 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:36:18 INFO  Fuseki               :: [1] GET http://localhost:3030/books/data?default=
+15:36:18 INFO  Fuseki               :: [1] 200 OK (25 ms) 
+15:37:04 INFO  Fuseki               :: [2] POST http://localhost:3030/books/upload
+15:37:04 INFO  Fuseki               :: [2] Upload: Filename: books.ttl, Content-Type=text/turtle, Charset=null => Turtle
+15:37:04 INFO  Fuseki               :: [2] Upload: Graph: default (17 triple(s))
+15:37:04 INFO  Fuseki               :: [2] 200 OK (42 ms) 
+15:37:14 INFO  Fuseki               :: [3] GET http://localhost:3030/books/query?query=SELECT%20DISTINCT%20%3Fg%20WHERE%20%7B%20GRAPH%20%3Fg%20%7B%20%3Fs%20%3Fp%20%3Fo%20%7D%20%7D
+15:37:14 INFO  Fuseki               :: [3] Query = SELECT DISTINCT ?g WHERE { GRAPH ?g { ?s ?p ?o } }
+15:37:14 INFO  Fuseki               :: [3] exec/select
+15:37:14 INFO  Fuseki               :: [3] 200 OK (70 ms) 
+15:37:34 INFO  Config               :: Service: :service1
+15:37:34 INFO  Config               ::   name = ds
+15:37:34 INFO  Config               ::   query = /ds/query
+15:37:34 INFO  Config               ::   query = /ds/sparql
+15:37:34 INFO  Config               ::   update = /ds/update
+15:37:34 INFO  Config               ::   upload = /ds/upload
+15:37:34 INFO  Config               ::   graphStore(RW) = /ds/data
+15:37:34 INFO  Config               ::   graphStore(R) = /ds/get
+15:37:34 INFO  Config               :: Service: :service2
+15:37:34 INFO  Config               ::   name = books
+15:37:34 INFO  Config               ::   query = /books/sparql
+15:37:34 INFO  Config               ::   query = /books/query
+15:37:34 INFO  Config               ::   update = /books/update
+15:37:34 INFO  Config               ::   upload = /books/upload
+15:37:34 INFO  Config               ::   graphStore(RW) = /books/data
+15:37:34 INFO  Config               ::   graphStore(R) = /books/get
+15:37:35 INFO  Server               :: Dataset path = /ds
+15:37:35 INFO  Server               :: Dataset path = /books
+15:37:37 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:37:37 INFO  Server               :: Started 2014/11/22 15:37:37 MEZ on port 3030
+15:37:38 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:37:38 INFO  ProductCategorySettingsController :: loadCategories()
+15:37:38 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:37:38 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:37:38 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:37:38 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:37:38 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:37:38 INFO  ModelFacade          :: getLabelsByConcept() START
+15:37:38 INFO  ModelFacade          :: getLabelsByConcept() END
+15:37:38 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:37:38 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:37:38 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:37:38 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:37:38 INFO  ProductFactory       :: ConceptScheme[] = null
+15:37:38 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:37:52 INFO  Fuseki               :: [1] GET http://localhost:3030/books/data?default=
+15:37:52 INFO  Fuseki               :: [1] 200 OK (29 ms) 
+15:38:02 INFO  Fuseki               :: [2] GET http://localhost:3030/books/query?query=SELECT%20DISTINCT%20%3Fg%20WHERE%20%7B%20GRAPH%20%3Fg%20%7B%20%3Fs%20%3Fp%20%3Fo%20%7D%20%7D
+15:38:02 INFO  Fuseki               :: [2] Query = SELECT DISTINCT ?g WHERE { GRAPH ?g { ?s ?p ?o } }
+15:38:02 INFO  Fuseki               :: [2] exec/select
+15:38:02 INFO  Fuseki               :: [2] 200 OK (116 ms) 
+15:38:19 INFO  Fuseki               :: [3] POST http://localhost:3030/books/upload
+15:38:19 INFO  Fuseki               :: [3] Upload: Filename: skos-xl.rdf, Content-Type=application/rdf+xml, Charset=null => RDF/XML
+15:38:19 INFO  Fuseki               :: [3] Upload: Graph: default (61 triple(s))
+15:38:19 INFO  Fuseki               :: [3] 200 OK (75 ms) 
+15:38:20 INFO  Fuseki               :: [4] GET http://localhost:3030/books/query?query=SELECT%20DISTINCT%20%3Fg%20WHERE%20%7B%20GRAPH%20%3Fg%20%7B%20%3Fs%20%3Fp%20%3Fo%20%7D%20%7D
+15:38:20 INFO  Fuseki               :: [4] Query = SELECT DISTINCT ?g WHERE { GRAPH ?g { ?s ?p ?o } }
+15:38:20 INFO  Fuseki               :: [4] exec/select
+15:38:20 INFO  Fuseki               :: [4] 200 OK (4 ms) 
+15:38:21 INFO  Fuseki               :: [5] GET http://localhost:3030/books/query?query=SELECT%20DISTINCT%20%3Fg%20WHERE%20%7B%20GRAPH%20%3Fg%20%7B%20%3Fs%20%3Fp%20%3Fo%20%7D%20%7D
+15:38:21 INFO  Fuseki               :: [5] Query = SELECT DISTINCT ?g WHERE { GRAPH ?g { ?s ?p ?o } }
+15:38:21 INFO  Fuseki               :: [5] exec/select
+15:38:21 INFO  Fuseki               :: [5] 200 OK (4 ms) 
+15:39:21 INFO  Fuseki               :: [6] GET http://localhost:3030/books/sparql?query=SELECT+DISTINCT+%3Fg+WHERE+%7B+GRAPH+%3Fg+%7B+%7D+%7D&output=text&stylesheet=
+15:39:21 INFO  Fuseki               :: [6] Query = SELECT DISTINCT ?g WHERE { GRAPH ?g { } }
+15:39:21 INFO  Fuseki               :: [6] exec/select
+15:39:21 INFO  Fuseki               :: [6] 200 OK (42 ms) 
+15:41:08 INFO  Config               :: Service: :service1
+15:41:08 INFO  Config               ::   name = ds
+15:41:08 INFO  Config               ::   query = /ds/query
+15:41:08 INFO  Config               ::   query = /ds/sparql
+15:41:08 INFO  Config               ::   update = /ds/update
+15:41:08 INFO  Config               ::   upload = /ds/upload
+15:41:08 INFO  Config               ::   graphStore(RW) = /ds/data
+15:41:08 INFO  Config               ::   graphStore(R) = /ds/get
+15:41:09 INFO  Config               :: Service: :service2
+15:41:09 INFO  Config               ::   name = books
+15:41:09 INFO  Config               ::   query = /books/sparql
+15:41:09 INFO  Config               ::   query = /books/query
+15:41:09 INFO  Config               ::   update = /books/update
+15:41:09 INFO  Config               ::   upload = /books/upload
+15:41:09 INFO  Config               ::   graphStore(RW) = /books/data
+15:41:09 INFO  Config               ::   graphStore(R) = /books/get
+15:41:09 INFO  Server               :: Dataset path = /ds
+15:41:09 INFO  Server               :: Dataset path = /books
+15:41:11 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:41:11 INFO  Server               :: Started 2014/11/22 15:41:11 MEZ on port 3030
+15:41:12 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:41:12 INFO  ProductCategorySettingsController :: loadCategories()
+15:41:12 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:41:12 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:41:12 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:41:12 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:41:12 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:41:12 INFO  ModelFacade          :: getLabelsByConcept() START
+15:41:12 INFO  ModelFacade          :: getLabelsByConcept() END
+15:41:12 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:41:12 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:41:12 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:41:12 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:41:12 INFO  ProductFactory       :: ConceptScheme[] = null
+15:41:12 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:41:22 INFO  Fuseki               :: [1] GET http://localhost:3030/books/data?default=
+15:41:22 INFO  Fuseki               :: [1] 200 OK (26 ms) 
+15:41:32 INFO  Fuseki               :: [2] GET http://localhost:3030/books/sparql?query=SELECT+DISTINCT+%3Fg+WHERE+%7B+GRAPH+%3Fg+%7B+%7D+%7D&output=text&stylesheet=
+15:41:32 INFO  Fuseki               :: [2] Query = SELECT DISTINCT ?g WHERE { GRAPH ?g { } }
+15:41:32 INFO  Fuseki               :: [2] exec/select
+15:41:32 INFO  Fuseki               :: [2] 200 OK (61 ms) 
+15:42:26 INFO  SkosEditorController :: Base NS set to: http://www.w3.org/2008/05/skos-xl#
+15:42:26 INFO  SkosEditorController :: Skos NS set to: http://www.w3.org/2004/02/skos/core#
+15:42:26 INFO  SkosEditorController :: Skosxl NS set to: http://www.w3.org/2008/05/skos-xl#
+15:42:26 INFO  SkosEditorController :: class added to List
+15:42:26 INFO  SkosEditorController :: Ontologie loaded
+15:45:43 INFO  Config               :: Service: :service1
+15:45:43 INFO  Config               ::   name = ds
+15:45:43 INFO  Config               ::   query = /ds/query
+15:45:43 INFO  Config               ::   query = /ds/sparql
+15:45:43 INFO  Config               ::   update = /ds/update
+15:45:43 INFO  Config               ::   upload = /ds/upload
+15:45:43 INFO  Config               ::   graphStore(RW) = /ds/data
+15:45:43 INFO  Config               ::   graphStore(R) = /ds/get
+15:45:43 INFO  Config               :: Service: :service2
+15:45:43 INFO  Config               ::   name = books
+15:45:43 INFO  Config               ::   query = /books/sparql
+15:45:43 INFO  Config               ::   query = /books/query
+15:45:43 INFO  Config               ::   update = /books/update
+15:45:43 INFO  Config               ::   upload = /books/upload
+15:45:43 INFO  Config               ::   graphStore(RW) = /books/data
+15:45:43 INFO  Config               ::   graphStore(R) = /books/get
+15:45:43 INFO  Server               :: Dataset path = /ds
+15:45:43 INFO  Server               :: Dataset path = /books
+15:45:46 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:45:46 INFO  Server               :: Started 2014/11/22 15:45:46 MEZ on port 3030
+15:45:47 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:45:47 INFO  ProductCategorySettingsController :: loadCategories()
+15:45:47 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:45:47 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:45:47 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:45:47 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:45:47 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:45:47 INFO  ModelFacade          :: getLabelsByConcept() START
+15:45:47 INFO  ModelFacade          :: getLabelsByConcept() END
+15:45:47 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:45:47 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:45:47 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:45:47 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:45:47 INFO  ProductFactory       :: ConceptScheme[] = null
+15:45:47 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:46:34 INFO  Config               :: Service: :service1
+15:46:34 INFO  Config               ::   name = ds
+15:46:34 INFO  Config               ::   query = /ds/query
+15:46:34 INFO  Config               ::   query = /ds/sparql
+15:46:34 INFO  Config               ::   update = /ds/update
+15:46:34 INFO  Config               ::   upload = /ds/upload
+15:46:34 INFO  Config               ::   graphStore(RW) = /ds/data
+15:46:34 INFO  Config               ::   graphStore(R) = /ds/get
+15:46:34 INFO  Config               :: Service: :service2
+15:46:34 INFO  Config               ::   name = books
+15:46:34 INFO  Config               ::   query = /books/sparql
+15:46:34 INFO  Config               ::   query = /books/query
+15:46:34 INFO  Config               ::   update = /books/update
+15:46:34 INFO  Config               ::   upload = /books/upload
+15:46:34 INFO  Config               ::   graphStore(RW) = /books/data
+15:46:34 INFO  Config               ::   graphStore(R) = /books/get
+15:46:34 INFO  Server               :: Dataset path = /ds
+15:46:34 INFO  Server               :: Dataset path = /books
+15:46:37 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:46:37 INFO  Server               :: Started 2014/11/22 15:46:37 MEZ on port 3030
+15:46:38 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:46:38 INFO  ProductCategorySettingsController :: loadCategories()
+15:46:38 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:46:38 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:46:38 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:46:38 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:46:38 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:46:38 INFO  ModelFacade          :: getLabelsByConcept() START
+15:46:38 INFO  ModelFacade          :: getLabelsByConcept() END
+15:46:38 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:46:38 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:46:38 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:46:38 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:46:38 INFO  ProductFactory       :: ConceptScheme[] = null
+15:46:38 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:46:45 INFO  Fuseki               :: [1] GET http://localhost:3030/books/data?default=
+15:46:45 INFO  Fuseki               :: [1] 200 OK (32 ms) 
+15:46:55 INFO  Fuseki               :: [2] GET http://localhost:3030/books/sparql?query=SELECT+DISTINCT+%3Fg+WHERE+%7B+GRAPH+%3Fg+%7B+%7D+%7D&output=text&stylesheet=
+15:46:55 INFO  Fuseki               :: [2] Query = SELECT DISTINCT ?g WHERE { GRAPH ?g { } }
+15:46:55 INFO  Fuseki               :: [2] exec/select
+15:46:55 INFO  Fuseki               :: [2] 200 OK (40 ms) 
+15:47:44 INFO  Config               :: Service: :service1
+15:47:44 INFO  Config               ::   name = ds
+15:47:44 INFO  Config               ::   query = /ds/query
+15:47:44 INFO  Config               ::   query = /ds/sparql
+15:47:44 INFO  Config               ::   update = /ds/update
+15:47:44 INFO  Config               ::   upload = /ds/upload
+15:47:44 INFO  Config               ::   graphStore(RW) = /ds/data
+15:47:44 INFO  Config               ::   graphStore(R) = /ds/get
+15:47:45 INFO  Config               :: Service: :service2
+15:47:45 INFO  Config               ::   name = books
+15:47:45 INFO  Config               ::   query = /books/sparql
+15:47:45 INFO  Config               ::   query = /books/query
+15:47:45 INFO  Config               ::   update = /books/update
+15:47:45 INFO  Config               ::   upload = /books/upload
+15:47:45 INFO  Config               ::   graphStore(RW) = /books/data
+15:47:45 INFO  Config               ::   graphStore(R) = /books/get
+15:47:45 INFO  Server               :: Dataset path = /ds
+15:47:45 INFO  Server               :: Dataset path = /books
+15:47:47 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:47:47 INFO  Server               :: Started 2014/11/22 15:47:47 MEZ on port 3030
+15:47:48 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:47:48 INFO  ProductCategorySettingsController :: loadCategories()
+15:47:48 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:47:48 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:47:48 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:47:48 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:47:48 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:47:48 INFO  ModelFacade          :: getLabelsByConcept() START
+15:47:48 INFO  ModelFacade          :: getLabelsByConcept() END
+15:47:48 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:47:48 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:47:48 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:47:48 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:47:48 INFO  ProductFactory       :: ConceptScheme[] = null
+15:47:48 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:48:00 INFO  Fuseki               :: [1] GET http://localhost:3030/books/data?default=
+15:48:00 INFO  Fuseki               :: [1] 200 OK (26 ms) 
+15:48:41 INFO  Fuseki               :: [2] GET http://localhost:3030/books/sparql?query=SELECT+DISTINCT+%3Fg+WHERE+%7B+GRAPH+%3Fg+%7B+%7D+%7D&output=text&stylesheet=
+15:48:41 INFO  Fuseki               :: [2] Query = SELECT DISTINCT ?g WHERE { GRAPH ?g { } }
+15:48:41 INFO  Fuseki               :: [2] exec/select
+15:48:41 INFO  Fuseki               :: [2] 200 OK (45 ms) 
+15:52:58 INFO  Config               :: Service: :service1
+15:52:58 INFO  Config               ::   name = ds
+15:52:58 INFO  Config               ::   query = /ds/query
+15:52:58 INFO  Config               ::   query = /ds/sparql
+15:52:58 INFO  Config               ::   update = /ds/update
+15:52:58 INFO  Config               ::   upload = /ds/upload
+15:52:58 INFO  Config               ::   graphStore(RW) = /ds/data
+15:52:58 INFO  Config               ::   graphStore(R) = /ds/get
+15:52:58 INFO  Config               :: Service: :service2
+15:52:58 INFO  Config               ::   name = books
+15:52:58 INFO  Config               ::   query = /books/sparql
+15:52:58 INFO  Config               ::   query = /books/query
+15:52:58 INFO  Config               ::   update = /books/update
+15:52:58 INFO  Config               ::   upload = /books/upload
+15:52:58 INFO  Config               ::   graphStore(RW) = /books/data
+15:52:58 INFO  Config               ::   graphStore(R) = /books/get
+15:52:59 INFO  Server               :: Dataset path = /ds
+15:52:59 INFO  Server               :: Dataset path = /books
+15:53:01 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:53:01 INFO  Server               :: Started 2014/11/22 15:53:01 MEZ on port 3030
+15:53:02 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:53:02 INFO  ProductCategorySettingsController :: loadCategories()
+15:53:02 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:53:02 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:53:02 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:53:02 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:53:02 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:53:02 INFO  ModelFacade          :: getLabelsByConcept() START
+15:53:02 INFO  ModelFacade          :: getLabelsByConcept() END
+15:53:02 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:53:02 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:53:02 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:53:02 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:53:02 INFO  ProductFactory       :: ConceptScheme[] = null
+15:53:02 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:53:10 INFO  Fuseki               :: [1] GET http://localhost:3030/books/data?default=
+15:53:10 INFO  Fuseki               :: [1] 200 OK (25 ms) 
+15:53:10 INFO  Fuseki               :: [2] GET http://localhost:3030/books/data?graph=http%3A%2F%2Fexample.org%2Fbook%2F
+15:53:10 INFO  Fuseki               :: [2] 200 OK (8 ms) 
+15:53:44 INFO  Config               :: Service: :service1
+15:53:44 INFO  Config               ::   name = ds
+15:53:44 INFO  Config               ::   query = /ds/query
+15:53:44 INFO  Config               ::   query = /ds/sparql
+15:53:44 INFO  Config               ::   update = /ds/update
+15:53:44 INFO  Config               ::   upload = /ds/upload
+15:53:44 INFO  Config               ::   graphStore(RW) = /ds/data
+15:53:44 INFO  Config               ::   graphStore(R) = /ds/get
+15:53:45 INFO  Config               :: Service: :service2
+15:53:45 INFO  Config               ::   name = books
+15:53:45 INFO  Config               ::   query = /books/sparql
+15:53:45 INFO  Config               ::   query = /books/query
+15:53:45 INFO  Config               ::   update = /books/update
+15:53:45 INFO  Config               ::   upload = /books/upload
+15:53:45 INFO  Config               ::   graphStore(RW) = /books/data
+15:53:45 INFO  Config               ::   graphStore(R) = /books/get
+15:53:45 INFO  Server               :: Dataset path = /ds
+15:53:45 INFO  Server               :: Dataset path = /books
+15:56:41 INFO  Config               :: Service: :service1
+15:56:41 INFO  Config               ::   name = ds
+15:56:41 INFO  Config               ::   query = /ds/query
+15:56:41 INFO  Config               ::   query = /ds/sparql
+15:56:41 INFO  Config               ::   update = /ds/update
+15:56:41 INFO  Config               ::   upload = /ds/upload
+15:56:41 INFO  Config               ::   graphStore(RW) = /ds/data
+15:56:41 INFO  Config               ::   graphStore(R) = /ds/get
+15:56:42 INFO  Config               :: Service: :service2
+15:56:42 INFO  Config               ::   name = books
+15:56:42 INFO  Config               ::   query = /books/sparql
+15:56:42 INFO  Config               ::   query = /books/query
+15:56:42 INFO  Config               ::   update = /books/update
+15:56:42 INFO  Config               ::   upload = /books/upload
+15:56:42 INFO  Config               ::   graphStore(RW) = /books/data
+15:56:42 INFO  Config               ::   graphStore(R) = /books/get
+15:56:42 INFO  Server               :: Dataset path = /ds
+15:56:42 INFO  Server               :: Dataset path = /books
+15:56:43 INFO  Server               :: Stopped 2014/11/22 15:56:43 MEZ on port 3030
+15:56:44 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:56:44 INFO  ProductCategorySettingsController :: loadCategories()
+15:56:44 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:56:44 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:56:44 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:56:44 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:56:44 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:56:44 INFO  ModelFacade          :: getLabelsByConcept() START
+15:56:44 INFO  ModelFacade          :: getLabelsByConcept() END
+15:56:44 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:56:44 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:56:44 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:56:44 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:56:44 INFO  ProductFactory       :: ConceptScheme[] = null
+15:56:44 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:57:29 INFO  Config               :: Service: :service1
+15:57:29 INFO  Config               ::   name = ds
+15:57:29 INFO  Config               ::   query = /ds/query
+15:57:29 INFO  Config               ::   query = /ds/sparql
+15:57:29 INFO  Config               ::   update = /ds/update
+15:57:29 INFO  Config               ::   upload = /ds/upload
+15:57:29 INFO  Config               ::   graphStore(RW) = /ds/data
+15:57:29 INFO  Config               ::   graphStore(R) = /ds/get
+15:57:29 INFO  Config               :: Service: :service2
+15:57:29 INFO  Config               ::   name = books
+15:57:29 INFO  Config               ::   query = /books/sparql
+15:57:29 INFO  Config               ::   query = /books/query
+15:57:29 INFO  Config               ::   update = /books/update
+15:57:29 INFO  Config               ::   upload = /books/upload
+15:57:29 INFO  Config               ::   graphStore(RW) = /books/data
+15:57:29 INFO  Config               ::   graphStore(R) = /books/get
+15:57:30 INFO  Server               :: Dataset path = /ds
+15:57:30 INFO  Server               :: Dataset path = /books
+15:57:30 INFO  Server               :: Stopped 2014/11/22 15:57:30 MEZ on port 3030
+15:57:31 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:57:31 INFO  ProductCategorySettingsController :: loadCategories()
+15:57:31 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:57:31 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:57:31 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:57:31 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:57:31 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:57:31 INFO  ModelFacade          :: getLabelsByConcept() START
+15:57:31 INFO  ModelFacade          :: getLabelsByConcept() END
+15:57:31 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:57:31 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:57:31 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:57:31 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:57:31 INFO  ProductFactory       :: ConceptScheme[] = null
+15:57:31 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:58:02 INFO  Config               :: Service: :service1
+15:58:02 INFO  Config               ::   name = ds
+15:58:02 INFO  Config               ::   query = /ds/query
+15:58:02 INFO  Config               ::   query = /ds/sparql
+15:58:02 INFO  Config               ::   update = /ds/update
+15:58:02 INFO  Config               ::   upload = /ds/upload
+15:58:02 INFO  Config               ::   graphStore(RW) = /ds/data
+15:58:02 INFO  Config               ::   graphStore(R) = /ds/get
+15:58:03 INFO  Config               :: Service: :service2
+15:58:03 INFO  Config               ::   name = books
+15:58:03 INFO  Config               ::   query = /books/sparql
+15:58:03 INFO  Config               ::   query = /books/query
+15:58:03 INFO  Config               ::   update = /books/update
+15:58:03 INFO  Config               ::   upload = /books/upload
+15:58:03 INFO  Config               ::   graphStore(RW) = /books/data
+15:58:03 INFO  Config               ::   graphStore(R) = /books/get
+15:58:03 INFO  Server               :: Dataset path = /ds
+15:58:03 INFO  Server               :: Dataset path = /books
+15:58:06 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:58:06 INFO  Server               :: Started 2014/11/22 15:58:06 MEZ on port 3030
+15:58:07 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:58:07 INFO  ProductCategorySettingsController :: loadCategories()
+15:58:07 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:58:07 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:58:07 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:58:07 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:58:07 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:58:07 INFO  ModelFacade          :: getLabelsByConcept() START
+15:58:07 INFO  ModelFacade          :: getLabelsByConcept() END
+15:58:07 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:58:07 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:58:07 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:58:07 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:58:07 INFO  ProductFactory       :: ConceptScheme[] = null
+15:58:07 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:58:22 INFO  Fuseki               :: [1] GET http://localhost:3030/books/data?default=
+15:58:22 INFO  Fuseki               :: [1] 200 OK (22 ms) 
+15:58:22 INFO  Fuseki               :: [2] GET http://localhost:3030/books/data?graph=http%3A%2F%2Fexample.org%2Fbook%2F
+15:58:22 INFO  Fuseki               :: [2] 200 OK (7 ms) 
+15:59:32 INFO  Server               :: Stopped 2014/11/22 15:59:32 MEZ on port 3030
+15:59:35 INFO  Config               :: Service: :service1
+15:59:35 INFO  Config               ::   name = ds
+15:59:35 INFO  Config               ::   query = /ds/query
+15:59:35 INFO  Config               ::   query = /ds/sparql
+15:59:35 INFO  Config               ::   update = /ds/update
+15:59:35 INFO  Config               ::   upload = /ds/upload
+15:59:35 INFO  Config               ::   graphStore(RW) = /ds/data
+15:59:35 INFO  Config               ::   graphStore(R) = /ds/get
+15:59:36 INFO  Config               :: Service: :service2
+15:59:36 INFO  Config               ::   name = books
+15:59:36 INFO  Config               ::   query = /books/sparql
+15:59:36 INFO  Config               ::   query = /books/query
+15:59:36 INFO  Config               ::   update = /books/update
+15:59:36 INFO  Config               ::   upload = /books/upload
+15:59:36 INFO  Config               ::   graphStore(RW) = /books/data
+15:59:36 INFO  Config               ::   graphStore(R) = /books/get
+15:59:36 INFO  Server               :: Dataset path = /ds
+15:59:36 INFO  Server               :: Dataset path = /books
+15:59:38 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+15:59:38 INFO  Server               :: Started 2014/11/22 15:59:38 MEZ on port 3030
+15:59:39 INFO  ProductCategorySettingsController :: setStartVisibilities()
+15:59:39 INFO  ProductCategorySettingsController :: loadCategories()
+15:59:39 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+15:59:39 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+15:59:39 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+15:59:39 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+15:59:39 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+15:59:39 INFO  ModelFacade          :: getLabelsByConcept() START
+15:59:39 INFO  ModelFacade          :: getLabelsByConcept() END
+15:59:39 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+15:59:39 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+15:59:39 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+15:59:39 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+15:59:39 INFO  ProductFactory       :: ConceptScheme[] = null
+15:59:39 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+15:59:53 INFO  Fuseki               :: [1] GET http://localhost:3030/books/data?default=
+15:59:53 INFO  Fuseki               :: [1] 200 OK (23 ms) 
+15:59:53 INFO  Fuseki               :: [2] GET http://localhost:3030/books/data?graph=http%3A%2F%2Fexample.org%2Fbook%2F
+15:59:53 INFO  Fuseki               :: [2] 200 OK (6 ms) 
+16:02:02 INFO  Config               :: Service: :service1
+16:02:02 INFO  Config               ::   name = ds
+16:02:02 INFO  Config               ::   query = /ds/query
+16:02:02 INFO  Config               ::   query = /ds/sparql
+16:02:02 INFO  Config               ::   update = /ds/update
+16:02:02 INFO  Config               ::   upload = /ds/upload
+16:02:02 INFO  Config               ::   graphStore(RW) = /ds/data
+16:02:02 INFO  Config               ::   graphStore(R) = /ds/get
+16:02:03 INFO  Config               :: Service: :service2
+16:02:03 INFO  Config               ::   name = books
+16:02:03 INFO  Config               ::   query = /books/sparql
+16:02:03 INFO  Config               ::   query = /books/query
+16:02:03 INFO  Config               ::   update = /books/update
+16:02:03 INFO  Config               ::   upload = /books/upload
+16:02:03 INFO  Config               ::   graphStore(RW) = /books/data
+16:02:03 INFO  Config               ::   graphStore(R) = /books/get
+16:02:03 INFO  Server               :: Dataset path = /ds
+16:02:03 INFO  Server               :: Dataset path = /books
+16:02:06 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+16:02:06 INFO  Server               :: Started 2014/11/22 16:02:06 MEZ on port 3030
+16:02:07 INFO  ProductCategorySettingsController :: setStartVisibilities()
+16:02:07 INFO  ProductCategorySettingsController :: loadCategories()
+16:02:07 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+16:02:07 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+16:02:07 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+16:02:07 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+16:02:07 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+16:02:07 INFO  ModelFacade          :: getLabelsByConcept() START
+16:02:07 INFO  ModelFacade          :: getLabelsByConcept() END
+16:02:07 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+16:02:07 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+16:02:07 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+16:02:07 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+16:02:07 INFO  ProductFactory       :: ConceptScheme[] = null
+16:02:07 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+16:02:23 INFO  Fuseki               :: [1] GET http://localhost:3030/books/data?default=
+16:02:23 INFO  Fuseki               :: [1] 200 OK (25 ms) 
+16:02:23 INFO  Fuseki               :: [2] GET http://localhost:3030/books/data?graph=http%3A%2F%2Fexample.org%2Fbook%2F
+16:02:23 INFO  Fuseki               :: [2] 200 OK (6 ms) 
+16:02:55 INFO  Config               :: Service: :service1
+16:02:55 INFO  Config               ::   name = ds
+16:02:55 INFO  Config               ::   query = /ds/query
+16:02:55 INFO  Config               ::   query = /ds/sparql
+16:02:55 INFO  Config               ::   update = /ds/update
+16:02:55 INFO  Config               ::   upload = /ds/upload
+16:02:55 INFO  Config               ::   graphStore(RW) = /ds/data
+16:02:55 INFO  Config               ::   graphStore(R) = /ds/get
+16:02:55 INFO  Config               :: Service: :service2
+16:02:55 INFO  Config               ::   name = books
+16:02:55 INFO  Config               ::   query = /books/sparql
+16:02:55 INFO  Config               ::   query = /books/query
+16:02:55 INFO  Config               ::   update = /books/update
+16:02:55 INFO  Config               ::   upload = /books/upload
+16:02:55 INFO  Config               ::   graphStore(RW) = /books/data
+16:02:55 INFO  Config               ::   graphStore(R) = /books/get
+16:02:55 INFO  Server               :: Dataset path = /ds
+16:02:55 INFO  Server               :: Dataset path = /books
+16:02:58 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+16:02:58 INFO  Server               :: Started 2014/11/22 16:02:58 MEZ on port 3030
+16:02:59 INFO  ProductCategorySettingsController :: setStartVisibilities()
+16:02:59 INFO  ProductCategorySettingsController :: loadCategories()
+16:02:59 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+16:02:59 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+16:02:59 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+16:02:59 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+16:02:59 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+16:02:59 INFO  ModelFacade          :: getLabelsByConcept() START
+16:02:59 INFO  ModelFacade          :: getLabelsByConcept() END
+16:02:59 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+16:02:59 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+16:02:59 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+16:02:59 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+16:02:59 INFO  ProductFactory       :: ConceptScheme[] = null
+16:02:59 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+16:03:07 INFO  Fuseki               :: [1] GET http://localhost:3030/books/data?default=
+16:03:07 INFO  Fuseki               :: [1] 200 OK (30 ms) 
+16:03:07 INFO  Fuseki               :: [2] GET http://localhost:3030/books/data?graph=http%3A%2F%2Fexample.org%2Fbook%2F
+16:03:07 INFO  Fuseki               :: [2] 200 OK (10 ms) 
+16:04:33 INFO  Config               :: Service: :service1
+16:04:33 INFO  Config               ::   name = ds
+16:04:33 INFO  Config               ::   query = /ds/query
+16:04:33 INFO  Config               ::   query = /ds/sparql
+16:04:33 INFO  Config               ::   update = /ds/update
+16:04:33 INFO  Config               ::   upload = /ds/upload
+16:04:33 INFO  Config               ::   graphStore(RW) = /ds/data
+16:04:33 INFO  Config               ::   graphStore(R) = /ds/get
+16:04:33 INFO  Config               :: Service: :service2
+16:04:33 INFO  Config               ::   name = books
+16:04:33 INFO  Config               ::   query = /books/sparql
+16:04:33 INFO  Config               ::   query = /books/query
+16:04:33 INFO  Config               ::   update = /books/update
+16:04:33 INFO  Config               ::   upload = /books/upload
+16:04:33 INFO  Config               ::   graphStore(RW) = /books/data
+16:04:33 INFO  Config               ::   graphStore(R) = /books/get
+16:04:33 INFO  Server               :: Dataset path = /ds
+16:04:33 INFO  Server               :: Dataset path = /books
+16:04:36 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+16:04:36 INFO  Server               :: Started 2014/11/22 16:04:36 MEZ on port 3030
+16:04:37 INFO  ProductCategorySettingsController :: setStartVisibilities()
+16:04:37 INFO  ProductCategorySettingsController :: loadCategories()
+16:04:37 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+16:04:37 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+16:04:37 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+16:04:37 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+16:04:37 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+16:04:37 INFO  ModelFacade          :: getLabelsByConcept() START
+16:04:37 INFO  ModelFacade          :: getLabelsByConcept() END
+16:04:37 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+16:04:37 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+16:04:37 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+16:04:37 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+16:04:37 INFO  ProductFactory       :: ConceptScheme[] = null
+16:04:37 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+16:04:46 INFO  Fuseki               :: [1] GET http://localhost:3030/books/data?default=
+16:04:46 INFO  Fuseki               :: [1] 200 OK (25 ms) 
+16:04:46 INFO  Fuseki               :: [2] GET http://localhost:3030/books/data?graph=http%3A%2F%2Fexample.org%2Fbook%2F
+16:04:46 INFO  Fuseki               :: [2] 200 OK (7 ms) 
+16:09:48 INFO  Config               :: Service: :service1
+16:09:48 INFO  Config               ::   name = ds
+16:09:48 INFO  Config               ::   query = /ds/query
+16:09:48 INFO  Config               ::   query = /ds/sparql
+16:09:48 INFO  Config               ::   update = /ds/update
+16:09:48 INFO  Config               ::   upload = /ds/upload
+16:09:48 INFO  Config               ::   graphStore(RW) = /ds/data
+16:09:48 INFO  Config               ::   graphStore(R) = /ds/get
+16:09:48 INFO  Config               :: Service: :service2
+16:09:48 INFO  Config               ::   name = books
+16:09:48 INFO  Config               ::   query = /books/sparql
+16:09:48 INFO  Config               ::   query = /books/query
+16:09:48 INFO  Config               ::   update = /books/update
+16:09:48 INFO  Config               ::   upload = /books/upload
+16:09:48 INFO  Config               ::   graphStore(RW) = /books/data
+16:09:48 INFO  Config               ::   graphStore(R) = /books/get
+16:09:48 INFO  Server               :: Dataset path = /ds
+16:09:48 INFO  Server               :: Dataset path = /books
+16:09:58 INFO  Config               :: Service: :service1
+16:09:58 INFO  Config               ::   name = ds
+16:09:58 INFO  Config               ::   query = /ds/query
+16:09:58 INFO  Config               ::   query = /ds/sparql
+16:09:58 INFO  Config               ::   update = /ds/update
+16:09:58 INFO  Config               ::   upload = /ds/upload
+16:09:58 INFO  Config               ::   graphStore(RW) = /ds/data
+16:09:58 INFO  Config               ::   graphStore(R) = /ds/get
+16:09:59 INFO  Config               :: Service: :service2
+16:09:59 INFO  Config               ::   name = books
+16:09:59 INFO  Config               ::   query = /books/sparql
+16:09:59 INFO  Config               ::   query = /books/query
+16:09:59 INFO  Config               ::   update = /books/update
+16:09:59 INFO  Config               ::   upload = /books/upload
+16:09:59 INFO  Config               ::   graphStore(RW) = /books/data
+16:09:59 INFO  Config               ::   graphStore(R) = /books/get
+16:09:59 INFO  Server               :: Dataset path = /ds
+16:09:59 INFO  Server               :: Dataset path = /books
+16:10:02 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+16:10:02 INFO  Server               :: Started 2014/11/22 16:10:02 MEZ on port 3030
+16:10:02 INFO  ProductCategorySettingsController :: setStartVisibilities()
+16:10:02 INFO  ProductCategorySettingsController :: loadCategories()
+16:10:02 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+16:10:02 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+16:10:02 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+16:10:02 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+16:10:02 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+16:10:02 INFO  ModelFacade          :: getLabelsByConcept() START
+16:10:02 INFO  ModelFacade          :: getLabelsByConcept() END
+16:10:02 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+16:10:02 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+16:10:02 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+16:10:02 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+16:10:02 INFO  ProductFactory       :: ConceptScheme[] = null
+16:10:02 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+16:10:11 INFO  Fuseki               :: [1] GET http://localhost:3030/books/data?default=
+16:10:11 INFO  Fuseki               :: [1] 200 OK (38 ms) 
+16:10:11 INFO  Fuseki               :: [2] GET http://localhost:3030/books/data?graph=http%3A%2F%2Fexample.org%2Fbook%2F
+16:10:11 INFO  Fuseki               :: [2] 200 OK (9 ms) 
+16:10:36 INFO  Config               :: Service: :service1
+16:10:36 INFO  Config               ::   name = ds
+16:10:36 INFO  Config               ::   query = /ds/query
+16:10:36 INFO  Config               ::   query = /ds/sparql
+16:10:36 INFO  Config               ::   update = /ds/update
+16:10:36 INFO  Config               ::   upload = /ds/upload
+16:10:36 INFO  Config               ::   graphStore(RW) = /ds/data
+16:10:36 INFO  Config               ::   graphStore(R) = /ds/get
+16:10:36 INFO  Config               :: Service: :service2
+16:10:36 INFO  Config               ::   name = books
+16:10:36 INFO  Config               ::   query = /books/sparql
+16:10:36 INFO  Config               ::   query = /books/query
+16:10:36 INFO  Config               ::   update = /books/update
+16:10:36 INFO  Config               ::   upload = /books/upload
+16:10:36 INFO  Config               ::   graphStore(RW) = /books/data
+16:10:36 INFO  Config               ::   graphStore(R) = /books/get
+16:10:37 INFO  Server               :: Dataset path = /ds
+16:10:37 INFO  Server               :: Dataset path = /books
+16:10:39 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+16:10:39 INFO  Server               :: Started 2014/11/22 16:10:39 MEZ on port 3030
+16:10:40 INFO  ProductCategorySettingsController :: setStartVisibilities()
+16:10:40 INFO  ProductCategorySettingsController :: loadCategories()
+16:10:40 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+16:10:40 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+16:10:40 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+16:10:40 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+16:10:40 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+16:10:40 INFO  ModelFacade          :: getLabelsByConcept() START
+16:10:40 INFO  ModelFacade          :: getLabelsByConcept() END
+16:10:40 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+16:10:40 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+16:10:40 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+16:10:40 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+16:10:40 INFO  ProductFactory       :: ConceptScheme[] = null
+16:10:40 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+16:10:49 INFO  Fuseki               :: [1] GET http://localhost:3030/books/data?default=
+16:10:49 INFO  Fuseki               :: [1] 200 OK (32 ms) 
+16:10:49 INFO  Fuseki               :: [2] GET http://localhost:3030/books/data?graph=http%3A%2F%2Fexample.org%2Fbook%2F
+16:10:49 INFO  Fuseki               :: [2] 200 OK (6 ms) 
+16:11:12 INFO  Config               :: Service: :service1
+16:11:12 INFO  Config               ::   name = ds
+16:11:12 INFO  Config               ::   query = /ds/query
+16:11:12 INFO  Config               ::   query = /ds/sparql
+16:11:12 INFO  Config               ::   update = /ds/update
+16:11:12 INFO  Config               ::   upload = /ds/upload
+16:11:12 INFO  Config               ::   graphStore(RW) = /ds/data
+16:11:12 INFO  Config               ::   graphStore(R) = /ds/get
+16:11:13 INFO  Config               :: Service: :service2
+16:11:13 INFO  Config               ::   name = books
+16:11:13 INFO  Config               ::   query = /books/sparql
+16:11:13 INFO  Config               ::   query = /books/query
+16:11:13 INFO  Config               ::   update = /books/update
+16:11:13 INFO  Config               ::   upload = /books/upload
+16:11:13 INFO  Config               ::   graphStore(RW) = /books/data
+16:11:13 INFO  Config               ::   graphStore(R) = /books/get
+16:11:13 INFO  Server               :: Dataset path = /ds
+16:11:13 INFO  Server               :: Dataset path = /books
+16:11:15 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+16:11:15 INFO  Server               :: Started 2014/11/22 16:11:15 MEZ on port 3030
+16:11:16 INFO  ProductCategorySettingsController :: setStartVisibilities()
+16:11:16 INFO  ProductCategorySettingsController :: loadCategories()
+16:11:16 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+16:11:16 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+16:11:16 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+16:11:16 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+16:11:16 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+16:11:16 INFO  ModelFacade          :: getLabelsByConcept() START
+16:11:16 INFO  ModelFacade          :: getLabelsByConcept() END
+16:11:16 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+16:11:16 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+16:11:16 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+16:11:16 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+16:11:16 INFO  ProductFactory       :: ConceptScheme[] = null
+16:11:16 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+16:11:25 INFO  Fuseki               :: [1] GET http://localhost:3030/books/data?default=
+16:11:25 INFO  Fuseki               :: [1] 200 OK (33 ms) 
+16:11:25 INFO  Fuseki               :: [2] GET http://localhost:3030/books/data?graph=http%3A%2F%2Fexample.org%2Fbook%2F
+16:11:25 INFO  Fuseki               :: [2] 200 OK (7 ms) 
+16:17:24 INFO  Config               :: Service: :service1
+16:17:24 INFO  Config               ::   name = ds
+16:17:24 INFO  Config               ::   query = /ds/query
+16:17:24 INFO  Config               ::   query = /ds/sparql
+16:17:24 INFO  Config               ::   update = /ds/update
+16:17:24 INFO  Config               ::   upload = /ds/upload
+16:17:24 INFO  Config               ::   graphStore(RW) = /ds/data
+16:17:24 INFO  Config               ::   graphStore(R) = /ds/get
+16:17:25 INFO  Config               :: Service: :service2
+16:17:25 INFO  Config               ::   name = books
+16:17:25 INFO  Config               ::   query = /books/sparql
+16:17:25 INFO  Config               ::   query = /books/query
+16:17:25 INFO  Config               ::   update = /books/update
+16:17:25 INFO  Config               ::   upload = /books/upload
+16:17:25 INFO  Config               ::   graphStore(RW) = /books/data
+16:17:25 INFO  Config               ::   graphStore(R) = /books/get
+16:17:25 INFO  Server               :: Dataset path = /ds
+16:17:25 INFO  Server               :: Dataset path = /books
+16:17:27 INFO  Server               :: Fuseki 1.1.1 2014-10-02T16:36:17+0100
+16:17:27 INFO  Server               :: Started 2014/11/22 16:17:27 MEZ on port 3030
+16:17:28 INFO  ProductCategorySettingsController :: setStartVisibilities()
+16:17:28 INFO  ProductCategorySettingsController :: loadCategories()
+16:17:28 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+16:17:28 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+16:17:28 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+16:17:28 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+16:17:28 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+16:17:28 INFO  ModelFacade          :: getLabelsByConcept() START
+16:17:28 INFO  ModelFacade          :: getLabelsByConcept() END
+16:17:28 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+16:17:28 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+16:17:28 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+16:17:28 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+16:17:28 INFO  ProductFactory       :: ConceptScheme[] = null
+16:17:28 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+16:17:39 INFO  Fuseki               :: [1] GET http://localhost:3030/books/data?default=
+16:17:39 INFO  Fuseki               :: [1] 200 OK (31 ms) 
+16:17:39 INFO  Fuseki               :: [2] GET http://localhost:3030/books/data?graph=http%3A%2F%2Fexample.org%2Fbook%2F
+16:17:39 INFO  Fuseki               :: [2] 200 OK (7 ms) 
+16:50:50 INFO  Config               :: Service: :service1
+16:50:50 INFO  Config               ::   name = ds
+16:50:50 INFO  Config               ::   query = /ds/query
+16:50:50 INFO  Config               ::   query = /ds/sparql
+16:50:50 INFO  Config               ::   update = /ds/update
+16:50:50 INFO  Config               ::   upload = /ds/upload
+16:50:50 INFO  Config               ::   graphStore(RW) = /ds/data
+16:50:50 INFO  Config               ::   graphStore(R) = /ds/get
+16:50:51 INFO  Config               :: Service: :service2
+16:50:51 INFO  Config               ::   name = books
+16:50:51 INFO  Config               ::   query = /books/sparql
+16:50:51 INFO  Config               ::   query = /books/query
+16:50:51 INFO  Config               ::   update = /books/update
+16:50:51 INFO  Config               ::   upload = /books/upload
+16:50:51 INFO  Config               ::   graphStore(RW) = /books/data
+16:50:51 INFO  Config               ::   graphStore(R) = /books/get
+16:50:51 INFO  Server               :: Dataset path = /ds
+16:50:51 INFO  Server               :: Dataset path = /books
+16:50:51 INFO  Server               :: Stopped 2014/11/22 16:50:51 MEZ on port 3030
+16:50:52 INFO  ProductCategorySettingsController :: setStartVisibilities()
+16:50:52 INFO  ProductCategorySettingsController :: loadCategories()
+16:50:52 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+16:50:52 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+16:50:52 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+16:50:52 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+16:50:52 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+16:50:52 INFO  ModelFacade          :: getLabelsByConcept() START
+16:50:52 INFO  ModelFacade          :: getLabelsByConcept() END
+16:50:52 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+16:50:52 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+16:50:52 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+16:50:52 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+16:50:52 INFO  ProductFactory       :: ConceptScheme[] = null
+16:50:52 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+16:52:45 INFO  Config               :: Service: :service1
+16:52:45 INFO  Config               ::   name = ds
+16:52:45 INFO  Config               ::   query = /ds/query
+16:52:45 INFO  Config               ::   query = /ds/sparql
+16:52:45 INFO  Config               ::   update = /ds/update
+16:52:45 INFO  Config               ::   upload = /ds/upload
+16:52:45 INFO  Config               ::   graphStore(RW) = /ds/data
+16:52:45 INFO  Config               ::   graphStore(R) = /ds/get
+16:52:46 INFO  Config               :: Service: :service2
+16:52:46 INFO  Config               ::   name = books
+16:52:46 INFO  Config               ::   query = /books/sparql
+16:52:46 INFO  Config               ::   query = /books/query
+16:52:46 INFO  Config               ::   update = /books/update
+16:52:46 INFO  Config               ::   upload = /books/upload
+16:52:46 INFO  Config               ::   graphStore(RW) = /books/data
+16:52:46 INFO  Config               ::   graphStore(R) = /books/get
+16:52:46 INFO  Server               :: Dataset path = /ds
+16:52:46 INFO  Server               :: Dataset path = /books
+16:52:47 INFO  Server               :: Stopped 2014/11/22 16:52:47 MEZ on port 3030
+16:52:47 INFO  ProductCategorySettingsController :: setStartVisibilities()
+16:52:47 INFO  ProductCategorySettingsController :: loadCategories()
+16:52:47 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+16:52:47 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+16:52:47 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+16:52:47 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+16:52:47 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+16:52:47 INFO  ModelFacade          :: getLabelsByConcept() START
+16:52:47 INFO  ModelFacade          :: getLabelsByConcept() END
+16:52:47 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+16:52:47 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+16:52:47 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+16:52:47 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+16:52:47 INFO  ProductFactory       :: ConceptScheme[] = null
+16:52:47 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+16:53:42 INFO  Config               :: Service: :service1
+16:53:42 INFO  Config               ::   name = ds
+16:53:42 INFO  Config               ::   query = /ds/query
+16:53:42 INFO  Config               ::   query = /ds/sparql
+16:53:42 INFO  Config               ::   update = /ds/update
+16:53:42 INFO  Config               ::   upload = /ds/upload
+16:53:42 INFO  Config               ::   graphStore(RW) = /ds/data
+16:53:42 INFO  Config               ::   graphStore(R) = /ds/get
+16:53:43 INFO  Config               :: Service: :service1
+16:53:43 INFO  Config               ::   name = ds
+16:53:43 INFO  Config               ::   query = /ds/query
+16:53:43 INFO  Config               ::   query = /ds/sparql
+16:53:43 INFO  Config               ::   update = /ds/update
+16:53:43 INFO  Config               ::   upload = /ds/upload
+16:53:43 INFO  Config               ::   graphStore(RW) = /ds/data
+16:53:43 INFO  Config               ::   graphStore(R) = /ds/get
+16:57:10 INFO  Server               :: Stopped 2014/11/22 16:57:10 MEZ on port 3030
+16:58:26 INFO  Config               :: Service: :service1
+16:58:26 INFO  Config               ::   name = ds
+16:58:26 INFO  Config               ::   query = /ds/query
+16:58:26 INFO  Config               ::   query = /ds/sparql
+16:58:26 INFO  Config               ::   update = /ds/update
+16:58:26 INFO  Config               ::   upload = /ds/upload
+16:58:26 INFO  Config               ::   graphStore(RW) = /ds/data
+16:58:26 INFO  Config               ::   graphStore(R) = /ds/get
+16:58:26 INFO  Config               :: Service: :service2
+16:58:26 INFO  Config               ::   name = books
+16:58:26 INFO  Config               ::   query = /books/sparql
+16:58:26 INFO  Config               ::   query = /books/query
+16:58:26 INFO  Config               ::   update = /books/update
+16:58:26 INFO  Config               ::   upload = /books/upload
+16:58:26 INFO  Config               ::   graphStore(RW) = /books/data
+16:58:26 INFO  Config               ::   graphStore(R) = /books/get
+16:58:27 INFO  Server               :: Dataset path = /ds
+16:58:27 INFO  Server               :: Dataset path = /books
+16:58:27 INFO  Server               :: Stopped 2014/11/22 16:58:27 MEZ on port 3030
+16:58:28 INFO  ProductCategorySettingsController :: setStartVisibilities()
+16:58:28 INFO  ProductCategorySettingsController :: loadCategories()
+16:58:28 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+16:58:28 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+16:58:28 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+16:58:28 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+16:58:28 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+16:58:28 INFO  ModelFacade          :: getLabelsByConcept() START
+16:58:28 INFO  ModelFacade          :: getLabelsByConcept() END
+16:58:28 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+16:58:28 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+16:58:28 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+16:58:28 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+16:58:28 INFO  ProductFactory       :: ConceptScheme[] = null
+16:58:28 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+16:59:03 INFO  Config               :: Service: :service1
+16:59:03 INFO  Config               ::   name = ds
+16:59:03 INFO  Config               ::   query = /ds/query
+16:59:03 INFO  Config               ::   query = /ds/sparql
+16:59:03 INFO  Config               ::   update = /ds/update
+16:59:03 INFO  Config               ::   upload = /ds/upload
+16:59:03 INFO  Config               ::   graphStore(RW) = /ds/data
+16:59:03 INFO  Config               ::   graphStore(R) = /ds/get
+16:59:04 INFO  Config               :: Service: :service2
+16:59:04 INFO  Config               ::   name = books
+16:59:04 INFO  Config               ::   query = /books/sparql
+16:59:04 INFO  Config               ::   query = /books/query
+16:59:04 INFO  Config               ::   update = /books/update
+16:59:04 INFO  Config               ::   upload = /books/upload
+16:59:04 INFO  Config               ::   graphStore(RW) = /books/data
+16:59:04 INFO  Config               ::   graphStore(R) = /books/get
+16:59:04 INFO  Server               :: Dataset path = /ds
+16:59:04 INFO  Server               :: Dataset path = /books
+16:59:05 INFO  Server               :: Stopped 2014/11/22 16:59:05 MEZ on port 3030
+16:59:06 INFO  ProductCategorySettingsController :: setStartVisibilities()
+16:59:06 INFO  ProductCategorySettingsController :: loadCategories()
+16:59:06 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+16:59:06 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+16:59:06 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+16:59:06 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+16:59:06 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+16:59:06 INFO  ModelFacade          :: getLabelsByConcept() START
+16:59:06 INFO  ModelFacade          :: getLabelsByConcept() END
+16:59:06 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+16:59:06 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+16:59:06 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+16:59:06 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+16:59:06 INFO  ProductFactory       :: ConceptScheme[] = null
+16:59:06 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+17:00:01 INFO  Config               :: Service: :service1
+17:00:01 INFO  Config               ::   name = ds
+17:00:01 INFO  Config               ::   query = /ds/query
+17:00:01 INFO  Config               ::   query = /ds/sparql
+17:00:01 INFO  Config               ::   update = /ds/update
+17:00:01 INFO  Config               ::   upload = /ds/upload
+17:00:01 INFO  Config               ::   graphStore(RW) = /ds/data
+17:00:01 INFO  Config               ::   graphStore(R) = /ds/get
+17:00:02 INFO  Config               :: Service: :service2
+17:00:02 INFO  Config               ::   name = books
+17:00:02 INFO  Config               ::   query = /books/sparql
+17:00:02 INFO  Config               ::   query = /books/query
+17:00:02 INFO  Config               ::   update = /books/update
+17:00:02 INFO  Config               ::   upload = /books/upload
+17:00:02 INFO  Config               ::   graphStore(RW) = /books/data
+17:00:02 INFO  Config               ::   graphStore(R) = /books/get
+17:00:02 INFO  Server               :: Dataset path = /ds
+17:00:02 INFO  Server               :: Dataset path = /books
+17:00:02 INFO  Config               :: Service: :service1
+17:00:02 INFO  Config               ::   name = ds
+17:00:02 INFO  Config               ::   query = /ds/query
+17:00:02 INFO  Config               ::   query = /ds/sparql
+17:00:02 INFO  Config               ::   update = /ds/update
+17:00:02 INFO  Config               ::   upload = /ds/upload
+17:00:02 INFO  Config               ::   graphStore(RW) = /ds/data
+17:00:02 INFO  Config               ::   graphStore(R) = /ds/get
+17:00:03 INFO  Server               :: Stopped 2014/11/22 17:00:03 MEZ on port 3030
+17:00:03 INFO  Config               :: Service: :service1
+17:00:03 INFO  Config               ::   name = ds
+17:00:03 INFO  Config               ::   query = /ds/query
+17:00:03 INFO  Config               ::   query = /ds/sparql
+17:00:03 INFO  Config               ::   update = /ds/update
+17:00:03 INFO  Config               ::   upload = /ds/upload
+17:00:03 INFO  Config               ::   graphStore(RW) = /ds/data
+17:00:03 INFO  Config               ::   graphStore(R) = /ds/get
+17:00:04 INFO  ProductCategorySettingsController :: setStartVisibilities()
+17:00:04 INFO  ProductCategorySettingsController :: loadCategories()
+17:00:04 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+17:00:04 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+17:00:04 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+17:00:04 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+17:00:04 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+17:00:04 INFO  ModelFacade          :: getLabelsByConcept() START
+17:00:04 INFO  ModelFacade          :: getLabelsByConcept() END
+17:00:04 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+17:00:04 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+17:00:04 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+17:00:04 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+17:00:04 INFO  ProductFactory       :: ConceptScheme[] = null
+17:00:04 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+17:00:29 INFO  Config               :: Service: :service1
+17:00:29 INFO  Config               ::   name = ds
+17:00:29 INFO  Config               ::   query = /ds/query
+17:00:29 INFO  Config               ::   query = /ds/sparql
+17:00:29 INFO  Config               ::   update = /ds/update
+17:00:29 INFO  Config               ::   upload = /ds/upload
+17:00:29 INFO  Config               ::   graphStore(RW) = /ds/data
+17:00:29 INFO  Config               ::   graphStore(R) = /ds/get
+17:00:30 INFO  Config               :: Service: :service2
+17:00:30 INFO  Config               ::   name = books
+17:00:30 INFO  Config               ::   query = /books/sparql
+17:00:30 INFO  Config               ::   query = /books/query
+17:00:30 INFO  Config               ::   update = /books/update
+17:00:30 INFO  Config               ::   upload = /books/upload
+17:00:30 INFO  Config               ::   graphStore(RW) = /books/data
+17:00:30 INFO  Config               ::   graphStore(R) = /books/get
+17:00:30 INFO  Server               :: Dataset path = /ds
+17:00:30 INFO  Server               :: Dataset path = /books
+17:00:30 INFO  Server               :: Stopped 2014/11/22 17:00:30 MEZ on port 3030
+17:00:31 INFO  ProductCategorySettingsController :: setStartVisibilities()
+17:00:31 INFO  ProductCategorySettingsController :: loadCategories()
+17:00:31 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+17:00:31 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+17:00:31 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+17:00:31 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+17:00:31 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+17:00:31 INFO  ModelFacade          :: getLabelsByConcept() START
+17:00:31 INFO  ModelFacade          :: getLabelsByConcept() END
+17:00:31 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+17:00:31 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+17:00:31 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+17:00:31 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+17:00:31 INFO  ProductFactory       :: ConceptScheme[] = null
+17:00:31 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+17:01:24 INFO  Config               :: Service: :service1
+17:01:24 INFO  Config               ::   name = ds
+17:01:24 INFO  Config               ::   query = /ds/query
+17:01:24 INFO  Config               ::   query = /ds/sparql
+17:01:24 INFO  Config               ::   update = /ds/update
+17:01:24 INFO  Config               ::   upload = /ds/upload
+17:01:24 INFO  Config               ::   graphStore(RW) = /ds/data
+17:01:24 INFO  Config               ::   graphStore(R) = /ds/get
+17:01:24 INFO  Config               :: Service: :service2
+17:01:24 INFO  Config               ::   name = books
+17:01:24 INFO  Config               ::   query = /books/sparql
+17:01:24 INFO  Config               ::   query = /books/query
+17:01:24 INFO  Config               ::   update = /books/update
+17:01:24 INFO  Config               ::   upload = /books/upload
+17:01:24 INFO  Config               ::   graphStore(RW) = /books/data
+17:01:24 INFO  Config               ::   graphStore(R) = /books/get
+17:01:25 INFO  Server               :: Dataset path = /ds
+17:01:25 INFO  Server               :: Dataset path = /books
+17:01:25 INFO  Server               :: Stopped 2014/11/22 17:01:25 MEZ on port 3030
+17:01:26 INFO  ProductCategorySettingsController :: setStartVisibilities()
+17:01:26 INFO  ProductCategorySettingsController :: loadCategories()
+17:01:26 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+17:01:26 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+17:01:26 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+17:01:26 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+17:01:26 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+17:01:26 INFO  ModelFacade          :: getLabelsByConcept() START
+17:01:26 INFO  ModelFacade          :: getLabelsByConcept() END
+17:01:26 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+17:01:26 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+17:01:26 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+17:01:26 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+17:01:26 INFO  ProductFactory       :: ConceptScheme[] = null
+17:01:26 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+17:02:02 INFO  Config               :: Service: :service1
+17:02:02 INFO  Config               ::   name = ds
+17:02:02 INFO  Config               ::   query = /ds/query
+17:02:02 INFO  Config               ::   query = /ds/sparql
+17:02:02 INFO  Config               ::   update = /ds/update
+17:02:02 INFO  Config               ::   upload = /ds/upload
+17:02:02 INFO  Config               ::   graphStore(RW) = /ds/data
+17:02:02 INFO  Config               ::   graphStore(R) = /ds/get
+17:02:03 INFO  Config               :: Service: :service2
+17:02:03 INFO  Config               ::   name = books
+17:02:03 INFO  Config               ::   query = /books/sparql
+17:02:03 INFO  Config               ::   query = /books/query
+17:02:03 INFO  Config               ::   update = /books/update
+17:02:03 INFO  Config               ::   upload = /books/upload
+17:02:03 INFO  Config               ::   graphStore(RW) = /books/data
+17:02:03 INFO  Config               ::   graphStore(R) = /books/get
+17:02:03 INFO  Server               :: Dataset path = /ds
+17:02:03 INFO  Server               :: Dataset path = /books
+17:02:04 INFO  Server               :: Stopped 2014/11/22 17:02:04 MEZ on port 3030
+17:02:05 INFO  ProductCategorySettingsController :: setStartVisibilities()
+17:02:05 INFO  ProductCategorySettingsController :: loadCategories()
+17:02:05 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+17:02:05 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+17:02:05 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+17:02:05 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+17:02:05 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+17:02:05 INFO  ModelFacade          :: getLabelsByConcept() START
+17:02:05 INFO  ModelFacade          :: getLabelsByConcept() END
+17:02:05 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+17:02:05 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+17:02:05 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+17:02:05 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+17:02:05 INFO  ProductFactory       :: ConceptScheme[] = null
+17:02:05 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+17:04:21 INFO  Config               :: Service: :service1
+17:04:21 INFO  Config               ::   name = ds
+17:04:21 INFO  Config               ::   query = /ds/query
+17:04:21 INFO  Config               ::   query = /ds/sparql
+17:04:21 INFO  Config               ::   update = /ds/update
+17:04:21 INFO  Config               ::   upload = /ds/upload
+17:04:21 INFO  Config               ::   graphStore(RW) = /ds/data
+17:04:21 INFO  Config               ::   graphStore(R) = /ds/get
+17:04:22 INFO  Config               :: Service: :service2
+17:04:22 INFO  Config               ::   name = books
+17:04:22 INFO  Config               ::   query = /books/sparql
+17:04:22 INFO  Config               ::   query = /books/query
+17:04:22 INFO  Config               ::   update = /books/update
+17:04:22 INFO  Config               ::   upload = /books/upload
+17:04:22 INFO  Config               ::   graphStore(RW) = /books/data
+17:04:22 INFO  Config               ::   graphStore(R) = /books/get
+17:04:22 INFO  Server               :: Dataset path = /ds
+17:04:22 INFO  Server               :: Dataset path = /books
+17:04:23 INFO  Server               :: Stopped 2014/11/22 17:04:23 MEZ on port 3030
+17:04:23 INFO  ProductCategorySettingsController :: setStartVisibilities()
+17:04:23 INFO  ProductCategorySettingsController :: loadCategories()
+17:04:23 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+17:04:23 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+17:04:23 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+17:04:23 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+17:04:23 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+17:04:23 INFO  ModelFacade          :: getLabelsByConcept() START
+17:04:23 INFO  ModelFacade          :: getLabelsByConcept() END
+17:04:23 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+17:04:23 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+17:04:23 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+17:04:23 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+17:04:23 INFO  ProductFactory       :: ConceptScheme[] = null
+17:04:23 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+17:22:14 INFO  Config               :: Service: :service1
+17:22:14 INFO  Config               ::   name = ds
+17:22:14 INFO  Config               ::   query = /ds/query
+17:22:14 INFO  Config               ::   query = /ds/sparql
+17:22:14 INFO  Config               ::   update = /ds/update
+17:22:14 INFO  Config               ::   upload = /ds/upload
+17:22:14 INFO  Config               ::   graphStore(RW) = /ds/data
+17:22:14 INFO  Config               ::   graphStore(R) = /ds/get
+17:22:15 INFO  Config               :: Service: :service2
+17:22:15 INFO  Config               ::   name = books
+17:22:15 INFO  Config               ::   query = /books/sparql
+17:22:15 INFO  Config               ::   query = /books/query
+17:22:15 INFO  Config               ::   update = /books/update
+17:22:15 INFO  Config               ::   upload = /books/upload
+17:22:15 INFO  Config               ::   graphStore(RW) = /books/data
+17:22:15 INFO  Config               ::   graphStore(R) = /books/get
+17:22:15 INFO  Server               :: Dataset path = /ds
+17:22:15 INFO  Server               :: Dataset path = /books
+17:22:15 INFO  Server               :: Stopped 2014/11/22 17:22:15 MEZ on port 3030
+17:22:16 INFO  ProductCategorySettingsController :: setStartVisibilities()
+17:22:16 INFO  ProductCategorySettingsController :: loadCategories()
+17:22:16 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+17:22:16 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+17:22:16 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+17:22:16 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+17:22:16 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+17:22:16 INFO  ModelFacade          :: getLabelsByConcept() START
+17:22:16 INFO  ModelFacade          :: getLabelsByConcept() END
+17:22:16 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+17:22:16 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+17:22:16 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+17:22:16 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+17:22:16 INFO  ProductFactory       :: ConceptScheme[] = null
+17:22:16 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
+17:24:41 INFO  Server               :: Stopped 2014/11/22 17:24:41 MEZ on port 3030
+17:24:49 INFO  Config               :: Service: :service1
+17:24:49 INFO  Config               ::   name = ds
+17:24:49 INFO  Config               ::   query = /ds/query
+17:24:49 INFO  Config               ::   query = /ds/sparql
+17:24:49 INFO  Config               ::   update = /ds/update
+17:24:49 INFO  Config               ::   upload = /ds/upload
+17:24:49 INFO  Config               ::   graphStore(RW) = /ds/data
+17:24:49 INFO  Config               ::   graphStore(R) = /ds/get
+17:24:50 INFO  Config               :: Service: :service2
+17:24:50 INFO  Config               ::   name = books
+17:24:50 INFO  Config               ::   query = /books/sparql
+17:24:50 INFO  Config               ::   query = /books/query
+17:24:50 INFO  Config               ::   update = /books/update
+17:24:50 INFO  Config               ::   upload = /books/upload
+17:24:50 INFO  Config               ::   graphStore(RW) = /books/data
+17:24:50 INFO  Config               ::   graphStore(R) = /books/get
+17:24:50 INFO  Server               :: Dataset path = /ds
+17:24:50 INFO  Server               :: Dataset path = /books
+17:24:50 INFO  Server               :: Stopped 2014/11/22 17:24:50 MEZ on port 3030
+17:24:51 INFO  ProductCategorySettingsController :: setStartVisibilities()
+17:24:51 INFO  ProductCategorySettingsController :: loadCategories()
+17:24:51 INFO  ProductFactory       :: getConceptSchemeAsStringArray() START
+17:24:51 INFO  ModelFacade          :: getModelOfConceptSchemes() START
+17:24:51 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL >>>
+17:24:51 INFO  ModelFacade          :: ModelFacade.getModelOfConceptSchemes() PRINT MODEL <<<
+17:24:51 INFO  ModelFacade          :: getModelOfConceptSchemes() END
+17:24:51 INFO  ModelFacade          :: getLabelsByConcept() START
+17:24:51 INFO  ModelFacade          :: getLabelsByConcept() END
+17:24:51 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL >>>
+17:24:51 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#1 PRINT MODEL <<<
+17:24:51 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL >>>
+17:24:51 INFO  ModelFacade          :: ProductFactory().getConceptSchemeAsStringArray()#2 PRINT MODEL <<<
+17:24:51 INFO  ProductFactory       :: ConceptScheme[] = null
+17:24:51 INFO  ProductFactory       :: getConceptSchemeAsStringArray END
