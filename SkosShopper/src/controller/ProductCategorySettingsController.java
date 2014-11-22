@@ -7,8 +7,10 @@ import java.util.ListIterator;
 import java.util.ResourceBundle;
 
 import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
@@ -206,7 +208,6 @@ public class ProductCategorySettingsController implements Initializable{
 				tv.setRoot(root);
 			}
 			
-			
 			// Iterate through all the root children and just print if they have narrower
 			String[] conArr = ProductFactory.getConceptURIsOfConceptScheme(tv.getRoot().getValue().toString());
 			List<String> conList = Arrays.asList(conArr);
@@ -241,8 +242,7 @@ public class ProductCategorySettingsController implements Initializable{
 		}
 
 	}
-	
-	
+
 	
 	
 	//
