@@ -114,7 +114,7 @@ public class FusekiModel {
 		
 		FusekiModel.datasetGraph = DatasetGraphFactory.createMemFixed();
 		FusekiModel.datasetAccessor = DatasetAccessorFactory.create(FusekiModel.datasetGraph);
-		FusekiModel.serverConfig = FusekiConfig.configure("C:/Users/rd/Desktop/jena-fuseki-1.1.1/config.ttl");
+		FusekiModel.serverConfig = FusekiConfig.configure("./fuseki/config.ttl");
 		FusekiModel.serverConfig.pages = FusekiModel.pageDirPath;
 
 		
