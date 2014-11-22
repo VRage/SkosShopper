@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+import controller.MenuController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -59,7 +60,8 @@ public class Main extends Application {
 	{
 		try {
 			FusekiModel.startStopFuseki();
-			//MenuController.importOnthologyFile("./fuseki/Data/skostest03.ttl");
+			MenuController.importOnthologyFile("./fuseki/Data/skostest03.ttl");
+			//MenuController.importOnthologyFile("./fuseki/Data/skostest02.ttl");
 			//MenuController.importOnthologyFile("./fuseki/Data/dani-ont2.ttl");
 		} catch (NoDatasetGraphException e) {
 			// TODO Auto-generated catch block
