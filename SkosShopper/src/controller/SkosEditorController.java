@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -25,6 +26,7 @@ import javafx.scene.input.MouseEvent;
 import javax.swing.JOptionPane;
 
 import org.apache.log4j.Logger;
+import org.apache.xerces.impl.xs.identity.Selector;
 
 import com.hp.hpl.jena.ontology.DatatypeProperty;
 import com.hp.hpl.jena.ontology.Individual;
@@ -77,8 +79,24 @@ public class SkosEditorController implements Initializable {
 	private TextField txtfield_individiaulname;
 	@FXML
 	private TextField txtfield_IndiLabel;
+	@FXML
+	private TextField txtfield_editLabel;
+	@FXML
+	private Button btn_editLabel;
 	
-	
+	@FXML 
+	private Label labelCollectionFromText;
+	@FXML 
+	private TextField textfieldCollectionName;
+	@FXML
+	private TextField textfieldCollectionLabelName;
+	@FXML
+	private ChoiceBox choiseBoxCollectionFilter;
+	@FXML
+	private ListView listviewCollectionChoise;
+	@FXML
+	private ListView listviewCollectionSelected;
+
 	// local j4log logger
 	public static final Logger log = Logger
 			.getLogger(SkosEditorController.class);
@@ -101,7 +119,8 @@ public class SkosEditorController implements Initializable {
 	
 	//In this class used Ontology Model
 	private OntModel model = ModelFactory
-			.createOntologyModel( OntModelSpec.OWL_MEM);
+
+			.createOntologyModel( OntModelSpec.OWL_MEM_TRANS_INF);
 	
 	//Selected OntClass and Individual
 	private OntClass selectedOntClass;
@@ -257,19 +276,7 @@ public class SkosEditorController implements Initializable {
 				model.createIndividual(baseNS + (antwort), selectedOntClass);
 				
 				if(!txtfield_IndiLabel.getText().isEmpty()){
-					String labelname = model.getIndividual(baseNS + (antwort)).getLocalName();
-					model.getOntClass(skosxlNS + "Label").createIndividual(
-							baseNS + "LabelFor" +labelname);
-					Individual indi = model.getIndividual(baseNS + "LabelFor"
-							+ labelname);
-					DatatypeProperty dprop = model.getDatatypeProperty(skosxlNS
-							+ "literalForm");
-					log.info("datatypeProp" + dprop.getLocalName());
-					indi.addProperty(dprop, model.createLiteral(txtfield_IndiLabel.getText(), "de"));
-					ObjectProperty Oprop = model.getObjectProperty(skosxlNS
-							+ "prefLabel");
-					model.add(model.getIndividual(baseNS + (antwort)), Oprop, indi);
-					
+					createLabelRecipe("", txtfield_IndiLabel.getText(), model.getIndividual(baseNS + (antwort)));
 				}
 				int length = baseNS.length();
 				String indinamespace = model.getIndividual(
@@ -608,14 +615,76 @@ public class SkosEditorController implements Initializable {
 		}
 	}
 	
+	/** Tries to create a new Collection with the given name as long as the
+	 * 	name doesn't already exist.
+	 */
+	@FXML public void createCollection(){
+
+		String collectionString = "/Collection/";
+		String collectionNameString = baseNS 
+				+ collectionString 
+				+ textfieldCollectionName.getText();
+		String collectionLabelString = baseNS 
+				+ "LabelForCollection" 
+				+ textfieldCollectionName.getText();
+		log.info(selectedOntClass == null);
+		if(model.getIndividual(collectionNameString) == null 
+				&& selectedOntClass != null){
+			
+			//Name must not be empty! 
+			if(!textfieldCollectionName.getText().equals("")){
+				//Collection must be seleted!
+				if(selectedOntClass.getLocalName().equals("Collection")){
+					log.info("Collection selected = true");
+					// Add Individual
+					model.createIndividual(collectionNameString, selectedOntClass);
+					
+					//optional Label
+					if(!textfieldCollectionLabelName.getText().isEmpty()){
+						model.getOntClass(skosxlNS + "Label").createIndividual(
+								collectionLabelString);
+					}
+					else{
+						log.info("No Label given");
+					}	
+				}
+				//not implemented yet!
+				else if (selectedOntClass.getLocalName().equals("OrderedCollection")){
+					log.info("Ordered Collection selected = true \n not implemented yet!");
+				}
+				else{
+					log.error("Neither Collection nor Ordered Collection selected!");
+				}// end if-else case collection or ordered collection selected
+			}
+			else{
+				log.error("Namefield Empty!");
+			}// end if-case textfield empty check
+		}
+		else{
+			log.error("Name for Collection already taken or No Ontclass selected!");
+		} // end if-else-case collection name already exist
+	}
+
 	@FXML public void insertToCollection(){
 		
 	}
 	@FXML public void deleteFromCollection(){
 		
-	}
-	@FXML public void createCollection(){
+	} 
+
+	public void createLabelRecipe(String name, String description, Individual toindividual){
+		String labelname = toindividual.getLocalName();
+		model.getOntClass(skosxlNS + "Label").createIndividual(
+				baseNS + "LabelFor"+name +labelname);
+		Individual indi = model.getIndividual(baseNS + "LabelFor"
+				+name +labelname);
+		DatatypeProperty dprop = model.getDatatypeProperty(skosxlNS
+				+ "literalForm");
+		log.info("datatypeProp" + dprop.getLocalName());
+		indi.addProperty(dprop, model.createLiteral(description, "de"));
+		ObjectProperty Oprop = model.getObjectProperty(skosxlNS
+				+ "prefLabel");
+		model.add(toindividual, Oprop, indi);
 		
 	}
-
 }
