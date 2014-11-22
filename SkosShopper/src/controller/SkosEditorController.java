@@ -615,7 +615,20 @@ public class SkosEditorController implements Initializable {
 						if (nextProperty.getObject().isLiteral()) {
 							predicate = nextProperty.getPredicate()
 									.getLocalName();
-							object = nextProperty.getObject().asLiteral()
+							object = nextProperty.getObject().asLiteral().toString();
+							items.add("'" + predicate + "'" + " " + object + "\n\n");
+						}
+					}
+						catch (ResourceRequiredException e){
+							log.error(e, e);
+						}
+					}
+					if(!items.isEmpty()){
+						listview_objprop.setItems(items);
+					}
+				}
+			}
+		}
 	/** Tries to create a new Collection with the given name as long as the
 	 * 	name doesn't already exist.
 	 */
