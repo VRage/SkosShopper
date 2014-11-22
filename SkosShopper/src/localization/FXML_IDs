@@ -65,3 +65,17 @@ object
 predicate
 subject
 //tableTriples
+
+######################################################
+skoseditor..fxml
+------------------------------------------------------
+labelCollectionFromText
+textfieldCollectionName
+textfieldCollectionLabelName
+choiseBoxCollectionFilter
+listviewCollectionChoise
+listviewCollectionSelected
+
+insertToCollection
+deleteFromCollection
+createCollection
