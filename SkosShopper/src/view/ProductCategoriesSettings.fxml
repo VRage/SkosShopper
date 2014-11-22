@@ -45,6 +45,7 @@
                         <Pane fx:id="productPropertiesPane" layoutY="50.0" prefHeight="40.0">
                            <children>
                               <ListView fx:id="productPropertiesListView" layoutY="40.0" prefHeight="150.0" style="-fx-border-color: #FFFFFF;">
+                              <!-- 
                               	<items>
                               		<FXCollections fx:factory="observableArrayList">
 		                              	<String fx:value="Name" />
@@ -55,6 +56,7 @@
 		                              	<String fx:value="Preis" />
                               		</FXCollections>
                               	</items>
+                              	 -->
                               </ListView>
                               <Pane fx:id="productPropertiesBtn" layoutX="-1.0" onMouseClicked="#openProductProperties" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #EEFFCC; -fx-border-color: #AAAAAA;">
                                  <children>
@@ -70,12 +72,14 @@
                         <Pane fx:id="productRelationsPane" layoutY="100.0" prefHeight="40.0">
                            <children>
                               <ListView fx:id="productRelationsListView" layoutY="40.0" prefHeight="50.0" style="-fx-border-color: #FFFFFF;">
+                              <!-- 
 								<items>
                               		<FXCollections fx:factory="observableArrayList">
 		                              	<String fx:value="kann benützen" />
 		                              	<String fx:value="passt in" />
                               		</FXCollections>
                               	</items>
+                              	 -->
                               </ListView>
                               <Pane fx:id="productRelationsBtn" layoutX="-1.0" layoutY="3.0" onMouseClicked="#openProductRelations" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #FFEECC; -fx-border-color: #AAAAAA;">
                                  <children>
@@ -92,6 +96,11 @@
                   </AnchorPane>
               </content>
             </ScrollPane>
+            <AnchorPane fx:id="categorySettingsContent" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Button layoutX="21.0" layoutY="27.0" mnemonicParsing="false" text="Button" />
+               </children>
+            </AnchorPane>
             <!-- <fx:include source="ProductCategoriesSettingsCategory.fxml" /> -->
          </children>
       </GridPane>

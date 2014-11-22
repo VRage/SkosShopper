@@ -6,6 +6,10 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.ResourceBundle;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
@@ -51,7 +55,7 @@ public class ProductCategorySettingsController implements Initializable{
 	// FXML Elements of product propeties and values
 	@FXML	Pane productPropertiesPane;
 	@FXML	Pane productPropertiesBtn;
-	@FXML	ListView productPropertiesListView;
+	@FXML	ListView<String> productPropertiesListView;
 	
 	
 	// FXML Elements of product and category relations
@@ -63,6 +67,7 @@ public class ProductCategorySettingsController implements Initializable{
 	// FXML other Elements
 	@FXML	Button btnCategoryCreate;
 	@FXML	ScrollPane categoryProperties;
+	@FXML	AnchorPane categorySettingsContent;
 	
 	
 	
@@ -87,12 +92,18 @@ public class ProductCategorySettingsController implements Initializable{
 		//setStartPositions();
 		setStartVisibilities();
 
-		
-		
 		loadCategories();
 		loadProperties();
 		loadRelations();
 		
+		
+		// set eventHandler to call a method by clicking a treeItem
+		productCategoriesTreeView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TreeItem>(){
+			public void changed(ObservableValue<? extends TreeItem> paramObservableValue, TreeItem paramT1, TreeItem selectedItem)
+			{
+				treeItemOnClick(selectedItem);
+			}
+		});
 	}
 	
 	
@@ -173,8 +184,13 @@ public class ProductCategorySettingsController implements Initializable{
 	
 	
 	
+	// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = EVENT METHODS - CLICK SIDEMENU ITEMS
 	
-	// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = OTHER METHODS
+	private void treeItemOnClick(TreeItem ti)
+	{
+		initCategoryEditor();
+		loadCategoryEditor(ti.getValue().toString());
+	}
 	
 	
 	private void treeClicked(MouseEvent e){
@@ -182,157 +198,8 @@ public class ProductCategorySettingsController implements Initializable{
 	}
 	
 	
-	// loads the name of the categories and puts them into the TreeView of the product categories
-	public void loadCategories()
-	{
-		log.info("loadCategories()");
-		
-		// initializing variables
-		TreeView tv = productCategoriesTreeView;
-		
-		
-		// Adding the Names of the ConceptSchemes as roots of the TreeView
-		String[] conceptSchemeNames = ProductFactory.getConceptSchemeAsStringArray();
-		
-		// will built the Tree only if there is a conceptScheme
-		if(conceptSchemeNames.length != 0)
-		{
-		
-			for(int i = 0; i < conceptSchemeNames.length; i++)
-			{
-				System.out.println("#"+i+" ConceptSchemeLabel: "+conceptSchemeNames[i]);
-				
-				TreeItem root = new TreeItem();
-				root.setValue(conceptSchemeNames[i]);
-				root.setExpanded(true);
-				tv.setRoot(root);
-			}
-			
-			// Iterate through all the root children and just print if they have narrower
-			String[] conArr = ProductFactory.getConceptURIsOfConceptScheme(tv.getRoot().getValue().toString());
-			List<String> conList = Arrays.asList(conArr);
-			ListIterator<String> conIte = conList.listIterator();
-		
-			while(conIte.hasNext())
-			{
-				productCategoriesTreeViewNumElements++;
-				
-				String uri = conIte.next();
-				boolean hasNarrower = ModelFacade.hasNarrower(uri);
-				TreeItem ti = new TreeItem();
-				ti.setValue(uri);
-				
-				log.info("> skos:narrower "+uri);
-				log.info("> "+hasNarrower);
-				
-				if(hasNarrower)
-				{
-					//tv.getRoot().getChildren().add(addChilds(tv.getRoot(), ti, ""));
-					addChilds(ti, "");
-				} else {
-					ti.setValue(ModelFacade.getLiteralByConcept(ti.getValue().toString()));
-				}
-				
-				tv.getRoot().getChildren().add(ti);
-				
-			}
-			
-			StmtIterator stmti = ModelFacade.getNarrowerModel("http://rdf.getting-started.net/ontology/Camera").listStatements();
-			
-		}
-
-	}
-
 	
-	
-	//
-	//		VERSION 2
-	//
-	public static void addChilds(TreeItem root, String pre) {
-		
-		productCategoriesTreeViewNumElements++;
-		
-		String rootURI = root.getValue().toString();
-		
-		log.info(pre+"> I am "+root);
-		
-		if(ModelFacade.hasNarrower(rootURI))
-		{
-			//productCategoriesTreeViewNumElements++;
-			
-			log.info(pre+"> > I have children");
-			
-			Model model = ModelFacade.getNarrowerModel(rootURI);
-			
-			StmtIterator childs = model.listStatements();
-			ModelFacade.printModel(model, "-----------> ");
-			
-			while(childs.hasNext())
-			{
-				// productCategoriesTreeViewNumElements++;
-
-				Statement childChild = childs.nextStatement();
-				TreeItem child = new TreeItem();
-				child.setValue(childChild.getObject().toString());
-				
-				log.info(pre+"> > > One Child is "+child);
-				
-				root.getChildren().add(child);
-				
-				log.info(pre+"> > > I added it to me: "+root);
-				
-				log.info(pre+"> > > I check him");
-				
-				//productCategoriesTreeViewNumElements++;
-				
-				addChilds(child, pre+"> > > ");
-			}
-			
-			log.info(pre+"> I have no more childs");
-			
-			ListIterator<TreeItem> it;
-			it = root.getChildren().listIterator();
-			
-			log.info(pre+"> My Childs are now:");
-			
-			while(it.hasNext())
-			{
-				TreeItem ti = it.next();
-				log.info(pre+"> "+ti);
-			}
-			
-		} else {
-			log.info(pre+"> I have no childs");
-			
-			//productCategoriesTreeViewNumElements++;
-		}
-		
-		//productCategoriesTreeViewNumElements++;
-
-		root.setValue(ModelFacade.getLiteralByConcept(root.getValue().toString()));
-
-	}
-		
-	
-	private void loadProperties()
-	{
-		
-	}
-	
-	
-	private void loadRelations()
-	{
-		
-	}
-	
-	
-	
-	public void createCategory()
-	{
-		log.info("createCategories()");
-		
-
-	}
+	// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = EVENT METHODS - OPEN SIDEMENUS
 	
 	
 	// when you click on product categories, this method is called
@@ -406,8 +273,114 @@ public class ProductCategorySettingsController implements Initializable{
 		
 		setSelectionPaneAnchorPaneHeight(newHeight, 3);
 	}
+	
+	
+	
+	// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = INITIALIZING EDITORS
+	
+	private void initCategoryEditor()
+	{
+		
+	}
+	
+	
+	
+	// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = LOADING EDITORS
+	
+	private void loadCategoryEditor(String uri)
+	{
+		
+	}
+	
+	
+	
+	
+	// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = LOADING CONTENT - SIDEMENU
 
 
+	// loads the name of the categories and puts them into the TreeView of the product categories
+	public void loadCategories()
+	{
+		log.info("loadCategories()");
+		
+		// initializing variables
+		TreeView tv = productCategoriesTreeView;
+		
+		
+		// Adding the Names of the ConceptSchemes as roots of the TreeView
+		String[] conceptSchemeNames = ProductFactory.getConceptSchemeAsStringArray();
+		
+		// will built the Tree only if there is a conceptScheme
+		if(conceptSchemeNames.length != 0)
+		{
+		
+			for(int i = 0; i < conceptSchemeNames.length; i++)
+			{
+				System.out.println("#"+i+" ConceptSchemeLabel: "+conceptSchemeNames[i]);
+				
+				TreeItem root = new TreeItem();
+				root.setValue(conceptSchemeNames[i]);
+				root.setExpanded(true);
+				tv.setRoot(root);
+			}
+			
+			// Iterate through all the root children and just print if they have narrower
+			String[] conArr = ProductFactory.getConceptURIsOfConceptScheme(tv.getRoot().getValue().toString());
+			List<String> conList = Arrays.asList(conArr);
+			ListIterator<String> conIte = conList.listIterator();
+		
+			while(conIte.hasNext())
+			{
+				productCategoriesTreeViewNumElements++;
+				
+				String uri = conIte.next();
+				boolean hasNarrower = ModelFacade.hasNarrower(uri);
+				TreeItem ti = new TreeItem();
+				ti.setValue(uri);
+				
+				log.info("> skos:narrower "+uri);
+				log.info("> "+hasNarrower);
+				
+				if(hasNarrower)
+				{
+					//tv.getRoot().getChildren().add(addChilds(tv.getRoot(), ti, ""));
+					ti.setExpanded(true);
+					addChilds(ti, "");
+				} else {
+					ti.setValue(ModelFacade.getLiteralByConcept(ti.getValue().toString()));
+				}
+				
+				tv.getRoot().getChildren().add(ti);
+			}
+			StmtIterator stmti = ModelFacade.getNarrowerModel("http://rdf.getting-started.net/ontology/Camera").listStatements();
+		}
+	}
+	
+	
+	// loading the product properties when tab is loaded
+	private void loadProperties()
+	{
+		ListView<String> pp = productPropertiesListView;
+		ObservableList<String> items = FXCollections.observableArrayList();
+		//items.add(arg0)
+		
+		pp.setItems(items);
+		
+		pp.getChildrenUnmodifiable();
+	}
+	
+	
+	private void loadRelations()
+	{
+		
+	}
+	
+	
+	
+	
+	// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = CALCULATIONS
+	
+	
 	private double calculateHeight(int num)
 	{
 		switch(num)
@@ -419,16 +392,7 @@ public class ProductCategorySettingsController implements Initializable{
 		case 3:
 			return calculateRelationsHeight();
 		}
-		
 		return 0.0;
-
-	}
-	
-	private void printYAndHeight()
-	{
-		System.out.println("Categories: Y = "+productCategoriesPane.getLayoutY()+", H = "+productCategoriesPane.getHeight());
-		System.out.println("Properties: Y = "+productPropertiesPane.getLayoutY()+", H = "+productPropertiesPane.getHeight());
-		System.out.println("Relations:  Y = "+productRelationsPane.getLayoutY()+", H = "+productRelationsPane.getHeight()+"\n");
 	}
 	
 	
@@ -461,5 +425,78 @@ public class ProductCategorySettingsController implements Initializable{
 	{
 		return 150.0;
 	}
+	
+	
+	
+	
+	// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = OTHER METHODS
+
+	
+	// adds all narrower individuums of a treeItem to it, or something like that...
+	public static void addChilds(TreeItem root, String pre) {
+		
+		root.setExpanded(true);
+		
+		productCategoriesTreeViewNumElements++;
+		
+		String rootURI = root.getValue().toString();
+		
+		log.info(pre+"> I am "+root);
+		
+		if(ModelFacade.hasNarrower(rootURI))
+		{
+			log.info(pre+"> > I have children");
+			
+			Model model = ModelFacade.getNarrowerModel(rootURI);
+			
+			StmtIterator childs = model.listStatements();
+			ModelFacade.printModel(model, "-----------> ");
+			
+			while(childs.hasNext())
+			{
+				Statement childChild = childs.nextStatement();
+				TreeItem child = new TreeItem();
+				child.setValue(childChild.getObject().toString());
+				
+				log.info(pre+"> > > One Child is "+child);
+				
+				root.getChildren().add(child);
+				
+				log.info(pre+"> > > I added it to me: "+root);
+				
+				log.info(pre+"> > > I check him");
+				
+				addChilds(child, pre+"> > > ");
+			}
+			
+			log.info(pre+"> I have no more childs");
+			
+			ListIterator<TreeItem> it;
+			it = root.getChildren().listIterator();
+			
+			log.info(pre+"> My Childs are now:");
+			
+			while(it.hasNext())
+			{
+				TreeItem ti = it.next();
+				log.info(pre+"> "+ti);
+			}
+			
+		} else {
+			log.info(pre+"> I have no childs");
+		}
+
+		root.setValue(ModelFacade.getLiteralByConcept(root.getValue().toString()));
+
+	}
+	
+	private void printYAndHeight()
+	{
+		System.out.println("Categories: Y = "+productCategoriesPane.getLayoutY()+", H = "+productCategoriesPane.getHeight());
+		System.out.println("Properties: Y = "+productPropertiesPane.getLayoutY()+", H = "+productPropertiesPane.getHeight());
+		System.out.println("Relations:  Y = "+productRelationsPane.getLayoutY()+", H = "+productRelationsPane.getHeight()+"\n");
+	}
+	
+
 
 }
