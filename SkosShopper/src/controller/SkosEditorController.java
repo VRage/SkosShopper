@@ -26,7 +26,6 @@ import javafx.scene.input.MouseEvent;
 import javax.swing.JOptionPane;
 
 import org.apache.log4j.Logger;
-import org.apache.xerces.impl.xs.identity.Selector;
 
 import com.hp.hpl.jena.ontology.DatatypeProperty;
 import com.hp.hpl.jena.ontology.Individual;
@@ -36,6 +35,7 @@ import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.ontology.OntResource;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.ResourceRequiredException;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
@@ -96,6 +96,8 @@ public class SkosEditorController implements Initializable {
 	private ListView listviewCollectionChoise;
 	@FXML
 	private ListView listviewCollectionSelected;
+	
+	private static final String COLLECTION = "Collection";
 
 	// local j4log logger
 	public static final Logger log = Logger
@@ -269,6 +271,7 @@ public class SkosEditorController implements Initializable {
 	 */
 	@FXML
 	private void addIndi(ActionEvent event) {
+		getLabelFromIndividual(selectedIndividual);
 		if (!txtfield_individiaulname.getText().isEmpty()) {
 			log.info("start method addIndi");
 			String antwort = txtfield_individiaulname.getText();
@@ -620,7 +623,7 @@ public class SkosEditorController implements Initializable {
 	 */
 	@FXML public void createCollection(){
 
-		String collectionString = "/Collection/";
+		String collectionString = "/" + COLLECTION + "/";
 		String collectionNameString = baseNS 
 				+ collectionString 
 				+ textfieldCollectionName.getText();
@@ -634,7 +637,7 @@ public class SkosEditorController implements Initializable {
 			//Name must not be empty! 
 			if(!textfieldCollectionName.getText().equals("")){
 				//Collection must be seleted!
-				if(selectedOntClass.getLocalName().equals("Collection")){
+				if(selectedOntClass.getLocalName().equals(COLLECTION)){
 					log.info("Collection selected = true");
 					// Add Individual
 					model.createIndividual(collectionNameString, selectedOntClass);
@@ -686,5 +689,20 @@ public class SkosEditorController implements Initializable {
 				+ "prefLabel");
 		model.add(toindividual, Oprop, indi);
 		
+	}
+	
+	private Resource getLabelFromIndividual(Individual individual){
+		if(individual != null){
+			StmtIterator iterProperties = individual.listProperties();
+			while(iterProperties.hasNext()){
+				Statement triple = iterProperties.next();
+				if(triple.getPredicate().getLocalName().toString().equals("prefLabel")){
+					if(triple.getObject().isResource()){
+						return triple.getObject().asResource();
+					}
+				}
+			}
+		}
+		return null;
 	}
 }
