@@ -32,20 +32,32 @@ import javafx.stage.StageStyle;
 import javax.swing.JOptionPane;
 
 import model.FusekiModel;
+import model.ImportManager;
 import model.ModelFacade;
 import model.ModelFacadeTEST;
+import model.TempSparql;
 import model.ModelFacadeTEST.ModelState;
 
+import org.apache.jena.fuseki.Fuseki;
 import org.apache.log4j.Logger;
 
 import com.hp.hpl.jena.ontology.DatatypeProperty;
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.query.Query;
+import com.hp.hpl.jena.query.QueryExecution;
+import com.hp.hpl.jena.query.QueryExecutionFactory;
+import com.hp.hpl.jena.query.QueryFactory;
+import com.hp.hpl.jena.query.QuerySolution;
+import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.query.ResultSetFormatter;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
+import com.hp.hpl.jena.sparql.engine.http.QueryExceptionHTTP;
 
 import exceptions.fuseki_exceptions.NoDatasetAccessorException;
 import exceptions.fuseki_exceptions.NoDatasetGraphException;
@@ -179,7 +191,13 @@ public class OverviewController implements Initializable{
 		switch (pickedState) {
 		case FUSEKI:
 			try {
-				ModelFacadeTEST.loadModelFromServer("FUU");
+				ImportManager.setURI(txtFieldURL.getText()); 
+				ModelFacadeTEST.loadModelFromServer();
+				Model m = ModelFactory.createDefaultModel();
+			//	m = ModelFacadeTEST.getOntModel();
+				m = ImportManager.getDataAccesor().getModel("http://www.w3.org/2008/05/skos-xl");
+				
+				ModelFacadeTEST.setModel(m);
 			} catch (NoDatasetAccessorException e) {
 				// TODO Auto-generated catch block
 				ERROR =true;
