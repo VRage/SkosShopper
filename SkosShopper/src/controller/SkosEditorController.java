@@ -255,6 +255,22 @@ public class SkosEditorController implements Initializable {
 			String antwort = txtfield_individiaulname.getText();
 			if(model.getIndividual(baseNS + (antwort)) == null){
 				model.createIndividual(baseNS + (antwort), selectedOntClass);
+				
+				if(!txtfield_IndiLabel.getText().isEmpty()){
+					String labelname = model.getIndividual(baseNS + (antwort)).getLocalName();
+					model.getOntClass(skosxlNS + "Label").createIndividual(
+							baseNS + "LabelFor" +labelname);
+					Individual indi = model.getIndividual(baseNS + "LabelFor"
+							+ labelname);
+					DatatypeProperty dprop = model.getDatatypeProperty(skosxlNS
+							+ "literalForm");
+					log.info("datatypeProp" + dprop.getLocalName());
+					indi.addProperty(dprop, model.createLiteral(txtfield_IndiLabel.getText(), "de"));
+					ObjectProperty Oprop = model.getObjectProperty(skosxlNS
+							+ "prefLabel");
+					model.add(model.getIndividual(baseNS + (antwort)), Oprop, indi);
+					
+				}
 				int length = baseNS.length();
 				String indinamespace = model.getIndividual(
 						baseNS + (antwort)).getNameSpace();
@@ -306,6 +322,8 @@ public class SkosEditorController implements Initializable {
 				}
 	//			showAllIndividualsInChoicebox();
 				showIndividualsOfOntClass(selectedOntClass);
+				txtfield_IndiLabel.clear();
+				txtfield_individiaulname.clear();
 			}else{
 				log.info("Individual already exist");
 			}
@@ -425,6 +443,8 @@ public class SkosEditorController implements Initializable {
 			showObjectProperties(selectedIndividual);
 			showDataProperties(selectedIndividual);
 
+			txtfield_individiaulname.setText(selectedIndividual.getURI().substring(baseNS.length())+"/");
+			
 			if (event.getClickCount() == 2) {
 				String selected = model.getIndividual(
 						liste_indi.get(
