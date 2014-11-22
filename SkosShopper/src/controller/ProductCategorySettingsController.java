@@ -43,6 +43,7 @@ public class ProductCategorySettingsController implements Initializable{
 	@FXML	Pane productCategoriesPane;
 	@FXML	Pane productCategoriesBtn;
 	@FXML	TreeView productCategoriesTreeView;
+			private static int productCategoriesTreeViewNumElements;
 	
 	
 	// FXML Elements of product propeties and values
@@ -213,6 +214,8 @@ public class ProductCategorySettingsController implements Initializable{
 		
 			while(conIte.hasNext())
 			{
+				productCategoriesTreeViewNumElements++;
+				
 				String uri = conIte.next();
 				boolean hasNarrower = ModelFacade.hasNarrower(uri);
 				TreeItem ti = new TreeItem();
@@ -247,12 +250,16 @@ public class ProductCategorySettingsController implements Initializable{
 	//
 	public static void addChilds(TreeItem root, String pre) {
 		
+		productCategoriesTreeViewNumElements++;
+		
 		String rootURI = root.getValue().toString();
 		
 		log.info(pre+"> I am "+root);
 		
 		if(ModelFacade.hasNarrower(rootURI))
 		{
+			//productCategoriesTreeViewNumElements++;
+			
 			log.info(pre+"> > I have children");
 			
 			Model model = ModelFacade.getNarrowerModel(rootURI);
@@ -262,6 +269,8 @@ public class ProductCategorySettingsController implements Initializable{
 			
 			while(childs.hasNext())
 			{
+				// productCategoriesTreeViewNumElements++;
+
 				Statement childChild = childs.nextStatement();
 				TreeItem child = new TreeItem();
 				child.setValue(childChild.getObject().toString());
@@ -273,6 +282,8 @@ public class ProductCategorySettingsController implements Initializable{
 				log.info(pre+"> > > I added it to me: "+root);
 				
 				log.info(pre+"> > > I check him");
+				
+				//productCategoriesTreeViewNumElements++;
 				
 				addChilds(child, pre+"> > > ");
 			}
@@ -292,8 +303,12 @@ public class ProductCategorySettingsController implements Initializable{
 			
 		} else {
 			log.info(pre+"> I have no childs");
+			
+			//productCategoriesTreeViewNumElements++;
 		}
 		
+		//productCategoriesTreeViewNumElements++;
+
 		root.setValue(ModelFacade.getLiteralByConcept(root.getValue().toString()));
 
 	}
@@ -419,9 +434,20 @@ public class ProductCategorySettingsController implements Initializable{
 	
 	private double calculateCategoriesHeight()
 	{
+		log.info("calculateCategoriesHeight");
 		
+		double height;
+		double childs = (double) ProductCategorySettingsController.productCategoriesTreeViewNumElements;
 		
-		return 300.0;
+		log.info("Number of TreeView Elements: "+productCategoriesTreeViewNumElements+" + 1 (root)");
+		
+		//height = ((childs) * 23.0) + 10.0 + 50.0;
+		height = ((childs) * 23.0)+ 20.0;
+		
+		log.info("Calculated height: "+height);
+		
+		return height;
+		//return 400;
 	}
 	
 	

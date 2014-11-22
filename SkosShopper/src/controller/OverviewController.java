@@ -2,6 +2,7 @@ package controller;
 
 import java.io.File;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -16,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -66,6 +68,7 @@ public class OverviewController implements Initializable{
 	@FXML TextField OverviewtxtField;
 	@FXML Button OverviewbtnLoadFromStorage;
 	File localFile= null;
+	@FXML ListView OverviewListView;
 	
 	WebEngine webEngine;
 	WebHistory webHistory;
@@ -176,7 +179,7 @@ public class OverviewController implements Initializable{
 		switch (pickedState) {
 		case FUSEKI:
 			try {
-				ModelFacadeTEST.loadModelFromFuseki();
+				ModelFacadeTEST.loadModelFromServer("FUU");
 			} catch (NoDatasetAccessorException e) {
 				// TODO Auto-generated catch block
 				ERROR =true;
@@ -193,18 +196,18 @@ public class OverviewController implements Initializable{
 			} catch (Exception e) {
 				// TODO: handle exception
 				ERROR =true;
-				errorMessage = "Keine/Falsche URL angegeben";
+				errorMessage = e.getMessage();
 			}
 			
 		break;
 		case LOCAL:
 			try {
-				ModelFacadeTEST.loadModelFromLocal(localFile);
+				ModelFacadeTEST.loadModelFromLocal(URLEncoder.encode(localFile.getAbsolutePath()));
 				ModelFacadeTEST.setState(ModelState.LOCAL);
 			} catch (Exception e) {
 				// TODO: handle exception
 				ERROR =true;
-				errorMessage = "Keine Datei ausgewählt";
+				errorMessage =e.getMessage();
 			}
 			
 		break;
@@ -226,10 +229,11 @@ public class OverviewController implements Initializable{
 		}
 		
 		setLabels();
-		
+		setListView();
 		
 		
 	}
+	
 	
 	public void startStopFuseki(ActionEvent event) throws NoDatasetGraphException, NoServerConfigException
 	{
@@ -263,6 +267,10 @@ public class OverviewController implements Initializable{
 		// TODO Auto-generated method stub
 		//ModelFacadeTEST.modelToString();
 		OverviewlblState.setText(ModelFacadeTEST.aktState.toString().toLowerCase());
+	}
+	private void setListView() {
+		// TODO Auto-generated method stub
+		OverviewListView.setItems(ModelFacadeTEST.Strins());
 	}
 	public void loadTriplesFromServer(ActionEvent event)
 	{
