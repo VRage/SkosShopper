@@ -185,17 +185,18 @@ public class OverviewController implements Initializable{
 		fileChooser.setTitle("Open Resource File");
 		localFile = fileChooser.showOpenDialog(null);
 	}
-	@FXML private void OverviewbtnReloadDatasetOnAction(ActionEvent event) {
+	@FXML private void OverviewbtnReloadDatasetOnAction(ActionEvent event) throws Exception {
 		boolean ERROR =false;
 		String errorMessage="";
 		switch (pickedState) {
 		case FUSEKI:
 			try {
 				ImportManager.setURI(txtFieldURL.getText()); 
-				ModelFacadeTEST.loadModelFromServer();
-				Model m = ModelFactory.createDefaultModel();
-			//	m = ModelFacadeTEST.getOntModel();
-				m = ImportManager.getDataAccesor().getModel("http://www.w3.org/2008/05/skos-xl");
+				Model m = ImportManager.getDataAccesor().getModel("http://example.org/book/");
+				ImportManager.importServer();
+				this.model = ModelFactory.createOntologyModel(ImportManager.getOntModelSpec());
+				this.model.add(m);
+				
 				
 				ModelFacadeTEST.setModel(m);
 			} catch (NoDatasetAccessorException e) {

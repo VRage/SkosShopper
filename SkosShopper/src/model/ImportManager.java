@@ -19,15 +19,12 @@ public class ImportManager implements Initializable{
 	private static Model model;
 	private static DatasetAccessor ds;
 	private static OntDocumentManager mgr;
-	private OntModelSpec spec;
+	private static OntModelSpec spec;
 	static String serviceURI;
-	String port = "3030/ds/books";
-	String initURL ="http://localhost:"; 
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		model = ModelFactory.createDefaultModel();
-		//ds = DatasetAccessorFactory.createHTTP(serviceURI);
 	}
 	public static DatasetAccessor getDataAccesor() {
 		return ds;		
@@ -38,21 +35,24 @@ public class ImportManager implements Initializable{
 		ds = DatasetAccessorFactory.createHTTP(serviceURI);
 	}
 	
-	public void importServer() throws Exception{
-		// Here we can insert the uri of a named graph (needs setup of fuseki configuration file)
-		model = ds.getModel();
+	public static void importServer() throws Exception{
+//		// Here we can insert the uri of a named graph (needs setup of fuseki configuration file)
 		spec = new OntModelSpec( OntModelSpec.OWL_DL_MEM );
 		spec.setDocumentManager(mgr);
-//		ontmodel = ModelFactory.createOntologyModel(spec);
-//		ontmodel.add(model);
+	}
+	
+	public static OntModelSpec getOntModelSpec() {
+		return spec;
+	}
+	
+	public static OntDocumentManager getOntDocMgr() {
+		return mgr;
 	}
 	
 	public static Model getModel() {
 		return model;
 	}
-	
 
-	
 	// Use this method when you want to write back and update a model to server
 	public void updateModelOfServer() {
 		try {
