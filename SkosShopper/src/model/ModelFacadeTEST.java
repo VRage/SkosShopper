@@ -4,27 +4,49 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.HashSet;
-import java.util.Set;
+import java.net.URL;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.ResourceBundle;
+
+import javafx.beans.InvalidationListener;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
+import javafx.fxml.Initializable;
 
 import org.apache.log4j.Logger;
 
+import com.hp.hpl.jena.ontology.OntDocumentManager;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
-import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.query.DatasetAccessor;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.RDFNode;
-import com.hp.hpl.jena.rdf.model.Statement;
-import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.util.FileManager;
 
 import exceptions.fuseki_exceptions.NoDatasetAccessorException;
 
-public class ModelFacadeTEST {
+
+
+public class ModelFacadeTEST implements Initializable
+{
 	public enum ModelState {FUSEKI, WEB, LOCAL};
 	static public ModelState aktState = ModelState.FUSEKI;
 	//static Model model = ModelFactory.createDefaultModel();
 	static OntModel ontModel = ModelFactory.createOntologyModel();
+	static OntDocumentManager mgr = new OntDocumentManager();
+	static OntModelSpec ontSpec = new OntModelSpec(OntModelSpec.OWL_MEM);
+	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		ontSpec.setDocumentManager(mgr);
+	}
 	
 	public static final Logger log = Logger.getLogger(ModelFacadeTEST.class);
 	
@@ -40,37 +62,37 @@ public class ModelFacadeTEST {
 		// TODO Auto-generated method stub
 		aktState = ms;
 	}
-	public  static void loadModelFromLocal(File filePath) {
+	public  static void loadModelFromLocal(String filePath) {
+		
+		
+		
 		// TODO Auto-generated method stub
-		ontModel = ModelFactory.createOntologyModel();
+		ontModel = ModelFactory.createOntologyModel(ontSpec);
 		//model = ModelFactory.createDefaultModel();
-		InputStream in = FileManager.get().open(filePath.getAbsolutePath());
+	//	InputStream in = FileManager.get().open(filePath.getAbsolutePath());
 
-		ontModel.read(in, null);
-	//	ontModel.write(System.out);
+		ontModel.read(filePath);
+
 		
 	}
 	public  static void loadModelFromWeb(String filePath) {
 		// TODO Auto-generated method stub
+		System.out.println(filePath);
 		ontModel = ModelFactory.createOntologyModel();
 		//model = ModelFactory.createDefaultModel();
-		InputStream in = FileManager.get().open(filePath);
+//		InputStream in = FileManager.get().open(filePath);
 //		model.read(in,null);
 //		model.write(System.out);
-		ontModel.read(in, null);
-		ontModel.write(System.out);
+		ontModel.read(filePath);
+		
+		//ontModel.write(System.out);
 
 
 	}
-	public static void loadModelFromFuseki() throws NoDatasetAccessorException{
-		
+	public static void loadModelFromServer(String URI) throws NoDatasetAccessorException{
 		ontModel = ModelFactory.createOntologyModel();
-		
-		ontModel = ModelFactory.createOntologyModel(
-                OntModelSpec.OWL_MEM_RULE_INF,
-                FusekiModel.getDatasetAccessor().getModel());
-		
-		
+		ontModel.add(ImportManager.getDataAccesor().getModel());
+	
 	}
 	public static OntModel getOntModel (){
 		return ontModel;
@@ -96,6 +118,15 @@ public class ModelFacadeTEST {
 	    System.out.println("############################################"+output.toString());
 		return output.toString();
 	}
+	public static ObservableList Strins() {
+		// TODO Auto-generated method stub
+			Map <String,String> mapoo= ontModel.getNsPrefixMap();
+			ObservableList<Entry> result= FXCollections.observableArrayList();
+			result.addAll(mapoo.entrySet());
+			return result;
+			
+	}
+	
 
 	/*
 	 * 	
