@@ -607,5 +607,15 @@ public class SkosEditorController implements Initializable {
 			}
 		}
 	}
+	
+	@FXML public void insertToCollection(){
+		
+	}
+	@FXML public void deleteFromCollection(){
+		
+	}
+	@FXML public void createCollection(){
+		
+	}
 
 }
