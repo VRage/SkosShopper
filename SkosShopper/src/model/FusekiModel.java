@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,13 +11,20 @@ import org.apache.http.HttpRequestFactory;
 import org.apache.http.impl.io.HttpRequestWriter;
 import org.apache.jena.*;
 import org.apache.jena.atlas.lib.FileOps;
+import org.apache.jena.fuseki.Fuseki;
 import org.apache.jena.fuseki.migrate.GraphLoadUtils;
+import org.apache.jena.fuseki.server.DatasetRef;
 import org.apache.jena.fuseki.server.FusekiConfig;
 import org.apache.jena.fuseki.server.SPARQLServer;
 import org.apache.jena.fuseki.server.ServerConfig;
 import org.apache.jena.fuseki.servlets.HttpAction;
 import org.apache.jena.fuseki.servlets.HttpServletResponseTracker;
+import org.apache.jena.web.DatasetGraphAccessor;
 import org.apache.log4j.PropertyConfigurator;
+
+
+
+
 
 
 
@@ -106,8 +114,9 @@ public class FusekiModel {
 		
 		FusekiModel.datasetGraph = DatasetGraphFactory.createMemFixed();
 		FusekiModel.datasetAccessor = DatasetAccessorFactory.create(FusekiModel.datasetGraph);
-		FusekiModel.serverConfig = FusekiConfig.defaultConfiguration(FusekiModel.dataset, FusekiModel.datasetGraph, true, true);
+		FusekiModel.serverConfig = FusekiConfig.configure("./fuseki/config.ttl");
 		FusekiModel.serverConfig.pages = FusekiModel.pageDirPath;
+
 		
 		if(! FileOps.exists(FusekiModel.serverConfig.pages))
 			throw new NoPagesDirException("No pages directory path set.");

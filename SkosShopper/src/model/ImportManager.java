@@ -20,26 +20,23 @@ public class ImportManager implements Initializable{
 	private static DatasetAccessor ds;
 	private static OntDocumentManager mgr;
 	private OntModelSpec spec;
-	String serviceURI;
-	String port = "3030";
+	static String serviceURI;
+	String port = "3030/ds/books";
 	String initURL ="http://localhost:"; 
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
 		model = ModelFactory.createDefaultModel();
-		serviceURI = initURL+port;
-		ds = DatasetAccessorFactory.createHTTP(serviceURI);
+		//ds = DatasetAccessorFactory.createHTTP(serviceURI);
 	}
 	public static DatasetAccessor getDataAccesor() {
-		return ds;
-		// TODO Auto-generated method stub
-		
+		return ds;		
 	}
-		private void setURI(String serviceURI) {
-			// TODO Auto-generated method stub
-			serviceURI = serviceURI;
-		}
+
+	public static void setURI(String uri) {
+		serviceURI = uri;
+		ds = DatasetAccessorFactory.createHTTP(serviceURI);
+	}
 	
 	public void importServer() throws Exception{
 		// Here we can insert the uri of a named graph (needs setup of fuseki configuration file)
@@ -48,6 +45,10 @@ public class ImportManager implements Initializable{
 		spec.setDocumentManager(mgr);
 //		ontmodel = ModelFactory.createOntologyModel(spec);
 //		ontmodel.add(model);
+	}
+	
+	public static Model getModel() {
+		return model;
 	}
 	
 

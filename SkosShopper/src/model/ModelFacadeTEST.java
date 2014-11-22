@@ -1,22 +1,13 @@
 package model;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.ResourceBundle;
 
-import javafx.beans.InvalidationListener;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 
@@ -25,9 +16,8 @@ import org.apache.log4j.Logger;
 import com.hp.hpl.jena.ontology.OntDocumentManager;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
-import com.hp.hpl.jena.query.DatasetAccessor;
+import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.util.FileManager;
 
 import exceptions.fuseki_exceptions.NoDatasetAccessorException;
 
@@ -63,9 +53,6 @@ public class ModelFacadeTEST implements Initializable
 		aktState = ms;
 	}
 	public  static void loadModelFromLocal(String filePath) {
-		
-		
-		
 		// TODO Auto-generated method stub
 		ontModel = ModelFactory.createOntologyModel(ontSpec);
 		//model = ModelFactory.createDefaultModel();
@@ -89,13 +76,19 @@ public class ModelFacadeTEST implements Initializable
 
 
 	}
-	public static void loadModelFromServer(String URI) throws NoDatasetAccessorException{
+	public static void loadModelFromServer() throws NoDatasetAccessorException{
 		ontModel = ModelFactory.createOntologyModel();
-		ontModel.add(ImportManager.getDataAccesor().getModel());
+		Model m = ImportManager.getDataAccesor().getModel();
+		ontModel.add(m);
 	
 	}
 	public static OntModel getOntModel (){
 		return ontModel;
+	}
+	public static void  setModel(Model m) {
+		// TODO Auto-generated method stub
+		ontModel = ModelFactory.createOntologyModel();
+		ontModel.add(m);
 	}
 	public static String modelToString(){
 //		String result="";
