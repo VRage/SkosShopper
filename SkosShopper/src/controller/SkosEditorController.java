@@ -454,9 +454,13 @@ public class SkosEditorController implements Initializable {
 			showDataProperties(selectedIndividual);
 			
 			txtfield_individiaulname.setText(selectedIndividual.getURI().substring(baseNS.length())+"/");
-			if(selectedOntClass.getLocalName() == "Label"){
+			if(selectedOntClass.getLocalName().contains("Label")){
 				selectedIndiLocalname.setText(selectedIndividual.getLocalName());
-			}else if(selectedOntClass.getLocalName() == "Concept"){
+			}else if(selectedOntClass.getLocalName().contains("Concept")){
+				if(getLabelforIndividual(selectedIndividual)!=null)
+					selectedIndiLocalname.setText(getLabelforIndividual(selectedIndividual).getLocalName());
+				else
+					selectedIndiLocalname.setText("");
 			}
 			if (event.getClickCount() == 2) {
 				String selected = model.getIndividual(
