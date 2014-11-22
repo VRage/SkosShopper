@@ -36,9 +36,11 @@ import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.ontology.OntResource;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.ResourceRequiredException;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
+import com.hp.hpl.jena.rdf.model.impl.ResourceImpl;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 
 /**
@@ -83,7 +85,8 @@ public class SkosEditorController implements Initializable {
 	private TextField txtfield_editLabel;
 	@FXML
 	private Button btn_editLabel;
-	
+	@FXML
+	private Label selectedIndiLocalname;
 	@FXML 
 	private Label labelCollectionFromText;
 	@FXML 
@@ -100,6 +103,9 @@ public class SkosEditorController implements Initializable {
 	// local j4log logger
 	public static final Logger log = Logger
 			.getLogger(SkosEditorController.class);
+	
+	//String constant only to make arkadius happy
+	public static final String PREFIXLABEL ="LabelFor";
 	
 	//Variables for the Ontology Class-Listview
 	private ObservableList<String> classes = FXCollections.observableArrayList();;
@@ -449,9 +455,12 @@ public class SkosEditorController implements Initializable {
 
 			showObjectProperties(selectedIndividual);
 			showDataProperties(selectedIndividual);
-
-			txtfield_individiaulname.setText(selectedIndividual.getURI().substring(baseNS.length())+"/");
 			
+			txtfield_individiaulname.setText(selectedIndividual.getURI().substring(baseNS.length())+"/");
+			if(selectedOntClass.getLocalName() == "Label"){
+				selectedIndiLocalname.setText(selectedIndividual.getLocalName());
+			}else if(selectedOntClass.getLocalName() == "Concept"){
+			}
 			if (event.getClickCount() == 2) {
 				String selected = model.getIndividual(
 						liste_indi.get(
@@ -675,8 +684,8 @@ public class SkosEditorController implements Initializable {
 	public void createLabelRecipe(String name, String description, Individual toindividual){
 		String labelname = toindividual.getLocalName();
 		model.getOntClass(skosxlNS + "Label").createIndividual(
-				baseNS + "LabelFor"+name +labelname);
-		Individual indi = model.getIndividual(baseNS + "LabelFor"
+				baseNS + PREFIXLABEL+name +labelname);
+		Individual indi = model.getIndividual(baseNS + PREFIXLABEL
 				+name +labelname);
 		DatatypeProperty dprop = model.getDatatypeProperty(skosxlNS
 				+ "literalForm");
@@ -687,4 +696,17 @@ public class SkosEditorController implements Initializable {
 		model.add(toindividual, Oprop, indi);
 		
 	}
+	
+	@FXML public void editLabel(ActionEvent e){
+		log.info("in editLabelmethod");
+		if(selectedOntClass !=null && selectedIndividual != null){
+			log.info("no null Class or Individual");
+			log.info(selectedOntClass.getLocalName());
+			if(selectedOntClass.getLocalName().contains("Concept")){
+				log.info("test");
+				createLabelRecipe("", txtfield_editLabel.getText(), selectedIndividual);
+			}
+		}
+	}
+	
 }
