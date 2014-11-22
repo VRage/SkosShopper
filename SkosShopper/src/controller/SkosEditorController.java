@@ -458,10 +458,15 @@ public class SkosEditorController implements Initializable {
 			if(selectedOntClass.getLocalName().contains("Label")){
 				selectedIndiLocalname.setText(selectedIndividual.getLocalName());
 			}else if(selectedOntClass.getLocalName().contains("Concept")){
-				if(getLabelforIndividual(selectedIndividual)!=null)
+				if(getLabelforIndividual(selectedIndividual)!=null){
 					selectedIndiLocalname.setText(getLabelforIndividual(selectedIndividual).getLocalName());
-				else
+					if(getDatapropertyFromLabel(getLabelforIndividual(selectedIndividual))!=null){
+						txtfield_editLabel.setText(getDatapropertyFromLabel(getLabelforIndividual(selectedIndividual)).getString());
+					}
+				}else{
 					selectedIndiLocalname.setText("");
+					txtfield_editLabel.setText("");
+				}
 			}
 			if (event.getClickCount() == 2) {
 				String selected = model.getIndividual(
@@ -703,7 +708,19 @@ public class SkosEditorController implements Initializable {
 			log.info(selectedOntClass.getLocalName());
 			if(selectedOntClass.getLocalName().contains("Concept")){
 				log.info("test");
-				createLabelRecipe("", txtfield_editLabel.getText(), selectedIndividual);
+				if(getLabelforIndividual(selectedIndividual)!=null){
+					
+					if(getDatapropertyFromLabel(getLabelforIndividual(selectedIndividual))!=null){
+						getDatapropertyFromLabel(getLabelforIndividual(selectedIndividual)).changeObject(txtfield_editLabel.getText(),"de");
+					}
+				}else{
+					createLabelRecipe("", txtfield_editLabel.getText(), selectedIndividual);
+				}
+			}else if(selectedOntClass.getLocalName().contains("Label")){
+				if(getDatapropertyFromLabel(selectedIndividual)!=null){
+					txtfield_editLabel.setText(getDatapropertyFromLabel(selectedIndividual.asResource()).getString());
+					getDatapropertyFromLabel(selectedIndividual.asResource()).changeObject(txtfield_editLabel.getText(),"de");
+				}
 			}
 		}
 	}
@@ -714,7 +731,6 @@ public class SkosEditorController implements Initializable {
 			while(iter.hasNext()){
 				Statement s = iter.next();
 				if(s.getPredicate().getLocalName().equals("prefLabel")){
-					getDatapropertyFromLabel(s.getObject().asResource());
 					return s.getObject().asResource();
 				}
 			}
