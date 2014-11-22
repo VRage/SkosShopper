@@ -34,6 +34,7 @@ import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.ontology.OntResource;
+import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.ResourceRequiredException;
@@ -713,8 +714,21 @@ public class SkosEditorController implements Initializable {
 			while(iter.hasNext()){
 				Statement s = iter.next();
 				if(s.getPredicate().getLocalName().equals("prefLabel")){
+					getDatapropertyFromLabel(s.getObject().asResource());
 					return s.getObject().asResource();
 				}
+			}
+		}
+		return null;
+	}
+	
+	private Statement getDatapropertyFromLabel(Resource label){
+		StmtIterator iter = label.listProperties();
+		while(iter.hasNext()){
+			Statement s = iter.next();
+			log.info(s.getPredicate().getLocalName());
+			if(s.getPredicate().getLocalName().equals("literalForm")){
+				return s;
 			}
 		}
 		return null;
