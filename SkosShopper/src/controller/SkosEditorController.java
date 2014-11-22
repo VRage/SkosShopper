@@ -26,7 +26,6 @@ import javafx.scene.input.MouseEvent;
 import javax.swing.JOptionPane;
 
 import org.apache.log4j.Logger;
-import org.apache.xerces.impl.xs.identity.Selector;
 
 import com.hp.hpl.jena.ontology.DatatypeProperty;
 import com.hp.hpl.jena.ontology.Individual;
@@ -36,20 +35,10 @@ import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.ontology.OntResource;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.ResIterator;
+import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.ResourceRequiredException;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
-import com.hp.hpl.jena.rdf.model.impl.ResourceImpl;
-import com.hp.hpl.jena.util.iterator.ExtendedIterator;
-import com.hp.hpl.jena.rdf.model.impl.ResourceImpl;
-import com.hp.hpl.jena.util.iterator.ExtendedIterator;
-import com.hp.hpl.jena.rdf.model.impl.ResourceImpl;
-import com.hp.hpl.jena.util.iterator.ExtendedIterator;
-import com.hp.hpl.jena.rdf.model.impl.ResourceImpl;
-import com.hp.hpl.jena.util.iterator.ExtendedIterator;
-import com.hp.hpl.jena.rdf.model.impl.ResourceImpl;
-import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 
 /**
@@ -712,5 +701,18 @@ public class SkosEditorController implements Initializable {
 				createLabelRecipe("", txtfield_editLabel.getText(), selectedIndividual);
 			}
 		}
+	}
+	
+	private Resource getLabelforIndividual(Individual individual){
+		if(individual != null){
+			StmtIterator iter = individual.listProperties();
+			while(iter.hasNext()){
+				Statement s = iter.next();
+				if(s.getPredicate().getLocalName().equals("prefLabel")){
+					return s.getObject().asResource();
+				}
+			}
+		}
+		return null;
 	}
 }
