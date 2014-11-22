@@ -26,6 +26,7 @@ import javafx.scene.input.MouseEvent;
 import javax.swing.JOptionPane;
 
 import org.apache.log4j.Logger;
+import org.apache.xerces.impl.xs.identity.Selector;
 
 import com.hp.hpl.jena.ontology.DatatypeProperty;
 import com.hp.hpl.jena.ontology.Individual;
@@ -35,10 +36,20 @@ import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.ontology.OntResource;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.ResourceRequiredException;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
+import com.hp.hpl.jena.rdf.model.impl.ResourceImpl;
+import com.hp.hpl.jena.util.iterator.ExtendedIterator;
+import com.hp.hpl.jena.rdf.model.impl.ResourceImpl;
+import com.hp.hpl.jena.util.iterator.ExtendedIterator;
+import com.hp.hpl.jena.rdf.model.impl.ResourceImpl;
+import com.hp.hpl.jena.util.iterator.ExtendedIterator;
+import com.hp.hpl.jena.rdf.model.impl.ResourceImpl;
+import com.hp.hpl.jena.util.iterator.ExtendedIterator;
+import com.hp.hpl.jena.rdf.model.impl.ResourceImpl;
+import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 
 /**
@@ -83,7 +94,8 @@ public class SkosEditorController implements Initializable {
 	private TextField txtfield_editLabel;
 	@FXML
 	private Button btn_editLabel;
-	
+	@FXML
+	private Label selectedIndiLocalname;
 	@FXML 
 	private Label labelCollectionFromText;
 	@FXML 
@@ -102,6 +114,9 @@ public class SkosEditorController implements Initializable {
 	// local j4log logger
 	public static final Logger log = Logger
 			.getLogger(SkosEditorController.class);
+	
+	//String constant only to make arkadius happy
+	public static final String PREFIXLABEL ="LabelFor";
 	
 	//Variables for the Ontology Class-Listview
 	private ObservableList<String> classes = FXCollections.observableArrayList();;
@@ -271,7 +286,6 @@ public class SkosEditorController implements Initializable {
 	 */
 	@FXML
 	private void addIndi(ActionEvent event) {
-		getLabelFromIndividual(selectedIndividual);
 		if (!txtfield_individiaulname.getText().isEmpty()) {
 			log.info("start method addIndi");
 			String antwort = txtfield_individiaulname.getText();
@@ -437,9 +451,6 @@ public class SkosEditorController implements Initializable {
 	 * 
 	 * @param event
 	 */
-	/**
-	 * @param event
-	 */
 	@FXML
 	private void selectIndividualOfOntClass(MouseEvent event) {
 		if (!listview_indi.getSelectionModel().isEmpty()) {
@@ -452,9 +463,12 @@ public class SkosEditorController implements Initializable {
 
 			showObjectProperties(selectedIndividual);
 			showDataProperties(selectedIndividual);
-
-			txtfield_individiaulname.setText(selectedIndividual.getURI().substring(baseNS.length())+"/");
 			
+			txtfield_individiaulname.setText(selectedIndividual.getURI().substring(baseNS.length())+"/");
+			if(selectedOntClass.getLocalName() == "Label"){
+				selectedIndiLocalname.setText(selectedIndividual.getLocalName());
+			}else if(selectedOntClass.getLocalName() == "Concept"){
+			}
 			if (event.getClickCount() == 2) {
 				String selected = model.getIndividual(
 						liste_indi.get(
@@ -602,22 +616,6 @@ public class SkosEditorController implements Initializable {
 							predicate = nextProperty.getPredicate()
 									.getLocalName();
 							object = nextProperty.getObject().asLiteral()
-									.toString();
-							items.add("'" + predicate + "'" + "  " + object
-									+ "\n\n");
-						}
-
-					} catch (ResourceRequiredException e) {
-						log.error(e, e);
-					}
-				}
-				if (!items.isEmpty()) {
-					listview_objprop.setItems(items);
-				}
-			}
-		}
-	}
-	
 	/** Tries to create a new Collection with the given name as long as the
 	 * 	name doesn't already exist.
 	 */
@@ -678,8 +676,8 @@ public class SkosEditorController implements Initializable {
 	public void createLabelRecipe(String name, String description, Individual toindividual){
 		String labelname = toindividual.getLocalName();
 		model.getOntClass(skosxlNS + "Label").createIndividual(
-				baseNS + "LabelFor"+name +labelname);
-		Individual indi = model.getIndividual(baseNS + "LabelFor"
+				baseNS + PREFIXLABEL+name +labelname);
+		Individual indi = model.getIndividual(baseNS + PREFIXLABEL
 				+name +labelname);
 		DatatypeProperty dprop = model.getDatatypeProperty(skosxlNS
 				+ "literalForm");
@@ -691,18 +689,15 @@ public class SkosEditorController implements Initializable {
 		
 	}
 	
-	private Resource getLabelFromIndividual(Individual individual){
-		if(individual != null){
-			StmtIterator iterProperties = individual.listProperties();
-			while(iterProperties.hasNext()){
-				Statement triple = iterProperties.next();
-				if(triple.getPredicate().getLocalName().toString().equals("prefLabel")){
-					if(triple.getObject().isResource()){
-						return triple.getObject().asResource();
-					}
-				}
+	@FXML public void editLabel(ActionEvent e){
+		log.info("in editLabelmethod");
+		if(selectedOntClass !=null && selectedIndividual != null){
+			log.info("no null Class or Individual");
+			log.info(selectedOntClass.getLocalName());
+			if(selectedOntClass.getLocalName().contains("Concept")){
+				log.info("test");
+				createLabelRecipe("", txtfield_editLabel.getText(), selectedIndividual);
 			}
 		}
-		return null;
 	}
 }
