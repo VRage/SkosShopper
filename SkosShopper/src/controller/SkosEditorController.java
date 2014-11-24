@@ -187,6 +187,7 @@ public class SkosEditorController implements Initializable {
 				case "Label":
 					acc_editLabel.setExpanded(true);
 					txtfield_IndiLabel.setDisable(true);
+					btn_editLabel.setText(localizedBundle.getString("btnEditLabel"));
 					break;
 				case "OrderedCollection":
 				case "Collection":
@@ -457,8 +458,11 @@ public class SkosEditorController implements Initializable {
 			txtfield_individiaulname.setText(selectedIndividual.getURI().substring(baseNS.length())+"/");
 			if(selectedOntClass.getLocalName().contains("Label")){
 				selectedIndiLocalname.setText(selectedIndividual.getLocalName());
+				txtfield_editLabel.setText(getDatapropertyFromLabel(selectedIndividual).getString());
 			}else if(selectedOntClass.getLocalName().contains("Concept")){
+				btn_editLabel.setText(localizedBundle.getString("btnAddLabel"));
 				if(getLabelforIndividual(selectedIndividual)!=null){
+					btn_editLabel.setText(localizedBundle.getString("btnEditLabel"));
 					selectedIndiLocalname.setText(getLabelforIndividual(selectedIndividual).getLocalName());
 					if(getDatapropertyFromLabel(getLabelforIndividual(selectedIndividual))!=null){
 						txtfield_editLabel.setText(getDatapropertyFromLabel(getLabelforIndividual(selectedIndividual)).getString());
@@ -718,8 +722,7 @@ public class SkosEditorController implements Initializable {
 				}
 			}else if(selectedOntClass.getLocalName().contains("Label")){
 				if(getDatapropertyFromLabel(selectedIndividual)!=null){
-					txtfield_editLabel.setText(getDatapropertyFromLabel(selectedIndividual.asResource()).getString());
-					getDatapropertyFromLabel(selectedIndividual.asResource()).changeObject(txtfield_editLabel.getText(),"de");
+					getDatapropertyFromLabel(selectedIndividual).changeObject(txtfield_editLabel.getText(),"de");
 				}
 			}
 		}
