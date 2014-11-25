@@ -66,14 +66,15 @@
                                     <TextField fx:id="textfieldCollectionLabelName" layoutX="22.0" layoutY="290.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="280.0" />
                                     <ListView fx:id="listviewCollectionChoise" layoutX="22.0" layoutY="325.0" minHeight="200.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="350.0" />
                                     <ListView fx:id="listviewCollectionSelected" layoutX="222.0" layoutY="359.0" minHeight="200.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="259.0" AnchorPane.topAnchor="350.0" />
-                                    <ChoiceBox fx:id="choiseBoxCollectionFilter" layoutX="22.0" layoutY="377.0" prefHeight="30.0" prefWidth="200.0" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="320.0" />
+                                    <ChoiceBox fx:id="choiseBoxCollectionFilter" layoutX="22.0" layoutY="377.0" onMouseClicked="#showSubIndividualinListView" prefHeight="30.0" prefWidth="200.0" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="320.0" />
                                     <Label fx:id="labelCollectionFromText" layoutX="257.0" layoutY="381.0" prefWidth="200.0" text="Collection: BLANK" AnchorPane.leftAnchor="259.0" AnchorPane.topAnchor="335.0" />
                                     <Button layoutX="278.0" layoutY="215.0" mnemonicParsing="false" onAction="#createCollection" prefHeight="25.0" prefWidth="174.0" text="%btnAddCollection" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="215.0" />
                                  </children>
                               </AnchorPane>
                           </content>
                         </ScrollPane>
-                     </content></TitledPane>
+                     </content>
+                  </TitledPane>
                   <TitledPane fx:id="acc_editCollection" animated="false" prefHeight="371.0" prefWidth="442.0" text="%accordion_editCollection" />
               </panes>
             </Accordion>
