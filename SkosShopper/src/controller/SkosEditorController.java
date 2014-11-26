@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -37,6 +36,7 @@ import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntResource;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.ResourceRequiredException;
+import com.hp.hpl.jena.rdf.model.Selector;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
@@ -245,6 +245,7 @@ public class SkosEditorController implements Initializable {
 			showOntClassInTree();
 			showAllIndividualsInChoicebox();
 			setChoiseboxItems();
+			setFilteredItems();
 			log.info("Ontologie loaded");
 		} catch (Exception e) {
 			log.error(e, e);
@@ -536,7 +537,7 @@ public class SkosEditorController implements Initializable {
 	 */
 	@FXML
 	private void showSubIndividualinListView(MouseEvent event) {
-
+		setFilteredItems();
 	}
 
 	/**
@@ -802,5 +803,34 @@ public class SkosEditorController implements Initializable {
 			elems.add(fuck.getLocalName());
 		}
 		choiseBoxCollectionFilter.setItems(elems);
+		choiseBoxCollectionFilter.setValue(localizedBundle.getString("noFilter"));
+	}
+	
+	private void setFilteredItems(){
+		String selected = choiseBoxCollectionFilter.getValue();
+		Individual ind = null;
+		ObservableList<String> list = FXCollections.observableArrayList();
+		if(selected != localizedBundle.getString("noFilter"));{
+			ExtendedIterator i = model.listIndividuals();
+			//search for current individual
+			while(i.hasNext()){
+				ind = (Individual) i.next();
+				if(ind.getLocalName().equals(selected)){
+					break;
+				}
+			}
+			if(ind != null){
+				StmtIterator properties = ind.listProperties();
+				while(properties.hasNext()){
+					Statement s = properties.next();
+					
+					System.out.println(s.getPredicate().getLocalName());
+					if(s.getPredicate().getLocalName().equals("narrower")){
+						list.add(s.getObject().asResource().getLocalName());
+					}
+				}
+			}
+		}
+		listviewCollectionChoise.setItems(list);
 	}
 }
