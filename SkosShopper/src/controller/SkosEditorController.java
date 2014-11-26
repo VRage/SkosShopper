@@ -8,6 +8,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -169,6 +171,15 @@ public class SkosEditorController implements Initializable {
                 return new IndividualChoiceCell();
             }
         });
+		choiseBoxCollectionFilter.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			
+			@Override
+			public void changed(ObservableValue<? extends Number> arg0, Number arg1,
+					Number arg2) {
+				setFilteredItems();
+				
+			}
+		});
 	}
 
 	/**
@@ -835,7 +846,14 @@ public class SkosEditorController implements Initializable {
 					
 					System.out.println(s.getPredicate().getLocalName());
 					if(s.getPredicate().getLocalName().equals("narrower")){
-						liste_choicedindis.add((Individual)s.getObject().getModel());
+						//liste_choicedindis.add((Individual)s.getObject().getModel());
+						i = model.listIndividuals();
+						while(i.hasNext()){
+							Individual ind2 = (Individual) i.next();
+							if(ind2.getLocalName().equals(s.getObject().asResource().getLocalName())){
+								liste_choicedindis.add(ind2);
+							}
+						}
 					}
 				}
 			}
