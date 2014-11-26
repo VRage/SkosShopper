@@ -11,7 +11,7 @@ import javafx.scene.layout.Priority;
 
 import com.hp.hpl.jena.ontology.Individual;
 
-class IndividualSelectCell extends ListCell<Individual> {
+public class IndividualSelectCell extends ListCell<Individual> {
     HBox hbox = new HBox();
     Label label = new Label("(empty)");
     Pane pane = new Pane();

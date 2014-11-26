@@ -1,5 +1,6 @@
 package controller;
 
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -17,14 +18,17 @@ import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
 
 import javax.swing.JOptionPane;
 
 import model.ModelFacadeTEST;
+import model.IndividualChoiceCell;
 
 import org.apache.log4j.Logger;
 
@@ -36,7 +40,6 @@ import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntResource;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.ResourceRequiredException;
-import com.hp.hpl.jena.rdf.model.Selector;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
@@ -160,7 +163,12 @@ public class SkosEditorController implements Initializable {
 
 
 		listviewCollectionChoise.setItems(liste_choicedindis);
-
+		listviewCollectionChoise.setCellFactory(new Callback<ListView<Individual>, ListCell<Individual>>() {
+            @Override
+            public ListCell<Individual> call(ListView<Individual> param) {
+                return new IndividualChoiceCell();
+            }
+        });
 	}
 
 	/**
@@ -474,7 +482,7 @@ public class SkosEditorController implements Initializable {
 
 			showObjectProperties(selectedIndividual);
 			showDataProperties(selectedIndividual);
-			liste_choicedindis.add(selectedIndividual);
+			
 			txtfield_individiaulname.setText(selectedIndividual.getURI()
 					.substring(baseNS.length()) + "/");
 			if (selectedOntClass.getLocalName().contains("Label")) {
@@ -807,9 +815,10 @@ public class SkosEditorController implements Initializable {
 	}
 	
 	private void setFilteredItems(){
+		liste_choicedindis.clear();
 		String selected = choiseBoxCollectionFilter.getValue();
 		Individual ind = null;
-		ObservableList<String> list = FXCollections.observableArrayList();
+		
 		if(selected != localizedBundle.getString("noFilter"));{
 			ExtendedIterator i = model.listIndividuals();
 			//search for current individual
@@ -826,11 +835,11 @@ public class SkosEditorController implements Initializable {
 					
 					System.out.println(s.getPredicate().getLocalName());
 					if(s.getPredicate().getLocalName().equals("narrower")){
-						list.add(s.getObject().asResource().getLocalName());
+						liste_choicedindis.add((Individual)s.getObject().getModel());
 					}
 				}
 			}
 		}
-		listviewCollectionChoise.setItems(list);
+		listviewCollectionChoise.setItems(liste_choicedindis);
 	}
 }
