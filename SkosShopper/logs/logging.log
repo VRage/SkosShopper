@@ -571,3 +571,1282 @@ com.hp.hpl.jena.shared.NotFoundException: C:\Users\vrage\Documents\SpiderOak Hiv
 	at com.sun.glass.ui.win.WinApplication$$Lambda$37/1109371569.run(Unknown Source)
 	at java.lang.Thread.run(Unknown Source)
 2014-11-04 13:09:17 INFO  Main:26 - app started without errors
+2014-11-26 13:28:09 DEBUG LockMRSW:57 - Lock : JavaFX Application Thread
+2014-11-26 13:28:10 TRACE SystemUtils:38 - Using thread classloader
+2014-11-26 13:28:10 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-26 13:28:10 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-26 13:28:10 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-26 13:28:10 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-26 13:28:10 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-26 13:28:10 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-26 13:28:10 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-26 13:28:10 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-26 13:28:10 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-26 13:28:10 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-26 13:28:10 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-26 13:28:10 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-26 13:28:10 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-26 13:28:10 DEBUG info:335 - System architecture: 64 bit
+2014-11-26 13:28:10 DEBUG TDB:239 - 
+symbol:http://jena.hpl.hp.com/ARQ#constantBNodeLabels = true
+symbol:http://jena.hpl.hp.com/ARQ#regexImpl = symbol:http://jena.hpl.hp.com/ARQ#javaRegex
+symbol:http://jena.hpl.hp.com/ARQ#stageGenerator = com.hp.hpl.jena.tdb.solver.StageGeneratorDirectTDB@59018efa
+symbol:http://jena.hpl.hp.com/ARQ#strictSPARQL = false
+symbol:http://jena.hpl.hp.com/ARQ#enablePropertyFunctions = true
+2014-11-26 13:28:10 DEBUG LockMRSW:57 - Lock : JavaFX Application Thread
+2014-11-26 13:28:10 DEBUG FileManager:258 - loadModel(./fuseki/config.ttl)
+2014-11-26 13:28:10 DEBUG StreamManager:112 - Not mapped: ./fuseki/config.ttl
+2014-11-26 13:28:10 DEBUG StreamManager:93 - open(./fuseki/config.ttl)
+2014-11-26 13:28:10 DEBUG StreamManager:112 - Not mapped: ./fuseki/config.ttl
+2014-11-26 13:28:10 TRACE LocatorFile:160 - Not found: ./fuseki/config.ttl
+2014-11-26 13:28:10 TRACE LocatorHTTP:42 - Not found : ./fuseki/config.ttl
+2014-11-26 13:28:10 TRACE LocatorFTP:42 - Not found : ./fuseki/config.ttl
+2014-11-26 13:28:10 TRACE LocatorClassLoader:61 - Failed to open: ./fuseki/config.ttl
+2014-11-26 13:28:10 DEBUG RDFDataMgr:869 - Not Found: ./fuseki/config.ttl
+2014-11-26 13:28:10 DEBUG LockMRSW:57 - Lock : JavaFX Application Thread
+2014-11-26 13:28:10 DEBUG FileManager:258 - loadModel(./fuseki/config.ttl)
+2014-11-26 13:28:10 DEBUG StreamManager:112 - Not mapped: ./fuseki/config.ttl
+2014-11-26 13:28:10 DEBUG StreamManager:93 - open(./fuseki/config.ttl)
+2014-11-26 13:28:10 DEBUG StreamManager:112 - Not mapped: ./fuseki/config.ttl
+2014-11-26 13:28:10 TRACE LocatorFile:160 - Not found: ./fuseki/config.ttl
+2014-11-26 13:28:10 TRACE LocatorHTTP:42 - Not found : ./fuseki/config.ttl
+2014-11-26 13:28:10 TRACE LocatorFTP:42 - Not found : ./fuseki/config.ttl
+2014-11-26 13:28:10 TRACE LocatorClassLoader:61 - Failed to open: ./fuseki/config.ttl
+2014-11-26 13:28:10 DEBUG RDFDataMgr:869 - Not Found: ./fuseki/config.ttl
+2014-11-26 13:29:43 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-26 13:29:43 INFO  ProductCategorySettingsController:304 - loadCategories()
+2014-11-26 13:29:43 INFO  ProductFactory:79 - getConceptSchemeAsStringArray() START
+2014-11-26 13:29:43 INFO  ModelFacade:224 - getModelOfConceptSchemes() START
+2014-11-26 13:29:43 TRACE SystemUtils:38 - Using thread classloader
+2014-11-26 13:29:44 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-26 13:29:44 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-26 13:29:44 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-26 13:29:44 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-26 13:29:44 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-26 13:29:44 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-26 13:29:44 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-26 13:29:44 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-26 13:29:44 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-26 13:29:44 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-26 13:29:44 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-26 13:29:44 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-26 13:29:44 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-26 13:30:06 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-26 13:30:06 TRACE SystemUtils:38 - Using thread classloader
+2014-11-26 13:30:06 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-26 13:30:06 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-26 13:30:06 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-26 13:30:06 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-26 13:30:06 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-26 13:30:06 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-26 13:30:06 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-26 13:30:06 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-26 13:30:06 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-26 13:30:06 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-26 13:30:06 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-26 13:30:06 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-26 13:30:06 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-26 13:30:16 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-26 13:30:16 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-26 13:30:16 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-26 13:30:16 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-26 13:30:16 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-26 13:30:16 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-26 13:30:16 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-26 13:30:16 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-26 13:30:16 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-26 13:30:16 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-26 13:30:16 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-26 13:30:16 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-26 13:30:16 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-26 13:30:16 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-26 13:30:16 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-26 13:30:16 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-26 13:30:16 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-26 13:30:16 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-26 13:30:16 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-26 13:30:16 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-26 13:30:16 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-26 13:30:16 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-26 13:30:16 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-26 13:30:16 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-26 13:30:16 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-26 13:30:16 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-26 13:30:16 TRACE HttpQuery:106 - URL: http://localhost:3030/ds/sparql
+2014-11-26 13:30:16 TRACE service:309 - query=SELECT+DISTINCT++%3Fg%0AWHERE%0A++%7B+GRAPH+%3Fg%0A++++++%7B+%7D%0A++%7D%0A
+2014-11-26 13:30:16 TRACE HttpQuery:319 - GET http://localhost:3030/ds/sparql?query=SELECT+DISTINCT++%3Fg%0AWHERE%0A++%7B+GRAPH+%3Fg%0A++++++%7B+%7D%0A++%7D%0A
+2014-11-26 13:30:16 DEBUG HttpOp:1097 - [1] GET http://localhost:3030/ds/sparql?query=SELECT+DISTINCT++%3Fg%0AWHERE%0A++%7B+GRAPH+%3Fg%0A++++++%7B+%7D%0A++%7D%0A
+2014-11-26 13:30:16 DEBUG PoolingClientConnectionManager:186 - Connection request: [route: {}->http://localhost:3030][total kept alive: 0; route allocated: 0 of 5; total allocated: 0 of 10]
+2014-11-26 13:30:16 DEBUG PoolingClientConnectionManager:220 - Connection leased: [id: 0][route: {}->http://localhost:3030][total kept alive: 0; route allocated: 1 of 5; total allocated: 1 of 10]
+2014-11-26 13:30:16 DEBUG DefaultClientConnectionOperator:177 - Connecting to localhost:3030
+2014-11-26 13:30:16 DEBUG RequestAddCookies:132 - CookieSpec selected: best-match
+2014-11-26 13:30:17 DEBUG RequestAuthCache:78 - Auth cache not set in the context
+2014-11-26 13:30:17 DEBUG RequestTargetAuthentication:78 - Target auth state: UNCHALLENGED
+2014-11-26 13:30:17 DEBUG RequestProxyAuthentication:87 - Proxy auth state: UNCHALLENGED
+2014-11-26 13:30:17 DEBUG SystemDefaultHttpClient:713 - Attempt 1 to execute request
+2014-11-26 13:30:17 DEBUG DefaultClientConnection:269 - Sending request: GET /ds/sparql?query=SELECT+DISTINCT++%3Fg%0AWHERE%0A++%7B+GRAPH+%3Fg%0A++++++%7B+%7D%0A++%7D%0A HTTP/1.1
+2014-11-26 13:30:17 DEBUG wire:63 - >> "GET /ds/sparql?query=SELECT+DISTINCT++%3Fg%0AWHERE%0A++%7B+GRAPH+%3Fg%0A++++++%7B+%7D%0A++%7D%0A HTTP/1.1[\r][\n]"
+2014-11-26 13:30:17 DEBUG wire:63 - >> "Accept: application/sparql-results+json, application/sparql-results+xml;q=0.9, text/tab-separated-values;q=0.7, text/csv;q=0.5, application/json;q=0.2, application/xml;q=0.2, */*;q=0.1[\r][\n]"
+2014-11-26 13:30:17 DEBUG wire:63 - >> "User-Agent: Apache-Jena-ARQ/2.12.1[\r][\n]"
+2014-11-26 13:30:17 DEBUG wire:63 - >> "Accept-Encoding: gzip,deflate[\r][\n]"
+2014-11-26 13:30:17 DEBUG wire:63 - >> "Host: localhost:3030[\r][\n]"
+2014-11-26 13:30:17 DEBUG wire:63 - >> "Connection: Keep-Alive[\r][\n]"
+2014-11-26 13:30:17 DEBUG wire:63 - >> "[\r][\n]"
+2014-11-26 13:30:17 DEBUG headers:273 - >> GET /ds/sparql?query=SELECT+DISTINCT++%3Fg%0AWHERE%0A++%7B+GRAPH+%3Fg%0A++++++%7B+%7D%0A++%7D%0A HTTP/1.1
+2014-11-26 13:30:17 DEBUG headers:276 - >> Accept: application/sparql-results+json, application/sparql-results+xml;q=0.9, text/tab-separated-values;q=0.7, text/csv;q=0.5, application/json;q=0.2, application/xml;q=0.2, */*;q=0.1
+2014-11-26 13:30:17 DEBUG headers:276 - >> User-Agent: Apache-Jena-ARQ/2.12.1
+2014-11-26 13:30:17 DEBUG headers:276 - >> Accept-Encoding: gzip,deflate
+2014-11-26 13:30:17 DEBUG headers:276 - >> Host: localhost:3030
+2014-11-26 13:30:17 DEBUG headers:276 - >> Connection: Keep-Alive
+2014-11-26 13:30:17 DEBUG wire:63 - << "HTTP/1.1 200 OK[\r][\n]"
+2014-11-26 13:30:17 DEBUG wire:63 - << "Fuseki-Request-ID: 1[\r][\n]"
+2014-11-26 13:30:17 DEBUG wire:63 - << "Access-Control-Allow-Origin: *[\r][\n]"
+2014-11-26 13:30:17 DEBUG wire:63 - << "Server: Fuseki (1.1.1)[\r][\n]"
+2014-11-26 13:30:17 DEBUG wire:63 - << "Vary: Accept,Accept-Encoding,Accept-Charset[\r][\n]"
+2014-11-26 13:30:17 DEBUG wire:63 - << "Cache-Control: no-cache[\r][\n]"
+2014-11-26 13:30:17 DEBUG wire:63 - << "Pragma: no-cache[\r][\n]"
+2014-11-26 13:30:17 DEBUG wire:63 - << "Content-Type: application/sparql-results+json; charset=utf-8[\r][\n]"
+2014-11-26 13:30:17 DEBUG wire:63 - << "Content-Encoding: gzip[\r][\n]"
+2014-11-26 13:30:17 DEBUG wire:63 - << "Vary: Accept-Encoding, User-Agent[\r][\n]"
+2014-11-26 13:30:17 DEBUG wire:63 - << "Transfer-Encoding: chunked[\r][\n]"
+2014-11-26 13:30:17 DEBUG wire:63 - << "[\r][\n]"
+2014-11-26 13:30:17 DEBUG DefaultClientConnection:254 - Receiving response: HTTP/1.1 200 OK
+2014-11-26 13:30:17 DEBUG headers:257 - << HTTP/1.1 200 OK
+2014-11-26 13:30:17 DEBUG headers:260 - << Fuseki-Request-ID: 1
+2014-11-26 13:30:17 DEBUG headers:260 - << Access-Control-Allow-Origin: *
+2014-11-26 13:30:17 DEBUG headers:260 - << Server: Fuseki (1.1.1)
+2014-11-26 13:30:17 DEBUG headers:260 - << Vary: Accept,Accept-Encoding,Accept-Charset
+2014-11-26 13:30:17 DEBUG headers:260 - << Cache-Control: no-cache
+2014-11-26 13:30:17 DEBUG headers:260 - << Pragma: no-cache
+2014-11-26 13:30:17 DEBUG headers:260 - << Content-Type: application/sparql-results+json; charset=utf-8
+2014-11-26 13:30:17 DEBUG headers:260 - << Content-Encoding: gzip
+2014-11-26 13:30:17 DEBUG headers:260 - << Vary: Accept-Encoding, User-Agent
+2014-11-26 13:30:17 DEBUG headers:260 - << Transfer-Encoding: chunked
+2014-11-26 13:30:17 DEBUG SystemDefaultHttpClient:543 - Connection can be kept alive indefinitely
+2014-11-26 13:30:17 DEBUG wire:63 - << "A[\r][\n]"
+2014-11-26 13:30:17 DEBUG wire:77 - << "[0x1f]"
+2014-11-26 13:30:17 DEBUG wire:77 - << "[0x8b]"
+2014-11-26 13:30:17 DEBUG wire:77 - << "[0x8]"
+2014-11-26 13:30:17 DEBUG wire:77 - << "[0x0]"
+2014-11-26 13:30:17 DEBUG wire:77 - << "[0x0][0x0][0x0][0x0][0x0][0x0]"
+2014-11-26 13:30:17 DEBUG wire:63 - << "[\r][\n]"
+2014-11-26 13:30:17 DEBUG wire:63 - << "B8[\r][\n]"
+2014-11-26 13:30:17 DEBUG wire:77 - << "[0xb5][0x92][0xc1][0xe][0x83] [0xc][0x86][0xef]>E[0xd3][0xb3][0x9b][0xd3][0xa3][0xaf][0xb2],[0x4][0x3]C[0xa6][0x82][0x81]2[0xb3][0x18][0xdf]}[0xc8]L[0xb6][0x7][0x18]'[0xda][0xbf]>h[0xcb]Z[0x0]`/[0xb9][0xc0][0x16][0xd6][0x18][0xc7][0xec][0xc9][0x9d][0x8f][0xd9][0x15]P![0xdc][0xa2][0xb6]A[0xb9][0xbb][0x9c][0xf4]a$[0xff]5v[0xda][0x8]mT2'[0x5][0x8e]J[0xaa][0xaa][0xdd][0x8]H[0xaf]Y[0xc6][0x8][0x83][0xd3][0x8][0xe5]N[0x1f]C[0x12]z[0xa2][0xb9][0xad][0xaa]eY[0xce][0xbd]?[0x85]q:[0xb]Y[0x9]n4[0xb3][0x86]jv[0xa9][0x11][0xb6][0x83][0xf6]y[0xc0][0x9f][0xf9]M[0xe][0xfe][0x83][0xf][0xb6]c6[0xd0][0x1c][0x88][0xcd][0xce]*[0xc7][0xa7])[0xdf]E$}l[0xc5][0x89]{[0xce]Y5[0x99]v[0xe1][0x4][0xf3][0x83][0xf5][0xa9][0x89][0x1f]~:[0xd3][0xb7]+[0xb6][0xe2][\r][0xe4]kcB[0x9f][0x2][0x0][0x0]"
+2014-11-26 13:30:18 DEBUG HttpOp:1097 - [2] GET http://localhost:3030/ds/data?graph=http%3A%2F%2Fwww.hs-ulm.de%2Frd_skos_test
+2014-11-26 13:30:18 DEBUG PoolingClientConnectionManager:186 - Connection request: [route: {}->http://localhost:3030][total kept alive: 0; route allocated: 0 of 5; total allocated: 0 of 10]
+2014-11-26 13:30:18 DEBUG PoolingClientConnectionManager:220 - Connection leased: [id: 1][route: {}->http://localhost:3030][total kept alive: 0; route allocated: 1 of 5; total allocated: 1 of 10]
+2014-11-26 13:30:18 DEBUG DefaultClientConnectionOperator:177 - Connecting to localhost:3030
+2014-11-26 13:30:18 DEBUG RequestAddCookies:132 - CookieSpec selected: best-match
+2014-11-26 13:30:18 DEBUG RequestAuthCache:78 - Auth cache not set in the context
+2014-11-26 13:30:18 DEBUG RequestTargetAuthentication:78 - Target auth state: UNCHALLENGED
+2014-11-26 13:30:18 DEBUG RequestProxyAuthentication:87 - Proxy auth state: UNCHALLENGED
+2014-11-26 13:30:18 DEBUG SystemDefaultHttpClient:713 - Attempt 1 to execute request
+2014-11-26 13:30:18 DEBUG DefaultClientConnection:269 - Sending request: GET /ds/data?graph=http%3A%2F%2Fwww.hs-ulm.de%2Frd_skos_test HTTP/1.1
+2014-11-26 13:30:18 DEBUG wire:63 - >> "GET /ds/data?graph=http%3A%2F%2Fwww.hs-ulm.de%2Frd_skos_test HTTP/1.1[\r][\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - >> "Accept: text/turtle,application/n-triples;q=0.9,application/ld+json;q=0.8,application/rdf+xml;q=0.7,*/*;q=0.5[\r][\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - >> "User-Agent: Apache-Jena-ARQ/2.12.1[\r][\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - >> "Host: localhost:3030[\r][\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - >> "Connection: Keep-Alive[\r][\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - >> "[\r][\n]"
+2014-11-26 13:30:18 DEBUG headers:273 - >> GET /ds/data?graph=http%3A%2F%2Fwww.hs-ulm.de%2Frd_skos_test HTTP/1.1
+2014-11-26 13:30:18 DEBUG headers:276 - >> Accept: text/turtle,application/n-triples;q=0.9,application/ld+json;q=0.8,application/rdf+xml;q=0.7,*/*;q=0.5
+2014-11-26 13:30:18 DEBUG headers:276 - >> User-Agent: Apache-Jena-ARQ/2.12.1
+2014-11-26 13:30:18 DEBUG headers:276 - >> Host: localhost:3030
+2014-11-26 13:30:18 DEBUG headers:276 - >> Connection: Keep-Alive
+2014-11-26 13:30:18 DEBUG wire:63 - << "HTTP/1.1 200 OK[\r][\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "Fuseki-Request-ID: 2[\r][\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "Access-Control-Allow-Origin: *[\r][\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "Server: Fuseki (1.1.1)[\r][\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "Vary: Accept,Accept-Encoding,Accept-Charset[\r][\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "Content-Type: text/turtle[\r][\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "Vary: Accept-Encoding, User-Agent[\r][\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "Transfer-Encoding: chunked[\r][\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "[\r][\n]"
+2014-11-26 13:30:18 DEBUG DefaultClientConnection:254 - Receiving response: HTTP/1.1 200 OK
+2014-11-26 13:30:18 DEBUG headers:257 - << HTTP/1.1 200 OK
+2014-11-26 13:30:18 DEBUG headers:260 - << Fuseki-Request-ID: 2
+2014-11-26 13:30:18 DEBUG headers:260 - << Access-Control-Allow-Origin: *
+2014-11-26 13:30:18 DEBUG headers:260 - << Server: Fuseki (1.1.1)
+2014-11-26 13:30:18 DEBUG headers:260 - << Vary: Accept,Accept-Encoding,Accept-Charset
+2014-11-26 13:30:18 DEBUG headers:260 - << Content-Type: text/turtle
+2014-11-26 13:30:18 DEBUG headers:260 - << Vary: Accept-Encoding, User-Agent
+2014-11-26 13:30:18 DEBUG headers:260 - << Transfer-Encoding: chunked
+2014-11-26 13:30:18 DEBUG SystemDefaultHttpClient:543 - Connection can be kept alive indefinitely
+2014-11-26 13:30:18 DEBUG wire:63 - << "572[\r][\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "@prefix :      <http://www.testing_skos_rd.de#> .[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "@prefix skos-xl: <http://www.w3.org/2008/05/skos-xl#> .[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "@prefix owl:   <http://www.w3.org/2002/07/owl#> .[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << ":CameraSorted  a  owl:NamedIndividual , skos:OrderedCollection .[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << ":CameraThesaurus  a  owl:NamedIndividual , skos:ConceptScheme .[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << ":TestLabel  a                owl:NamedIndividual , skos-xl:Label ;[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "        skos-xl:literalForm  "de"^^xsd:language , "camcam"^^rdfs:Literal .[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "<http://www.testing_skos_rd.de>[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "        a            owl:Ontology ;[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "        owl:imports  <http://www.w3.org/2008/05/skos-xl> .[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << ":AnimalThesaurus  a  owl:NamedIndividual , skos:ConceptScheme .[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "<http://www.testing_skos_rd.de#Camera/DigitalCamera>[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "        a       skos:Concept , owl:NamedIndividual .[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << ":mobile_phones  a  owl:NamedIndividual , skos:Collection .[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << ":label1  a                     owl:NamedIndividual , skos-xl:Label ;[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "        skos-xl:labelRelation  :TestLabel .[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << ":Camera  a               skos:Concept , owl:NamedIndividual ;[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "        skos:broadMatch  <http://www.testing_skos_rd.de#Camera/DigitalCamera> ;[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "        skos:related     <http://www.testing_skos_rd.de#Camera/DigitalCamera> .[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << ":SKOS_EDITOR_YOLO  a  skos:Concept .[\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "[\r][\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "0[\r][\n]"
+2014-11-26 13:30:18 DEBUG wire:63 - << "[\r][\n]"
+2014-11-26 13:30:18 DEBUG PoolingClientConnectionManager:274 - Connection [id: 1][route: {}->http://localhost:3030] can be kept alive indefinitely
+2014-11-26 13:30:18 DEBUG PoolingClientConnectionManager:281 - Connection released: [id: 1][route: {}->http://localhost:3030][total kept alive: 1; route allocated: 1 of 5; total allocated: 1 of 10]
+2014-11-26 13:30:18 DEBUG PoolingClientConnectionManager:287 - Connection manager is shutting down
+2014-11-26 13:30:18 DEBUG DefaultClientConnection:169 - Connection 0.0.0.0:49315<->127.0.0.1:3030 closed
+2014-11-26 13:30:18 DEBUG DefaultClientConnection:169 - Connection 0.0.0.0:49315<->127.0.0.1:3030 closed
+2014-11-26 13:30:18 DEBUG PoolingClientConnectionManager:293 - Connection manager shut down
+2014-11-26 13:30:18 DEBUG PoolingClientConnectionManager:287 - Connection manager is shutting down
+2014-11-26 13:30:18 DEBUG DefaultClientConnection:169 - Connection 0.0.0.0:49317<->127.0.0.1:3030 closed
+2014-11-26 13:30:18 DEBUG DefaultClientConnection:169 - Connection 0.0.0.0:49317<->127.0.0.1:3030 closed
+2014-11-26 13:30:18 DEBUG PoolingClientConnectionManager:293 - Connection manager shut down
+2014-11-26 13:30:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+2014-11-26 13:30:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+2014-11-26 13:30:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-26 13:30:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-26 13:30:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-26 13:30:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-26 13:30:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-26 13:30:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+2014-11-26 13:30:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+2014-11-26 13:30:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+2014-11-26 13:30:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-26 13:30:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-26 13:30:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-26 13:30:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-26 13:30:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-26 13:30:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+2014-11-26 13:30:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-26 13:30:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-26 13:30:18 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-26 13:30:18 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-26 13:30:18 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-26 13:30:18 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-26 13:30:18 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-26 13:30:18 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-26 13:30:18 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-26 13:30:18 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-26 13:30:18 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-26 13:30:18 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-26 13:30:18 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-26 13:30:18 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-26 13:30:18 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-26 13:30:18 DEBUG FileManager:327 - readModel(model,http://www.w3.org/2008/05/skos-xl)
+2014-11-26 13:30:18 DEBUG FileManager:343 - readModel(model,http://www.w3.org/2008/05/skos-xl, null)
+2014-11-26 13:30:18 DEBUG StreamManager:112 - Not mapped: http://www.w3.org/2008/05/skos-xl
+2014-11-26 13:30:18 DEBUG StreamManager:93 - open(http://www.w3.org/2008/05/skos-xl)
+2014-11-26 13:30:18 DEBUG StreamManager:112 - Not mapped: http://www.w3.org/2008/05/skos-xl
+2014-11-26 13:30:18 DEBUG HttpOp:1097 - [3] GET http://www.w3.org/2008/05/skos-xl
+2014-11-26 13:30:18 DEBUG PoolingClientConnectionManager:186 - Connection request: [route: {}->http://www.w3.org][total kept alive: 0; route allocated: 0 of 5; total allocated: 0 of 10]
+2014-11-26 13:30:18 DEBUG PoolingClientConnectionManager:220 - Connection leased: [id: 2][route: {}->http://www.w3.org][total kept alive: 0; route allocated: 1 of 5; total allocated: 1 of 10]
+2014-11-26 13:30:18 DEBUG DefaultClientConnectionOperator:177 - Connecting to www.w3.org:80
+2014-11-26 13:30:19 DEBUG RequestAddCookies:132 - CookieSpec selected: best-match
+2014-11-26 13:30:19 DEBUG RequestAuthCache:78 - Auth cache not set in the context
+2014-11-26 13:30:19 DEBUG RequestTargetAuthentication:78 - Target auth state: UNCHALLENGED
+2014-11-26 13:30:19 DEBUG RequestProxyAuthentication:87 - Proxy auth state: UNCHALLENGED
+2014-11-26 13:30:19 DEBUG SystemDefaultHttpClient:713 - Attempt 1 to execute request
+2014-11-26 13:30:19 DEBUG DefaultClientConnection:269 - Sending request: GET /2008/05/skos-xl HTTP/1.1
+2014-11-26 13:30:19 DEBUG wire:63 - >> "GET /2008/05/skos-xl HTTP/1.1[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - >> "Accept: text/turtle,application/n-triples;q=0.9,application/ld+json;q=0.8,application/rdf+xml;q=0.7,*/*;q=0.5[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - >> "User-Agent: Apache-Jena-ARQ/2.12.1[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - >> "Host: www.w3.org[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - >> "Connection: Keep-Alive[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - >> "[\r][\n]"
+2014-11-26 13:30:19 DEBUG headers:273 - >> GET /2008/05/skos-xl HTTP/1.1
+2014-11-26 13:30:19 DEBUG headers:276 - >> Accept: text/turtle,application/n-triples;q=0.9,application/ld+json;q=0.8,application/rdf+xml;q=0.7,*/*;q=0.5
+2014-11-26 13:30:19 DEBUG headers:276 - >> User-Agent: Apache-Jena-ARQ/2.12.1
+2014-11-26 13:30:19 DEBUG headers:276 - >> Host: www.w3.org
+2014-11-26 13:30:19 DEBUG headers:276 - >> Connection: Keep-Alive
+2014-11-26 13:30:19 DEBUG wire:63 - << "HTTP/1.1 303 See Other[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Date: Wed, 26 Nov 2014 12:30:20 GMT[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Server: Apache/2[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Location: http://www.w3.org/TR/skos-reference/skos-xl.rdf[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Cache-Control: max-age=21600[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Expires: Wed, 26 Nov 2014 18:30:20 GMT[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Content-Length: 254[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Content-Type: text/html; charset=iso-8859-1[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "[\r][\n]"
+2014-11-26 13:30:19 DEBUG DefaultClientConnection:254 - Receiving response: HTTP/1.1 303 See Other
+2014-11-26 13:30:19 DEBUG headers:257 - << HTTP/1.1 303 See Other
+2014-11-26 13:30:19 DEBUG headers:260 - << Date: Wed, 26 Nov 2014 12:30:20 GMT
+2014-11-26 13:30:19 DEBUG headers:260 - << Server: Apache/2
+2014-11-26 13:30:19 DEBUG headers:260 - << Location: http://www.w3.org/TR/skos-reference/skos-xl.rdf
+2014-11-26 13:30:19 DEBUG headers:260 - << Cache-Control: max-age=21600
+2014-11-26 13:30:19 DEBUG headers:260 - << Expires: Wed, 26 Nov 2014 18:30:20 GMT
+2014-11-26 13:30:19 DEBUG headers:260 - << Content-Length: 254
+2014-11-26 13:30:19 DEBUG headers:260 - << Content-Type: text/html; charset=iso-8859-1
+2014-11-26 13:30:19 DEBUG SystemDefaultHttpClient:543 - Connection can be kept alive indefinitely
+2014-11-26 13:30:19 DEBUG DefaultRedirectStrategy:145 - Redirect requested to location 'http://www.w3.org/TR/skos-reference/skos-xl.rdf'
+2014-11-26 13:30:19 DEBUG SystemDefaultHttpClient:1133 - Redirecting to 'http://www.w3.org/TR/skos-reference/skos-xl.rdf' via {}->http://www.w3.org
+2014-11-26 13:30:19 DEBUG wire:63 - << "<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "<html><head>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "<title>303 See Other</title>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "</head><body>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "<h1>See Other</h1>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "<p>The answer to your request is located <a href="http://www.w3.org/TR/skos-reference/skos-xl.rdf">here</a>.</p>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "</body></html>[\n]"
+2014-11-26 13:30:19 DEBUG RequestAddCookies:132 - CookieSpec selected: best-match
+2014-11-26 13:30:19 DEBUG RequestAuthCache:78 - Auth cache not set in the context
+2014-11-26 13:30:19 DEBUG RequestTargetAuthentication:78 - Target auth state: UNCHALLENGED
+2014-11-26 13:30:19 DEBUG RequestProxyAuthentication:87 - Proxy auth state: UNCHALLENGED
+2014-11-26 13:30:19 DEBUG SystemDefaultHttpClient:713 - Attempt 2 to execute request
+2014-11-26 13:30:19 DEBUG DefaultClientConnection:269 - Sending request: GET /TR/skos-reference/skos-xl.rdf HTTP/1.1
+2014-11-26 13:30:19 DEBUG wire:63 - >> "GET /TR/skos-reference/skos-xl.rdf HTTP/1.1[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - >> "Accept: text/turtle,application/n-triples;q=0.9,application/ld+json;q=0.8,application/rdf+xml;q=0.7,*/*;q=0.5[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - >> "User-Agent: Apache-Jena-ARQ/2.12.1[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - >> "Host: www.w3.org[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - >> "Connection: Keep-Alive[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - >> "[\r][\n]"
+2014-11-26 13:30:19 DEBUG headers:273 - >> GET /TR/skos-reference/skos-xl.rdf HTTP/1.1
+2014-11-26 13:30:19 DEBUG headers:276 - >> Accept: text/turtle,application/n-triples;q=0.9,application/ld+json;q=0.8,application/rdf+xml;q=0.7,*/*;q=0.5
+2014-11-26 13:30:19 DEBUG headers:276 - >> User-Agent: Apache-Jena-ARQ/2.12.1
+2014-11-26 13:30:19 DEBUG headers:276 - >> Host: www.w3.org
+2014-11-26 13:30:19 DEBUG headers:276 - >> Connection: Keep-Alive
+2014-11-26 13:30:19 DEBUG wire:63 - << "HTTP/1.1 301 Moved Permanently[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Date: Wed, 26 Nov 2014 12:30:20 GMT[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Server: Apache/2[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Location: http://www.w3.org/2009/08/skos-reference/skos-xl.rdf[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Cache-Control: max-age=21600[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Expires: Wed, 26 Nov 2014 18:30:20 GMT[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Content-Length: 260[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Content-Type: text/html; charset=iso-8859-1[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "[\r][\n]"
+2014-11-26 13:30:19 DEBUG DefaultClientConnection:254 - Receiving response: HTTP/1.1 301 Moved Permanently
+2014-11-26 13:30:19 DEBUG headers:257 - << HTTP/1.1 301 Moved Permanently
+2014-11-26 13:30:19 DEBUG headers:260 - << Date: Wed, 26 Nov 2014 12:30:20 GMT
+2014-11-26 13:30:19 DEBUG headers:260 - << Server: Apache/2
+2014-11-26 13:30:19 DEBUG headers:260 - << Location: http://www.w3.org/2009/08/skos-reference/skos-xl.rdf
+2014-11-26 13:30:19 DEBUG headers:260 - << Cache-Control: max-age=21600
+2014-11-26 13:30:19 DEBUG headers:260 - << Expires: Wed, 26 Nov 2014 18:30:20 GMT
+2014-11-26 13:30:19 DEBUG headers:260 - << Content-Length: 260
+2014-11-26 13:30:19 DEBUG headers:260 - << Content-Type: text/html; charset=iso-8859-1
+2014-11-26 13:30:19 DEBUG SystemDefaultHttpClient:543 - Connection can be kept alive indefinitely
+2014-11-26 13:30:19 DEBUG DefaultRedirectStrategy:145 - Redirect requested to location 'http://www.w3.org/2009/08/skos-reference/skos-xl.rdf'
+2014-11-26 13:30:19 DEBUG SystemDefaultHttpClient:1133 - Redirecting to 'http://www.w3.org/2009/08/skos-reference/skos-xl.rdf' via {}->http://www.w3.org
+2014-11-26 13:30:19 DEBUG wire:63 - << "<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "<html><head>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "<title>301 Moved Permanently</title>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "</head><body>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "<h1>Moved Permanently</h1>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "<p>The document has moved <a href="http://www.w3.org/2009/08/skos-reference/skos-xl.rdf">here</a>.</p>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "</body></html>[\n]"
+2014-11-26 13:30:19 DEBUG RequestAddCookies:132 - CookieSpec selected: best-match
+2014-11-26 13:30:19 DEBUG RequestAuthCache:78 - Auth cache not set in the context
+2014-11-26 13:30:19 DEBUG RequestTargetAuthentication:78 - Target auth state: UNCHALLENGED
+2014-11-26 13:30:19 DEBUG RequestProxyAuthentication:87 - Proxy auth state: UNCHALLENGED
+2014-11-26 13:30:19 DEBUG SystemDefaultHttpClient:713 - Attempt 3 to execute request
+2014-11-26 13:30:19 DEBUG DefaultClientConnection:269 - Sending request: GET /2009/08/skos-reference/skos-xl.rdf HTTP/1.1
+2014-11-26 13:30:19 DEBUG wire:63 - >> "GET /2009/08/skos-reference/skos-xl.rdf HTTP/1.1[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - >> "Accept: text/turtle,application/n-triples;q=0.9,application/ld+json;q=0.8,application/rdf+xml;q=0.7,*/*;q=0.5[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - >> "User-Agent: Apache-Jena-ARQ/2.12.1[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - >> "Host: www.w3.org[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - >> "Connection: Keep-Alive[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - >> "[\r][\n]"
+2014-11-26 13:30:19 DEBUG headers:273 - >> GET /2009/08/skos-reference/skos-xl.rdf HTTP/1.1
+2014-11-26 13:30:19 DEBUG headers:276 - >> Accept: text/turtle,application/n-triples;q=0.9,application/ld+json;q=0.8,application/rdf+xml;q=0.7,*/*;q=0.5
+2014-11-26 13:30:19 DEBUG headers:276 - >> User-Agent: Apache-Jena-ARQ/2.12.1
+2014-11-26 13:30:19 DEBUG headers:276 - >> Host: www.w3.org
+2014-11-26 13:30:19 DEBUG headers:276 - >> Connection: Keep-Alive
+2014-11-26 13:30:19 DEBUG wire:63 - << "HTTP/1.1 200 OK[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Date: Wed, 26 Nov 2014 12:30:20 GMT[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Server: Apache/2[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Last-Modified: Tue, 22 Sep 2009 14:05:46 GMT[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "ETag: "1dbe-4742b183e6280"[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Accept-Ranges: bytes[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Content-Length: 7614[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Cache-Control: max-age=21600[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Expires: Wed, 26 Nov 2014 18:30:20 GMT[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "P3P: policyref="http://www.w3.org/2014/08/p3p.xml"[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Access-Control-Allow-Origin: *[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "Content-Type: application/rdf+xml; qs=0.9[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "[\r][\n]"
+2014-11-26 13:30:19 DEBUG DefaultClientConnection:254 - Receiving response: HTTP/1.1 200 OK
+2014-11-26 13:30:19 DEBUG headers:257 - << HTTP/1.1 200 OK
+2014-11-26 13:30:19 DEBUG headers:260 - << Date: Wed, 26 Nov 2014 12:30:20 GMT
+2014-11-26 13:30:19 DEBUG headers:260 - << Server: Apache/2
+2014-11-26 13:30:19 DEBUG headers:260 - << Last-Modified: Tue, 22 Sep 2009 14:05:46 GMT
+2014-11-26 13:30:19 DEBUG headers:260 - << ETag: "1dbe-4742b183e6280"
+2014-11-26 13:30:19 DEBUG headers:260 - << Accept-Ranges: bytes
+2014-11-26 13:30:19 DEBUG headers:260 - << Content-Length: 7614
+2014-11-26 13:30:19 DEBUG headers:260 - << Cache-Control: max-age=21600
+2014-11-26 13:30:19 DEBUG headers:260 - << Expires: Wed, 26 Nov 2014 18:30:20 GMT
+2014-11-26 13:30:19 DEBUG headers:260 - << P3P: policyref="http://www.w3.org/2014/08/p3p.xml"
+2014-11-26 13:30:19 DEBUG headers:260 - << Access-Control-Allow-Origin: *
+2014-11-26 13:30:19 DEBUG headers:260 - << Content-Type: application/rdf+xml; qs=0.9
+2014-11-26 13:30:19 DEBUG SystemDefaultHttpClient:543 - Connection can be kept alive indefinitely
+2014-11-26 13:30:19 DEBUG StreamManager:142 - Found: http://www.w3.org/2008/05/skos-xl (LocatorHTTP)
+2014-11-26 13:30:19 DEBUG RDFDataMgr:875 - Found: http://www.w3.org/2008/05/skos-xl
+2014-11-26 13:30:19 DEBUG wire:77 - << "<"
+2014-11-26 13:30:19 DEBUG wire:77 - << "?"
+2014-11-26 13:30:19 DEBUG wire:77 - << "x"
+2014-11-26 13:30:19 DEBUG wire:77 - << "m"
+2014-11-26 13:30:19 DEBUG wire:77 - << "l"
+2014-11-26 13:30:19 DEBUG wire:77 - << " "
+2014-11-26 13:30:19 DEBUG wire:77 - << "v"
+2014-11-26 13:30:19 DEBUG wire:77 - << "e"
+2014-11-26 13:30:19 DEBUG wire:77 - << "r"
+2014-11-26 13:30:19 DEBUG wire:77 - << "s"
+2014-11-26 13:30:19 DEBUG wire:77 - << "i"
+2014-11-26 13:30:19 DEBUG wire:77 - << "o"
+2014-11-26 13:30:19 DEBUG wire:77 - << "n"
+2014-11-26 13:30:19 DEBUG wire:77 - << "="
+2014-11-26 13:30:19 DEBUG wire:77 - << """
+2014-11-26 13:30:19 DEBUG wire:77 - << "1"
+2014-11-26 13:30:19 DEBUG wire:77 - << "."
+2014-11-26 13:30:19 DEBUG wire:77 - << "0"
+2014-11-26 13:30:19 DEBUG wire:77 - << """
+2014-11-26 13:30:19 DEBUG wire:77 - << " "
+2014-11-26 13:30:19 DEBUG wire:77 - << "e"
+2014-11-26 13:30:19 DEBUG wire:77 - << "n"
+2014-11-26 13:30:19 DEBUG wire:77 - << "c"
+2014-11-26 13:30:19 DEBUG wire:77 - << "o"
+2014-11-26 13:30:19 DEBUG wire:77 - << "d"
+2014-11-26 13:30:19 DEBUG wire:77 - << "i"
+2014-11-26 13:30:19 DEBUG wire:77 - << "n"
+2014-11-26 13:30:19 DEBUG wire:77 - << "g"
+2014-11-26 13:30:19 DEBUG wire:77 - << "="
+2014-11-26 13:30:19 DEBUG wire:77 - << """
+2014-11-26 13:30:19 DEBUG wire:77 - << "u"
+2014-11-26 13:30:19 DEBUG wire:77 - << "t"
+2014-11-26 13:30:19 DEBUG wire:77 - << "f"
+2014-11-26 13:30:19 DEBUG wire:77 - << "-"
+2014-11-26 13:30:19 DEBUG wire:77 - << "8"
+2014-11-26 13:30:19 DEBUG wire:77 - << """
+2014-11-26 13:30:19 DEBUG wire:77 - << "?"
+2014-11-26 13:30:19 DEBUG wire:77 - << ">"
+2014-11-26 13:30:19 DEBUG wire:63 - << "[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "<rdf:RDF [\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  xmlns:dct="http://purl.org/dc/terms/" [\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  xmlns:owl="http://www.w3.org/2002/07/owl#" [\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" [\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" [\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  xmlns:skos="http://www.w3.org/2004/02/skos/core#">[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  <!--[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    This schema represents a formalisation of the semantic conditions[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    described in the SKOS eXtension for Labels (SKOS-XL) appendix of the[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    SKOS Reference document dated 18 August 2009, accessible at[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    http://www.w3.org/TR/2009/REC-skos-reference-20090818/#xl. XML comments[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    of the form Sn are used to indicate the semantic conditions that are[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    being expressed. A number of semantic conditions are *not* expressed formally in this schema. These are:[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "      S51[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "      S55[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "      S56[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "      S57[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    For the conditions listed above, rdfs:comments are used to indicate the conditions.[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  -->   [\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  <owl:Ontology rdf:about="http://www.w3.org/2008/05/skos-xl">[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <dct:creator>Alistair Miles</dct:creator>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <dct:creator>Sean Bechhofer</dct:creator>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:seeAlso rdf:resource="http://www.w3.org/2008/05/skos"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <dct:title xml:lang="en">SKOS XL Vocabulary</dct:title>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <dct:contributor>Participants in W3C's Semantic Web Deployment Working Group.</dct:contributor>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <dct:description xml:lang="en">An RDF vocabulary extending SKOS and allowing the description and linking of lexical entities.</dct:description>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  </owl:Ontology>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  [\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  <rdf:Description rdf:about="http://www.w3.org/2008/05/skos-xl#Label">[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">Label</rdfs:label>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2008/05/skos-xl"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <skos:definition xml:lang="en">A special class of lexical entities.</skos:definition>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- S47 -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- S48 -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <owl:disjointWith rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- S48 -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:77 - << "    <owl:disjointWith rdf:resource="http://www.w3.org/2004/02/skos/cor"
+2014-11-26 13:30:19 DEBUG wire:63 - << "e#Collection"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- S48 -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <owl:disjointWith rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- S52 -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:subClassOf>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "      <owl:Restriction>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "        <owl:onProperty rdf:resource="http://www.w3.org/2008/05/skos-xl#literalForm"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "      </owl:Restriction>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    </rdfs:subClassOf>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  [\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  <rdf:Description rdf:about="http://www.w3.org/2008/05/skos-xl#literalForm">[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">literal form</rdfs:label>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2008/05/skos-xl"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <skos:definition xml:lang="en">The property skosxl:literalForm is used to give the literal form of an skosxl:Label.</skos:definition>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:comment xml:lang="en">If two instances of the class skosxl:Label have the same literal form, they are not necessarily the same resource.</rdfs:comment>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- S49 -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- S50 -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:domain rdf:resource="http://www.w3.org/2008/05/skos-xl#Label"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- S51 (not formally stated) -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:comment xml:lang="en">The range of skosxl:literalForm is the class of RDF plain literals.</rdfs:comment>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  [\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  <rdf:Description rdf:about="http://www.w3.org/2008/05/skos-xl#prefLabel">[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">preferred label</rdfs:label>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2008/05/skos-xl"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <skos:definition xml:lang="en">The property skosxl:prefLabel is used to associate an skosxl:Label with a skos:Concept. The property is analogous to skos:prefLabel.</skos:definition>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:seeAlso rdf:resource="http://www.w3.org/2004/02/skos/core#prefLabel"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- S53 -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- S54 -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:77 - << "    <rdfs"
+2014-11-26 13:30:19 DEBUG wire:63 - << ":range rdf:resource="http://www.w3.org/2008/05/skos-xl#Label"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- S55 (not formally stated) -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:comment xml:lang="en">If C skosxl:prefLabel L and L skosxl:literalForm V, then X skos:prefLabel V.</rdfs:comment>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>   [\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  <rdf:Description rdf:about="http://www.w3.org/2008/05/skos-xl#altLabel">[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">alternative label</rdfs:label>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2008/05/skos-xl"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <skos:definition xml:lang="en">The property skosxl:altLabel is used to associate an skosxl:Label with a skos:Concept. The property is analogous to skos:altLabel.</skos:definition>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:seeAlso rdf:resource="http://www.w3.org/2004/02/skos/core#altLabel"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- S53 -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- S54 -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:range rdf:resource="http://www.w3.org/2008/05/skos-xl#Label"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- S56 (not formally stated) -->   [\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:comment xml:lang="en">If C skosxl:altLabel L and L skosxl:literalForm V, then X skos:altLabel V.</rdfs:comment>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>  [\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  [\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  <rdf:Description rdf:about="http://www.w3.org/2008/05/skos-xl#hiddenLabel">[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">hidden label</rdfs:label>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2008/05/skos-xl"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <skos:definition xml:lang="en">The property skosxl:hiddenLabel is used to associate an skosxl:Label with a skos:Concept. The property is analogous to skos:hiddenLabel.</skos:definition>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:seeAlso rdf:resource="http://www.w3.org/2004/02/skos/core#hiddenLabel"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- S53 -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- S54 -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:range rdf:resource="http://www.w3.org/2008/05/skos-xl#Label"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:77 - << "    <!-- S57 (not formally st"
+2014-11-26 13:30:19 DEBUG wire:63 - << "ated) -->   [\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:comment xml:lang="en">If C skosxl:hiddenLabel L and L skosxl:literalForm V, then C skos:hiddenLabel V.</rdfs:comment>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>  [\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  [\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  <rdf:Description rdf:about="http://www.w3.org/2008/05/skos-xl#labelRelation">[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">label relation</rdfs:label>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2008/05/skos-xl"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <skos:definition xml:lang="en">The property skosxl:labelRelation is used for representing binary ('direct') relations between instances of the class skosxl:Label.</skos:definition>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <skos:scopeNote xml:lang="en">skosxl:labelRelation is not intended to be used directly, but rather as the basis for a design pattern which can be refined for more specific labeling scenarios.</skos:scopeNote>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- S58 -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- S59 -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:domain rdf:resource="http://www.w3.org/2008/05/skos-xl#Label"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- S60 -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdfs:range rdf:resource="http://www.w3.org/2008/05/skos-xl#Label"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- S61 -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/> [\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "  [\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - << "</rdf:RDF>[\n]"
+2014-11-26 13:30:19 DEBUG PoolingClientConnectionManager:274 - Connection [id: 2][route: {}->http://www.w3.org] can be kept alive indefinitely
+2014-11-26 13:30:19 DEBUG PoolingClientConnectionManager:281 - Connection released: [id: 2][route: {}->http://www.w3.org][total kept alive: 1; route allocated: 1 of 5; total allocated: 1 of 10]
+2014-11-26 13:30:19 DEBUG FileManager:327 - readModel(model,http://www.w3.org/2004/02/skos/core)
+2014-11-26 13:30:19 DEBUG FileManager:343 - readModel(model,http://www.w3.org/2004/02/skos/core, null)
+2014-11-26 13:30:19 DEBUG StreamManager:112 - Not mapped: http://www.w3.org/2004/02/skos/core
+2014-11-26 13:30:19 DEBUG StreamManager:93 - open(http://www.w3.org/2004/02/skos/core)
+2014-11-26 13:30:19 DEBUG StreamManager:112 - Not mapped: http://www.w3.org/2004/02/skos/core
+2014-11-26 13:30:19 DEBUG HttpOp:1097 - [4] GET http://www.w3.org/2004/02/skos/core
+2014-11-26 13:30:19 DEBUG PoolingClientConnectionManager:186 - Connection request: [route: {}->http://www.w3.org][total kept alive: 0; route allocated: 0 of 5; total allocated: 0 of 10]
+2014-11-26 13:30:19 DEBUG PoolingClientConnectionManager:220 - Connection leased: [id: 3][route: {}->http://www.w3.org][total kept alive: 0; route allocated: 1 of 5; total allocated: 1 of 10]
+2014-11-26 13:30:19 DEBUG DefaultClientConnectionOperator:177 - Connecting to www.w3.org:80
+2014-11-26 13:30:19 DEBUG RequestAddCookies:132 - CookieSpec selected: best-match
+2014-11-26 13:30:19 DEBUG RequestAuthCache:78 - Auth cache not set in the context
+2014-11-26 13:30:19 DEBUG RequestTargetAuthentication:78 - Target auth state: UNCHALLENGED
+2014-11-26 13:30:19 DEBUG RequestProxyAuthentication:87 - Proxy auth state: UNCHALLENGED
+2014-11-26 13:30:19 DEBUG SystemDefaultHttpClient:713 - Attempt 1 to execute request
+2014-11-26 13:30:19 DEBUG DefaultClientConnection:269 - Sending request: GET /2004/02/skos/core HTTP/1.1
+2014-11-26 13:30:19 DEBUG wire:63 - >> "GET /2004/02/skos/core HTTP/1.1[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - >> "Accept: text/turtle,application/n-triples;q=0.9,application/ld+json;q=0.8,application/rdf+xml;q=0.7,*/*;q=0.5[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - >> "User-Agent: Apache-Jena-ARQ/2.12.1[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - >> "Host: www.w3.org[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - >> "Connection: Keep-Alive[\r][\n]"
+2014-11-26 13:30:19 DEBUG wire:63 - >> "[\r][\n]"
+2014-11-26 13:30:19 DEBUG headers:273 - >> GET /2004/02/skos/core HTTP/1.1
+2014-11-26 13:30:19 DEBUG headers:276 - >> Accept: text/turtle,application/n-triples;q=0.9,application/ld+json;q=0.8,application/rdf+xml;q=0.7,*/*;q=0.5
+2014-11-26 13:30:19 DEBUG headers:276 - >> User-Agent: Apache-Jena-ARQ/2.12.1
+2014-11-26 13:30:19 DEBUG headers:276 - >> Host: www.w3.org
+2014-11-26 13:30:19 DEBUG headers:276 - >> Connection: Keep-Alive
+2014-11-26 13:30:20 DEBUG wire:63 - << "HTTP/1.1 303 See Other[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Date: Wed, 26 Nov 2014 12:30:21 GMT[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Server: Apache/2[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Location: http://www.w3.org/TR/skos-reference/skos.rdf[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Cache-Control: max-age=21600[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Expires: Wed, 26 Nov 2014 18:30:21 GMT[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Content-Length: 251[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Content-Type: text/html; charset=iso-8859-1[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "[\r][\n]"
+2014-11-26 13:30:20 DEBUG DefaultClientConnection:254 - Receiving response: HTTP/1.1 303 See Other
+2014-11-26 13:30:20 DEBUG headers:257 - << HTTP/1.1 303 See Other
+2014-11-26 13:30:20 DEBUG headers:260 - << Date: Wed, 26 Nov 2014 12:30:21 GMT
+2014-11-26 13:30:20 DEBUG headers:260 - << Server: Apache/2
+2014-11-26 13:30:20 DEBUG headers:260 - << Location: http://www.w3.org/TR/skos-reference/skos.rdf
+2014-11-26 13:30:20 DEBUG headers:260 - << Cache-Control: max-age=21600
+2014-11-26 13:30:20 DEBUG headers:260 - << Expires: Wed, 26 Nov 2014 18:30:21 GMT
+2014-11-26 13:30:20 DEBUG headers:260 - << Content-Length: 251
+2014-11-26 13:30:20 DEBUG headers:260 - << Content-Type: text/html; charset=iso-8859-1
+2014-11-26 13:30:20 DEBUG SystemDefaultHttpClient:543 - Connection can be kept alive indefinitely
+2014-11-26 13:30:20 DEBUG DefaultRedirectStrategy:145 - Redirect requested to location 'http://www.w3.org/TR/skos-reference/skos.rdf'
+2014-11-26 13:30:20 DEBUG SystemDefaultHttpClient:1133 - Redirecting to 'http://www.w3.org/TR/skos-reference/skos.rdf' via {}->http://www.w3.org
+2014-11-26 13:30:20 DEBUG wire:63 - << "<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "<html><head>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "<title>303 See Other</title>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "</head><body>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "<h1>See Other</h1>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "<p>The answer to your request is located <a href="http://www.w3.org/TR/skos-reference/skos.rdf">here</a>.</p>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "</body></html>[\n]"
+2014-11-26 13:30:20 DEBUG RequestAddCookies:132 - CookieSpec selected: best-match
+2014-11-26 13:30:20 DEBUG RequestAuthCache:78 - Auth cache not set in the context
+2014-11-26 13:30:20 DEBUG RequestTargetAuthentication:78 - Target auth state: UNCHALLENGED
+2014-11-26 13:30:20 DEBUG RequestProxyAuthentication:87 - Proxy auth state: UNCHALLENGED
+2014-11-26 13:30:20 DEBUG SystemDefaultHttpClient:713 - Attempt 2 to execute request
+2014-11-26 13:30:20 DEBUG DefaultClientConnection:269 - Sending request: GET /TR/skos-reference/skos.rdf HTTP/1.1
+2014-11-26 13:30:20 DEBUG wire:63 - >> "GET /TR/skos-reference/skos.rdf HTTP/1.1[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - >> "Accept: text/turtle,application/n-triples;q=0.9,application/ld+json;q=0.8,application/rdf+xml;q=0.7,*/*;q=0.5[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - >> "User-Agent: Apache-Jena-ARQ/2.12.1[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - >> "Host: www.w3.org[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - >> "Connection: Keep-Alive[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - >> "[\r][\n]"
+2014-11-26 13:30:20 DEBUG headers:273 - >> GET /TR/skos-reference/skos.rdf HTTP/1.1
+2014-11-26 13:30:20 DEBUG headers:276 - >> Accept: text/turtle,application/n-triples;q=0.9,application/ld+json;q=0.8,application/rdf+xml;q=0.7,*/*;q=0.5
+2014-11-26 13:30:20 DEBUG headers:276 - >> User-Agent: Apache-Jena-ARQ/2.12.1
+2014-11-26 13:30:20 DEBUG headers:276 - >> Host: www.w3.org
+2014-11-26 13:30:20 DEBUG headers:276 - >> Connection: Keep-Alive
+2014-11-26 13:30:20 DEBUG wire:63 - << "HTTP/1.1 301 Moved Permanently[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Date: Wed, 26 Nov 2014 12:30:21 GMT[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Server: Apache/2[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Location: http://www.w3.org/2009/08/skos-reference/skos.rdf[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Cache-Control: max-age=21600[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Expires: Wed, 26 Nov 2014 18:30:21 GMT[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Content-Length: 257[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Content-Type: text/html; charset=iso-8859-1[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "[\r][\n]"
+2014-11-26 13:30:20 DEBUG DefaultClientConnection:254 - Receiving response: HTTP/1.1 301 Moved Permanently
+2014-11-26 13:30:20 DEBUG headers:257 - << HTTP/1.1 301 Moved Permanently
+2014-11-26 13:30:20 DEBUG headers:260 - << Date: Wed, 26 Nov 2014 12:30:21 GMT
+2014-11-26 13:30:20 DEBUG headers:260 - << Server: Apache/2
+2014-11-26 13:30:20 DEBUG headers:260 - << Location: http://www.w3.org/2009/08/skos-reference/skos.rdf
+2014-11-26 13:30:20 DEBUG headers:260 - << Cache-Control: max-age=21600
+2014-11-26 13:30:20 DEBUG headers:260 - << Expires: Wed, 26 Nov 2014 18:30:21 GMT
+2014-11-26 13:30:20 DEBUG headers:260 - << Content-Length: 257
+2014-11-26 13:30:20 DEBUG headers:260 - << Content-Type: text/html; charset=iso-8859-1
+2014-11-26 13:30:20 DEBUG SystemDefaultHttpClient:543 - Connection can be kept alive indefinitely
+2014-11-26 13:30:20 DEBUG DefaultRedirectStrategy:145 - Redirect requested to location 'http://www.w3.org/2009/08/skos-reference/skos.rdf'
+2014-11-26 13:30:20 DEBUG SystemDefaultHttpClient:1133 - Redirecting to 'http://www.w3.org/2009/08/skos-reference/skos.rdf' via {}->http://www.w3.org
+2014-11-26 13:30:20 DEBUG wire:63 - << "<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "<html><head>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "<title>301 Moved Permanently</title>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "</head><body>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "<h1>Moved Permanently</h1>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "<p>The document has moved <a href="http://www.w3.org/2009/08/skos-reference/skos.rdf">here</a>.</p>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "</body></html>[\n]"
+2014-11-26 13:30:20 DEBUG RequestAddCookies:132 - CookieSpec selected: best-match
+2014-11-26 13:30:20 DEBUG RequestAuthCache:78 - Auth cache not set in the context
+2014-11-26 13:30:20 DEBUG RequestTargetAuthentication:78 - Target auth state: UNCHALLENGED
+2014-11-26 13:30:20 DEBUG RequestProxyAuthentication:87 - Proxy auth state: UNCHALLENGED
+2014-11-26 13:30:20 DEBUG SystemDefaultHttpClient:713 - Attempt 3 to execute request
+2014-11-26 13:30:20 DEBUG DefaultClientConnection:269 - Sending request: GET /2009/08/skos-reference/skos.rdf HTTP/1.1
+2014-11-26 13:30:20 DEBUG wire:63 - >> "GET /2009/08/skos-reference/skos.rdf HTTP/1.1[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - >> "Accept: text/turtle,application/n-triples;q=0.9,application/ld+json;q=0.8,application/rdf+xml;q=0.7,*/*;q=0.5[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - >> "User-Agent: Apache-Jena-ARQ/2.12.1[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - >> "Host: www.w3.org[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - >> "Connection: Keep-Alive[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - >> "[\r][\n]"
+2014-11-26 13:30:20 DEBUG headers:273 - >> GET /2009/08/skos-reference/skos.rdf HTTP/1.1
+2014-11-26 13:30:20 DEBUG headers:276 - >> Accept: text/turtle,application/n-triples;q=0.9,application/ld+json;q=0.8,application/rdf+xml;q=0.7,*/*;q=0.5
+2014-11-26 13:30:20 DEBUG headers:276 - >> User-Agent: Apache-Jena-ARQ/2.12.1
+2014-11-26 13:30:20 DEBUG headers:276 - >> Host: www.w3.org
+2014-11-26 13:30:20 DEBUG headers:276 - >> Connection: Keep-Alive
+2014-11-26 13:30:20 DEBUG wire:63 - << "HTTP/1.1 200 OK[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Date: Wed, 26 Nov 2014 12:30:21 GMT[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Server: Apache/2[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Last-Modified: Sat, 06 Aug 2011 11:16:36 GMT[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "ETag: "7126-4a9d458decd00"[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Accept-Ranges: bytes[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Content-Length: 28966[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Cache-Control: max-age=21600[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Expires: Wed, 26 Nov 2014 18:30:21 GMT[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "P3P: policyref="http://www.w3.org/2014/08/p3p.xml"[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Access-Control-Allow-Origin: *[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "Content-Type: application/rdf+xml; qs=0.9[\r][\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "[\r][\n]"
+2014-11-26 13:30:20 DEBUG DefaultClientConnection:254 - Receiving response: HTTP/1.1 200 OK
+2014-11-26 13:30:20 DEBUG headers:257 - << HTTP/1.1 200 OK
+2014-11-26 13:30:20 DEBUG headers:260 - << Date: Wed, 26 Nov 2014 12:30:21 GMT
+2014-11-26 13:30:20 DEBUG headers:260 - << Server: Apache/2
+2014-11-26 13:30:20 DEBUG headers:260 - << Last-Modified: Sat, 06 Aug 2011 11:16:36 GMT
+2014-11-26 13:30:20 DEBUG headers:260 - << ETag: "7126-4a9d458decd00"
+2014-11-26 13:30:20 DEBUG headers:260 - << Accept-Ranges: bytes
+2014-11-26 13:30:20 DEBUG headers:260 - << Content-Length: 28966
+2014-11-26 13:30:20 DEBUG headers:260 - << Cache-Control: max-age=21600
+2014-11-26 13:30:20 DEBUG headers:260 - << Expires: Wed, 26 Nov 2014 18:30:21 GMT
+2014-11-26 13:30:20 DEBUG headers:260 - << P3P: policyref="http://www.w3.org/2014/08/p3p.xml"
+2014-11-26 13:30:20 DEBUG headers:260 - << Access-Control-Allow-Origin: *
+2014-11-26 13:30:20 DEBUG headers:260 - << Content-Type: application/rdf+xml; qs=0.9
+2014-11-26 13:30:20 DEBUG SystemDefaultHttpClient:543 - Connection can be kept alive indefinitely
+2014-11-26 13:30:20 DEBUG StreamManager:142 - Found: http://www.w3.org/2004/02/skos/core (LocatorHTTP)
+2014-11-26 13:30:20 DEBUG RDFDataMgr:875 - Found: http://www.w3.org/2004/02/skos/core
+2014-11-26 13:30:20 DEBUG wire:77 - << "<"
+2014-11-26 13:30:20 DEBUG wire:77 - << "?"
+2014-11-26 13:30:20 DEBUG wire:77 - << "x"
+2014-11-26 13:30:20 DEBUG wire:77 - << "m"
+2014-11-26 13:30:20 DEBUG wire:77 - << "l"
+2014-11-26 13:30:20 DEBUG wire:77 - << " "
+2014-11-26 13:30:20 DEBUG wire:77 - << "v"
+2014-11-26 13:30:20 DEBUG wire:77 - << "e"
+2014-11-26 13:30:20 DEBUG wire:77 - << "r"
+2014-11-26 13:30:20 DEBUG wire:77 - << "s"
+2014-11-26 13:30:20 DEBUG wire:77 - << "i"
+2014-11-26 13:30:20 DEBUG wire:77 - << "o"
+2014-11-26 13:30:20 DEBUG wire:77 - << "n"
+2014-11-26 13:30:20 DEBUG wire:77 - << "="
+2014-11-26 13:30:20 DEBUG wire:77 - << """
+2014-11-26 13:30:20 DEBUG wire:77 - << "1"
+2014-11-26 13:30:20 DEBUG wire:77 - << "."
+2014-11-26 13:30:20 DEBUG wire:77 - << "0"
+2014-11-26 13:30:20 DEBUG wire:77 - << """
+2014-11-26 13:30:20 DEBUG wire:77 - << " "
+2014-11-26 13:30:20 DEBUG wire:77 - << "e"
+2014-11-26 13:30:20 DEBUG wire:77 - << "n"
+2014-11-26 13:30:20 DEBUG wire:77 - << "c"
+2014-11-26 13:30:20 DEBUG wire:77 - << "o"
+2014-11-26 13:30:20 DEBUG wire:77 - << "d"
+2014-11-26 13:30:20 DEBUG wire:77 - << "i"
+2014-11-26 13:30:20 DEBUG wire:77 - << "n"
+2014-11-26 13:30:20 DEBUG wire:77 - << "g"
+2014-11-26 13:30:20 DEBUG wire:77 - << "="
+2014-11-26 13:30:20 DEBUG wire:77 - << """
+2014-11-26 13:30:20 DEBUG wire:77 - << "u"
+2014-11-26 13:30:20 DEBUG wire:77 - << "t"
+2014-11-26 13:30:20 DEBUG wire:77 - << "f"
+2014-11-26 13:30:20 DEBUG wire:77 - << "-"
+2014-11-26 13:30:20 DEBUG wire:77 - << "8"
+2014-11-26 13:30:20 DEBUG wire:77 - << """
+2014-11-26 13:30:20 DEBUG wire:77 - << "?"
+2014-11-26 13:30:20 DEBUG wire:77 - << ">"
+2014-11-26 13:30:20 DEBUG wire:63 - << "[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "<rdf:RDF xmlns:dct="http://purl.org/dc/terms/"[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#"[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  xml:base="http://www.w3.org/2004/02/skos/core">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <!-- This schema represents a formalisation of a subset of the semantic conditions [\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    described in the SKOS Reference document dated 18 August 2009, accessible[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    at http://www.w3.org/TR/2009/REC-skos-reference-20090818/. XML comments of the form Sn are used to [\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    indicate the semantic conditions that are being expressed. Comments of the form [\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    [Sn] refer to assertions that are, strictly speaking, redundant as they follow [\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    from the RDF(S) or OWL semantics.[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    [\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    A number of semantic conditions are *not* expressed formally in this schema. These are:[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    [\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    S12[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    S13[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    S14[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    S27[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    S36[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    S46[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    [\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    For the conditions listed above, rdfs:comments are used to indicate the conditions.[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    [\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "   -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <owl:Ontology rdf:about="http://www.w3.org/2004/02/skos/core">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <dct:title xml:lang="en">SKOS Vocabulary</dct:title>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <dct:contributor>Dave Beckett</dct:contributor>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <dct:contributor>Nikki Rogers</dct:contributor>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <dct:contributor>Participants in W3C's Semantic Web Deployment Working Group.</dct:contributor>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <dct:description xml:lang="en">An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', other types of controlled vocabulary, and also concept schemes embedded in glossaries and terminologies.</dct:description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <dct:creator>Alistair Miles</dct:creator>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <dct:creator>Sean Bechhofer</dct:creator>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:seeAlso rdf:resource="http://www.w3.org/TR/skos-reference/"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </owl:Ontology>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#Concept">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">Concept</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:77 - << "    <s"
+2014-11-26 13:30:20 DEBUG wire:63 - << "kos:definition xml:lang="en">An idea or notion; a unit of thought.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S1 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#ConceptScheme">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">Concept Scheme</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">A set of concepts, optionally including statements about semantic relationships between those concepts.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:scopeNote xml:lang="en">A concept scheme may be defined to include concepts from different sources.</skos:scopeNote>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:example xml:lang="en">Thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', and other types of controlled vocabulary are all examples of concept schemes. Concept schemes are also embedded in glossaries and terminologies.</skos:example>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S2 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S9 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <owl:disjointWith rdf:resource="#Concept"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#Collection">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">Collection</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">A meaningful collection of concepts.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:scopeNote xml:lang="en">Labelled collections can be used where you would like a set of concepts to be displayed under a 'node label' in the hierarchy.</skos:scopeNote>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S28 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S37 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <owl:disjointWith rdf:resource="#Concept"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S37 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <owl:disjointWith rdf:resource="#ConceptScheme"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#OrderedCollection">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">Ordered Collection</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:77 - << "    <skos:definition xml:lang="en">An ordered collection of concepts, where bot"
+2014-11-26 13:30:20 DEBUG wire:63 - << "h the grouping and the ordering are meaningful.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:scopeNote xml:lang="en">Ordered collections can be used where you would like a set of concepts to be displayed in a specific order, and optionally under a 'node label'.</skos:scopeNote>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S28 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S29 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subClassOf rdf:resource="#Collection"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#inScheme">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">is in scheme</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">Relates a resource (for example a concept) to a concept scheme in which it is included.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:scopeNote xml:lang="en">A concept may be a member of more than one concept scheme.</skos:scopeNote>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S3 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S4 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:range rdf:resource="#ConceptScheme"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#hasTopConcept">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">has top concept</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">Relates, by convention, a concept scheme to a concept which is topmost in the broader/narrower concept hierarchies for that scheme, providing an entry point to these hierarchies.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S3 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S5 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:domain rdf:resource="#ConceptScheme"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S6 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:range rdf:resource="#Concept"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S8 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <owl:inverseOf rdf:resource="#topConceptOf"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:77 - << "  <rdf:Description rdf:about="#topConceptOf""
+2014-11-26 13:30:20 DEBUG wire:63 - << ">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">is top concept in scheme</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">Relates a concept to the concept scheme that it is a top level concept of.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S3 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S7 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="#inScheme"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S8 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <owl:inverseOf rdf:resource="#hasTopConcept"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:domain rdf:resource="#Concept"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:range rdf:resource="#ConceptScheme"/> [\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#prefLabel">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">preferred label</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">The preferred lexical label for a resource, in a given language.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S10 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S11 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S14 (not formally stated) -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:comment xml:lang="en">A resource has no more than one value of skos:prefLabel per language tag, and no more than one value of skos:prefLabel without language tag.</rdfs:comment>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S12 (not formally stated) -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:comment xml:lang="en">The range of skos:prefLabel is the class of RDF plain literals.</rdfs:comment>[\n]"
+2014-11-26 13:30:20 DEBUG wire:77 - << "    <!-- S13"
+2014-11-26 13:30:20 DEBUG wire:63 - << " (not formally stated) -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "      disjoint properties.</rdfs:comment>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#altLabel">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">alternative label</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">An alternative lexical label for a resource.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:example xml:lang="en">Acronyms, abbreviations, spelling variants, and irregular plural/singular forms may be included among the alternative labels for a concept. Mis-spelled terms are normally included as hidden labels (see skos:hiddenLabel).</skos:example>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S10 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S11 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S12 (not formally stated) -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:comment xml:lang="en">The range of skos:altLabel is the class of RDF plain literals.</rdfs:comment>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S13 (not formally stated) -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties.</rdfs:comment>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:77 - << "    <rdf:type rdf:resource="http://www.w3.org/199"
+2014-11-26 13:30:20 DEBUG wire:63 - << "9/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#hiddenLabel">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">hidden label</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">A lexical label for a resource that should be hidden when generating visual displays of the resource, but should still be accessible to free text search operations.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S10 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S11 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S12 (not formally stated) -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:comment xml:lang="en">The range of skos:hiddenLabel is the class of RDF plain literals.</rdfs:comment>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S13 (not formally stated) -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties.</rdfs:comment>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#notation">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">notation</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">A notation, also known as classification code, is a string of characters such as "T58.5" or "303.4833" used to uniquely identify a concept within the scope of a given concept scheme.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:scopeNote xml:lang="en">By convention, skos:notation is used with a typed literal in the object position of the triple.</skos:scopeNote>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S15 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#note">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">note</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:77 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3"
+2014-11-26 13:30:20 DEBUG wire:63 - << ".org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">A general note, for any purpose.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:scopeNote xml:lang="en">This property may be used directly, or as a super-property for more specific note types.</skos:scopeNote>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S16 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#changeNote">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">change note</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">A note about a modification to a concept.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S16 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S17 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="#note"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#definition">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">definition</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">A statement or formal explanation of the meaning of a concept.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S16 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S17 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="#note"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#editorialNote">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">editorial note</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">A note for an editor, translator or maintainer of the vocabulary.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S16 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:77 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#A"
+2014-11-26 13:30:20 DEBUG wire:63 - << "nnotationProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S17 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="#note"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#example">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">example</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">An example of the use of a concept.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S16 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S17 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="#note"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#historyNote">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">history note</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">A note about the past state/use/meaning of a concept.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S16 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S17 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="#note"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#scopeNote">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">scope note</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">A note that helps to clarify the meaning and/or the use of a concept.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S16 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S17 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="#note"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#semanticRelation">[\n]"
+2014-11-26 13:30:20 DEBUG wire:77 - << "    "
+2014-11-26 13:30:20 DEBUG wire:63 - << "<rdfs:label xml:lang="en">is in semantic relation with</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">Links a concept to a concept related by meaning.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:scopeNote xml:lang="en">This property should not be used directly, but as a super-property for all properties denoting a relationship of meaning between concepts.</skos:scopeNote>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S18 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S19 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:domain rdf:resource="#Concept"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S20 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:range rdf:resource="#Concept"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#broader">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">has broader</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">Relates a concept to a concept that is more general in meaning.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:comment xml:lang="en">Broader concepts are typically rendered as parents in a concept hierarchy (tree).</rdfs:comment>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:scopeNote xml:lang="en">By convention, skos:broader is only used to assert an immediate (i.e. direct) hierarchical link between two conceptual resources.</skos:scopeNote>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S18 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S22 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="#broaderTransitive"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S25 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <owl:inverseOf rdf:resource="#narrower"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#narrower">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">has narrower</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:77 - << "    <skos:definition xml:lang="en">Relates a concept to a concept that is more specific in meaning.</"
+2014-11-26 13:30:20 DEBUG wire:63 - << "skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:scopeNote xml:lang="en">By convention, skos:broader is only used to assert an immediate (i.e. direct) hierarchical link between two conceptual resources.</skos:scopeNote>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:comment xml:lang="en">Narrower concepts are typically rendered as children in a concept hierarchy (tree).</rdfs:comment>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S18 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S22 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="#narrowerTransitive"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S25 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <owl:inverseOf rdf:resource="#broader"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#related">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">has related</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">Relates a concept to a concept with which there is an associative semantic relationship.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S18 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S21 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="#semanticRelation"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S23 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S27 (not formally stated) -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:comment xml:lang="en">skos:related is disjoint with skos:broaderTransitive</rdfs:comment>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#broaderTransitive">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">has broader transitive</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition>skos:broaderTransitive is a transitive superproperty of skos:broader.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:77 - << "    <skos:scopeNote xml:lang="en">By convention, skos:broaderTransitive is not used to make assertions. Rather, the properties can be used to draw inferences about the tran"
+2014-11-26 13:30:20 DEBUG wire:63 - << "sitive closure of the hierarchical relation, which is useful e.g. when implementing a simple query expansion algorithm in a search application.</skos:scopeNote>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S18 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S21 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="#semanticRelation"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S24 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S26 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <owl:inverseOf rdf:resource="#narrowerTransitive"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#narrowerTransitive">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">has narrower transitive</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition>skos:narrowerTransitive is a transitive superproperty of skos:narrower.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:scopeNote xml:lang="en">By convention, skos:narrowerTransitive is not used to make assertions. Rather, the properties can be used to draw inferences about the transitive closure of the hierarchical relation, which is useful e.g. when implementing a simple query expansion algorithm in a search application.</skos:scopeNote>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S18 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S21 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="#semanticRelation"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S24 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S26 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <owl:inverseOf rdf:resource="#broaderTransitive"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#member">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">has member</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">Relates a collection to one of its members.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:77 - << "    <!-- "
+2014-11-26 13:30:20 DEBUG wire:63 - << "S30 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S31 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:77 - << "    <rdfs:domain rdf:resource=""
+2014-11-26 13:30:20 DEBUG wire:63 - << "#Collection"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S32 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:range>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "      <owl:Class>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "[0x9]<owl:unionOf rdf:parseType="Collection">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "[0x9]  <owl:Class rdf:about="#Concept"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "[0x9]  <owl:Class rdf:about="#Collection"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "[0x9]</owl:unionOf>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "      </owl:Class>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    </rdfs:range>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#memberList">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">has member list</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">Relates an ordered collection to the RDF list containing its members.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S30 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S33 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:domain rdf:resource="#OrderedCollection"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S35 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S34 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S36 (not formally stated) -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:comment xml:lang="en">For any resource, every item in the list given as the value of the[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "      skos:memberList property is also a value of the skos:member property.</rdfs:comment>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#mappingRelation">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">is in mapping relation with</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">Relates two concepts coming, by convention, from different schemes, and that have comparable meanings</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:77 - << "    <rdfs:comment xml:lang="en">These concept mapping relations mirror semantic relations, and the data model defined below is similar (with the exception of skos:exactMatch) to the data model defined for semantic relations. A distinct vocabulary is provided for concept mapp"
+2014-11-26 13:30:20 DEBUG wire:63 - << "ing relations, to provide a convenient way to differentiate links within a concept scheme from links between concept schemes. However, this pattern of usage is not a formal requirement of the SKOS data model, and relies on informal definitions of best practice.</rdfs:comment>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S38 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S39 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="#semanticRelation"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#broadMatch">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">has broader match</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">skos:broadMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S38 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S40 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="#mappingRelation"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S41 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="#broader"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S43 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <owl:inverseOf rdf:resource="#narrowMatch"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#narrowMatch">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">has narrower match</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">skos:narrowMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S38 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S40 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="#mappingRelation"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S41 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="#narrower"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S43 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:77 - << "    <owl:inverseOf rdf:resource="#b"
+2014-11-26 13:30:20 DEBUG wire:63 - << "roadMatch"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#relatedMatch">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">has related match</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">skos:relatedMatch is used to state an associative mapping link between two conceptual resources in different concept schemes.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S38 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S40 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="#mappingRelation"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S41 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="#related"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S44 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#exactMatch">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">has exact match</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">skos:exactMatch is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications. skos:exactMatch is a transitive property, and is a sub-property of skos:closeMatch.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S38 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S42 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="#closeMatch"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S44 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S45 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S46 (not formally stated) -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:comment xml:lang="en">skos:exactMatch is disjoint with each of the properties skos:broadMatch and skos:relatedMatch.</rdfs:comment>[\n]"
+2014-11-26 13:30:20 DEBUG wire:77 - << "    <"
+2014-11-26 13:30:20 DEBUG wire:63 - << "!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  <rdf:Description rdf:about="#closeMatch">[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:label xml:lang="en">has close match</rdfs:label>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <skos:definition xml:lang="en">skos:closeMatch is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications. In order to avoid the possibility of "compound errors" when combining mappings across more than two concept schemes, skos:closeMatch is not declared to be a transitive property.</skos:definition>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S38 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S40 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdfs:subPropertyOf rdf:resource="#mappingRelation"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- S44 -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <!-- For non-OWL aware applications -->[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "  </rdf:Description>[\n]"
+2014-11-26 13:30:20 DEBUG wire:63 - << "</rdf:RDF>[\n]"
+2014-11-26 13:30:20 DEBUG PoolingClientConnectionManager:274 - Connection [id: 3][route: {}->http://www.w3.org] can be kept alive indefinitely
+2014-11-26 13:30:20 DEBUG PoolingClientConnectionManager:281 - Connection released: [id: 3][route: {}->http://www.w3.org][total kept alive: 1; route allocated: 1 of 5; total allocated: 1 of 10]
+2014-11-26 13:30:21 INFO  SkosEditorController:234 - Base NS set to: http://www.testing_skos_rd.de#
+2014-11-26 13:30:21 INFO  SkosEditorController:236 - Skos NS set to: http://www.w3.org/2004/02/skos/core#
+2014-11-26 13:30:21 INFO  SkosEditorController:238 - Skosxl NS set to: http://www.w3.org/2008/05/skos-xl#
+2014-11-26 13:30:21 INFO  SkosEditorController:273 - class added to List
+2014-11-26 13:30:21 INFO  SkosEditorController:540 - Individual added: CameraSorted
+2014-11-26 13:30:21 INFO  SkosEditorController:540 - Individual added: TestLabel
+2014-11-26 13:30:21 INFO  SkosEditorController:540 - Individual added: CameraThesaurus
+2014-11-26 13:30:21 INFO  SkosEditorController:540 - Individual added: AnimalThesaurus
+2014-11-26 13:30:21 INFO  SkosEditorController:540 - Individual added: DigitalCamera
+2014-11-26 13:30:21 INFO  SkosEditorController:540 - Individual added: mobile_phones
+2014-11-26 13:30:21 INFO  SkosEditorController:540 - Individual added: SKOS_EDITOR_YOLO
+2014-11-26 13:30:21 INFO  SkosEditorController:540 - Individual added: label1
+2014-11-26 13:30:21 INFO  SkosEditorController:540 - Individual added: Camera
+2014-11-26 13:30:21 INFO  SkosEditorController:245 - Ontologie loaded

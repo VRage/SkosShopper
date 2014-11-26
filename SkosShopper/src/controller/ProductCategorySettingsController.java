@@ -92,7 +92,7 @@ public class ProductCategorySettingsController implements Initializable{
 		//setStartPositions();
 		setStartVisibilities();
 
-		loadCategories();
+		//loadCategories();
 		loadProperties();
 		loadRelations();
 		

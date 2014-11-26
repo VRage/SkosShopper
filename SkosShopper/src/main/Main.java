@@ -5,15 +5,14 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-import controller.MenuController;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import model.FusekiModel;
-import exceptions.fuseki_exceptions.NoDatasetGraphException;
-import exceptions.fuseki_exceptions.NoServerConfigException;
 	
 
 
@@ -34,19 +33,10 @@ public class Main extends Application {
 			Main.scene = new Scene(root);
 			primaryStage.setScene(scene);	
 			primaryStage.show();
-			
-			//initialize all items with the correct values
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-	}
-	
-	
-	@Override
-	public void stop() throws NoDatasetGraphException, NoServerConfigException
-	{
-		FusekiModel.startStopFuseki();
 	}
 	
 	
@@ -58,19 +48,19 @@ public class Main extends Application {
 	
 	private static void startup()
 	{
-		try {
-			FusekiModel.startStopFuseki();
-			MenuController.importOnthologyFile("./fuseki/Data/dani_ont1_02.ttl");
-			MenuController.importOnthologyFile("./fuseki/Data/dani_ont2_01.ttl");
-		} catch (NoDatasetGraphException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoServerConfigException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
+//		try {
+//			FusekiModel.startStopFuseki();
+//			MenuController.importOnthologyFile("./fuseki/Data/dani_ont1_02.ttl");
+//			MenuController.importOnthologyFile("./fuseki/Data/dani_ont2_01.ttl");
+//		} catch (NoDatasetGraphException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (NoServerConfigException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		
 	}
 
 }

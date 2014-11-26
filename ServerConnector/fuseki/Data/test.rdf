@@ -1,0 +1,50 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns="http://www.testing_skos_rd.de#"
+    xmlns:skos-xl="http://www.w3.org/2008/05/skos-xl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#" > 
+  <rdf:Description rdf:about="http://www.testing_skos_rd.de#CameraSorted">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#OrderedCollection"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.testing_skos_rd.de#CameraThesaurus">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.testing_skos_rd.de#TestLabel">
+    <skos-xl:literalForm rdf:datatype="http://www.w3.org/2001/XMLSchema#language">de</skos-xl:literalForm>
+    <skos-xl:literalForm rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">camcam</skos-xl:literalForm>
+    <rdf:type rdf:resource="http://www.w3.org/2008/05/skos-xl#Label"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.testing_skos_rd.de">
+    <owl:imports rdf:resource="http://www.w3.org/2008/05/skos-xl"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.testing_skos_rd.de#AnimalThesaurus">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.testing_skos_rd.de#Camera/DigitalCamera">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.testing_skos_rd.de#mobile_phones">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Collection"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.testing_skos_rd.de#label1">
+    <skos-xl:labelRelation rdf:resource="http://www.testing_skos_rd.de#TestLabel"/>
+    <rdf:type rdf:resource="http://www.w3.org/2008/05/skos-xl#Label"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.testing_skos_rd.de#Camera">
+    <skos:related rdf:resource="http://www.testing_skos_rd.de#Camera/DigitalCamera"/>
+    <skos:broadMatch rdf:resource="http://www.testing_skos_rd.de#Camera/DigitalCamera"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+</rdf:RDF>
