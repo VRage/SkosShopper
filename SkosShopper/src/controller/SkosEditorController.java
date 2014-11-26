@@ -94,9 +94,9 @@ public class SkosEditorController implements Initializable {
 	@FXML
 	private ChoiceBox<String> choiseBoxCollectionFilter;
 	@FXML
-	private ListView listviewCollectionChoise;
+	private ListView<Individual> listviewCollectionChoise;
 	@FXML
-	private ListView listviewCollectionSelected;
+	private ListView<Individual> listviewCollectionSelected;
 
 	private static final String COLLECTION = "Collection";
 
@@ -109,7 +109,7 @@ public class SkosEditorController implements Initializable {
 
 	// Variables for the Ontology Class-Listview
 	private ObservableList<String> classes = FXCollections
-			.observableArrayList();;
+			.observableArrayList();
 	private ArrayList<OntClass> liste_classes = new ArrayList<OntClass>();
 
 	// Variables for the ListView, Individuals of a Class
@@ -117,8 +117,8 @@ public class SkosEditorController implements Initializable {
 	private ArrayList<Individual> liste_indi = new ArrayList<Individual>();
 
 	// For Listview Individual choiced 
-	private ObservableList<Individual> liste_choicedindis = FXCollections
-			.observableArrayList();
+	private ObservableList<Individual> liste_choicedindis = FXCollections.observableArrayList();
+	private ObservableList<Individual> liste_selectedindis = FXCollections.observableArrayList();			
 
 	// Variables for the Dropdownmenu, ObjectProperties
 	// private ObservableList<String> props =
