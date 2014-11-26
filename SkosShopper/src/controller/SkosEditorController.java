@@ -730,7 +730,9 @@ public class SkosEditorController implements Initializable {
 			while(iter.hasNext()){
 				Statement s = iter.next();
 				if(s.getPredicate().getLocalName().equals(objectproperty)){
-					return s.getObject().asResource();
+					if(s.getObject().isResource()){
+						return s.getObject().asResource();
+					}
 				}
 			}
 		}
