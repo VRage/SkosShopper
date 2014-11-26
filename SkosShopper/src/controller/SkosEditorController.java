@@ -1,11 +1,11 @@
 package controller;
 
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -18,14 +18,14 @@ import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.input.MouseEvent;
-import javafx.util.Callback;
 
 import javax.swing.JOptionPane;
+
+import model.ModelFacadeTEST;
 
 import org.apache.log4j.Logger;
 
@@ -34,10 +34,7 @@ import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.ObjectProperty;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.ontology.OntResource;
-import com.hp.hpl.jena.rdf.model.Literal;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.ResourceRequiredException;
 import com.hp.hpl.jena.rdf.model.Statement;
@@ -88,187 +85,194 @@ public class SkosEditorController implements Initializable {
 	private Button btn_editLabel;
 	@FXML
 	private Label selectedIndiLocalname;
-	@FXML 
+	@FXML
 	private Label labelCollectionFromText;
-	@FXML 
+	@FXML
 	private TextField textfieldCollectionName;
 	@FXML
 	private TextField textfieldCollectionLabelName;
 	@FXML
-	private ChoiceBox<Individual> choiseBoxCollectionFilter;
+	private ChoiceBox<String> choiseBoxCollectionFilter;
 	@FXML
 	private ListView listviewCollectionChoise;
 	@FXML
 	private ListView listviewCollectionSelected;
-	
+
 	private static final String COLLECTION = "Collection";
 
 	// local j4log logger
 	public static final Logger log = Logger
 			.getLogger(SkosEditorController.class);
-	
-	//String constant only to make arkadius happy
-	public static final String PREFIXLABEL ="LabelFor";
-	
-	//Variables for the Ontology Class-Listview
-	private ObservableList<String> classes = FXCollections.observableArrayList();;
+
+	// String constant only to make arkadius happy
+	public static final String PREFIXLABEL = "LabelFor";
+
+	// Variables for the Ontology Class-Listview
+	private ObservableList<String> classes = FXCollections
+			.observableArrayList();;
 	private ArrayList<OntClass> liste_classes = new ArrayList<OntClass>();
-	
-	//Variables for the ListView, Individuals of a Class
+
+	// Variables for the ListView, Individuals of a Class
 	private ObservableList<String> items = FXCollections.observableArrayList();
 	private ArrayList<Individual> liste_indi = new ArrayList<Individual>();
-	
-	private ObservableList<Individual> liste_choicedindis = FXCollections.observableArrayList();
-	
-	//Variables for the Dropdownmenu, ObjectProperties
-//	private ObservableList<String> props = FXCollections.observableArrayList();
-//	private ArrayList<String> propNS = new ArrayList<String>();
-	
-	//Variables for the Dropdownmenu, Individuals
+
+	// For Listview Individual choiced 
+	private ObservableList<Individual> liste_choicedindis = FXCollections
+			.observableArrayList();
+
+	// Variables for the Dropdownmenu, ObjectProperties
+	// private ObservableList<String> props =
+	// FXCollections.observableArrayList();
+	// private ArrayList<String> propNS = new ArrayList<String>();
+
+	// Variables for the Dropdownmenu, Individuals
 	private ArrayList<String> indiNS = new ArrayList<String>();
-	private ObservableList<Individual> indis = FXCollections.observableArrayList();
-	
-	//In this class used Ontology Model
+	private ObservableList<Individual> indis = FXCollections
+			.observableArrayList();
+
+	// In this class used Ontology Model
 	private static OntModel model;
-	
-	//Selected OntClass and Individual
+
+	// Selected OntClass and Individual
 	private OntClass selectedOntClass;
 	private Individual selectedIndividual;
-	
-	//Namespaces of the OntModel
+
+	// Namespaces of the OntModel
 	private String OntClassNS = "";
 	private String baseNS = "";
 	private String skosNS = "";
 	private String skosxlNS = "";
-	
-	//Localized Resource Bundle
+
+	// Localized Resource Bundle
 	private ResourceBundle localizedBundle;
 
-	
 	public void initialize(URL location, ResourceBundle resources) {
-	
+
 		label_uri2.setText("");
 		label_uri.setText(OntClassNS);
-		
+
 		listview_indi.setCursor(Cursor.HAND);
 		listview_classes.setCursor(Cursor.HAND);
-		
 
 		listview_indi.setItems(items);
 		listview_classes.setItems(classes);
 		localizedBundle = resources;
-		
-		choiseBoxCollectionFilter.setItems(indis);
+
+
 		listviewCollectionChoise.setItems(liste_choicedindis);
-		
 
 	}
 
 	/**
-	 * This function recognizes which ontology class the user has selected, displays the URI and
-	 * call a function to get all Individual in this ontology class.
+	 * This function recognizes which ontology class the user has selected,
+	 * displays the URI and call a function to get all Individual in this
+	 * ontology class.
 	 * 
-	 * Also if no valid Class is selected you can't use buttons to add Individuals/Properties or Labels
+	 * Also if no valid Class is selected you can't use buttons to add
+	 * Individuals/Properties or Labels
 	 * 
 	 * @param e
 	 */
-	@FXML public void selectOntClass(MouseEvent e){
-		if (!listview_classes.getSelectionModel().isEmpty())
-		{
+	@FXML
+	public void selectOntClass(MouseEvent e) {
+		if (!listview_classes.getSelectionModel().isEmpty()) {
 			txtfield_IndiLabel.setDisable(false);
 			selectedOntClass = model.getOntClass(liste_classes.get(
 					listview_classes.getSelectionModel().getSelectedIndex())
 					.getURI());
-			
-				OntClassNS = liste_classes.get(
-						listview_classes.getSelectionModel().getSelectedIndex())
-						.getURI();
-				label_uri.setText(OntClassNS);
-				
-				showIndividualsOfOntClass(selectedOntClass);
-			switch(selectedOntClass.getLocalName()){
-				case "Concept":
-					acc_addIndi.setExpanded(true);
-					break;
-				case "Label":
-					acc_editLabel.setExpanded(true);
-					txtfield_IndiLabel.setDisable(true);
-					btn_editLabel.setText(localizedBundle.getString("btnEditLabel"));
-					break;
-				case "OrderedCollection":
-				case "Collection":
-					acc_addCollection.setExpanded(true);
-					break;
-				default:
-					break;
+
+			OntClassNS = liste_classes.get(
+					listview_classes.getSelectionModel().getSelectedIndex())
+					.getURI();
+			label_uri.setText(OntClassNS);
+
+			showIndividualsOfOntClass(selectedOntClass);
+			switch (selectedOntClass.getLocalName()) {
+			case "Concept":
+				acc_addIndi.setExpanded(true);
+				break;
+			case "Label":
+				acc_editLabel.setExpanded(true);
+				txtfield_IndiLabel.setDisable(true);
+				btn_editLabel
+						.setText(localizedBundle.getString("btnEditLabel"));
+				break;
+			case "OrderedCollection":
+			case "Collection":
+				acc_addCollection.setExpanded(true);
+				break;
+			default:
+				break;
 			}
-				
-			
+
 		}
 	}
-	
-	
+
 	/**
 	 * 
-	 * This Method loads an Ontology which this Controller works with. Also it gets the Namespaces, Objectproperties and all Individuals of 
-	 * the Ontology Model for the TreeView and Choiceboxes. 
+	 * This Method loads an Ontology which this Controller works with. Also it
+	 * gets the Namespaces, Objectproperties and all Individuals of the Ontology
+	 * Model for the TreeView and Choiceboxes.
 	 * 
 	 */
 	public void loadOntology() {
-//		if (model.isEmpty()) {
-			try {
-				// Path input =
-				// Paths.get("C:\\Users\\VRage\\Documents\\SpiderOak Hive\\studium\\5_Semester\\projekt\\",
-				// "test1.rdf");
-				//
-				// model.read(input.toUri().toString(), "RDF/XML");
-//				model = ModelFacadeTEST.getOntModel();
-				//model.read("file:///C:/Users/rd/git/SkosShopper2/ServerConnector/fuseki/Data/test.rdf");
-//				 model = TripleModel.getAllTriples();
-//				 Model m = FusekiModel.getDatasetAccessor().getModel();
-//				 model.add(ModelFacadeTEST.getOntModel());
+		// if (model.isEmpty()) {
+		try {
+			model = ModelFacadeTEST.getOntModel();
+			// Path input =
+			// Paths.get("C:\\Users\\VRage\\Documents\\SpiderOak Hive\\studium\\5_Semester\\projekt\\",
+			// "test1.rdf");
+			//
+			// model.read(input.toUri().toString(), "RDF/XML");
+			// model = ModelFacadeTEST.getOntModel();
+			 model.read("./RDFDaten/test1.rdf");
+			// model = TripleModel.getAllTriples();
+			// Model m = FusekiModel.getDatasetAccessor().getModel();
+			// model.add(ModelFacadeTEST.getOntModel());
 
-//				model = ModelFacadeTEST.getAktModel();
-				
-				baseNS = model.getNsPrefixURI("");
-				log.info("Base NS set to: " + baseNS);
-				skosNS = model.getNsPrefixURI("skos");
-				log.info("Skos NS set to: " + skosNS);
-				skosxlNS = model.getNsPrefixURI("skos-xl");
-				log.info("Skosxl NS set to: " + skosxlNS);
+			// model = ModelFacadeTEST.getAktModel();
+//			model = ModelFacadeTEST.ontModel;
 
+			baseNS = model.getNsPrefixURI("");
+			log.info("Base NS set to: " + baseNS);
+			skosNS = model.getNsPrefixURI("skos");
+			log.info("Skos NS set to: " + skosNS);
+			skosxlNS = model.getNsPrefixURI("skos-xl");
+			log.info("Skosxl NS set to: " + skosxlNS);
 
-//				showOPropertiesInChoicebox();
-//				showAllIndividualsInChoicebox();
-				showOntClassInTree();
-				showAllIndividualsInChoicebox();
-				log.info("Ontologie loaded");
-			} catch (Exception e) {
-				log.error(e, e);
-			}
-//		}
+			// showOPropertiesInChoicebox();
+			// showAllIndividualsInChoicebox();
+			showOntClassInTree();
+			showAllIndividualsInChoicebox();
+			setChoiseboxItems();
+			log.info("Ontologie loaded");
+		} catch (Exception e) {
+			log.error(e, e);
+		}
+		// }
 	}
 
-	
 	/**
 	 * 
-	 * All skos and skosxl OntologyClasses will be shown in the TreeView by this method
+	 * All skos and skosxl OntologyClasses will be shown in the TreeView by this
+	 * method
 	 * 
 	 */
 	public void showOntClassInTree() {
 		classes.clear();
 		liste_classes.clear();
 		selectedOntClass = null;
-		
+
 		ExtendedIterator oclasslist = model.listClasses();
 		while (oclasslist.hasNext()) {
 
-				OntClass oclass = (OntClass) oclasslist.next();
-				if(oclass.toString().contains(skosNS)||oclass.toString().contains(skosxlNS)){
-					liste_classes.add(oclass);
-					classes.add(oclass.getLocalName());
-				}
-			
+			OntClass oclass = (OntClass) oclasslist.next();
+			if (oclass.toString().contains(skosNS)
+					|| oclass.toString().contains(skosxlNS)) {
+				liste_classes.add(oclass);
+				classes.add(oclass.getLocalName());
+			}
+
 		}
 		log.info("class added to List");
 
@@ -277,7 +281,8 @@ public class SkosEditorController implements Initializable {
 	/**
 	 * 
 	 * Method which will be executed after clicked on button btn_addIndi.
-	 * Catches the User input and creates an Individual with the base namespace in the current selected Ontology Class
+	 * Catches the User input and creates an Individual with the base namespace
+	 * in the current selected Ontology Class
 	 * 
 	 * @param event
 	 */
@@ -286,21 +291,23 @@ public class SkosEditorController implements Initializable {
 		if (!txtfield_individiaulname.getText().isEmpty()) {
 			log.info("start method addIndi");
 			String antwort = txtfield_individiaulname.getText();
-			if(model.getIndividual(baseNS + (antwort)) == null){
+			if (model.getIndividual(baseNS + (antwort)) == null) {
 				model.createIndividual(baseNS + (antwort), selectedOntClass);
-				
-				if(!txtfield_IndiLabel.getText().isEmpty()){
-					createLabelRecipe("", txtfield_IndiLabel.getText(), model.getIndividual(baseNS + (antwort)));
+
+				if (!txtfield_IndiLabel.getText().isEmpty()) {
+					createLabelRecipe("", txtfield_IndiLabel.getText(),
+							model.getIndividual(baseNS + (antwort)));
 				}
 				int length = baseNS.length();
-				String indinamespace = model.getIndividual(
-						baseNS + (antwort)).getNameSpace();
-				
+				String indinamespace = model.getIndividual(baseNS + (antwort))
+						.getNameSpace();
+
 				/*
-				 * Very complicated string operations, probably PhD needed to understand.
+				 * Very complicated string operations, probably PhD needed to
+				 * understand.
 				 * 
-				 * Recipe to add multiple Individuals with one string input. Furthermore adding "has narrower" to the created Individuals.
-				 * 
+				 * Recipe to add multiple Individuals with one string input.
+				 * Furthermore adding "has narrower" to the created Individuals.
 				 */
 				if (!(length == indinamespace.length())) {
 					String superindi = indinamespace.substring(length,
@@ -311,10 +318,11 @@ public class SkosEditorController implements Initializable {
 					for (String ss : stringarray) {
 						Individual tempindi = model.getIndividual(newindi + ss);
 						if (tempindi == null) {
-							model.createIndividual(newindi + ss, selectedOntClass);
+							model.createIndividual(newindi + ss,
+									selectedOntClass);
 							newindi = newindi + ss + "/";
 							log.info("new individual added: " + ss);
-	
+
 						} else {
 							newindi = tempindi.getURI() + "/";
 						}
@@ -325,16 +333,17 @@ public class SkosEditorController implements Initializable {
 						for (int i = 0; i < stringarray.length; i++) {
 							Individual tempindi = model.getIndividual(newindi
 									+ stringarray[i]);
-							ObjectProperty oProp = model.getObjectProperty(skosNS
-									+ "narrower");
+							ObjectProperty oProp = model
+									.getObjectProperty(skosNS + "narrower");
 							if (i < stringarray.length - 1) {
 								Individual nextindi = model
 										.getIndividual(newindi + stringarray[i]
 												+ "/" + stringarray[i + 1]);
 								model.add(tempindi, oProp, nextindi);
 							} else {
-								Individual nextindi = model.getIndividual(baseNS
-										+ ((String) antwort));
+								Individual nextindi = model
+										.getIndividual(baseNS
+												+ ((String) antwort));
 								model.add(tempindi, oProp, nextindi);
 							}
 							newindi = newindi + stringarray[i] + "/";
@@ -343,16 +352,15 @@ public class SkosEditorController implements Initializable {
 				}
 				showAllIndividualsInChoicebox();
 				showIndividualsOfOntClass(selectedOntClass);
-				
+
 				txtfield_IndiLabel.clear();
 				txtfield_individiaulname.clear();
-			}else{
+			} else {
 				log.info("Individual already exist");
 			}
 		}
 	}
 
-	
 	/**
 	 * 
 	 * Shows all Individuals of selected Ontology Class in a Listview
@@ -360,20 +368,21 @@ public class SkosEditorController implements Initializable {
 	 * @param oclass
 	 */
 	public void showIndividualsOfOntClass(OntClass oclass) {
-		
-		if(oclass != null){			
+
+		if (oclass != null) {
 			items.clear();
 			liste_indi.clear();
 			selectedIndividual = null;
-			
-			ExtendedIterator<? extends OntResource> indilist = oclass.listInstances();
+
+			ExtendedIterator<? extends OntResource> indilist = oclass
+					.listInstances();
 			while (indilist.hasNext()) {
 				Individual indivi = (Individual) indilist.next();
 				liste_indi.add(indivi);
 				items.add(indivi.getLocalName());
-	
+
 			}
-		}else{
+		} else {
 			items.clear();
 			liste_indi.clear();
 			selectedIndividual = null;
@@ -383,8 +392,8 @@ public class SkosEditorController implements Initializable {
 
 	/**
 	 * 
-	 * Debug Method, saves Ontology into a File (fuseki/Data/outputfromProgramm.owl)
-	 * Will be deleted in deployed version.
+	 * Debug Method, saves Ontology into a File
+	 * (fuseki/Data/outputfromProgramm.owl) Will be deleted in deployed version.
 	 * 
 	 * @param event
 	 */
@@ -403,15 +412,16 @@ public class SkosEditorController implements Initializable {
 
 	}
 
-	
-	
 	/**
 	 * 
-	 * Adds Label to the selected Individual. Executed after clicking the button btn_addLabel.
+	 * Adds Label to the selected Individual. Executed after clicking the button
+	 * btn_addLabel.
 	 * 
-	 * Recipe: 	Creates Individual in Label-Class and adding DataProperty "literalForm" with the Userinput as literal.
-	 * 			Creates Object property "preferred Label" between created Label individual and selected individual.
-	 * 			
+	 * Recipe: Creates Individual in Label-Class and adding DataProperty
+	 * "literalForm" with the Userinput as literal. Creates Object property
+	 * "preferred Label" between created Label individual and selected
+	 * individual.
+	 * 
 	 * 
 	 * @param event
 	 */
@@ -421,7 +431,8 @@ public class SkosEditorController implements Initializable {
 				&& (selectedIndividual != null)) {
 
 			Object antwort = JOptionPane.showInputDialog(null,
-					localizedBundle.getString("EnterLabel"), localizedBundle.getString("InputWindow"),
+					localizedBundle.getString("EnterLabel"),
+					localizedBundle.getString("InputWindow"),
 					JOptionPane.INFORMATION_MESSAGE, null, null, null);
 			if (antwort != null) {
 				String name = (String) antwort;
@@ -443,9 +454,10 @@ public class SkosEditorController implements Initializable {
 
 	/**
 	 * 
-	 * Method started from MouseClick on Individual of a Ontology Class ListView.
-	 * Get the clicked Individual set it to the selectedIndividual and displays object and data property.
-	 * Double click gives you the possibility to delete a Individual.
+	 * Method started from MouseClick on Individual of a Ontology Class
+	 * ListView. Get the clicked Individual set it to the selectedIndividual and
+	 * displays object and data property. Double click gives you the possibility
+	 * to delete a Individual.
 	 * 
 	 * @param event
 	 */
@@ -461,20 +473,32 @@ public class SkosEditorController implements Initializable {
 
 			showObjectProperties(selectedIndividual);
 			showDataProperties(selectedIndividual);
-			liste_choicedindis.add(selectedIndividual );
-			txtfield_individiaulname.setText(selectedIndividual.getURI().substring(baseNS.length())+"/");
-			if(selectedOntClass.getLocalName().contains("Label")){
-				selectedIndiLocalname.setText(selectedIndividual.getLocalName());
-				txtfield_editLabel.setText(getDatapropertyFromLabel(selectedIndividual).getString());
-			}else if(selectedOntClass.getLocalName().contains("Concept")){
+			liste_choicedindis.add(selectedIndividual);
+			txtfield_individiaulname.setText(selectedIndividual.getURI()
+					.substring(baseNS.length()) + "/");
+			if (selectedOntClass.getLocalName().contains("Label")) {
+				selectedIndiLocalname
+						.setText(selectedIndividual.getLocalName());
+				txtfield_editLabel.setText(getDatapropertyFromLabel(
+						selectedIndividual).getString());
+			} else if (selectedOntClass.getLocalName().contains("Concept")) {
 				btn_editLabel.setText(localizedBundle.getString("btnAddLabel"));
-				if(getIndividualbyObjectProperty(selectedIndividual,"prefLabel")!=null){
-					btn_editLabel.setText(localizedBundle.getString("btnEditLabel"));
-					selectedIndiLocalname.setText(getIndividualbyObjectProperty(selectedIndividual,"prefLabel").getLocalName());
-					if(getDatapropertyFromLabel(getIndividualbyObjectProperty(selectedIndividual,"prefLabel"))!=null){
-						txtfield_editLabel.setText(getDatapropertyFromLabel(getIndividualbyObjectProperty(selectedIndividual,"prefLabel")).getString());
+				if (getIndividualbyObjectProperty(selectedIndividual,
+						"prefLabel") != null) {
+					btn_editLabel.setText(localizedBundle
+							.getString("btnEditLabel"));
+					selectedIndiLocalname
+							.setText(getIndividualbyObjectProperty(
+									selectedIndividual, "prefLabel")
+									.getLocalName());
+					if (getDatapropertyFromLabel(getIndividualbyObjectProperty(
+							selectedIndividual, "prefLabel")) != null) {
+						txtfield_editLabel.setText(getDatapropertyFromLabel(
+								getIndividualbyObjectProperty(
+										selectedIndividual, "prefLabel"))
+								.getString());
 					}
-				}else{
+				} else {
 					selectedIndiLocalname.setText("");
 					txtfield_editLabel.setText("");
 				}
@@ -486,8 +510,9 @@ public class SkosEditorController implements Initializable {
 										.getSelectedIndex()).getURI())
 						.getLocalName();
 				int delete = JOptionPane.showConfirmDialog(null,
-						localizedBundle.getString("delIndi")  + selected,
-						localizedBundle.getString("delIndiWindow"), JOptionPane.YES_NO_OPTION);
+						localizedBundle.getString("delIndi") + selected,
+						localizedBundle.getString("delIndiWindow"),
+						JOptionPane.YES_NO_OPTION);
 				if (delete == JOptionPane.YES_OPTION) {
 					model.getIndividual(
 							liste_indi.get(
@@ -504,14 +529,13 @@ public class SkosEditorController implements Initializable {
 
 	/**
 	 * 
-	 * Method of Button btn_addprop.
-	 * Set a object property between selected Individual and selected individual of a choicebox.
+	 * Method of Button btn_addprop. Set a object property between selected
+	 * Individual and selected individual of a choicebox.
 	 * 
 	 * @param event
 	 */
 	@FXML
 	private void showSubIndividualinListView(MouseEvent event) {
-		
 
 	}
 
@@ -520,15 +544,15 @@ public class SkosEditorController implements Initializable {
 	 * Show all Object properties in a choicebox from loaded Ontology
 	 * 
 	 */
-//	private void showOPropertiesInChoicebox() {
-//		ExtendedIterator list_prop = model.listObjectProperties();
-//		while (list_prop.hasNext()) {
-//			ObjectProperty prop = (ObjectProperty) list_prop.next();
-//			props.add(prop.getLabel("en"));
-//			propNS.add(prop.getURI());
-//			log.info("property added: " + prop.getLocalName());
-//		}
-//	}
+	// private void showOPropertiesInChoicebox() {
+	// ExtendedIterator list_prop = model.listObjectProperties();
+	// while (list_prop.hasNext()) {
+	// ObjectProperty prop = (ObjectProperty) list_prop.next();
+	// props.add(prop.getLabel("en"));
+	// propNS.add(prop.getURI());
+	// log.info("property added: " + prop.getLocalName());
+	// }
+	// }
 
 	private void showAllIndividualsInChoicebox() {
 		indis.clear();
@@ -538,7 +562,7 @@ public class SkosEditorController implements Initializable {
 			Individual indi = (Individual) list_indis.next();
 			indis.add(indi);
 			log.info("Individual added: " + indi.getLocalName());
-			
+
 		}
 	}
 
@@ -612,135 +636,149 @@ public class SkosEditorController implements Initializable {
 						if (nextProperty.getObject().isLiteral()) {
 							predicate = nextProperty.getPredicate()
 									.getLocalName();
-							object = nextProperty.getObject().asLiteral().toString();
-							items.add("'" + predicate + "'" + " " + object + "\n\n");
+							object = nextProperty.getObject().asLiteral()
+									.toString();
+							items.add("'" + predicate + "'" + " " + object
+									+ "\n\n");
 						}
+					} catch (ResourceRequiredException e) {
+						log.error(e, e);
 					}
-						catch (ResourceRequiredException e){
-							log.error(e, e);
-						}
-					}
-					if(!items.isEmpty()){
-						listview_objprop.setItems(items);
-					}
+				}
+				if (!items.isEmpty()) {
+					listview_objprop.setItems(items);
 				}
 			}
 		}
-	/** Tries to create a new Collection with the given name as long as the
-	 * 	name doesn't already exist.
+	}
+
+	/**
+	 * Tries to create a new Collection with the given name as long as the name
+	 * doesn't already exist.
 	 */
-	@FXML public void createCollection(){
+	@FXML
+	public void createCollection() {
 
 		String collectionString = "/" + COLLECTION + "/";
-		String collectionNameString = baseNS 
-				+ collectionString 
+		String collectionNameString = baseNS + collectionString
 				+ textfieldCollectionName.getText();
-		String collectionLabelString = baseNS 
-				+ "LabelForCollection" 
+		String collectionLabelString = baseNS + "LabelForCollection"
 				+ textfieldCollectionName.getText();
 		log.info(selectedOntClass == null);
-		if(model.getIndividual(collectionNameString) == null 
-				&& selectedOntClass != null){
-			
-			//Name must not be empty! 
-			if(!textfieldCollectionName.getText().equals("")){
-				//Collection must be seleted!
-				if(selectedOntClass.getLocalName().equals(COLLECTION)){
+		if (model.getIndividual(collectionNameString) == null
+				&& selectedOntClass != null) {
+
+			// Name must not be empty!
+			if (!textfieldCollectionName.getText().equals("")) {
+				// Collection must be seleted!
+				if (selectedOntClass.getLocalName().equals(COLLECTION)) {
 					log.info("Collection selected = true");
 					// Add Individual
-					model.createIndividual(collectionNameString, selectedOntClass);
-					
-					//optional Label
-					if(!textfieldCollectionLabelName.getText().isEmpty()){
+					model.createIndividual(collectionNameString,
+							selectedOntClass);
+
+					// optional Label
+					if (!textfieldCollectionLabelName.getText().isEmpty()) {
 						model.getOntClass(skosxlNS + "Label").createIndividual(
 								collectionLabelString);
-					}
-					else{
+					} else {
 						log.info("No Label given");
-					}	
+					}
 				}
-				//not implemented yet!
-				else if (selectedOntClass.getLocalName().equals("OrderedCollection")){
+				// not implemented yet!
+				else if (selectedOntClass.getLocalName().equals(
+						"OrderedCollection")) {
 					log.info("Ordered Collection selected = true \n not implemented yet!");
-				}
-				else{
+				} else {
 					log.error("Neither Collection nor Ordered Collection selected!");
 				}// end if-else case collection or ordered collection selected
-			}
-			else{
+			} else {
 				log.error("Namefield Empty!");
 			}// end if-case textfield empty check
-		}
-		else{
+		} else {
 			log.error("Name for Collection already taken or No Ontclass selected!");
 		} // end if-else-case collection name already exist
 	}
 
-	@FXML public void insertToCollection(){
-		
-	}
-	@FXML public void deleteFromCollection(){
-		
-	} 
+	@FXML
+	public void insertToCollection() {
 
-	public void createLabelRecipe(String name, String description, Individual toindividual){
+	}
+
+	@FXML
+	public void deleteFromCollection() {
+
+	}
+
+	public void createLabelRecipe(String name, String description,
+			Individual toindividual) {
 		String labelname = toindividual.getLocalName();
 		model.getOntClass(skosxlNS + "Label").createIndividual(
-				baseNS + PREFIXLABEL+name +labelname);
-		Individual indi = model.getIndividual(baseNS + PREFIXLABEL
-				+name +labelname);
+				baseNS + PREFIXLABEL + name + labelname);
+		Individual indi = model.getIndividual(baseNS + PREFIXLABEL + name
+				+ labelname);
 		DatatypeProperty dprop = model.getDatatypeProperty(skosxlNS
 				+ "literalForm");
 		log.info("datatypeProp" + dprop.getLocalName());
 		indi.addProperty(dprop, model.createLiteral(description, "de"));
-		ObjectProperty Oprop = model.getObjectProperty(skosxlNS
-				+ "prefLabel");
+		ObjectProperty Oprop = model.getObjectProperty(skosxlNS + "prefLabel");
 		model.add(toindividual, Oprop, indi);
-		
+
 	}
-	
-	@FXML public void editLabel(ActionEvent e){
+
+	@FXML
+	public void editLabel(ActionEvent e) {
 		log.info("in editLabelmethod");
-		if(selectedOntClass !=null && selectedIndividual != null){
+		if (selectedOntClass != null && selectedIndividual != null) {
 			log.info("no null Class or Individual");
 			log.info(selectedOntClass.getLocalName());
-			if(selectedOntClass.getLocalName().contains("Concept")){
+			if (selectedOntClass.getLocalName().contains("Concept")) {
 				log.info("test");
-				if(getIndividualbyObjectProperty(selectedIndividual,"prefLabel")!=null){
-					
-					if(getDatapropertyFromLabel(getIndividualbyObjectProperty(selectedIndividual,"prefLabel"))!=null){
-						getDatapropertyFromLabel(getIndividualbyObjectProperty(selectedIndividual,"prefLabel")).changeObject(txtfield_editLabel.getText(),"de");
+				if (getIndividualbyObjectProperty(selectedIndividual,
+						"prefLabel") != null) {
+
+					if (getDatapropertyFromLabel(getIndividualbyObjectProperty(
+							selectedIndividual, "prefLabel")) != null) {
+						getDatapropertyFromLabel(
+								getIndividualbyObjectProperty(
+										selectedIndividual, "prefLabel"))
+								.changeObject(txtfield_editLabel.getText(),
+										"de");
 					}
-				}else{
-					createLabelRecipe("", txtfield_editLabel.getText(), selectedIndividual);
+				} else {
+					createLabelRecipe("", txtfield_editLabel.getText(),
+							selectedIndividual);
 				}
-			}else if(selectedOntClass.getLocalName().contains("Label")){
-				if(getDatapropertyFromLabel(selectedIndividual)!=null){
-					getDatapropertyFromLabel(selectedIndividual).changeObject(txtfield_editLabel.getText(),"de");
+			} else if (selectedOntClass.getLocalName().contains("Label")) {
+				if (getDatapropertyFromLabel(selectedIndividual) != null) {
+					getDatapropertyFromLabel(selectedIndividual).changeObject(
+							txtfield_editLabel.getText(), "de");
 				}
 			}
 		}
 	}
-	
-	private Resource getIndividualbyObjectProperty(Individual individual, String objectproperty){
-		if(individual != null){
+
+	private Resource getIndividualbyObjectProperty(Individual individual,
+			String objectproperty) {
+		if (individual != null) {
 			StmtIterator iter = individual.listProperties();
-			while(iter.hasNext()){
+			while (iter.hasNext()) {
 				Statement s = iter.next();
-				if(s.getPredicate().getLocalName().equals(objectproperty) && s.getObject().isResource()){
+				if (s.getPredicate().getLocalName().equals(objectproperty)
+						&& s.getObject().isResource()) {
 					return s.getObject().asResource();
 				}
 			}
 		}
 		return null;
 	}
-	
-	private Statement getDatapropertyFromLabel(Resource label){
+
+	private Statement getDatapropertyFromLabel(Resource label) {
 		StmtIterator iter = label.listProperties();
-		while(iter.hasNext()){
+		while (iter.hasNext()) {
 			Statement s = iter.next();
 			log.info(s.getPredicate().getLocalName());
-			if(s.getPredicate().getLocalName().equals("literalForm")){
+			if (s.getPredicate().getLocalName().equals("literalForm")) {
 				return s;
 			}
 		}
@@ -753,5 +791,16 @@ public class SkosEditorController implements Initializable {
 
 	public static OntModel endSKOSController() {
 		return model;
+	}
+
+	private void setChoiseboxItems() {
+		ObservableList<String> elems = FXCollections.observableArrayList();
+		elems.add(localizedBundle.getString("noFilter"));
+		ExtendedIterator i = model.listIndividuals();
+		while (i.hasNext()) {
+			Individual fuck = (Individual) i.next();
+			elems.add(fuck.getLocalName());
+		}
+		choiseBoxCollectionFilter.setItems(elems);
 	}
 }
