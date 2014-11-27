@@ -65,7 +65,7 @@
                               </AnchorPane>
                            </top>
                            <center>
-                              <TableView fx:id="tv_alt_entries" prefHeight="168.0" prefWidth="575.0" BorderPane.alignment="CENTER">
+                              <TableView fx:id="tv_alt_entries" prefHeight="234.0" prefWidth="578.0" BorderPane.alignment="CENTER">
                                 <columns>
                                   <TableColumn fx:id="col_dest_url" prefWidth="285.0" text="Destination URL" />
                                   <TableColumn fx:id="col_alt_url" prefWidth="292.0" text="Alternative URL" />
@@ -82,6 +82,8 @@
                            </children>
                         </AnchorPane>
                         <Separator layoutX="622.0" layoutY="7.0" orientation="VERTICAL" prefHeight="428.0" prefWidth="1.0" AnchorPane.bottomAnchor="6.0" AnchorPane.rightAnchor="363.0" AnchorPane.topAnchor="7.0" />
+                        <Button layoutX="596.0" layoutY="415.0" mnemonicParsing="false" onAction="#saveListbtnOnAction" text="saveList" />
+                        <Button layoutX="599.0" layoutY="390.0" mnemonicParsing="false" onAction="#loadListbtnOnAction" text="loadList" />
                      </children>
                   </AnchorPane>
               </items>

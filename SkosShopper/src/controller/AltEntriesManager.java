@@ -1,9 +1,15 @@
 package controller;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class AltEntriesManager {
+
+	
     private final SimpleStringProperty destURL;
     private final SimpleStringProperty altURL;
 	
@@ -11,6 +17,10 @@ public class AltEntriesManager {
         destURL = new SimpleStringProperty(dest);
         altURL = new SimpleStringProperty(alt);
     }
+    public AltEntriesManager() {
+    	destURL = new SimpleStringProperty("");
+        altURL = new SimpleStringProperty("");
+	}
     
     public String getDestUrl() {
         return destURL.get();

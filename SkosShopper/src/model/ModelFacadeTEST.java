@@ -32,7 +32,7 @@ public class ModelFacadeTEST implements Initializable
 	static public ModelState aktState = ModelState.Server;
 	//static Model model = ModelFactory.createDefaultModel();
 	static OntModel ontModel = ModelFactory.createOntologyModel();
-	static OntDocumentManager mgr = new OntDocumentManager();
+	public static OntDocumentManager mgr = new OntDocumentManager();
 	static OntModelSpec ontSpec = new OntModelSpec(OntModelSpec.OWL_MEM);
 	
 	@Override

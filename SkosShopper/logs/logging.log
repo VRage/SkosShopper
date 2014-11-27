@@ -1850,3 +1850,1200 @@ symbol:http://jena.hpl.hp.com/ARQ#enablePropertyFunctions = true
 2014-11-26 13:30:21 INFO  SkosEditorController:540 - Individual added: label1
 2014-11-26 13:30:21 INFO  SkosEditorController:540 - Individual added: Camera
 2014-11-26 13:30:21 INFO  SkosEditorController:245 - Ontologie loaded
+2014-11-27 15:26:32 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 15:26:33 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 15:26:33 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 15:26:33 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 15:26:33 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 15:26:33 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 15:26:33 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 15:26:33 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 15:26:33 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 15:26:33 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 15:26:33 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 15:26:33 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 15:26:33 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 15:26:33 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 15:26:33 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 15:31:30 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 15:31:30 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 15:31:30 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 15:31:30 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 15:31:30 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 15:31:30 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 15:31:30 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 15:31:30 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 15:31:30 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 15:31:30 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 15:31:30 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 15:31:30 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 15:31:30 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 15:31:30 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 15:31:30 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 15:32:31 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 15:32:31 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 15:32:31 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 15:32:31 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 15:32:31 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 15:32:31 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 15:32:31 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 15:32:31 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 15:32:31 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 15:32:31 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 15:32:31 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 15:32:31 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 15:32:31 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 15:32:31 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 15:32:31 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 15:32:39 DEBUG FBRuleInfGraph:248 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+2014-11-27 15:32:39 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+2014-11-27 15:32:39 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 15:32:39 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 15:32:39 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 15:32:39 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 15:32:39 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 15:32:39 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+2014-11-27 15:32:39 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 15:32:39 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 15:32:39 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 15:32:39 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 15:32:39 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 15:32:39 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 15:32:39 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 15:32:39 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+2014-11-27 15:32:39 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 15:32:39 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 15:32:39 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 15:32:39 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 15:32:39 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 15:32:39 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 15:32:39 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 15:32:39 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 15:32:39 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 15:32:39 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 15:32:39 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 15:32:39 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 15:32:39 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 15:32:39 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 15:32:39 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 15:32:39 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 15:32:39 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 15:32:39 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 15:32:39 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 15:32:39 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 15:32:39 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 15:32:39 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 15:32:39 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 15:32:39 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 15:32:39 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 15:32:39 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 15:32:39 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 15:32:39 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 15:34:15 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 15:34:16 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 15:34:16 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 15:34:16 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 15:34:16 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 15:34:16 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 15:34:16 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 15:34:16 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 15:34:16 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 15:34:16 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 15:34:16 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 15:34:16 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 15:34:16 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 15:34:16 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 15:34:16 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 15:34:35 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 15:34:35 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 15:34:35 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 15:34:35 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 15:34:35 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 15:34:35 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 15:34:35 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 15:34:35 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 15:34:35 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 15:34:35 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 15:34:35 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 15:34:35 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 15:34:35 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 15:34:35 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 15:34:35 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 15:40:12 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 15:40:13 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 15:40:13 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 15:40:13 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 15:40:13 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 15:40:13 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 15:40:13 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 15:40:13 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 15:40:13 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 15:40:13 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 15:40:13 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 15:40:13 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 15:40:13 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 15:40:13 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 15:40:13 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 15:41:12 DEBUG FBRuleInfGraph:248 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+2014-11-27 15:41:12 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+2014-11-27 15:41:12 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 15:41:12 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 15:41:12 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 15:41:12 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 15:41:12 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 15:41:12 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+2014-11-27 15:41:12 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 15:41:12 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 15:41:12 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 15:41:12 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 15:41:12 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 15:41:12 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 15:41:12 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 15:41:12 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+2014-11-27 15:41:12 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 15:41:12 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 15:41:12 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 15:41:12 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 15:41:12 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 15:41:12 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 15:41:12 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 15:41:12 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 15:41:12 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 15:41:12 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 15:41:12 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 15:41:12 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 15:41:12 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 15:41:12 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 15:41:12 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 15:41:13 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 15:41:13 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 15:41:13 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 15:41:13 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 15:41:13 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 15:41:13 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 15:41:13 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 15:41:13 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 15:41:13 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 15:41:13 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 15:41:13 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 15:41:13 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 15:41:13 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:17:39 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 16:17:40 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 16:17:40 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 16:17:40 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 16:17:40 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 16:17:40 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 16:17:40 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 16:17:40 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 16:17:40 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 16:17:40 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 16:17:40 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 16:17:40 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 16:17:40 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 16:17:40 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 16:17:40 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 16:18:13 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 16:18:13 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 16:18:14 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 16:18:14 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 16:18:14 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 16:18:14 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 16:18:14 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 16:18:14 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 16:18:14 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 16:18:14 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 16:18:14 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 16:18:14 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 16:18:14 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 16:18:14 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 16:18:14 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 16:19:54 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 16:19:54 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 16:19:54 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 16:19:54 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 16:19:54 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 16:19:54 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 16:19:54 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 16:19:54 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 16:19:54 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 16:19:54 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 16:19:54 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 16:19:54 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 16:19:54 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 16:19:54 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 16:19:54 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 16:20:42 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 16:20:42 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 16:20:43 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 16:20:43 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 16:20:43 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 16:20:43 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 16:20:43 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 16:20:43 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 16:20:43 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 16:20:43 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 16:20:43 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 16:20:43 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 16:20:43 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 16:20:43 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 16:20:43 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 16:21:01 DEBUG FBRuleInfGraph:248 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+2014-11-27 16:21:01 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+2014-11-27 16:21:01 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:21:01 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:21:01 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:21:01 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:21:01 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:21:01 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+2014-11-27 16:21:01 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:21:01 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:21:01 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:21:01 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:21:01 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:21:01 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:21:01 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:21:01 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+2014-11-27 16:21:01 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:21:01 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:21:01 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:21:01 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:21:01 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:21:01 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:21:01 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:21:01 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:21:01 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:21:01 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:21:01 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:21:01 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:21:01 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:21:01 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:21:01 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:21:02 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:21:02 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:21:02 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:21:02 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:21:02 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:21:02 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:21:02 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:21:02 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:21:02 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:21:02 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:21:02 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:21:02 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:21:02 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:21:27 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 16:21:27 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 16:21:27 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 16:21:27 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 16:21:27 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 16:21:27 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 16:21:27 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 16:21:27 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 16:21:27 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 16:21:27 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 16:21:27 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 16:21:27 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 16:21:27 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 16:21:27 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 16:21:27 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 16:21:37 DEBUG FBRuleInfGraph:248 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+2014-11-27 16:21:37 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+2014-11-27 16:21:37 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:21:37 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:21:37 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:21:37 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:21:37 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:21:37 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+2014-11-27 16:21:37 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:21:37 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:21:37 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:21:37 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:21:37 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:21:37 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:21:37 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:21:37 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+2014-11-27 16:21:37 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:21:37 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:21:37 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:21:37 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:21:37 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:21:37 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:21:37 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:21:37 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:21:37 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:21:37 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:21:37 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:21:37 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:21:37 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:21:37 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:21:37 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:21:37 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:21:37 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:21:37 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:21:37 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:21:37 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:21:37 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:21:37 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:21:37 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:21:37 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:21:37 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:21:37 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:21:37 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:21:37 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:22:40 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 16:22:40 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 16:22:41 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 16:22:41 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 16:22:41 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 16:22:41 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 16:22:41 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 16:22:41 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 16:22:41 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 16:22:41 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 16:22:41 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 16:22:41 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 16:22:41 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 16:22:41 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 16:22:41 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 16:22:47 DEBUG FBRuleInfGraph:248 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+2014-11-27 16:22:47 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+2014-11-27 16:22:47 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:22:47 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:22:47 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:22:47 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:22:47 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:22:47 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+2014-11-27 16:22:47 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:22:47 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:22:47 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:22:47 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:22:47 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:22:47 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:22:47 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:22:47 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+2014-11-27 16:22:47 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:22:47 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:22:47 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:22:47 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:22:47 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:22:47 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:22:47 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:22:47 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:22:47 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:22:47 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:22:47 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:22:47 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:22:47 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:22:47 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:22:47 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:22:47 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:22:47 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:22:47 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:22:47 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:22:47 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:22:47 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:22:47 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:22:47 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:22:47 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:22:47 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:22:47 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:22:47 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:22:47 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:25:09 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 16:25:09 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 16:25:09 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 16:25:09 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 16:25:09 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 16:25:09 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 16:25:09 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 16:25:09 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 16:25:09 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 16:25:09 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 16:25:09 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 16:25:09 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 16:25:09 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 16:25:09 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 16:25:09 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 16:25:17 DEBUG FBRuleInfGraph:248 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+2014-11-27 16:25:17 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+2014-11-27 16:25:17 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:25:17 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:25:17 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:25:17 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:25:17 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:25:17 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+2014-11-27 16:25:17 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:25:17 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:25:17 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:25:17 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:25:17 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:25:17 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:25:17 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:25:17 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+2014-11-27 16:25:17 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:25:17 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:25:17 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:25:17 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:25:17 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:25:17 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:25:17 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:25:17 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:25:17 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:25:17 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:25:17 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:25:17 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:25:17 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:25:17 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:25:17 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:25:17 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:25:17 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:25:17 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:25:17 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:25:17 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:25:17 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:25:17 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:25:17 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:25:17 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:25:17 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:25:17 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:25:17 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:25:17 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:44:31 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 16:44:31 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 16:44:31 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 16:44:31 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 16:44:31 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 16:44:31 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 16:44:31 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 16:44:31 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 16:44:31 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 16:44:31 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 16:44:31 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 16:44:31 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 16:44:31 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 16:44:31 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 16:44:31 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 16:44:49 DEBUG FBRuleInfGraph:248 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+2014-11-27 16:44:49 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+2014-11-27 16:44:49 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:44:49 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:44:49 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:44:49 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:44:49 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:44:49 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+2014-11-27 16:44:49 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:44:49 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:44:49 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:44:49 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:44:49 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:44:49 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:44:49 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:44:49 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+2014-11-27 16:44:49 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:44:49 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:44:49 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:44:49 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:44:49 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:44:49 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:44:49 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:44:49 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:44:49 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:44:49 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:44:49 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:44:49 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:44:49 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:44:49 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:44:49 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:44:49 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:44:49 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:44:49 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:44:49 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:44:49 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:44:49 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:44:49 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:44:49 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:44:49 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:44:49 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:44:49 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:44:49 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:44:49 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:46:07 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 16:46:07 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 16:46:07 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 16:46:07 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 16:46:07 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 16:46:07 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 16:46:07 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 16:46:07 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 16:46:07 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 16:46:07 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 16:46:07 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 16:46:07 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 16:46:07 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 16:46:07 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 16:46:07 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 16:46:15 DEBUG FBRuleInfGraph:248 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+2014-11-27 16:46:15 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+2014-11-27 16:46:15 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:46:15 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:46:15 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:46:15 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:46:15 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:46:15 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+2014-11-27 16:46:15 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:46:15 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:46:15 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:46:15 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:46:15 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:46:15 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:46:15 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:46:15 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+2014-11-27 16:46:15 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:46:15 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:46:15 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:46:15 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:46:15 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:46:15 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:46:15 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:46:15 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:46:15 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:46:15 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:46:15 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:46:15 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:46:15 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:46:15 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:46:15 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:46:15 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:46:15 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:46:15 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:46:15 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:46:15 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:46:15 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:46:15 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:46:15 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:46:15 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:46:15 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:46:15 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:46:15 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:46:15 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:47:10 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 16:47:11 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 16:47:11 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 16:47:11 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 16:47:11 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 16:47:11 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 16:47:11 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 16:47:11 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 16:47:11 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 16:47:11 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 16:47:11 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 16:47:11 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 16:47:11 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 16:47:11 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 16:47:11 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 16:47:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+2014-11-27 16:47:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+2014-11-27 16:47:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:47:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:47:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:47:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:47:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:47:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+2014-11-27 16:47:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:47:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:47:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:47:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:47:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:47:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:47:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:47:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+2014-11-27 16:47:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:47:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:47:18 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:47:18 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:47:18 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:47:18 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:47:18 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:47:18 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:47:18 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:47:18 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:47:18 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:47:18 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:47:18 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:47:18 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:47:18 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:47:18 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:47:18 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:47:18 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:47:18 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:47:18 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:47:18 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:47:18 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:47:18 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:47:18 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:47:18 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:47:18 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:47:18 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:47:18 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:49:38 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 16:49:38 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 16:49:38 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 16:49:38 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 16:49:38 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 16:49:38 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 16:49:38 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 16:49:38 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 16:49:38 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 16:49:38 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 16:49:38 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 16:49:38 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 16:49:38 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 16:49:38 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 16:49:38 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 16:49:46 DEBUG FBRuleInfGraph:248 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+2014-11-27 16:49:46 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+2014-11-27 16:49:46 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:49:46 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:49:46 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:49:46 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:49:46 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:49:46 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+2014-11-27 16:49:46 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:49:46 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:49:46 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:49:46 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:49:46 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:49:46 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:49:46 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:49:46 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+2014-11-27 16:49:46 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:49:46 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:49:46 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:49:46 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:49:46 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:49:46 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:49:46 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:49:46 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:49:46 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:49:46 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:49:46 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:49:46 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:49:46 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:49:46 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:49:46 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:49:46 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:49:46 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:49:46 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:49:46 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:49:46 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:49:46 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:49:46 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:49:46 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:49:46 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:49:46 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:49:46 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:49:46 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:49:46 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:50:13 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 16:50:13 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 16:50:13 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 16:50:13 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 16:50:13 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 16:50:13 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 16:50:13 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 16:50:13 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 16:50:13 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 16:50:13 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 16:50:13 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 16:50:13 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 16:50:13 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 16:50:13 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 16:50:13 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 16:50:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+2014-11-27 16:50:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+2014-11-27 16:50:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:50:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:50:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:50:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:50:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:50:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+2014-11-27 16:50:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:50:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:50:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:50:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:50:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:50:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:50:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:50:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+2014-11-27 16:50:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:50:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:50:18 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:50:18 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:50:18 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:50:18 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:50:18 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:50:18 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:50:18 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:50:18 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:50:18 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:50:18 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:50:18 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:50:18 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:50:18 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:50:18 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:50:18 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:50:18 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:50:18 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:50:18 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:50:18 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:50:18 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:50:18 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:50:18 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:50:18 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:50:18 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:50:18 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:50:18 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:53:07 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 16:53:07 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 16:53:07 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 16:53:07 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 16:53:07 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 16:53:07 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 16:53:07 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 16:53:07 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 16:53:07 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 16:53:07 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 16:53:07 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 16:53:07 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 16:53:07 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 16:53:07 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 16:53:07 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 16:53:14 DEBUG FBRuleInfGraph:248 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+2014-11-27 16:53:14 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+2014-11-27 16:53:14 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:53:14 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:53:14 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:53:14 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:53:14 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:53:14 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+2014-11-27 16:53:14 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:53:14 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:53:14 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:53:14 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:53:14 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:53:14 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:53:14 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:53:14 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+2014-11-27 16:53:14 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:53:14 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:53:14 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:53:14 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:53:14 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:53:14 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:53:14 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:53:14 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:53:14 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:53:14 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:53:14 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:53:14 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:53:14 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:53:14 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:53:14 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:53:14 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:53:14 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:53:14 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:53:14 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:53:14 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:53:14 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:53:14 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:53:14 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:53:14 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:53:14 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:53:14 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:53:14 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:53:14 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:54:50 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 16:54:50 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 16:54:50 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 16:54:50 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 16:54:50 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 16:54:50 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 16:54:50 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 16:54:50 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 16:54:50 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 16:54:50 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 16:54:50 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 16:54:50 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 16:54:50 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 16:54:50 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 16:54:50 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 16:54:55 DEBUG FBRuleInfGraph:248 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+2014-11-27 16:54:55 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+2014-11-27 16:54:55 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:54:55 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:54:55 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:54:55 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:54:55 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:54:55 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+2014-11-27 16:54:55 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:54:55 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:54:55 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:54:55 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:54:55 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:54:55 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:54:55 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:54:55 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+2014-11-27 16:54:55 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:54:55 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:54:55 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:54:55 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:54:55 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:54:55 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:54:55 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:54:55 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:54:55 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:54:55 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:54:55 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:54:55 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:54:55 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:54:55 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:54:55 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:54:55 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:54:55 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:54:55 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:54:55 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:54:55 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:54:55 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:54:55 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:54:55 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:54:55 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:54:55 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:54:55 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:54:55 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:54:55 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:55:11 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 16:55:12 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 16:55:12 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 16:55:12 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 16:55:12 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 16:55:12 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 16:55:12 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 16:55:12 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 16:55:12 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 16:55:12 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 16:55:12 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 16:55:12 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 16:55:12 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 16:55:12 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 16:55:12 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 16:55:24 DEBUG FBRuleInfGraph:248 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+2014-11-27 16:55:24 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+2014-11-27 16:55:24 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:55:24 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:55:24 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:55:24 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:55:24 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:55:24 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+2014-11-27 16:55:24 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:55:24 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:55:24 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:55:24 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:55:24 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:55:24 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:55:24 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:55:24 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+2014-11-27 16:55:24 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:55:24 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:55:24 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:55:24 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:55:24 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:55:24 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:55:24 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:55:24 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:55:24 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:55:24 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:55:24 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:55:24 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:55:24 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:55:24 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:55:24 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:55:24 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:55:24 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:55:24 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:55:24 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:55:24 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:55:24 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:55:24 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:55:24 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:55:24 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:55:24 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:55:24 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:55:24 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:55:24 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:56:25 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 16:56:25 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 16:56:25 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 16:56:25 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 16:56:25 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 16:56:25 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 16:56:25 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 16:56:25 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 16:56:25 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 16:56:25 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 16:56:25 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 16:56:25 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 16:56:25 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 16:56:25 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 16:56:25 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 16:56:30 DEBUG FBRuleInfGraph:248 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+2014-11-27 16:56:30 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+2014-11-27 16:56:30 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:56:30 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 16:56:30 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:56:30 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:56:30 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:56:30 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+2014-11-27 16:56:30 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:56:30 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 16:56:30 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:56:30 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:56:30 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 16:56:30 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:56:30 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:56:30 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+2014-11-27 16:56:30 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 16:56:30 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 16:56:30 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:56:30 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:56:30 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:56:30 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:56:30 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:56:30 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:56:30 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:56:30 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:56:30 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:56:30 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:56:30 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:56:30 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:56:30 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 16:56:30 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 16:56:30 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 16:56:30 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 16:56:30 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 16:56:30 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 16:56:30 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 16:56:30 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 16:56:30 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 16:56:30 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 16:56:30 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 16:56:30 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 16:56:30 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 16:56:30 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 18:03:07 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 18:03:07 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 18:03:07 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 18:03:07 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 18:03:07 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 18:03:07 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 18:03:07 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 18:03:07 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 18:03:07 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 18:03:07 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 18:03:07 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 18:03:07 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 18:03:07 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 18:03:07 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 18:03:07 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 18:03:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+2014-11-27 18:03:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+2014-11-27 18:03:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 18:03:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 18:03:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 18:03:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 18:03:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 18:03:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+2014-11-27 18:03:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 18:03:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 18:03:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 18:03:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 18:03:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 18:03:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 18:03:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 18:03:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+2014-11-27 18:03:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 18:03:18 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 18:03:18 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 18:03:18 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 18:03:18 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 18:03:18 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 18:03:18 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 18:03:18 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 18:03:18 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 18:03:18 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 18:03:18 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 18:03:18 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 18:03:18 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 18:03:18 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 18:03:18 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 18:03:18 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 18:03:18 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 18:03:18 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 18:03:18 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 18:03:18 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 18:03:18 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 18:03:18 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 18:03:18 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 18:03:18 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 18:03:18 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 18:03:18 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 18:03:18 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 18:03:18 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 18:04:34 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 18:04:34 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 18:04:34 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 18:04:34 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 18:04:34 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 18:04:34 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 18:04:34 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 18:04:34 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 18:04:34 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 18:04:34 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 18:04:34 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 18:04:34 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 18:04:34 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 18:04:34 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 18:04:34 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 18:04:41 DEBUG FBRuleInfGraph:248 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+2014-11-27 18:04:41 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+2014-11-27 18:04:41 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 18:04:41 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 18:04:41 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 18:04:41 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 18:04:41 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 18:04:41 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+2014-11-27 18:04:41 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 18:04:41 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 18:04:41 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 18:04:41 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 18:04:41 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 18:04:41 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 18:04:41 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 18:04:41 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+2014-11-27 18:04:41 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 18:04:41 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 18:04:41 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 18:04:41 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 18:04:41 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 18:04:41 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 18:04:41 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 18:04:41 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 18:04:41 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 18:04:41 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 18:04:41 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 18:04:41 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 18:04:41 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 18:04:41 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 18:04:41 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 18:04:42 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 18:04:42 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 18:04:42 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 18:04:42 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 18:04:42 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 18:04:42 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 18:04:42 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 18:04:42 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 18:04:42 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 18:04:42 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 18:04:42 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 18:04:42 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 18:04:42 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 18:05:00 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 18:05:00 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 18:05:00 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 18:05:00 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 18:05:00 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 18:05:00 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 18:05:00 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 18:05:00 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 18:05:00 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 18:05:00 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 18:05:00 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 18:05:01 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 18:05:01 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 18:05:01 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 18:05:01 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 18:05:09 DEBUG FBRuleInfGraph:248 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+2014-11-27 18:05:09 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+2014-11-27 18:05:09 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 18:05:09 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+2014-11-27 18:05:09 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 18:05:09 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 18:05:09 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 18:05:09 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+2014-11-27 18:05:09 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 18:05:09 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+2014-11-27 18:05:09 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 18:05:09 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 18:05:09 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+2014-11-27 18:05:09 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 18:05:09 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 18:05:09 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+2014-11-27 18:05:09 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+2014-11-27 18:05:09 DEBUG FBRuleInfGraph:248 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+2014-11-27 18:05:09 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 18:05:09 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 18:05:09 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 18:05:09 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 18:05:09 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 18:05:09 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 18:05:09 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 18:05:09 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 18:05:09 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 18:05:09 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 18:05:09 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 18:05:09 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 18:05:09 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 18:05:09 DEBUG FileManager:158 - Add location: LocatorFile
+2014-11-27 18:05:09 DEBUG FileManager:158 - Add location: LocatorURL
+2014-11-27 18:05:09 DEBUG FileManager:158 - Add location: ClassLoaderLocator
+2014-11-27 18:05:09 TRACE LocatorFile:112 - Not found: file:ont-policy.rdf
+2014-11-27 18:05:09 TRACE LocatorURL:48 - Not found : file:ont-policy.rdf
+2014-11-27 18:05:09 TRACE LocatorClassLoader:67 - Failed to open: file:ont-policy.rdf
+2014-11-27 18:05:09 TRACE LocatorFile:112 - Not found: file:etc/ont-policy.rdf
+2014-11-27 18:05:09 TRACE LocatorURL:48 - Not found : file:etc/ont-policy.rdf
+2014-11-27 18:05:09 TRACE LocatorClassLoader:67 - Failed to open: file:etc/ont-policy.rdf
+2014-11-27 18:05:09 TRACE LocatorFile:112 - Not found: ont-policy.rdf
+2014-11-27 18:05:09 TRACE LocatorURL:48 - Not found : ont-policy.rdf
+2014-11-27 18:05:09 TRACE LocatorClassLoader:72 - Found: ont-policy.rdf
+2014-11-27 18:05:09 DEBUG FileManager:530 - Found: ont-policy.rdf (ClassLoaderLocator)
+2014-11-27 18:18:09 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 18:18:09 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 18:18:10 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 18:18:10 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 18:18:10 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 18:18:10 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 18:18:10 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 18:18:10 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 18:18:10 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 18:18:10 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 18:18:10 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 18:18:10 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 18:18:10 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 18:18:10 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 18:18:10 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+2014-11-27 18:19:30 INFO  ProductCategorySettingsController:143 - setStartVisibilities()
+2014-11-27 18:19:30 TRACE SystemUtils:38 - Using thread classloader
+2014-11-27 18:19:30 TRACE LocatorFile:160 - Not found: location-mapping.ttl
+2014-11-27 18:19:30 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.ttl
+2014-11-27 18:19:30 TRACE LocatorFile:160 - Not found: location-mapping.rdf
+2014-11-27 18:19:30 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.rdf
+2014-11-27 18:19:30 TRACE LocatorFile:160 - Not found: location-mapping.n3
+2014-11-27 18:19:30 TRACE LocatorClassLoader:61 - Failed to open: location-mapping.n3
+2014-11-27 18:19:30 TRACE LocatorFile:160 - Not found: etc/location-mapping.rdf
+2014-11-27 18:19:30 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.rdf
+2014-11-27 18:19:30 TRACE LocatorFile:160 - Not found: etc/location-mapping.n3
+2014-11-27 18:19:30 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.n3
+2014-11-27 18:19:30 TRACE LocatorFile:160 - Not found: etc/location-mapping.ttl
+2014-11-27 18:19:30 TRACE LocatorClassLoader:61 - Failed to open: etc/location-mapping.ttl
+2014-11-27 18:19:30 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl

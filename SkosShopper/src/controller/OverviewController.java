@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.Socket;
@@ -44,6 +46,7 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import javax.swing.JOptionPane;
+import javax.xml.bind.JAXBException;
 
 import model.FusekiModel;
 import model.ServerImporter;
@@ -58,286 +61,381 @@ import com.hp.hpl.jena.ontology.OntDocumentManager;
 
 import exceptions.fuseki_exceptions.NoDatasetAccessorException;
 
-public class OverviewController implements Initializable{
-	
-	
+public class OverviewController implements Initializable {
+
 	/* JAVAFX COMPONENTS */
 	private RadioMenuItem btn_server_import, btn_file_import, btn_web_import;
-	@FXML private ComboBox<String> cb_save_graph;
-	@FXML private MenuButton btn_source;
-	@FXML private TextArea ta_log_field;
-	@FXML private TextField tf_dest_url, tf_curr_loaded_graph, tf_alt_url;
-	@FXML private Button btn_add_entry, btn_save_graph;
-	@FXML private TableView<String> tv_graph_uri;
-	@FXML private TableView<AltEntriesManager> tv_alt_entries;
-	@FXML private TableColumn<String, String> col_graph_uri;
-	@FXML private TableColumn<AltEntriesManager, String> col_dest_url;
-	@FXML private TableColumn<AltEntriesManager, String> col_alt_url;
-	private ObservableList<AltEntriesManager> altEntryList = FXCollections.observableArrayList();
-	private ObservableList<String> graphURIs = FXCollections.observableArrayList();
-	private final ObservableList<String> saveModelTo = FXCollections.observableArrayList();
-	@FXML	private Button startStopFuseki;
-	@FXML Button btnHome;
-	@FXML	private Label fusekiStatus;
-	@FXML Label lblIndividuals;
-	@FXML Label lblObjektProperties;
-	@FXML Label lblDataProperties;
-	@FXML Label lblClasses;
-	@FXML Label OverviewlblState;
-	@FXML WebView webView;
-	@FXML TextField txtFieldURL;
-	@FXML TextField OverviewtxtField;
-	@FXML Button OverviewbtnLoadFromStorage;
-	File localFile= null;
+	@FXML
+	private ComboBox<String> cb_save_graph;
+	@FXML
+	private MenuButton btn_source;
+	@FXML
+	private TextArea ta_log_field;
+	@FXML
+	private TextField tf_dest_url, tf_curr_loaded_graph, tf_alt_url;
+	@FXML
+	private Button btn_add_entry, btn_save_graph;
+	@FXML
+	private TableView<String> tv_graph_uri;
+	@FXML
+	private TableView<AltEntriesManager> tv_alt_entries;
+	@FXML
+	private TableColumn<String, String> col_graph_uri;
+	@FXML
+	private TableColumn<AltEntriesManager, String> col_dest_url;
+	@FXML
+	private TableColumn<AltEntriesManager, String> col_alt_url;
+	private ObservableList<AltEntriesManager> altEntryList = FXCollections
+			.observableArrayList();
+	private ObservableList<String> graphURIs = FXCollections
+			.observableArrayList();
+	private final ObservableList<String> saveModelTo = FXCollections
+			.observableArrayList();
+	@FXML
+	private Button startStopFuseki;
+	@FXML
+	Button btnHome;
+	@FXML
+	private Label fusekiStatus;
+	@FXML
+	Label lblIndividuals;
+	@FXML
+	Label lblObjektProperties;
+	@FXML
+	Label lblDataProperties;
+	@FXML
+	Label lblClasses;
+	@FXML
+	Label OverviewlblState;
+	@FXML
+	WebView webView;
+	@FXML
+	TextField txtFieldURL;
+	@FXML
+	TextField OverviewtxtField;
+	@FXML
+	Button OverviewbtnLoadFromStorage;
+	File localFile = null;
 	public static boolean modelLoaded = false;
 	ToggleGroup group = new ToggleGroup();
-	
+
 	WebEngine webEngine;
 	WebHistory webHistory;
 
-	
-	public static final Logger log = Logger.getLogger(SkosEditorController.class);
+	public static final Logger log = Logger
+			.getLogger(SkosEditorController.class);
 	private ArrayList<Entry> browserHistory = new ArrayList<WebHistory.Entry>();
 	public static OntDocumentManager mgr;
 
 	public void initialize(URL fxmlPath, ResourceBundle resources) {
 		// Initialize overview components
-		col_alt_url.setCellValueFactory(cellData -> cellData.getValue().altURLProperty());
-		col_dest_url.setCellValueFactory(cellData -> cellData.getValue().destURLProperty());
+
+		col_alt_url.setCellValueFactory(cellData -> cellData.getValue()
+				.altURLProperty());
+		col_dest_url.setCellValueFactory(cellData -> cellData.getValue()
+				.destURLProperty());
+
 		tv_alt_entries.setItems(altEntryList);
 		tv_graph_uri.setItems(graphURIs);
 		ta_log_field.setEditable(false);
 		tf_curr_loaded_graph.setStyle("-fx-text-inner-color: green;");
 		tf_curr_loaded_graph.setEditable(false);
-		saveModelTo.addAll("Add/Update Model from Server", "Replace Model from Server", "Save Model to File", "Discard Model");
+		saveModelTo.addAll("Add/Update Model from Server",
+				"Replace Model from Server", "Save Model to File",
+				"Discard Model");
 		cb_save_graph.setItems(saveModelTo);
-		
+
 		// Helpful for copy pasterino url at beginning
-		ta_log_field.setText("For copy pasterino:\nFuseki:\nhttp://localhost:3030/ds/data\nor sesame server:\nhttp://localhost:8080/openrdf-sesame/repositories/test");
-		
-		
+		ta_log_field
+				.setText("For copy pasterino:\nFuseki:\nhttp://localhost:3030/ds/data\nor sesame server:\nhttp://localhost:8080/openrdf-sesame/repositories/test");
+
 		setGraphTable();
 		setMenuButtons();
-		
 
 		webEngine = webView.getEngine();
 		webHistory = webEngine.getHistory();
 		webHistory.setMaxSize(3);
-		
-//		webHistory.getEntries().addListener(new ListChangeListener<WebHistory.Entry>(){
-//			public void onChanged(javafx.collections.ListChangeListener.Change<? extends Entry> c) {
-//				c.next();
-//				for (Entry e : c.getAddedSubList()) {
-//					browserHistory.add(e);
-//					url =e.getUrl();
-//					txtFieldURL.setText(url);
-//					System.out.println(e.getUrl());
-//				}
-//			}
-//		});
-	}
-	
-	
-	@FXML private void backButtonOnAction(ActionEvent event ){
-//		url = browserHistory.get(browserHistory.size()-2).getUrl();
-//		System.out.println("URRRRL"+url);
-//		for (Entry e : browserHistory) {
-//			System.out.println("LOLOL"+e.getUrl());
-//		}
-//		System.out.println();
-//		webEngine.load(url);
-//		txtFieldURL.setText(url);
-//		
+
+		// webHistory.getEntries().addListener(new
+		// ListChangeListener<WebHistory.Entry>(){
+		// public void onChanged(javafx.collections.ListChangeListener.Change<?
+		// extends Entry> c) {
+		// c.next();
+		// for (Entry e : c.getAddedSubList()) {
+		// browserHistory.add(e);
+		// url =e.getUrl();
+		// txtFieldURL.setText(url);
+		// System.out.println(e.getUrl());
+		// }
+		// }
+		// });
 	}
 
-	@FXML private void btnHomeOnAction(ActionEvent event){
-//		webEngine.load(initURL+port);
-//		txtFieldURL.setText(initURL+port);
+	@FXML
+	private void backButtonOnAction(ActionEvent event) {
+		// url = browserHistory.get(browserHistory.size()-2).getUrl();
+		// System.out.println("URRRRL"+url);
+		// for (Entry e : browserHistory) {
+		// System.out.println("LOLOL"+e.getUrl());
+		// }
+		// System.out.println();
+		// webEngine.load(url);
+		// txtFieldURL.setText(url);
+		//
 	}
-	
-	@FXML private void OverviewBtnLoadDataFromStorageOnAction(ActionEvent event){
+
+	@FXML
+	private void btnHomeOnAction(ActionEvent event) {
+		// webEngine.load(initURL+port);
+		// txtFieldURL.setText(initURL+port);
+	}
+
+	@FXML
+	private void OverviewBtnLoadDataFromStorageOnAction(ActionEvent event) {
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("Open Resource File");
 		localFile = fileChooser.showOpenDialog(null);
 	}
-	
-	@FXML public void adding_entry(ActionEvent event) {
+
+	@FXML
+	public void adding_entry(ActionEvent event) {
 		ta_log_field.clear();
 		try {
 			new URL(tf_dest_url.getText());
-			altEntryList.add(new AltEntriesManager(tf_dest_url.getText(), tf_alt_url.getText()));
-			mgr.addAltEntry(tf_dest_url.getText(), tf_alt_url.getText());
-		} catch(HttpException | MalformedURLException| RiotException e) {
+			altEntryList.add(new AltEntriesManager(tf_dest_url.getText(),
+					tf_alt_url.getText()));
+			ModelFacadeTEST.mgr.addAltEntry(tf_dest_url.getText(),
+					tf_alt_url.getText());
+		} catch (HttpException | MalformedURLException | RiotException e) {
 			ta_log_field.appendText(e.getMessage());
 		}
 	}
-	
-	@FXML public void saving_graph(ActionEvent event) {
-		if(modelLoaded) {
+
+	@FXML
+	public void saving_graph(ActionEvent event) {
+		if (modelLoaded) {
 			ta_log_field.clear();
 			// send model back to server (add/update)
-			if(cb_save_graph.getValue().equals(saveModelTo.get(0))) {
+			if (cb_save_graph.getValue().equals(saveModelTo.get(0))) {
 				// check if server is reachable
-				if(checkServerConnection()) {
-					ta_log_field.appendText("1. Trying to reach \"" + txtFieldURL.getText() + "\"\t... OK\n");
+				if (checkServerConnection()) {
+					ta_log_field.appendText("1. Trying to reach \""
+							+ txtFieldURL.getText() + "\"\t... OK\n");
 					// try to add/update model from server
-					if(ServerImporter.updateModelOfServer()) {
-						ta_log_field.appendText("2. Trying to add/update model: \"" + tf_curr_loaded_graph.getText() + "\"\t... OK\n");
+					if (ServerImporter.updateModelOfServer()) {
+						ta_log_field
+								.appendText("2. Trying to add/update model: \""
+										+ tf_curr_loaded_graph.getText()
+										+ "\"\t... OK\n");
 						ta_log_field.appendText("3. Transaction successful");
 						// add/update was ok
 						modelLoaded = false;
 					} else {
-					    JOptionPane.showMessageDialog(null, "Unable to add/update model of server\nYou should store your model locally or retry",
-					            null, JOptionPane.WARNING_MESSAGE);
+						JOptionPane
+								.showMessageDialog(
+										null,
+										"Unable to add/update model of server\nYou should store your model locally or retry",
+										null, JOptionPane.WARNING_MESSAGE);
 					}
 				} else {
-					ta_log_field.appendText("1. Trying to reach \"" + txtFieldURL.getText() + "\"\t... FAILED\n");
+					ta_log_field.appendText("1. Trying to reach \""
+							+ txtFieldURL.getText() + "\"\t... FAILED\n");
 				}
-			// send model back to server (replace)
-			} else if(cb_save_graph.getValue().equals(saveModelTo.get(1))) {
+				// send model back to server (replace)
+			} else if (cb_save_graph.getValue().equals(saveModelTo.get(1))) {
 				// check if server is reachable
-				if(checkServerConnection()) {
-				    JOptionPane.showMessageDialog(null, "This will replace the model which is stored in server\nCannot be undone!",
-				            null, JOptionPane.WARNING_MESSAGE);
-					ta_log_field.appendText("1. Trying to reach \"" + txtFieldURL.getText() + "\"\t... OK\n");
+				if (checkServerConnection()) {
+					JOptionPane
+							.showMessageDialog(
+									null,
+									"This will replace the model which is stored in server\nCannot be undone!",
+									null, JOptionPane.WARNING_MESSAGE);
+					ta_log_field.appendText("1. Trying to reach \""
+							+ txtFieldURL.getText() + "\"\t... OK\n");
 					// try to add/update model from server
-					if(ServerImporter.replaceModelOfServer()) {
-						ta_log_field.appendText("2. Trying to replace model: \"" + tf_curr_loaded_graph.getText() + "\"\t... OK\n");
+					if (ServerImporter.replaceModelOfServer()) {
+						ta_log_field
+								.appendText("2. Trying to replace model: \""
+										+ tf_curr_loaded_graph.getText()
+										+ "\"\t... OK\n");
 						ta_log_field.appendText("3. Transaction successful");
 						// add/update was ok
 						modelLoaded = false;
 					} else {
-					    JOptionPane.showMessageDialog(null, "Unable to replace model of server\nYou should store your model locally or retry",
-					            null, JOptionPane.WARNING_MESSAGE);
+						JOptionPane
+								.showMessageDialog(
+										null,
+										"Unable to replace model of server\nYou should store your model locally or retry",
+										null, JOptionPane.WARNING_MESSAGE);
 					}
 				} else {
-					ta_log_field.appendText("1. Trying to reach \"" + txtFieldURL.getText() + "\"\t... FAILED\n");
+					ta_log_field.appendText("1. Trying to reach \""
+							+ txtFieldURL.getText() + "\"\t... FAILED\n");
 				}
-			//save model to file
-			} else if(cb_save_graph.getValue().equals(saveModelTo.get(2))) {
+				// save model to file
+			} else if (cb_save_graph.getValue().equals(saveModelTo.get(2))) {
 				System.out.println("saving to file");
-			// Discard model
-			} else if(cb_save_graph.getValue().equals(saveModelTo.get(3))) {
+				// Discard model
+			} else if (cb_save_graph.getValue().equals(saveModelTo.get(3))) {
 				System.out.println("Model is getting deleted");
-			    int result = JOptionPane.showConfirmDialog(null, "Changes will be lost, cannot be undone!",
-			            "Warning: Discard Model", JOptionPane.OK_CANCEL_OPTION);
+				int result = JOptionPane.showConfirmDialog(null,
+						"Changes will be lost, cannot be undone!",
+						"Warning: Discard Model", JOptionPane.OK_CANCEL_OPTION);
 			}
 		} else {
-			//Warn the user that there is no model
-		    JOptionPane.showMessageDialog(null, "No model available to save",
-		            null, JOptionPane.WARNING_MESSAGE);
+			// Warn the user that there is no model
+			JOptionPane.showMessageDialog(null, "No model available to save",
+					null, JOptionPane.WARNING_MESSAGE);
 		}
 	}
-	
-	@FXML private void OverviewbtnReloadDatasetOnAction(ActionEvent event) throws Exception {
+
+	@FXML
+	private void OverviewbtnReloadDatasetOnAction(ActionEvent event)
+			throws Exception {
 		graphURIs.clear();
-		if(!modelLoaded) {
+		if (!modelLoaded) {
 			ta_log_field.clear();
-			if(btn_server_import.isSelected()) {
+			if (btn_server_import.isSelected()) {
 				try {
 					// check if URL is not malformed
 					new URL(txtFieldURL.getText());
 					ServerImporter imp = new ServerImporter();
 					imp.setServiceURI(txtFieldURL.getText());
-					
+
 					// check if server is reachable
-					if(checkServerConnection()) {
-						ta_log_field.appendText("1. Trying to reach \"" + txtFieldURL.getText() + "\"\t... OK\n");
+					if (checkServerConnection()) {
+						ta_log_field.appendText("1. Trying to reach \""
+								+ txtFieldURL.getText() + "\"\t... OK\n");
 						// Query server for graphs
-						if(imp.queryServerGraphs()) {
-							ta_log_field.appendText("2. Querrying Server Data to to retrieve named graphs\t... OK\n");
-							ta_log_field.appendText("3. Listing all founded named graphs\n");
-							
+						if (imp.queryServerGraphs()) {
+							ta_log_field
+									.appendText("2. Querrying Server Data to to retrieve named graphs\t... OK\n");
+							ta_log_field
+									.appendText("3. Listing all founded named graphs\n");
+
 							// add models to list of graphs
 							for (int i = 0; i < ServerImporter.graphList.size(); i++) {
-								if(!graphURIs.contains(ServerImporter.graphList.get(i))) {
-									graphURIs.add(ServerImporter.graphList.get(i));
-								}						
+								if (!graphURIs
+										.contains(ServerImporter.graphList
+												.get(i))) {
+									graphURIs.add(ServerImporter.graphList
+											.get(i));
+								}
 							}
 							// Transaction ok, load server page to web engine
 							ta_log_field.appendText("4. Transaction done");
 							URL url = new URL(ServerImporter.serviceURI);
-							webEngine.load("http://" + url.getHost() + ":" + url.getPort());
-							
+							webEngine.load("http://" + url.getHost() + ":"
+									+ url.getPort());
+
 						} else {
-							ta_log_field.appendText("2. Querrying Server Data to to retrieve named graphs\t... FAILED\n");
+							ta_log_field
+									.appendText("2. Querrying Server Data to to retrieve named graphs\t... FAILED\n");
 						}
 					} else {
-						ta_log_field.appendText("1. Trying to reach \"" + txtFieldURL.getText() + "\"\t... FAILED\n");
+						ta_log_field.appendText("1. Trying to reach \""
+								+ txtFieldURL.getText() + "\"\t... FAILED\n");
 					}
-				} catch(Exception e) {
+				} catch (Exception e) {
 					// not implemented yet
 				}
 			}
-			if(btn_file_import.isSelected()) {
-				
+			if (btn_file_import.isSelected()) {
+
 			}
-			if(btn_web_import.isSelected()) {
-				
+			if (btn_web_import.isSelected()) {
+
 			}
 		} else {
-		    JOptionPane.showMessageDialog(null, "There is already a model in process!",
-		            null, JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null,
+					"There is already a model in process!", null,
+					JOptionPane.WARNING_MESSAGE);
 		}
 	}
-	
+
 	public void setGraphTable() {
-		col_graph_uri.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<String,String>, ObservableValue<String>>() {
-			public ObservableValue<String> call(CellDataFeatures<String, String> param) {
-				return new ReadOnlyObjectWrapper<String>(param.getValue());
-			}
-		});
-		
-		col_graph_uri.setCellFactory(new Callback<TableColumn<String, String>, TableCell<String, String>>() {
-			public TableCell<String, String> call(TableColumn<String, String> param) {
-				final TableCell<String, String> tablecell = new TableCell<String, String>() {
-					protected void updateItem(String item, boolean empty) {
-						super.updateItem(item, empty);
-						if (!empty && item != null) {
-							setText(item);
-						} else {
-							setText(null);
-							setGraphic(null);
-						}
+		col_graph_uri
+				.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<String, String>, ObservableValue<String>>() {
+					public ObservableValue<String> call(
+							CellDataFeatures<String, String> param) {
+						return new ReadOnlyObjectWrapper<String>(param
+								.getValue());
 					}
-				};
-				
-				// Listener for table of graphs, double clicking a cell will import a model from server
-				tablecell.setOnMouseClicked(new EventHandler<MouseEvent>() {
-				public void handle(MouseEvent event) {
-					if (event.getButton().equals(MouseButton.PRIMARY)) {
-						if(event.getClickCount() == 2 && tablecell.getText() != null){
-							if(!modelLoaded) {
-								ta_log_field.clear();
-								if(ServerImporter.importNamedGraph(tablecell.getText())) {
-									ta_log_field.appendText("1. Trying to load named graph: \"" + tablecell.getText() + "\"\t... OK");
-									tf_curr_loaded_graph.setText(tablecell.getText());
-									try {
-										ModelFacadeTEST.loadModelFromServer(tablecell.getText());
-									} catch (NoDatasetAccessorException e) {
-										// TODO Auto-generated catch block
-									}
-									modelLoaded = true;
+				});
+
+		col_graph_uri
+				.setCellFactory(new Callback<TableColumn<String, String>, TableCell<String, String>>() {
+					public TableCell<String, String> call(
+							TableColumn<String, String> param) {
+						final TableCell<String, String> tablecell = new TableCell<String, String>() {
+							protected void updateItem(String item, boolean empty) {
+								super.updateItem(item, empty);
+								if (!empty && item != null) {
+									setText(item);
 								} else {
-									ta_log_field.appendText("1. Trying to load named graph: \"" + tablecell.getText() + "\"\t... FAILED");
+									setText(null);
+									setGraphic(null);
 								}
-							} else {
-								warnModelLoaded();
 							}
-						}
+						};
+
+						// Listener for table of graphs, double clicking a cell
+						// will import a model from server
+						tablecell
+								.setOnMouseClicked(new EventHandler<MouseEvent>() {
+									public void handle(MouseEvent event) {
+										if (event.getButton().equals(
+												MouseButton.PRIMARY)) {
+											if (event.getClickCount() == 2
+													&& tablecell.getText() != null) {
+												if (!modelLoaded) {
+													ta_log_field.clear();
+													if (ServerImporter
+															.importNamedGraph(tablecell
+																	.getText())) {
+														ta_log_field.appendText("1. Trying to load named graph: \""
+																+ tablecell
+																		.getText()
+																+ "\"\t... OK");
+														tf_curr_loaded_graph
+																.setText(tablecell
+																		.getText());
+														try {
+															ModelFacadeTEST
+																	.loadModelFromServer(tablecell
+																			.getText());
+														} catch (NoDatasetAccessorException e) {
+															// TODO
+															// Auto-generated
+															// catch block
+														}
+														modelLoaded = true;
+													} else {
+														ta_log_field.appendText("1. Trying to load named graph: \""
+																+ tablecell
+																		.getText()
+																+ "\"\t... FAILED");
+													}
+												} else {
+													warnModelLoaded();
+												}
+											}
+										}
+									}
+								});
+						return tablecell;
 					}
-				}
-			});
-				return tablecell;
-			}
-		});
+				});
 	}
-	
+
 	public void warnModelLoaded() {
-	    JOptionPane.showMessageDialog(null, "Another Model is currently in process! Please save the model or update the Model from Server",
-	            null, JOptionPane.WARNING_MESSAGE);
+		JOptionPane
+				.showMessageDialog(
+						null,
+						"Another Model is currently in process! Please save the model or update the Model from Server",
+						null, JOptionPane.WARNING_MESSAGE);
 	}
-	
+
 	public boolean checkServerConnection() {
 		try (Socket s = new Socket("localhost", 3030)) {
 			System.out.println("IS ONLINE");
@@ -346,7 +444,7 @@ public class OverviewController implements Initializable{
 		}
 		return false;
 	}
-	
+
 	public void setMenuButtons() {
 		group = new ToggleGroup();
 		btn_server_import = new RadioMenuItem("Server Import");
@@ -358,5 +456,22 @@ public class OverviewController implements Initializable{
 		btn_source.getItems().add(btn_server_import);
 		btn_source.getItems().add(btn_file_import);
 		btn_source.getItems().add(btn_web_import);
+	}
+
+	@FXML
+	void saveListbtnOnAction(ActionEvent event) throws JAXBException,
+			IOException {
+		try {
+			DataSaver ds = new DataSaver();
+			ds.SaveEntries(altEntryList);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	@FXML void loadListbtnOnAction(ActionEvent event) throws JAXBException{
+		altEntryList.addAll(new DataSaver().loadEntries());
+		tv_alt_entries.setItems(altEntryList);
 	}
 }
