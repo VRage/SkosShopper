@@ -1,5 +1,6 @@
 package model;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -8,6 +9,8 @@ import javafx.scene.control.ListCell;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
+import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
 
 import com.hp.hpl.jena.ontology.Individual;
 
@@ -15,19 +18,21 @@ public class IndividualSelectCell extends ListCell<Individual> {
     HBox hbox = new HBox();
     Label label = new Label("(empty)");
     Pane pane = new Pane();
-    Button button = new Button("X");
+    Button button = new Button();
     Individual lastItem;
 
-    public IndividualSelectCell() {
+    public IndividualSelectCell(ObservableList<Individual> in) {
         super();
         hbox.getChildren().addAll(label, pane, button);
         HBox.setHgrow(pane, Priority.ALWAYS);
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println(lastItem + " : " + event);
+                in.remove(lastItem);
             }
         });
+        label.setFont(new Font("System", 14));
+        button.setId("btndelIndi");
     }
 
     @Override

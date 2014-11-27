@@ -29,6 +29,7 @@ import javafx.util.Callback;
 
 import javax.swing.JOptionPane;
 
+import model.IndividualSelectCell;
 import model.ModelFacadeTEST;
 import model.IndividualChoiceCell;
 
@@ -168,14 +169,23 @@ public class SkosEditorController implements Initializable {
 		listviewCollectionChoise.setCellFactory(new Callback<ListView<Individual>, ListCell<Individual>>() {
             @Override
             public ListCell<Individual> call(ListView<Individual> param) {
-                return new IndividualChoiceCell();
+                return new IndividualChoiceCell(liste_selectedindis);
             }
         });
-		choiseBoxCollectionFilter.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+		
+		listviewCollectionSelected.setItems(liste_selectedindis);
+		listviewCollectionSelected.setCellFactory(new Callback<ListView<Individual>, ListCell<Individual>>() {
+            @Override
+            public ListCell<Individual> call(ListView<Individual> param) {
+                return new IndividualSelectCell(liste_selectedindis);
+            }
+        });
+		
+		choiseBoxCollectionFilter.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 			
 			@Override
-			public void changed(ObservableValue<? extends Number> arg0, Number arg1,
-					Number arg2) {
+			public void changed(ObservableValue<? extends String> arg0, String arg1,
+					String arg2) {
 				setFilteredItems();
 				
 			}
@@ -830,7 +840,7 @@ public class SkosEditorController implements Initializable {
 		String selected = choiseBoxCollectionFilter.getValue();
 		Individual ind = null;
 		
-		if(selected != localizedBundle.getString("noFilter"));{
+		if(selected != localizedBundle.getString("noFilter")){
 			ExtendedIterator i = model.listIndividuals();
 			//search for current individual
 			while(i.hasNext()){
@@ -857,6 +867,11 @@ public class SkosEditorController implements Initializable {
 					}
 				}
 			}
+		}else{
+			ExtendedIterator i = model.listIndividuals();
+			while(i.hasNext()){
+				liste_choicedindis.add((Individual)i.next());
+				}
 		}
 		listviewCollectionChoise.setItems(liste_choicedindis);
 	}

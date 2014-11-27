@@ -31,6 +31,7 @@ public class Main extends Application {
 			startup();
 			Main.root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"), bundleEN);
 			Main.scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource("/style/style.css").toExternalForm());
 			primaryStage.setScene(scene);	
 			primaryStage.show();
 
