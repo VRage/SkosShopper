@@ -14,18 +14,14 @@ import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.sun.xml.internal.txw2.annotation.XmlElement;
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class DataSaver {
 	File file ;
 	FileWriter fout;
 	FileInputStream fin;
-	XStream xstream;
+
 	public DataSaver()  {
 		// TODO Auto-generated constructor stub
-		xstream = new XStream(new DomDriver());
-		xstream.alias("Row", AltEntriesManager.class);
 		file = new File("./AltEntries.xml");
 	}
 	public void SaveEntries(List<AltEntriesManager> list) throws JAXBException, IOException {

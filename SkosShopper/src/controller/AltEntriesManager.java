@@ -1,9 +1,5 @@
 package controller;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
