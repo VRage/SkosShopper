@@ -155,7 +155,14 @@ public class OverviewController implements Initializable {
 		webEngine = webView.getEngine();
 		webHistory = webEngine.getHistory();
 		webHistory.setMaxSize(3);
-
+		try {
+			altEntryList.addAll(new DataSaver().loadEntries());
+			tv_alt_entries.setItems(altEntryList);
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		// webHistory.getEntries().addListener(new
 		// ListChangeListener<WebHistory.Entry>(){
 		// public void onChanged(javafx.collections.ListChangeListener.Change<?
@@ -471,7 +478,6 @@ public class OverviewController implements Initializable {
 
 	}
 	@FXML void loadListbtnOnAction(ActionEvent event) throws JAXBException{
-		altEntryList.addAll(new DataSaver().loadEntries());
-		tv_alt_entries.setItems(altEntryList);
+
 	}
 }

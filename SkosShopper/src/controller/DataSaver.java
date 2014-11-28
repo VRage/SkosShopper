@@ -22,7 +22,7 @@ public class DataSaver {
 
 	public DataSaver()  {
 		// TODO Auto-generated constructor stub
-		file = new File("./AltEntries.xml");
+		file = new File("./SaveData/AltEntries.xml");
 	}
 	public void SaveEntries(List<AltEntriesManager> list) throws JAXBException, IOException {
 		// TODO Auto-generated method stub
