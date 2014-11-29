@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 import javafx.beans.value.ChangeListener;
@@ -29,11 +30,12 @@ import javafx.util.Callback;
 
 import javax.swing.JOptionPane;
 
+import model.IndividualChoiceCell;
 import model.IndividualSelectCell;
 import model.ModelFacadeTEST;
-import model.IndividualChoiceCell;
 
 import org.apache.log4j.Logger;
+import org.eclipse.jetty.util.log.Log;
 
 import com.hp.hpl.jena.ontology.DatatypeProperty;
 import com.hp.hpl.jena.ontology.Individual;
@@ -105,6 +107,9 @@ public class SkosEditorController implements Initializable {
 	private ListView<Individual> listviewCollectionSelected;
 
 	private static final String COLLECTION = "Collection";
+	private static final String NARROWER   = "narrower";
+	private static final String MEMBER	   = "member";
+	private static final String TYPE       = "type";
 
 	// local j4log logger
 	public static final Logger log = Logger
@@ -692,8 +697,8 @@ public class SkosEditorController implements Initializable {
 		String collectionString = "/" + COLLECTION + "/";
 		String collectionNameString = baseNS + collectionString
 				+ textfieldCollectionName.getText();
-		String collectionLabelString = baseNS + "LabelForCollection"
-				+ textfieldCollectionName.getText();
+		String collectionLabelString = baseNS + "LabelForCollection";
+				//+ textfieldCollectionName.getText();
 		log.info(selectedOntClass == null);
 		if (model.getIndividual(collectionNameString) == null
 				&& selectedOntClass != null) {
@@ -715,7 +720,7 @@ public class SkosEditorController implements Initializable {
 					}
 					
 					// optional fill created collection with individuals and collections
-					insertElemsToCollection(model.getIndividual(collectionNameString), listviewCollectionSelected);
+					insertElemsToCollectionRecipe(model.getIndividual(collectionNameString), listviewCollectionSelected);
 				}
 				// not implemented yet!
 				else if (selectedOntClass.getLocalName().equals(
@@ -742,8 +747,35 @@ public class SkosEditorController implements Initializable {
 	}
 
 	/** supporting method to generalize the insertion of elems into a collection **/
-	private void insertElemsToCollection(Individual collection, ListView<Individual> elems){
-		//is the collection really a Collection item? 
+	private void insertElemsToCollectionRecipe(Individual collection, ListView<Individual> elems){
+		//is the listview not empty? otherwise we can skip the insertion
+		if(!elems.getItems().isEmpty()){
+			//is the collection really a Collection item? otherwise we should not execute this operation!
+			boolean collectionIsValid = false;
+			//StmtIterator iter = model.getIndividual(skosNS + COLLECTION).listProperties();
+			StmtIterator iter = collection.listProperties();
+			while(iter.hasNext()){
+				Statement statement = iter.next();
+				log.info(statement.getPredicate().getLocalName() +  "    " + statement.getObject().asResource().getLocalName());
+				if(statement.getPredicate().getLocalName().equals(TYPE) && statement.getObject().asResource().getLocalName().equals(COLLECTION)){ 
+					//collection is a Collection item
+					collectionIsValid = true;
+				}
+			}
+			log.info(collectionIsValid);
+			//only continue if you found out that collection is narrower Collection
+			if(collectionIsValid){
+				Iterator<Individual> i = elems.getItems().iterator();
+				while(i.hasNext()){
+					Individual indi = i.next();
+					ObjectProperty property = model.getObjectProperty(skosNS + MEMBER);
+					log.info(property.getURI());
+					model.add(collection, property, indi);
+				}
+			}
+			
+		}
+		
 	}
 
 	public void createLabelRecipe(String name, String description,
