@@ -715,7 +715,7 @@ public class SkosEditorController implements Initializable {
 					}
 					
 					// optional fill created collection with individuals and collections
-					insertToCollection();
+					insertElemsToCollection(model.getIndividual(collectionNameString), listviewCollectionSelected);
 				}
 				// not implemented yet!
 				else if (selectedOntClass.getLocalName().equals(
@@ -731,15 +731,19 @@ public class SkosEditorController implements Initializable {
 			log.error("Name for Collection already taken or No Ontclass selected!");
 		} // end if-else-case collection name already exist
 	}
-
 	@FXML
 	public void insertToCollection() {
-
+		
 	}
 
 	@FXML
 	public void deleteFromCollection() {
 
+	}
+
+	/** supporting method to generalize the insertion of elems into a collection **/
+	private void insertElemsToCollection(Individual collection, ListView<Individual> elems){
+		//is the collection really a Collection item? 
 	}
 
 	public void createLabelRecipe(String name, String description,
