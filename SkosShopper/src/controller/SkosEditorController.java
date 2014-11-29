@@ -23,9 +23,15 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 
 import javax.swing.JOptionPane;
@@ -35,7 +41,6 @@ import model.IndividualSelectCell;
 import model.ModelFacadeTEST;
 
 import org.apache.log4j.Logger;
-import org.eclipse.jetty.util.log.Log;
 
 import com.hp.hpl.jena.ontology.DatatypeProperty;
 import com.hp.hpl.jena.ontology.Individual;
@@ -86,7 +91,7 @@ public class SkosEditorController implements Initializable {
 	@FXML
 	private TextField txtfield_individiaulname;
 	@FXML
-	private TextField txtfield_IndiLabel;
+	private TextField txtfield_IndiLabel0;
 	@FXML
 	private TextField txtfield_editLabel;
 	@FXML
@@ -105,7 +110,23 @@ public class SkosEditorController implements Initializable {
 	private ListView<Individual> listviewCollectionChoise;
 	@FXML
 	private ListView<Individual> listviewCollectionSelected;
+	@FXML
+	private	VBox vboxAddPrefLabel;
+	@FXML
+	private ChoiceBox<String> choiceboxPrefLabel0;
+	@FXML
+	private Button btnAddPrefLabel0;
+	@FXML
+	private TextField txtfield_IndialtLabel;
+	@FXML
+	private TextArea txtarea_indiDescription;
+	@FXML
+	private TextField txtfield_imageURL;
+	@FXML
+	private ImageView imageConceptIndividual;
 
+	// String constant only to make arkadius happy
+	private static final String PREFIXLABEL = "LabelFor";
 	private static final String COLLECTION = "Collection";
 	private static final String NARROWER   = "narrower";
 	private static final String MEMBER	   = "member";
@@ -114,9 +135,8 @@ public class SkosEditorController implements Initializable {
 	// local j4log logger
 	public static final Logger log = Logger
 			.getLogger(SkosEditorController.class);
-
-	// String constant only to make arkadius happy
-	public static final String PREFIXLABEL = "LabelFor";
+	
+	private static int counter;
 
 	// Variables for the Ontology Class-Listview
 	private ObservableList<String> classes = FXCollections
@@ -158,7 +178,11 @@ public class SkosEditorController implements Initializable {
 	private ResourceBundle localizedBundle;
 
 	public void initialize(URL location, ResourceBundle resources) {
-
+		counter=1;
+		vboxAddPrefLabel.autosize();
+		
+		btnAddPrefLabel0.setId("btnaddtxtfields");
+		
 		label_uri2.setText("");
 		label_uri.setText(OntClassNS);
 
@@ -210,7 +234,7 @@ public class SkosEditorController implements Initializable {
 	@FXML
 	public void selectOntClass(MouseEvent e) {
 		if (!listview_classes.getSelectionModel().isEmpty()) {
-			txtfield_IndiLabel.setDisable(false);
+			txtfield_IndiLabel0.setDisable(false);
 			selectedOntClass = model.getOntClass(liste_classes.get(
 					listview_classes.getSelectionModel().getSelectedIndex())
 					.getURI());
@@ -227,7 +251,7 @@ public class SkosEditorController implements Initializable {
 				break;
 			case "Label":
 				acc_editLabel.setExpanded(true);
-				txtfield_IndiLabel.setDisable(true);
+				txtfield_IndiLabel0.setDisable(true);
 				btn_editLabel
 						.setText(localizedBundle.getString("btnEditLabel"));
 				break;
@@ -329,8 +353,8 @@ public class SkosEditorController implements Initializable {
 			if (model.getIndividual(baseNS + (antwort)) == null) {
 				model.createIndividual(baseNS + (antwort), selectedOntClass);
 
-				if (!txtfield_IndiLabel.getText().isEmpty()) {
-					createLabelRecipe("", txtfield_IndiLabel.getText(),
+				if (!txtfield_IndiLabel0.getText().isEmpty()) {
+					createLabelRecipe("", txtfield_IndiLabel0.getText(),
 							model.getIndividual(baseNS + (antwort)));
 				}
 				int length = baseNS.length();
@@ -388,7 +412,7 @@ public class SkosEditorController implements Initializable {
 				showAllIndividualsInChoicebox();
 				showIndividualsOfOntClass(selectedOntClass);
 
-				txtfield_IndiLabel.clear();
+				txtfield_IndiLabel0.clear();
 				txtfield_individiaulname.clear();
 			} else {
 				log.info("Individual already exist");
@@ -913,4 +937,34 @@ public class SkosEditorController implements Initializable {
 		}
 		listviewCollectionChoise.setItems(liste_choicedindis);
 	}
+	
+	@FXML public void displayImageFromURL(ActionEvent e){
+		imageConceptIndividual.setImage(new Image(txtfield_imageURL.getText()));
+	}
+	@FXML public void addLabelInputfields(ActionEvent e){
+		log.info("In method: addLabelInputfields");
+		
+		HBox newHBox = new HBox();
+		TextField newTextfield = new TextField();
+		Button newBtn = new Button();
+		Pane newPane = new Pane();
+		ChoiceBox<String> newChoiceBox = new ChoiceBox<String>();
+		
+		newTextfield.setId("txtfield"+counter);
+		newChoiceBox.setId("choicebox"+counter);
+		newHBox.setId("hbox"+counter);
+		newBtn.setId("btndeltxtfields");
+		
+		newBtn.setOnAction((event) -> {
+			vboxAddPrefLabel.getChildren().remove(newHBox);
+		});
+		newTextfield.setPromptText(localizedBundle.getString("prefLabel"));
+		newHBox.autosize();
+		newTextfield.setPrefWidth(231.0);
+		newTextfield.setMaxWidth(newTextfield.USE_COMPUTED_SIZE);
+		newPane.setPrefWidth(15.0);
+		newHBox.getChildren().addAll(newTextfield,newPane,newChoiceBox,newBtn);
+		vboxAddPrefLabel.getChildren().add(1,newHBox);
+	}
+	
 }
