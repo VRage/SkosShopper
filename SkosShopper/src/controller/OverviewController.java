@@ -130,6 +130,8 @@ public class OverviewController implements Initializable {
 	public void initialize(URL fxmlPath, ResourceBundle resources) {
 		// Initialize overview components
 
+		col_alt_url.prefWidthProperty().bind(tv_alt_entries.widthProperty().multiply(0.5f));
+		col_dest_url.prefWidthProperty().bind(tv_alt_entries.widthProperty().multiply(0.5f));
 		col_alt_url.setCellValueFactory(cellData -> cellData.getValue()
 				.altURLProperty());
 		col_dest_url.setCellValueFactory(cellData -> cellData.getValue()

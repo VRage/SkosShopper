@@ -21,6 +21,7 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 
+import controller.SKOSOntologyController;
 import controller.SkosEditorController;
 import exceptions.fuseki_exceptions.NoDatasetAccessorException;
 
@@ -86,6 +87,7 @@ public class ModelFacadeTEST implements Initializable
 	public static void notifyAllControllerSart() {
 		// All controller will be notified so they can start to get this model and work with it
 		SkosEditorController.startSKOSController(ontModel);
+		SKOSOntologyController.startSKOSOntologyController(ontModel);
 	}
 	
 	public static void loadModelFromServer(String graphURI) throws NoDatasetAccessorException{
