@@ -709,11 +709,13 @@ public class SkosEditorController implements Initializable {
 
 					// optional Label
 					if (!textfieldCollectionLabelName.getText().isEmpty()) {
-						model.getOntClass(skosxlNS + "Label").createIndividual(
-								collectionLabelString);
+						createLabelRecipe(collectionLabelString, textfieldCollectionLabelName.getText(),model.getIndividual(collectionNameString));
 					} else {
 						log.info("No Label given");
 					}
+					
+					// optional fill created collection with individuals and collections
+					insertToCollection();
 				}
 				// not implemented yet!
 				else if (selectedOntClass.getLocalName().equals(
