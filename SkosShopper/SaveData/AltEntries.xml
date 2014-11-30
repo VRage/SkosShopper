@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <altEntrieswrapper>
     <listEntryManager>
-        <altUrl>c://Downloads</altUrl>
-        <destUrl> http://www.w3.org/2008/05/skos-xl#</destUrl>
-    </listEntryManager>
-    <listEntryManager>
         <altUrl>c://Desktop/facebook.html</altUrl>
         <destUrl>http://facebook</destUrl>
     </listEntryManager>

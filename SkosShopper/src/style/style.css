@@ -32,3 +32,10 @@
     -fx-pref-height: 13;
 	-fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.5), 5, 0.0, 0, 5 );
 }
+.button{
+	-fx-background-color:#CCDDFF;
+}
+.button:hover{
+	-fx-background-color:#33B5E5;
+	-fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.5), 5, 0.0, 0, 5 );
+}

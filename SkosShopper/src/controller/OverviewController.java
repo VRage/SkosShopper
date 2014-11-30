@@ -22,6 +22,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
@@ -37,6 +38,8 @@ import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebHistory.Entry;
@@ -58,6 +61,7 @@ import org.apache.jena.riot.RiotException;
 import org.apache.log4j.Logger;
 
 import com.hp.hpl.jena.ontology.OntDocumentManager;
+import com.hp.hpl.jena.sparql.sse.Item;
 
 import exceptions.fuseki_exceptions.NoDatasetAccessorException;
 
@@ -130,8 +134,10 @@ public class OverviewController implements Initializable {
 	public void initialize(URL fxmlPath, ResourceBundle resources) {
 		// Initialize overview components
 
-		col_alt_url.prefWidthProperty().bind(tv_alt_entries.widthProperty().multiply(0.5f));
-		col_dest_url.prefWidthProperty().bind(tv_alt_entries.widthProperty().multiply(0.5f));
+		col_alt_url.prefWidthProperty().bind(
+				tv_alt_entries.widthProperty().multiply(0.5f));
+		col_dest_url.prefWidthProperty().bind(
+				tv_alt_entries.widthProperty().multiply(0.5f));
 		col_alt_url.setCellValueFactory(cellData -> cellData.getValue()
 				.altURLProperty());
 		col_dest_url.setCellValueFactory(cellData -> cellData.getValue()
@@ -164,6 +170,17 @@ public class OverviewController implements Initializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		MenuItem mdel = new MenuItem("delete");
+		mdel.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				// TODO Auto-generated method stub
+				tv_alt_entries.getItems().remove(
+				tv_alt_entries.getSelectionModel().getSelectedIndex());
+			}
+		});
+		tv_graph_uri.setContextMenu(new ContextMenu(mdel));
 		
 		// webHistory.getEntries().addListener(new
 		// ListChangeListener<WebHistory.Entry>(){
@@ -479,7 +496,13 @@ public class OverviewController implements Initializable {
 		}
 
 	}
-	@FXML void loadListbtnOnAction(ActionEvent event) throws JAXBException{
 
+	@FXML
+	void tvGraphOnMouseClicked(MouseEvent event) {
+		if (event.getButton().toString()=="SECONDARY") {
+			System.out.println("left");
+		tv_graph_uri.getContextMenu().show(tv_graph_uri,event.getScreenX(),event.getScreenY());	
+		}
 	}
+
 }
