@@ -4,6 +4,7 @@ package controller;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -31,6 +32,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 
@@ -42,6 +44,7 @@ import model.ModelFacadeTEST;
 
 import org.apache.log4j.Logger;
 
+import com.hp.hpl.jena.ontology.AnnotationProperty;
 import com.hp.hpl.jena.ontology.DatatypeProperty;
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.ObjectProperty;
@@ -53,6 +56,7 @@ import com.hp.hpl.jena.rdf.model.ResourceRequiredException;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
+import com.sun.org.apache.bcel.internal.generic.LCONST;
 
 /**
  * @author MARDJ-Project
@@ -137,7 +141,8 @@ public class SkosEditorController implements Initializable {
 			.getLogger(SkosEditorController.class);
 	
 	private static int counter;
-
+	private ObservableList<String> languages = FXCollections.observableArrayList("de","en","fr","it","ru","pl");
+	
 	// Variables for the Ontology Class-Listview
 	private ObservableList<String> classes = FXCollections
 			.observableArrayList();
@@ -173,14 +178,17 @@ public class SkosEditorController implements Initializable {
 	private String baseNS = "";
 	private String skosNS = "";
 	private String skosxlNS = "";
+	private String dctNS="";
 
 	// Localized Resource Bundle
 	private ResourceBundle localizedBundle;
 
 	public void initialize(URL location, ResourceBundle resources) {
+		localizedBundle = resources;
 		counter=1;
 		vboxAddPrefLabel.autosize();
-		
+		choiceboxPrefLabel0.setItems(languages);
+		choiceboxPrefLabel0.setValue(localizedBundle.getLocale().getLanguage());
 		btnAddPrefLabel0.setId("btnaddtxtfields");
 		
 		label_uri2.setText("");
@@ -191,7 +199,6 @@ public class SkosEditorController implements Initializable {
 
 		listview_indi.setItems(items);
 		listview_classes.setItems(classes);
-		localizedBundle = resources;
 
 
 		listviewCollectionChoise.setItems(liste_choicedindis);
@@ -297,7 +304,8 @@ public class SkosEditorController implements Initializable {
 			log.info("Skos NS set to: " + skosNS);
 			skosxlNS = model.getNsPrefixURI("skos-xl");
 			log.info("Skosxl NS set to: " + skosxlNS);
-
+			dctNS = model.getNsPrefixURI("dct");
+			log.info("dct NS set to: " + dctNS);
 			// showOPropertiesInChoicebox();
 			// showAllIndividualsInChoicebox();
 			showOntClassInTree();
@@ -346,7 +354,7 @@ public class SkosEditorController implements Initializable {
 	 * @param event
 	 */
 	@FXML
-	private void addIndi(ActionEvent event) {
+	private void createIndividualforConcept(ActionEvent event) {
 		if (!txtfield_individiaulname.getText().isEmpty()) {
 			log.info("start method addIndi");
 			String antwort = txtfield_individiaulname.getText();
@@ -354,8 +362,26 @@ public class SkosEditorController implements Initializable {
 				model.createIndividual(baseNS + (antwort), selectedOntClass);
 
 				if (!txtfield_IndiLabel0.getText().isEmpty()) {
-					createLabelRecipe("", txtfield_IndiLabel0.getText(),
+					createLabelRecipe("prefLabel","", txtfield_IndiLabel0.getText(), choiceboxPrefLabel0.getValue(),
 							model.getIndividual(baseNS + (antwort)));
+					for(int i=1; i<counter;i++){
+						HBox hboxx = (HBox)	vboxAddPrefLabel.getChildren().get(i);
+						TextField txtfield = (TextField) hboxx.getChildren().get(0);
+						ChoiceBox<String> choicebox = (ChoiceBox) hboxx.getChildren().get(2);
+						createLabelRecipe("prefLabel","", txtfield.getText(), choicebox.getValue(), model.getIndividual(baseNS + (antwort)));
+					}
+				}
+				if(!txtfield_IndialtLabel.getText().isEmpty())
+				{
+					createLabelRecipe("altLabel", "alternativ", txtfield_IndialtLabel.getText(), choiceboxPrefLabel0.getValue(), model.getIndividual(baseNS + (antwort)));
+				}
+				if(!txtfield_imageURL.getText().isEmpty()){
+					createDatapropertyNotation(txtfield_imageURL.getText(), model.getIndividual(baseNS + (antwort)));
+				}
+				if(!txtarea_indiDescription.getText().isEmpty()){
+					AnnotationProperty aprop = model.createAnnotationProperty(dctNS+"description");
+					log.info("aprop is: "+aprop.toString());
+					model.getIndividual(baseNS + (antwort)).addProperty(aprop, model.createLiteral(txtarea_indiDescription.getText(),choiceboxPrefLabel0.getValue()));
 				}
 				int length = baseNS.length();
 				String indinamespace = model.getIndividual(baseNS + (antwort))
@@ -414,6 +440,12 @@ public class SkosEditorController implements Initializable {
 
 				txtfield_IndiLabel0.clear();
 				txtfield_individiaulname.clear();
+//				try {
+//					printToConsole();
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
 			} else {
 				log.info("Individual already exist");
 			}
@@ -738,7 +770,7 @@ public class SkosEditorController implements Initializable {
 
 					// optional Label
 					if (!textfieldCollectionLabelName.getText().isEmpty()) {
-						createLabelRecipe(collectionLabelString, textfieldCollectionLabelName.getText(),model.getIndividual(collectionNameString));
+						createLabelRecipe("prefLabel",collectionLabelString, textfieldCollectionLabelName.getText(),"de",model.getIndividual(collectionNameString));
 					} else {
 						log.info("No Label given");
 					}
@@ -802,7 +834,7 @@ public class SkosEditorController implements Initializable {
 		
 	}
 
-	public void createLabelRecipe(String name, String description,
+	public void createLabelRecipe(String Objectproperty, String name, String description, String language,
 			Individual toindividual) {
 		String labelname = toindividual.getLocalName();
 		model.getOntClass(skosxlNS + "Label").createIndividual(
@@ -812,8 +844,8 @@ public class SkosEditorController implements Initializable {
 		DatatypeProperty dprop = model.getDatatypeProperty(skosxlNS
 				+ "literalForm");
 		log.info("datatypeProp" + dprop.getLocalName());
-		indi.addProperty(dprop, model.createLiteral(description, "de"));
-		ObjectProperty Oprop = model.getObjectProperty(skosxlNS + "prefLabel");
+		indi.addProperty(dprop, model.createLiteral(description, language));
+		ObjectProperty Oprop = model.getObjectProperty(skosxlNS + Objectproperty);
 		model.add(toindividual, Oprop, indi);
 
 	}
@@ -838,7 +870,7 @@ public class SkosEditorController implements Initializable {
 										"de");
 					}
 				} else {
-					createLabelRecipe("", txtfield_editLabel.getText(),
+					createLabelRecipe("prefLabel","", txtfield_editLabel.getText(),"de",
 							selectedIndividual);
 				}
 			} else if (selectedOntClass.getLocalName().contains("Label")) {
@@ -943,28 +975,55 @@ public class SkosEditorController implements Initializable {
 	}
 	@FXML public void addLabelInputfields(ActionEvent e){
 		log.info("In method: addLabelInputfields");
-		
-		HBox newHBox = new HBox();
-		TextField newTextfield = new TextField();
-		Button newBtn = new Button();
-		Pane newPane = new Pane();
-		ChoiceBox<String> newChoiceBox = new ChoiceBox<String>();
-		
-		newTextfield.setId("txtfield"+counter);
-		newChoiceBox.setId("choicebox"+counter);
-		newHBox.setId("hbox"+counter);
-		newBtn.setId("btndeltxtfields");
-		
-		newBtn.setOnAction((event) -> {
-			vboxAddPrefLabel.getChildren().remove(newHBox);
-		});
-		newTextfield.setPromptText(localizedBundle.getString("prefLabel"));
-		newHBox.autosize();
-		newTextfield.setPrefWidth(231.0);
-		newTextfield.setMaxWidth(newTextfield.USE_COMPUTED_SIZE);
-		newPane.setPrefWidth(15.0);
-		newHBox.getChildren().addAll(newTextfield,newPane,newChoiceBox,newBtn);
-		vboxAddPrefLabel.getChildren().add(1,newHBox);
+		if(counter<languages.size()){
+			HBox newHBox = new HBox();
+			TextField newTextfield = new TextField();
+			Button newBtn = new Button();
+			Pane newPane = new Pane();
+			ChoiceBox<String> newChoiceBox = new ChoiceBox<String>();
+			
+			newChoiceBox.setItems(languages);
+			newBtn.setId("btndeltxtfields");
+			HBox.setHgrow(newTextfield, Priority.ALWAYS);
+			newChoiceBox.setPrefWidth(154.0);
+			
+			newBtn.setOnAction((event) -> {
+				vboxAddPrefLabel.getChildren().remove(newHBox);
+				counter--;
+			});
+			newTextfield.setPromptText(localizedBundle.getString("prefLabel"));
+			newHBox.autosize();
+			newTextfield.setPrefWidth(231.0);
+			newTextfield.setMaxWidth(newTextfield.USE_COMPUTED_SIZE);
+			newPane.setPrefWidth(15.0);
+			newHBox.getChildren().addAll(newTextfield,newPane,newChoiceBox,newBtn);
+			vboxAddPrefLabel.getChildren().add(1,newHBox);
+			counter++;
+		}
 	}
+	
+	public void createDatapropertyNotation(String description, Individual indi){
+		
+		DatatypeProperty dprop = model.getDatatypeProperty(skosNS
+				+ "notation");
+		log.info("datatypeProp" + dprop.getLocalName());
+		indi.addProperty(dprop, model.createLiteral(description));
+	}
+	
+//	private void printToConsole() throws IOException {
+//		File file =null ;
+//		FileOutputStream out = null;
+//		try {
+//			file = new File("./RDFDaten/outputfromProgramm.owl");
+//			out = new FileOutputStream(file);
+//			model.write(out, "RDF/XML");
+//			log.info("label hinzufügen");
+//
+//		} finally{
+//			out.close();
+//		}
+//
+//	}
+
 	
 }

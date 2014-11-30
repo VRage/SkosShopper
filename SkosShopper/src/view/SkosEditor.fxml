@@ -32,7 +32,7 @@
                         <AnchorPane prefHeight="211.0" prefWidth="479.0">
                            <children>
                               <TextField fx:id="txtfield_individiaulname" layoutX="28.0" layoutY="215.0" prefHeight="25.0" prefWidth="231.0" promptText="%name" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="215.0" />
-                              <Button fx:id="btn_addIndividual" layoutX="279.0" layoutY="215.0" mnemonicParsing="false" onAction="#addIndi" prefHeight="25.0" prefWidth="174.0" text="%btnAddIndividual" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="215.0" />
+                              <Button fx:id="btn_addIndividual" layoutX="279.0" layoutY="215.0" mnemonicParsing="false" onAction="#createIndividualforConcept" prefHeight="25.0" prefWidth="174.0" text="%btnAddIndividual" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="215.0" />
                               <TextArea editable="false" layoutX="31.6" layoutY="20.0" prefHeight="168.0" prefWidth="427.0" text="%Individualexample" wrapText="true" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" />
                               <VBox fx:id="vboxAddPrefLabel" layoutX="40.6" layoutY="267.0" prefHeight="205.0" prefWidth="416.0" spacing="5.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0">
                                  <children>
@@ -40,16 +40,23 @@
                                        <children>
                                           <TextField fx:id="txtfield_IndiLabel0" prefHeight="25.0" prefWidth="231.0" promptText="%prefLabel" HBox.hgrow="ALWAYS" />
                                           <Pane maxWidth="15.0" minHeight="-Infinity" minWidth="15.0" prefHeight="0.0" prefWidth="15.0" HBox.hgrow="ALWAYS" />
-                                          <ChoiceBox fx:id="choiceboxPrefLabel0" prefHeight="25.0" prefWidth="147.0" />
+                                          <ChoiceBox fx:id="choiceboxPrefLabel0" prefHeight="25.0" prefWidth="154.0" />
                                           <Button fx:id="btnAddPrefLabel0" mnemonicParsing="false" onAction="#addLabelInputfields" />
                                        </children>
                                     </HBox>
                                     <TextField fx:id="txtfield_IndialtLabel" prefHeight="0.0" prefWidth="416.0" promptText="%altLabel" />
                                     <AnchorPane prefHeight="113.0" prefWidth="397.0">
                                        <children>
-                                          <TextArea fx:id="txtarea_indiDescription" prefHeight="88.0" prefWidth="231.0" promptText="%txtAreaDescription" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="185.0" />
-                                          <ImageView fx:id="imageConceptIndividual" fitHeight="141.0" fitWidth="182.0" layoutX="229.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" />
-                                          <TextField fx:id="txtfield_imageURL" layoutY="95.0" onAction="#displayImageFromURL" prefHeight="25.0" prefWidth="231.0" promptText="%imageURL" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="185.0" />
+                                          <TextArea fx:id="txtarea_indiDescription" prefHeight="110.0" prefWidth="234.0" promptText="%txtAreaDescription" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="185.0" />
+                                          <Pane layoutX="234.0" style="-fx-border-color: black;" AnchorPane.rightAnchor="0.0">
+                                             <children>
+                                                <ImageView fx:id="imageConceptIndividual" fitHeight="141.0" fitWidth="182.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" />
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                             </opaqueInsets>
+                                          </Pane>
+                                          <TextField fx:id="txtfield_imageURL" layoutY="117.0" onAction="#displayImageFromURL" prefHeight="25.0" prefWidth="231.0" promptText="%imageURL" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="185.0" />
                                        </children>
                                     </AnchorPane>
                                  </children>
