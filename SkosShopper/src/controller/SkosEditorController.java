@@ -30,6 +30,7 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -234,12 +235,20 @@ public class SkosEditorController implements Initializable {
                 /* show to the user that it is an actual gesture target */
                 if (event.getGestureSource() != imageConceptIndividual &&
                         event.getDragboard().hasString()) {  
-                	txtfield_imageURL.setText(event.getDragboard().getString());
+                	try {
+                		imageConceptIndividual.setImage(event.getDragboard().getImage());
+                    	txtfield_imageURL.setText(event.getDragboard().getString());
+                	} catch (Exception e) {
+						// TODO: handle exception
+					}
+                	
+
                 }
                 
                 event.consume();
             }
         });
+
 	}
 
 	/**
