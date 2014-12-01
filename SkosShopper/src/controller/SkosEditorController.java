@@ -27,6 +27,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
@@ -46,13 +48,34 @@ import model.ModelFacadeTEST;
 
 import org.apache.log4j.Logger;
 
+import sun.rmi.runtime.NewThreadAction;
+
+import com.hp.hpl.jena.datatypes.RDFDatatype;
+import com.hp.hpl.jena.graph.Node;
+import com.hp.hpl.jena.ontology.AllDifferent;
 import com.hp.hpl.jena.ontology.AnnotationProperty;
+import com.hp.hpl.jena.ontology.DataRange;
 import com.hp.hpl.jena.ontology.DatatypeProperty;
+import com.hp.hpl.jena.ontology.FunctionalProperty;
 import com.hp.hpl.jena.ontology.Individual;
+import com.hp.hpl.jena.ontology.InverseFunctionalProperty;
 import com.hp.hpl.jena.ontology.ObjectProperty;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntProperty;
 import com.hp.hpl.jena.ontology.OntResource;
+import com.hp.hpl.jena.ontology.Ontology;
+import com.hp.hpl.jena.ontology.Profile;
+import com.hp.hpl.jena.ontology.Restriction;
+import com.hp.hpl.jena.ontology.SymmetricProperty;
+import com.hp.hpl.jena.ontology.TransitiveProperty;
+import com.hp.hpl.jena.rdf.model.AnonId;
+import com.hp.hpl.jena.rdf.model.Literal;
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.NodeIterator;
+import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.RDFNode;
+import com.hp.hpl.jena.rdf.model.RDFVisitor;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.ResourceRequiredException;
 import com.hp.hpl.jena.rdf.model.Statement;
@@ -84,7 +107,7 @@ public class SkosEditorController implements Initializable {
 	@FXML
 	private ListView<String> listview_classes;
 	@FXML
-	private ListView<String> listview_indi;
+	private TreeView<Individual> treeview_indi;
 	@FXML
 	private ListView<String> listview_objprop;
 	@FXML
@@ -195,10 +218,14 @@ public class SkosEditorController implements Initializable {
 		label_uri2.setText("");
 		label_uri.setText(OntClassNS);
 
-		listview_indi.setCursor(Cursor.HAND);
+		treeview_indi.setCursor(Cursor.HAND);
 		listview_classes.setCursor(Cursor.HAND);
-
-		listview_indi.setItems(items);
+//		TreeItem<String> TItem = new TreeItem<String>();
+//		for (String indi : items) {
+//			TItem.getChildren().add(new TreeItem<String>(indi));
+//		}
+//		
+//		treeview_indi.setRoot(TItem);
 		listview_classes.setItems(classes);
 
 
@@ -496,6 +523,19 @@ public class SkosEditorController implements Initializable {
 				items.add(indivi.getLocalName());
 
 			}
+			/*
+			 * Matze Code
+			 */
+			treeview_indi.setShowRoot(false);
+			TreeItem root = new TreeItem<Individual>();
+			
+			for (Individual indy : liste_indi) {
+				indy.hasProperty(model.getObjectProperty(skosxlNS+"narrower"));
+				TreeItem t = new TreeItem<Individual>(indy);
+				t.setGraphic(new Label(indy.getLocalName()));
+				root.getChildren().add(t);
+			}
+			treeview_indi.setRoot(root);
 		} else {
 			items.clear();
 			liste_indi.clear();
@@ -577,13 +617,21 @@ public class SkosEditorController implements Initializable {
 	 */
 	@FXML
 	private void selectIndividualOfOntClass(MouseEvent event) {
-		if (!listview_indi.getSelectionModel().isEmpty()) {
-			selectedIndividual = model.getIndividual(liste_indi.get(
-					listview_indi.getSelectionModel().getSelectedIndex())
-					.getURI());
-			label_uri2.setText(liste_indi.get(
-					listview_indi.getSelectionModel().getSelectedIndex())
-					.getURI());
+		System.out.println("Bla");
+		if (!treeview_indi.getSelectionModel().isEmpty()) {
+//			selectedIndividual = model.getIndividual(liste_indi.get(
+//					treeview_indi.getSelectionModel().getSelectedIndex())
+//					.getURI());
+//			label_uri2.setText(liste_indi.get(
+//					treeview_indi.getSelectionModel().getSelectedIndex())
+//					.getURI());
+			
+			selectedIndividual =treeview_indi.getSelectionModel().getSelectedItem().getValue();
+					/*model.getIndividual(
+					liste_indi.get(liste_indi.indexOf(treeview_indi.getSelectionModel().getSelectedItem().getValue())).getURI());*/
+			label_uri2.setText(selectedIndividual.getURI());
+			
+		label_uri2.setText(selectedIndividual.getURI());
 
 			showObjectProperties(selectedIndividual);
 			showDataProperties(selectedIndividual);
@@ -620,7 +668,7 @@ public class SkosEditorController implements Initializable {
 			if (event.getClickCount() == 2) {
 				String selected = model.getIndividual(
 						liste_indi.get(
-								listview_indi.getSelectionModel()
+								treeview_indi.getSelectionModel()
 										.getSelectedIndex()).getURI())
 						.getLocalName();
 				int delete = JOptionPane.showConfirmDialog(null,
@@ -630,7 +678,7 @@ public class SkosEditorController implements Initializable {
 				if (delete == JOptionPane.YES_OPTION) {
 					model.getIndividual(
 							liste_indi.get(
-									listview_indi.getSelectionModel()
+									treeview_indi.getSelectionModel()
 											.getSelectedIndex()).getURI())
 							.remove();
 					showIndividualsOfOntClass(selectedOntClass);
