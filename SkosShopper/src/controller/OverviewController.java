@@ -218,9 +218,7 @@ public class OverviewController implements Initializable {
 
 	@FXML
 	private void OverviewBtnLoadDataFromStorageOnAction(ActionEvent event) {
-		FileChooser fileChooser = new FileChooser();
-		fileChooser.setTitle("Open Resource File");
-		localFile = fileChooser.showOpenDialog(null);
+		
 	}
 
 	@FXML
@@ -367,7 +365,11 @@ public class OverviewController implements Initializable {
 				}
 			}
 			if (btn_file_import.isSelected()) {
-
+				FileChooser fileChooser = new FileChooser();
+				fileChooser.setTitle("Open Resource File");
+				localFile = fileChooser.showOpenDialog(null);
+				ModelFacadeTEST.loadModelFromLocal(localFile);
+				ta_log_field.setText(ModelFacadeTEST.modelToString());
 			}
 			if (btn_web_import.isSelected()) {
 

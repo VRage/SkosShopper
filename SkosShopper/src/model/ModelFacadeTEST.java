@@ -1,8 +1,11 @@
 package model;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.ResourceBundle;
@@ -55,13 +58,25 @@ public class ModelFacadeTEST implements Initializable
 		// TODO Auto-generated method stub
 		aktState = ms;
 	}
-	public  static void loadModelFromLocal(String filePath) {
+	public  static void loadModelFromLocal(File file) throws IOException {
 		// TODO Auto-generated method stub
+		Path input = Paths.get(file.getAbsolutePath());
 		ontModel = ModelFactory.createOntologyModel(ontSpec);
-		//model = ModelFactory.createDefaultModel();
-	//	InputStream in = FileManager.get().open(filePath.getAbsolutePath());
 
-		ontModel.read(filePath);
+		if(file.getAbsolutePath().contains(".rdf")){
+
+			ontModel.read(input.toUri().toString(),"RDF/XML");
+			log.info("RDF File loaded");
+		}
+		else if(file.getAbsolutePath().contains(".ttl")){
+			ontModel.read(input.toUri().toString(),"TURTLE");
+		}
+		else {
+//			ontModel.read(filePath,"TURTLE");
+			ontModel.read(input.toUri().toString());
+			log.info("TURTLE File loaded");
+		}
+		setState(ModelState.LOCAL);
 
 		
 	}
