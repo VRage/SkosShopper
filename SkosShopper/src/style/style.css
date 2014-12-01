@@ -53,10 +53,10 @@
 	-fx-background-color:#33B5E5;
 }
 
-.chombo-box{
+.combo-box{
 	-fx-background-color:#CCDDFF;
 }
-.chombo-box:hover{
+.combo-box:hover{
 	-fx-background-color:#33B5E5;
-	-fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.5), 5, 0.0, 0, 5 );
+
 }
