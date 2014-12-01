@@ -13,7 +13,7 @@
    <children>
       <Label layoutX="231.0" layoutY="14.0" text="ClassURI:" />
       <Label fx:id="label_uri" layoutX="313.0" layoutY="14.0" prefHeight="17.0" prefWidth="358.0" text="adress" AnchorPane.leftAnchor="313.0" />
-      <TreeView fx:id="treeview_indi" layoutX="7.0" layoutY="281.0" onMouseClicked="#selectIndividualOfOntClass" prefHeight="153.0" prefWidth="218.0" style="-fx-border-color: #000000;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="7.0" />
+      <TreeView fx:id="treeview_indi" layoutX="7.0" layoutY="281.0" onMouseClicked="#selectIndividualOfOntClass" prefHeight="397.0" prefWidth="231.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="286.0" />
       <Label fx:id="label_uri2" layoutX="313.0" layoutY="31.0" prefHeight="17.0" prefWidth="358.0" text="Individuals" />
       <Label layoutX="231.0" layoutY="31.0" text="IndividualURI:" />
       <Label layoutX="14.0" layoutY="259.0" text="%IndiOfClass" />
@@ -50,7 +50,10 @@
                                           <TextArea fx:id="txtarea_indiDescription" prefHeight="110.0" prefWidth="234.0" promptText="%txtAreaDescription" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="185.0" />
                                           <Pane layoutX="234.0" style="-fx-border-color: black;" AnchorPane.rightAnchor="0.0">
                                              <children>
-                                                <ImageView fx:id="imageConceptIndividual" fitHeight="141.0" fitWidth="182.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" />
+                                                <ImageView fx:id="imageConceptIndividual" fitHeight="141.0" fitWidth="182.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0">
+                                                   <image>
+                                                      <Image url="@../../drawable/DROP.png" />
+                                                   </image></ImageView>
                                              </children>
                                              <opaqueInsets>
                                                 <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
