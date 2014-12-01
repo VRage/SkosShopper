@@ -166,7 +166,7 @@ public class OverviewController implements Initializable {
 		try {
 			altEntryList.addAll(new DataSaver().loadEntries());
 			tv_alt_entries.setItems(altEntryList);
-		} catch (JAXBException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
