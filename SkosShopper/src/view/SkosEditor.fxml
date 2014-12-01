@@ -40,8 +40,8 @@
                                        <children>
                                           <TextField fx:id="txtfield_IndiLabel0" prefHeight="25.0" prefWidth="231.0" promptText="%prefLabel" HBox.hgrow="ALWAYS" />
                                           <Pane maxWidth="15.0" minHeight="-Infinity" minWidth="15.0" prefHeight="0.0" prefWidth="15.0" HBox.hgrow="ALWAYS" />
-                                          <ChoiceBox fx:id="choiceboxPrefLabel0" prefHeight="25.0" prefWidth="154.0" />
-                                          <Button fx:id="btnAddPrefLabel0" mnemonicParsing="false" onAction="#addLabelInputfields" />
+                                          <ChoiceBox fx:id="choiceboxPrefLabel0" prefHeight="25.0" prefWidth="144.0" />
+                                          <Button fx:id="btnAddPrefLabel0" mnemonicParsing="false" onAction="#addLabelInputfields" prefWidth="30.0" />
                                        </children>
                                     </HBox>
                                     <TextField fx:id="txtfield_IndialtLabel" prefHeight="0.0" prefWidth="416.0" promptText="%altLabel" />

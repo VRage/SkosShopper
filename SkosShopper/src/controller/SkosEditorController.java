@@ -1008,8 +1008,8 @@ public class SkosEditorController implements Initializable {
 			newChoiceBox.setItems(languages);
 			newBtn.setId("btndeltxtfields");
 			HBox.setHgrow(newTextfield, Priority.ALWAYS);
-			newChoiceBox.setPrefWidth(154.0);
-			
+			newChoiceBox.setPrefWidth(144.0);
+			newBtn.setPrefWidth(30.0);
 			newBtn.setOnAction((event) -> {
 				vboxAddPrefLabel.getChildren().remove(newHBox);
 				counter--;

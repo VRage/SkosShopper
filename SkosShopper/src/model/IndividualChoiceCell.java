@@ -33,6 +33,8 @@ public class IndividualChoiceCell extends ListCell<Individual> {
             	}
             }
         });
+        button.setPrefHeight(20.0);
+        button.setPrefWidth(20.0);
         label.setFont(new Font("System", 14));
         button.setId("btnaddIndi");
     }
