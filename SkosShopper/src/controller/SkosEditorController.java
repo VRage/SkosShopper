@@ -26,6 +26,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
+import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.image.Image;
@@ -43,6 +44,7 @@ import javax.swing.JOptionPane;
 
 import model.IndividualChoiceCell;
 import model.IndividualSelectCell;
+import model.IndividualofOntClassCell;
 import model.ModelFacadeTEST;
 
 import org.apache.log4j.Logger;
@@ -239,7 +241,14 @@ public class SkosEditorController implements Initializable {
 						return new IndividualChoiceCell(liste_selectedindis);
 					}
 				});
+		treeview_indi.setCellFactory(new Callback<TreeView<Individual>, TreeCell<Individual>>() {
 
+			@Override
+			public TreeCell<Individual> call(TreeView<Individual> param) {
+				// TODO Auto-generated method stub
+				return new IndividualofOntClassCell(param);
+			}
+		});
 		listviewCollectionSelected.setItems(liste_selectedindis);
 		listviewCollectionSelected
 				.setCellFactory(new Callback<ListView<Individual>, ListCell<Individual>>() {
