@@ -46,6 +46,7 @@ import model.IndividualSelectCell;
 import model.ModelFacadeTEST;
 
 import org.apache.log4j.Logger;
+import org.eclipse.jetty.util.log.Log;
 
 import sun.rmi.runtime.NewThreadAction;
 
@@ -522,6 +523,59 @@ public class SkosEditorController implements Initializable {
 		}
 	}
 
+	private TreeItem<Individual> showIndividualsOfOntClassRecursive(OntClass oclass, TreeItem<Individual> root){
+		ExtendedIterator<? extends OntResource> indilist = oclass
+				.listInstances();
+		
+		while(indilist.hasNext()){
+			Individual next =(Individual) indilist.next();
+			TreeItem<Individual> elem = generateSubTreeFromBehindLikeJakobLikesIt(oclass, next, null);
+			addToExistingTreeView(root, elem);
+		}
+		return root;
+	}
+	private void addToExistingTreeView(TreeItem<Individual> root, TreeItem<Individual> item){
+		Iterator<TreeItem<Individual>> children  = root.getChildren().iterator();
+		boolean containsElemntAlready = false;
+		while(children.hasNext()){
+			TreeItem<Individual> child = children.next();
+			if(child.getValue().getLocalName().equals(item.getValue().getLocalName())){ //item already exists -> go deeper jakob
+				containsElemntAlready = true;
+				if(item.getChildren().size() > 0){	
+					log.info(child.getChildren().size());
+					addToExistingTreeView(child, item.getChildren().get(0)); //there is only one element in this list or none
+				}
+			}
+		}
+		
+		//Rekursion or not, thats the question
+		if(containsElemntAlready == false){
+			root.getChildren().add(item);
+		}
+	}
+	
+	private TreeItem<Individual> generateSubTreeFromBehindLikeJakobLikesIt(OntClass oclass, Individual i, TreeItem<Individual> child){
+		if(child == null) { //start of the recursion
+			child = new TreeItem<Individual>();
+			child.setValue(i);
+			return generateSubTreeFromBehindLikeJakobLikesIt(oclass, i, child);
+		}
+		else{ //search for parents or return the final tree
+			ExtendedIterator<? extends OntResource> elems = oclass
+					.listInstances();
+			while(elems.hasNext()){
+				Individual current = (Individual) elems.next();
+				ArrayList<Resource> narrowerElems = getIndividualsbyObjectProperty(current, NARROWER);
+				if(narrowerElems != null && narrowerElems.contains(i)){
+					TreeItem<Individual> parent = new TreeItem<Individual>();
+					parent.setValue(current);
+					parent.getChildren().add(child);
+					return generateSubTreeFromBehindLikeJakobLikesIt(oclass, current, parent);
+				}
+			}
+		}
+		return child;
+	}
 	/**
 	 * 
 	 * Shows all Individuals of selected Ontology Class in a Listview
@@ -535,42 +589,12 @@ public class SkosEditorController implements Initializable {
 			liste_indi.clear();
 			selectedIndividual = null;
 
-			ExtendedIterator<? extends OntResource> indilist = oclass
-					.listInstances();
 			TreeItem<Individual> root = new TreeItem<Individual>();
-			while (indilist.hasNext()) {
-				Individual indivi = (Individual) indilist.next();
-				liste_indi.add(indivi);
-				items.add(indivi.getLocalName());
-				log.info("filling treeview");
-				TreeItem<Individual> treeindi = new TreeItem<Individual>(indivi);
-				ArrayList<Resource> arraylist = getIndividualsbyObjectProperty(indivi, NARROWER);
-				if(arraylist != null)
-				{
-					Iterator<Resource> iter = arraylist.iterator();
-					while(iter.hasNext()){
-						boolean found =false;
-						Resource res = (Resource) iter.next();
-						Individual resindi = model.getIndividual(res.getURI());
-						TreeItem<Individual> leaf = new TreeItem<Individual>(resindi);
-						for(TreeItem<Individual> bla : root.getChildren()){
-							if(bla.getValue().equals(resindi)){
-								log.info("found!!!");
-								treeindi.getChildren().add(bla);
-								leaf = bla;
-								found = true;
-								break;
-							}
-						}
-						if(found){
-							log.info("löschen:"+leaf.getValue().getLocalName());
-							root.getChildren().remove(leaf);
-						}
-					}
-				}
-				root.getChildren().add(treeindi);
-				
-			}
+			root = showIndividualsOfOntClassRecursive(oclass, root);
+			
+			
+			
+			
 			treeview_indi.setShowRoot(false);
 
 
