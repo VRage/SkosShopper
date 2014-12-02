@@ -537,78 +537,47 @@ public class SkosEditorController implements Initializable {
 
 			ExtendedIterator<? extends OntResource> indilist = oclass
 					.listInstances();
+			TreeItem<Individual> root = new TreeItem<Individual>();
 			while (indilist.hasNext()) {
 				Individual indivi = (Individual) indilist.next();
 				liste_indi.add(indivi);
 				items.add(indivi.getLocalName());
-
-			}
-			/*
-			 * Matze Code
-			 */
-			treeview_indi.setShowRoot(false);
-			TreeItem root = new TreeItem<Individual>();
-
-			// ArrayList<Individual> IndividualsInTree = new
-			// ArrayList<Individual>();
-			for (Individual indy : liste_indi) {
-				/*
-				 * TEST
-				 */
-				TreeItem current = new TreeItem<Individual>(indy);
-				current.setGraphic(new Label(indy.getLocalName()));
-				int index = treeview_indi
-						.getRow(new TreeItem<Individual>(indy));
-				if (index == -1) {
-					root.getChildren().add(current);
-				}
-
-				ArrayList<Resource> aL = getIndividualsbyObjectProperty(indy,
-						"narrower");
-				if (aL != null) {
-					for (Resource res : aL) {
-						Individual secInd = model.getIndividual(res.toString());
-						try {
-							ObservableList<TreeItem<Individual>> oL = root
-									.getChildren();
-							for (TreeItem<Individual> t : oL) {
-								System.out.println(t.getValue() + "in List");
-								if (t.getValue().toString() == secInd.getURI()) {
-									System.out.println("removed");
-									oL.remove(t);
-								}
+				log.info("filling treeview");
+				TreeItem<Individual> treeindi = new TreeItem<Individual>(indivi);
+				ArrayList<Resource> arraylist = getIndividualsbyObjectProperty(indivi, NARROWER);
+				if(arraylist != null)
+				{
+					Iterator<Resource> iter = arraylist.iterator();
+					while(iter.hasNext()){
+						boolean found =false;
+						Resource res = (Resource) iter.next();
+						Individual resindi = model.getIndividual(res.getURI());
+						TreeItem<Individual> leaf = new TreeItem<Individual>(resindi);
+						for(TreeItem<Individual> bla : root.getChildren()){
+							if(bla.getValue().equals(resindi)){
+								log.info("found!!!");
+								treeindi.getChildren().add(bla);
+								leaf = bla;
+								found = true;
+								break;
 							}
-							// TreeItem c = root.getChildren().
-							// int index1 = root.getChildren().indexOf(new
-							// TreeItem<Individual>(secInd));
-							// root.getChildren().remove(index1);
-							// System.out.println("removed"+ secInd.getURI());
-							// root.getChildren().get(treeview_indi.getRow(new
-							// TreeItem<Individual>(secInd)));
-							// treeview_indi.getTreeItem(treeview_indi.getRow(new
-							// TreeItem<Individual>(secInd)));
-						} catch (Exception e) {
-							// TODO: handle exception
 						}
-
-						TreeItem<Individual> secTree = new TreeItem<Individual>(
-								(secInd));
-						secTree.setGraphic(new Label(secInd.getLocalName()));
-						current.getChildren().add(secTree);
-						System.out.println(res.toString());
+						if(found){
+							log.info("löschen:"+leaf.getValue().getLocalName());
+							root.getChildren().remove(leaf);
+						}
 					}
 				}
-				// /*
-				// * TEST
-				// */
-				// TreeItem t = new TreeItem<Individual>(indy);
-				// t.setGraphic(new Label(indy.getLocalName()));
-				// root.getChildren().add(t);
+				root.getChildren().add(treeindi);
+				
 			}
-			root.getChildren()
-					.remove(new TreeItem<Individual>(
-							model.getIndividual("http://www.w3.org/2008/05/skos-xl#Produkt/Objektiv")));
+			treeview_indi.setShowRoot(false);
+
+
 			treeview_indi.setRoot(root);
+			for(TreeItem<Individual> bla : root.getChildren()){
+				log.info(bla.getValue().getLocalName());
+			}
 		} else {
 			items.clear();
 			liste_indi.clear();

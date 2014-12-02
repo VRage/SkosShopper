@@ -23,9 +23,9 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://www.w3.org/2008/05/skos-xl">
         <dct:contributor>Participants in W3C&apos;s Semantic Web Deployment Working Group.</dct:contributor>
-        <dct:description xml:lang="en">An RDF vocabulary extending SKOS and allowing the description and linking of lexical entities.</dct:description>
         <dct:creator>Sean Bechhofer</dct:creator>
         <dct:creator>Alistair Miles</dct:creator>
+        <dct:description xml:lang="en">An RDF vocabulary extending SKOS and allowing the description and linking of lexical entities.</dct:description>
         <dct:title xml:lang="en">SKOS XL Vocabulary</dct:title>
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:seeAlso rdf:resource="http://www.w3.org/2008/05/skos"/>
@@ -205,6 +205,7 @@
 
     <owl:NamedIndividual rdf:about="&skos-xl;Produkt">
         <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:narrower rdf:resource="&skos-xl;Produkt/Kamera"/>
     </owl:NamedIndividual>
     
 
