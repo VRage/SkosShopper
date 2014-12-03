@@ -78,6 +78,12 @@ public class ModelFacadeTEST implements Initializable
 		}
 		setState(ModelState.LOCAL);
 		notifyAllControllerSart();
+		ExtendedIterator<OntClass> oclasslist = ontModel.listClasses();
+		while (oclasslist.hasNext()) {
+
+				OntClass oclass = (OntClass) oclasslist.next();
+			
+		}
 		
 	}
 	public  static void loadModelFromWeb(String filePath) {
