@@ -8,9 +8,11 @@ import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.query.DatasetAccessor;
 import com.hp.hpl.jena.query.DatasetAccessorFactory;
 import com.hp.hpl.jena.query.Query;
+import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.query.ResultSetFormatter;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
@@ -85,7 +87,20 @@ public class ServerImporter{
 	public void addAltEntry(String destination, String alternativePath) {
 		mgr.addAltEntry(destination, alternativePath);
 	}
-	
+	public static String sendQuery(String query) throws Exception{
+		
+			if(serviceURI != ""){
+			Query graphQuery = QueryFactory.create(query);
+			QueryEngineHTTP qeHttp = QueryExecutionFactory.createServiceRequest(serviceURI, graphQuery);
+			ResultSet results = qeHttp.execSelect();
+			return results.toString();
+			}
+			else
+				throw new Exception("No Service URL was set");
+
+		
+		
+	}
 	public boolean queryServerGraphs() {
 		try {
 			// Tricky query because of different server

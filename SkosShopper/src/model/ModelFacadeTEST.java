@@ -77,7 +77,7 @@ public class ModelFacadeTEST implements Initializable
 			log.info("TURTLE File loaded");
 		}
 		setState(ModelState.LOCAL);
-
+		notifyAllControllerSart();
 		
 	}
 	public  static void loadModelFromWeb(String filePath) {
@@ -106,6 +106,7 @@ public class ModelFacadeTEST implements Initializable
 	}
 	
 	public static void loadModelFromServer(String graphURI) throws NoDatasetAccessorException{
+		setState(ModelState.Server);
 		ontModel = ModelFactory.createOntologyModel(ServerImporter.spec, ServerImporter.model);
 		ontModel.setNsPrefixes(ServerImporter.uriMap);
 		notifyAllControllerSart();
