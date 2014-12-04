@@ -2,7 +2,6 @@ package controller;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.Socket;
@@ -11,10 +10,8 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -27,41 +24,33 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioMenuItem;
-import javafx.scene.control.RadioMenuItemBuilder;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TableColumn.CellDataFeatures;
-import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebHistory.Entry;
 import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import javax.swing.JOptionPane;
 import javax.xml.bind.JAXBException;
 
-import model.FusekiModel;
-import model.ServerImporter;
 import model.ModelFacadeTEST;
-import model.ModelFacadeTEST.ModelState;
+import model.ServerImporter;
 
 import org.apache.jena.atlas.web.HttpException;
 import org.apache.jena.riot.RiotException;
 import org.apache.log4j.Logger;
 
 import com.hp.hpl.jena.ontology.OntDocumentManager;
-import com.hp.hpl.jena.sparql.sse.Item;
 
 import exceptions.fuseki_exceptions.NoDatasetAccessorException;
 
@@ -182,19 +171,7 @@ public class OverviewController implements Initializable {
 		});
 		tv_graph_uri.setContextMenu(new ContextMenu(mdel));
 		
-		// webHistory.getEntries().addListener(new
-		// ListChangeListener<WebHistory.Entry>(){
-		// public void onChanged(javafx.collections.ListChangeListener.Change<?
-		// extends Entry> c) {
-		// c.next();
-		// for (Entry e : c.getAddedSubList()) {
-		// browserHistory.add(e);
-		// url =e.getUrl();
-		// txtFieldURL.setText(url);
-		// System.out.println(e.getUrl());
-		// }
-		// }
-		// });
+
 	}
 
 	@FXML
@@ -305,6 +282,8 @@ public class OverviewController implements Initializable {
 				int result = JOptionPane.showConfirmDialog(null,
 						"Changes will be lost, cannot be undone!",
 						"Warning: Discard Model", JOptionPane.OK_CANCEL_OPTION);
+				if(result==0)
+				modelLoaded= false;
 			}
 		} else {
 			// Warn the user that there is no model
