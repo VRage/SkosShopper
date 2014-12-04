@@ -3,7 +3,6 @@ package model;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.apache.jena.fuseki.migrate.GraphLoadUtils;
 import org.apache.log4j.Logger;
 
 import com.hp.hpl.jena.graph.Graph;
@@ -57,20 +56,14 @@ public class ModelFacade {
 		if(logging) log.info("getAllTriples() START");
 		String s;
 		
-		GraphLoadUtils glu = new GraphLoadUtils();
+		//GraphLoadUtils glu = new GraphLoadUtils();
 		Model model;
 		
-		try {
-			model = FusekiModel.getDatasetAccessor().getModel();
-			Graph graph = model.getGraph();
-			if(logging) log.info("getAllTriples() END");
-			return model;
-		} catch (NoDatasetAccessorException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			if(logging) log.info("getAllTriples() END");
-			return null;
-		}
+		//model = FusekiModel.getDatasetAccessor().getModel();
+		model = null;
+		Graph graph = model.getGraph();
+		if(logging) log.info("getAllTriples() END");
+		return model;
 
 	}
 	

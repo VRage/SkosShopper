@@ -3,10 +3,8 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import model.FusekiModel;
 import model.ModelFacade;
 
-import org.apache.commons.lang.StringUtils;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Statement;
@@ -59,7 +57,7 @@ public class TriplesShowController implements Initializable{
 	
 	public void loadTriplesFromServer(ActionEvent event)
 	{
-		boolean serverStarted = FusekiModel.getServerStatus();
+		//boolean serverStarted = FusekiModel.getServerStatus();
 		
 		ObservableList<TripleOwn> items = tableTriples.getItems();
 		
@@ -107,16 +105,16 @@ public class TriplesShowController implements Initializable{
 //		items.add(t2);
 		
 		
-		if(serverStarted)
-		{
-			System.out.println("Load Triples from Server");
-			loadTriplesMsg.setText("Loading Triples...");
-			loadTriplesMsg.setTextFill(Color.web("#BBBB33"));
-		} else if(!serverStarted) {
-			System.out.println("Start Server first");
-			loadTriplesMsg.setText("Please start the Server first!");
-			loadTriplesMsg.setTextFill(Color.web("#BB3333"));
-		}
+//		if(serverStarted)
+//		{
+//			System.out.println("Load Triples from Server");
+//			loadTriplesMsg.setText("Loading Triples...");
+//			loadTriplesMsg.setTextFill(Color.web("#BBBB33"));
+//		} else if(!serverStarted) {
+//			System.out.println("Start Server first");
+//			loadTriplesMsg.setText("Please start the Server first!");
+//			loadTriplesMsg.setTextFill(Color.web("#BB3333"));
+//		}
 		
 
 	}

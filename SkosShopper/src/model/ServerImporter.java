@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.Map;
 
+import org.mindswap.pellet.jena.PelletReasonerFactory;
+
 import com.hp.hpl.jena.ontology.OntDocumentManager;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.query.DatasetAccessor;
@@ -33,7 +35,7 @@ public class ServerImporter{
 	public ServerImporter() {
 		model = ModelFactory.createDefaultModel();
 		mgr = new OntDocumentManager();
-		spec = new OntModelSpec( OntModelSpec.OWL_DL_MEM);
+		spec = new OntModelSpec(PelletReasonerFactory.THE_SPEC);
 		spec.setDocumentManager(mgr);
 	}
 	
@@ -76,7 +78,7 @@ public class ServerImporter{
 	public static boolean replaceModelOfServer() {
 		try {
 			model = ModelFacadeTEST.ontModel.getBaseModel();
-			ds.putModel(model);
+			ds.putModel(graphURI, model);
 			return true;
 		} catch(Exception e) {
 		}

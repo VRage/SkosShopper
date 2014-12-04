@@ -17,7 +17,6 @@ import javafx.scene.control.MenuItem;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import main.Main;
-import model.FusekiModel;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.util.FileManager;
@@ -63,25 +62,11 @@ public class MenuController implements Initializable{
 	    System.out.println(file.getAbsolutePath());
 	    
 	    Model model = FileManager.get().loadModel(file.getAbsolutePath());
-	    
-	    try {
-			FusekiModel.getDatasetAccessor().add(model);
-		} catch (NoDatasetAccessorException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 	}
 	
 	public static void importOnthologyFile(String path)
 	{
 	    Model model = FileManager.get().loadModel(path);
-	    
-	    try {
-			FusekiModel.getDatasetAccessor().add(model);
-		} catch (NoDatasetAccessorException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 	}
 	
 	
