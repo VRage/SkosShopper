@@ -199,7 +199,7 @@ public class SkosEditorController implements Initializable {
 	private static OntModel model;
 
 	// Selected OntClass and Individual
-	private OntClass selectedOntClass;
+	public static OntClass selectedOntClass;
 	private Individual selectedIndividual;
 
 	// Namespaces of the OntModel
@@ -241,14 +241,7 @@ public class SkosEditorController implements Initializable {
 						return new IndividualChoiceCell(liste_selectedindis);
 					}
 				});
-		treeview_indi.setCellFactory(new Callback<TreeView<Individual>, TreeCell<Individual>>() {
 
-			@Override
-			public TreeCell<Individual> call(TreeView<Individual> param) {
-				// TODO Auto-generated method stub
-				return new IndividualofOntClassCell(param);
-			}
-		});
 		listviewCollectionSelected.setItems(liste_selectedindis);
 		listviewCollectionSelected
 				.setCellFactory(new Callback<ListView<Individual>, ListCell<Individual>>() {
@@ -377,6 +370,13 @@ public class SkosEditorController implements Initializable {
 			showAllIndividualsInChoicebox();
 			setChoiseboxItems();
 			setFilteredItems();
+			treeview_indi.setCellFactory(new Callback<TreeView<Individual>, TreeCell<Individual>>() {
+
+				@Override
+				public TreeCell<Individual> call(TreeView<Individual> param) {
+					return new IndividualofOntClassCell(param, model);
+				}
+			});
 			log.info("Ontologie loaded");
 		} catch (Exception e) {
 			log.error(e, e);
@@ -1213,4 +1213,12 @@ public class SkosEditorController implements Initializable {
 		return result;
 	}
 
+	public static void removeIndividual(Individual indi){
+		if(indi != null){
+			indi.remove();
+		}else{
+			log.error("Individual not found");
+		}
+	}
+	
 }

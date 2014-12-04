@@ -20,7 +20,7 @@ public class Main extends Application {
 	
 	public static Parent root;
 	public static Scene scene;
-	
+	public static FXMLLoader loader;
 	ResourceBundle bundleEN = ResourceBundle.getBundle("localization.bundle", Locale.forLanguageTag("en"));
 	
 
@@ -29,7 +29,8 @@ public class Main extends Application {
 	{
 		try {
 			startup();
-			Main.root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"), bundleEN);
+			loader= new FXMLLoader(getClass().getResource("/view/Main.fxml"), bundleEN);
+			Main.root = loader.load();
 			Main.scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("/style/style.css").toExternalForm());
 			primaryStage.setScene(scene);	
