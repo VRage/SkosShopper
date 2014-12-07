@@ -154,6 +154,20 @@ public class SkosEditorController implements Initializable {
 	private TextField txtfield_imageURL;
 	@FXML
 	private ImageView imageConceptIndividual;
+	@FXML
+	private VBox vboxEditPrefLabel;
+	@FXML
+	private ChoiceBox<String> choiceboxeditLabel;
+	@FXML
+	private Button btnEditPrefLabel;
+	@FXML
+	private TextField txtfield_EditialtLabel;
+	@FXML
+	private TextArea txtarea_EditDescription;
+	@FXML
+	private TextField txtfield_EditimageURL;
+	@FXML
+	private ImageView imageEditIndividual;
 
 	// String constant only to make arkadius happy
 	private static final String PREFIXLABEL = "LabelFor";
@@ -541,6 +555,7 @@ public class SkosEditorController implements Initializable {
 		while(indilist.hasNext()){
 			Individual next =(Individual) indilist.next();
 			TreeItem<Individual> elem = generateSubTreeFromBehindLikeJakobLikesIt(oclass, next, null);
+			elem.setExpanded(true);
 			addToExistingTreeView(root, elem);
 		}
 		return root;
@@ -550,6 +565,7 @@ public class SkosEditorController implements Initializable {
 		boolean containsElemntAlready = false;
 		while(children.hasNext()){
 			TreeItem<Individual> child = children.next();
+			child.setExpanded(true);
 			if(child.getValue().getLocalName().equals(item.getValue().getLocalName())){ //item already exists -> go deeper jakob
 				containsElemntAlready = true;
 				if(item.getChildren().size() > 0){	
