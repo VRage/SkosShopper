@@ -3,6 +3,7 @@ package controller;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -32,11 +33,11 @@ import javafx.scene.control.TreeView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 
@@ -48,36 +49,18 @@ import model.IndividualofOntClassCell;
 import model.ModelFacadeTEST;
 
 import org.apache.log4j.Logger;
-import org.eclipse.jetty.util.log.Log;
 
-import sun.rmi.runtime.NewThreadAction;
-
-import com.hp.hpl.jena.datatypes.RDFDatatype;
 import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.ontology.AllDifferent;
 import com.hp.hpl.jena.ontology.AnnotationProperty;
-import com.hp.hpl.jena.ontology.DataRange;
 import com.hp.hpl.jena.ontology.DatatypeProperty;
-import com.hp.hpl.jena.ontology.FunctionalProperty;
 import com.hp.hpl.jena.ontology.Individual;
-import com.hp.hpl.jena.ontology.InverseFunctionalProperty;
 import com.hp.hpl.jena.ontology.ObjectProperty;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.ontology.OntProperty;
 import com.hp.hpl.jena.ontology.OntResource;
-import com.hp.hpl.jena.ontology.Ontology;
-import com.hp.hpl.jena.ontology.Profile;
-import com.hp.hpl.jena.ontology.Restriction;
-import com.hp.hpl.jena.ontology.SymmetricProperty;
-import com.hp.hpl.jena.ontology.TransitiveProperty;
-import com.hp.hpl.jena.rdf.model.AnonId;
 import com.hp.hpl.jena.rdf.model.Literal;
-import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.Property;
-import com.hp.hpl.jena.rdf.model.RDFNode;
-import com.hp.hpl.jena.rdf.model.RDFVisitor;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.ResourceRequiredException;
 import com.hp.hpl.jena.rdf.model.Statement;
@@ -91,6 +74,19 @@ import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 
 public class SkosEditorController implements Initializable {
 
+	public static OntModel endSKOSController() {
+		return model;
+	}
+	public static void removeIndividual(Individual indi){
+		if(indi != null){
+			indi.remove();
+		}else{
+			log.error("Individual not found");
+		}
+	}
+	public static void startSKOSController(OntModel ontModel) {
+		model = ontModel;
+	}
 	// Define FXML Elements
 	@FXML
 	private Accordion accordionpane;
@@ -162,270 +158,228 @@ public class SkosEditorController implements Initializable {
 	private Button btnEditPrefLabel;
 	@FXML
 	private TextField txtfield_EditialtLabel;
+
 	@FXML
 	private TextArea txtarea_EditDescription;
 	@FXML
 	private TextField txtfield_EditimageURL;
 	@FXML
 	private ImageView imageEditIndividual;
-
 	// String constant only to make arkadius happy
 	private static final String PREFIXLABEL = "LabelFor";
 	private static final String COLLECTION = "Collection";
-	private static final String NARROWER = "narrower";
-	private static final String MEMBER = "member";
-	private static final String TYPE = "type";
 	
+	private static final String NARROWER = "narrower";
+
+	private static final String MEMBER = "member";
+
+	private static final String TYPE = "type";
 	public TreeItem<Individual> root;
 
 	// local j4log logger
 	public static final Logger log = Logger
 			.getLogger(SkosEditorController.class);
-
 	private static int counter;
+	private static int cnt;
+
 	private ObservableList<String> languages = FXCollections
 			.observableArrayList("de", "en", "fr", "it", "ru", "pl");
-
 	// Variables for the Ontology Class-Listview
 	private ObservableList<String> classes = FXCollections
 			.observableArrayList();
-	private ArrayList<OntClass> liste_classes = new ArrayList<OntClass>();
 
+	private ArrayList<OntClass> liste_classes = new ArrayList<OntClass>();
 	// Variables for the ListView, Individuals of a Class
 	private ObservableList<String> items = FXCollections.observableArrayList();
-	private ArrayList<Individual> liste_indi = new ArrayList<Individual>();
-
-	// For Listview Individual choiced
-	private ObservableList<Individual> liste_choicedindis = FXCollections
-			.observableArrayList();
-	private ObservableList<Individual> liste_selectedindis = FXCollections
-			.observableArrayList();
 
 	// Variables for the Dropdownmenu, ObjectProperties
 	// private ObservableList<String> props =
 	// FXCollections.observableArrayList();
 	// private ArrayList<String> propNS = new ArrayList<String>();
 
+	private ArrayList<Individual> liste_indi = new ArrayList<Individual>();
+
+	// For Listview Individual choiced
+	private ObservableList<Individual> liste_choicedindis = FXCollections
+			.observableArrayList();
+
+	private ObservableList<Individual> liste_selectedindis = FXCollections
+			.observableArrayList();
 	// Variables for the Dropdownmenu, Individuals
-	private ArrayList<String> indiNS = new ArrayList<String>();
 	private ObservableList<Individual> indis = FXCollections
 			.observableArrayList();
 
 	// In this class used Ontology Model
 	private static OntModel model;
-
 	// Selected OntClass and Individual
 	public static OntClass selectedOntClass;
 	private Individual selectedIndividual;
-
 	// Namespaces of the OntModel
 	private String OntClassNS = "";
 	private String baseNS = "";
+
 	public String skosNS = "";
+
 	private String skosxlNS = "";
+
 	private String dctNS = "";
 
 	// Localized Resource Bundle
 	private ResourceBundle localizedBundle;
 
-	public void initialize(URL location, ResourceBundle resources) {
-		localizedBundle = resources;
-		counter = 1;
-		vboxAddPrefLabel.autosize();
-		choiceboxPrefLabel0.setItems(languages);
-		choiceboxPrefLabel0.setValue(localizedBundle.getLocale().getLanguage());
-		btnAddPrefLabel0.setId("btnaddtxtfields");
-
-		label_uri2.setText("");
-		label_uri.setText(OntClassNS);
-
-		treeview_indi.setCursor(Cursor.HAND);
-		listview_classes.setCursor(Cursor.HAND);
-		// TreeItem<String> TItem = new TreeItem<String>();
-		// for (String indi : items) {
-		// TItem.getChildren().add(new TreeItem<String>(indi));
-		// }
-		//
-		// treeview_indi.setRoot(TItem);
-		listview_classes.setItems(classes);
-
-		listviewCollectionChoise.setItems(liste_choicedindis);
-		listviewCollectionChoise
-				.setCellFactory(new Callback<ListView<Individual>, ListCell<Individual>>() {
-					@Override
-					public ListCell<Individual> call(ListView<Individual> param) {
-						return new IndividualChoiceCell(liste_selectedindis);
-					}
-				});
-
-		listviewCollectionSelected.setItems(liste_selectedindis);
-		listviewCollectionSelected
-				.setCellFactory(new Callback<ListView<Individual>, ListCell<Individual>>() {
-					@Override
-					public ListCell<Individual> call(ListView<Individual> param) {
-						return new IndividualSelectCell(liste_selectedindis);
-					}
-				});
-
-		choiseBoxCollectionFilter.getSelectionModel().selectedItemProperty()
-				.addListener(new ChangeListener<String>() {
-
-					@Override
-					public void changed(ObservableValue<? extends String> arg0,
-							String arg1, String arg2) {
-						setFilteredItems();
-
-					}
-				});
-		imageConceptIndividual.setOnDragEntered(new EventHandler<DragEvent>() {
-			public void handle(DragEvent event) {
-				/* the drag-and-drop gesture entered the target */
-				log.info("Set On Drag Entered");
-				System.out.println("onDragEntered");
-				/* show to the user that it is an actual gesture target */
-				if (event.getGestureSource() != imageConceptIndividual
-						&& event.getDragboard().hasString()) {
-					try {
-						imageConceptIndividual.setImage(event.getDragboard()
-								.getImage());
-						txtfield_imageURL.setText(event.getDragboard()
-								.getString());
-					} catch (Exception e) {
-						// TODO: handle exception
-					}
-
-				}
-
-				event.consume();
-			}
-		});
-
-	}
-
 	/**
-	 * This function recognizes which ontology class the user has selected,
-	 * displays the URI and call a function to get all Individual in this
-	 * ontology class.
 	 * 
-	 * Also if no valid Class is selected you can't use buttons to add
-	 * Individuals/Properties or Labels
+	 * Adds Label to the selected Individual. Executed after clicking the button
+	 * btn_addLabel.
 	 * 
-	 * @param e
+	 * Recipe: Creates Individual in Label-Class and adding DataProperty
+	 * "literalForm" with the Userinput as literal. Creates Object property
+	 * "preferred Label" between created Label individual and selected
+	 * individual.
+	 * 
+	 * 
+	 * @param event
 	 */
 	@FXML
-	public void selectOntClass(MouseEvent e) {
-		if (!listview_classes.getSelectionModel().isEmpty()) {
-			txtfield_IndiLabel0.setDisable(false);
-			selectedOntClass = model.getOntClass(liste_classes.get(
-					listview_classes.getSelectionModel().getSelectedIndex())
-					.getURI());
+	private void addLabel(ActionEvent event) {
+		if ((selectedOntClass.getLocalName().equals("Concept"))
+				&& (selectedIndividual != null)) {
 
-			OntClassNS = liste_classes.get(
-					listview_classes.getSelectionModel().getSelectedIndex())
-					.getURI();
-			label_uri.setText(OntClassNS);
-
-			showIndividualsOfOntClass(selectedOntClass);
-			switch (selectedOntClass.getLocalName()) {
-			case "Concept":
-				acc_addIndi.setExpanded(true);
-				break;
-			case "Label":
-				acc_editLabel.setExpanded(true);
-				txtfield_IndiLabel0.setDisable(true);
-				btn_editLabel
-						.setText(localizedBundle.getString("btnEditLabel"));
-				break;
-			case "OrderedCollection":
-			case "Collection":
-				acc_addCollection.setExpanded(true);
-				break;
-			default:
-				break;
+			Object antwort = JOptionPane.showInputDialog(null,
+					localizedBundle.getString("EnterLabel"),
+					localizedBundle.getString("InputWindow"),
+					JOptionPane.INFORMATION_MESSAGE, null, null, null);
+			if (antwort != null) {
+				String name = (String) antwort;
+				model.getOntClass(skosxlNS + "Label").createIndividual(
+						baseNS + "LabelFor" + name);
+				Individual indi = model.getIndividual(baseNS + "LabelFor"
+						+ name);
+				DatatypeProperty dprop = model.getDatatypeProperty(skosxlNS
+						+ "literalForm");
+				log.info("datatypeProp" + dprop.getLocalName());
+				indi.addProperty(dprop, model.createLiteral(name, "de"));
+				ObjectProperty Oprop = model.getObjectProperty(skosxlNS
+						+ "prefLabel");
+				model.add(selectedIndividual, Oprop, indi);
 			}
-
 		}
+
 	}
 
-	/**
-	 * 
-	 * This Method loads an Ontology which this Controller works with. Also it
-	 * gets the Namespaces, Objectproperties and all Individuals of the Ontology
-	 * Model for the TreeView and Choiceboxes.
-	 * 
-	 */
-	public void loadOntology() {
-		// if (model.isEmpty()) {
-		try {
-			model = ModelFacadeTEST.getOntModel();
-			// Path input =
-			// Paths.get("C:\\Users\\VRage\\Documents\\SpiderOak Hive\\studium\\5_Semester\\projekt\\",
-			// "test1.rdf");
-			//
-			// model.read(input.toUri().toString(), "RDF/XML");
-			// model = ModelFacadeTEST.getOntModel();
-			model.read("./RDFDaten/test1.rdf");
-			// model = TripleModel.getAllTriples();
-			// Model m = FusekiModel.getDatasetAccessor().getModel();
-			// model.add(ModelFacadeTEST.getOntModel());
+	@FXML
+	public void addLabelInputfields(ActionEvent e) {
+		log.info("In method: addLabelInputfields");
+		if (counter < languages.size()) {
+			HBox newHBox = new HBox();
+			TextField newTextfield = new TextField();
+			Button newBtn = new Button();
+			Pane newPane = new Pane();
+			ChoiceBox<String> newChoiceBox = new ChoiceBox<String>();
 
-			// model = ModelFacadeTEST.getAktModel();
-			// model = ModelFacadeTEST.ontModel;
-
-			baseNS = model.getNsPrefixURI("");
-			log.info("Base NS set to: " + baseNS);
-			skosNS = model.getNsPrefixURI("skos");
-			log.info("Skos NS set to: " + skosNS);
-			skosxlNS = model.getNsPrefixURI("skos-xl");
-			log.info("Skosxl NS set to: " + skosxlNS);
-			dctNS = model.getNsPrefixURI("dct");
-			log.info("dct NS set to: " + dctNS);
-			// showOPropertiesInChoicebox();
-			// showAllIndividualsInChoicebox();
-			showOntClassInTree();
-			showAllIndividualsInChoicebox();
-			setChoiseboxItems();
-			setFilteredItems();
-			treeview_indi.setCellFactory(new Callback<TreeView<Individual>, TreeCell<Individual>>() {
-
-				@Override
-				public TreeCell<Individual> call(TreeView<Individual> param) {
-					return new IndividualofOntClassCell(param, model);
-				}
+			newChoiceBox.setItems(languages);
+			newBtn.setId("btndeltxtfields");
+			HBox.setHgrow(newTextfield, Priority.ALWAYS);
+			newChoiceBox.setPrefWidth(144.0);
+			newBtn.setPrefWidth(30.0);
+			newBtn.setOnAction((event) -> {
+				vboxAddPrefLabel.getChildren().remove(newHBox);
+				counter--;
 			});
-			log.info("Ontologie loaded");
-		} catch (Exception e) {
-			log.error(e, e);
+			newTextfield.setPromptText(localizedBundle.getString("prefLabel"));
+			newHBox.autosize();
+			newTextfield.setPrefWidth(231.0);
+			newTextfield.setMaxWidth(Region.USE_COMPUTED_SIZE);
+			newPane.setPrefWidth(15.0);
+			newHBox.getChildren().addAll(newTextfield, newPane, newChoiceBox,
+					newBtn);
+			vboxAddPrefLabel.getChildren().add(1, newHBox);
+			counter++;
 		}
-		// }
+	}
+
+	private void addToExistingTreeView(TreeItem<Individual> root, TreeItem<Individual> item){
+		Iterator<TreeItem<Individual>> children  = root.getChildren().iterator();
+		boolean containsElemntAlready = false;
+		while(children.hasNext()){
+			TreeItem<Individual> child = children.next();
+			child.setExpanded(true);
+			if(child.getValue().getLocalName().equals(item.getValue().getLocalName())){ //item already exists -> go deeper jakob
+				containsElemntAlready = true;
+				if(item.getChildren().size() > 0){	
+					log.info(child.getChildren().size());
+					addToExistingTreeView(child, item.getChildren().get(0)); //there is only one element in this list or none
+				}
+			}
+		}
+		
+		//Rekursion or not, thats the question
+		if(containsElemntAlready == false){
+			root.getChildren().add(item);
+		}
 	}
 
 	/**
-	 * 
-	 * All skos and skosxl OntologyClasses will be shown in the TreeView by this
-	 * method
-	 * 
+	 * Tries to create a new Collection with the given name as long as the name
+	 * doesn't already exist.
 	 */
-	public void showOntClassInTree() {
-		classes.clear();
-		liste_classes.clear();
-		selectedOntClass = null;
+	@FXML
+	public void createCollection() {
 
-		ExtendedIterator oclasslist = model.listClasses();
-		while (oclasslist.hasNext()) {
+		String collectionString = "/" + COLLECTION + "/";
+		String collectionNameString = baseNS + collectionString
+				+ textfieldCollectionName.getText();
+		String collectionLabelString = baseNS + "LabelForCollection";
+		// + textfieldCollectionName.getText();
+		log.info(selectedOntClass == null);
+		if (model.getIndividual(collectionNameString) == null
+				&& selectedOntClass != null) {
 
-			OntClass oclass = (OntClass) oclasslist.next();
-			if (oclass.toString().contains(skosNS)
-					|| oclass.toString().contains(skosxlNS)) {
-				liste_classes.add(oclass);
-				classes.add(oclass.getLocalName());
-			}
+			// Name must not be empty!
+			if (!textfieldCollectionName.getText().equals("")) {
+				// Collection must be seleted!
+				if (selectedOntClass.getLocalName().equals(COLLECTION)) {
+					log.info("Collection selected = true");
+					// Add Individual
+					model.createIndividual(collectionNameString,
+							selectedOntClass);
 
-		}
-		log.info("class added to List");
+					// optional Label
+					if (!textfieldCollectionLabelName.getText().isEmpty()) {
+						createLabelRecipe("prefLabel", collectionLabelString,
+								textfieldCollectionLabelName.getText(), "de",
+								model.getIndividual(collectionNameString));
+					} else {
+						log.info("No Label given");
+					}
 
+					// optional fill created collection with individuals and
+					// collections
+					insertElemsToCollectionRecipe(
+							model.getIndividual(collectionNameString),
+							listviewCollectionSelected);
+				}
+				// not implemented yet!
+				else if (selectedOntClass.getLocalName().equals(
+						"OrderedCollection")) {
+					log.info("Ordered Collection selected = true \n not implemented yet!");
+				} else {
+					log.error("Neither Collection nor Ordered Collection selected!");
+				}// end if-else case collection or ordered collection selected
+			} else {
+				log.error("Namefield Empty!");
+			}// end if-case textfield empty check
+		} else {
+			log.error("Name for Collection already taken or No Ontclass selected!");
+		} // end if-else-case collection name already exist
 	}
+	public void createDatapropertyNotation(String description, Individual indi) {
 
+		DatatypeProperty dprop = model.getDatatypeProperty(skosNS + "notation");
+		log.info("datatypeProp" + dprop.getLocalName());
+		indi.addProperty(dprop, model.createLiteral(description));
+	}
+	
 	/**
 	 * 
 	 * Method which will be executed after clicked on button btn_addIndi.
@@ -452,8 +406,8 @@ public class SkosEditorController implements Initializable {
 								i);
 						TextField txtfield = (TextField) hboxx.getChildren()
 								.get(0);
-						ChoiceBox<String> choicebox = (ChoiceBox) hboxx
-								.getChildren().get(2);
+						@SuppressWarnings("unchecked")
+						ChoiceBox<String> choicebox = (ChoiceBox<String>) hboxx.getChildren().get(2);
 						createLabelRecipe("prefLabel", "", txtfield.getText(),
 								choicebox.getValue(),
 								model.getIndividual(baseNS + (antwort)));
@@ -539,7 +493,7 @@ public class SkosEditorController implements Initializable {
 				// try {
 				// printToConsole();
 				// } catch (IOException e) {
-				// // TODO Auto-generated catch block
+				// log.erroer(e,e);
 				// e.printStackTrace();
 				// }
 			} else {
@@ -547,40 +501,66 @@ public class SkosEditorController implements Initializable {
 			}
 		}
 	}
+	public void createLabelRecipe(String Objectproperty, String name,
+			String description, String language, Individual toindividual) {
+		String labelname = toindividual.getLocalName();
+		model.getOntClass(skosxlNS + "Label").createIndividual(
+				baseNS + PREFIXLABEL + name + labelname);
+		Individual indi = model.getIndividual(baseNS + PREFIXLABEL + name
+				+ labelname);
+		DatatypeProperty dprop = model.getDatatypeProperty(skosxlNS
+				+ "literalForm");
+		log.info("datatypeProp" + dprop.getLocalName());
+		indi.addProperty(dprop, model.createLiteral(description, language));
+		ObjectProperty Oprop = model.getObjectProperty(skosxlNS
+				+ Objectproperty);
+		model.add(toindividual, Oprop, indi);
 
-	public TreeItem<Individual> showIndividualsOfOntClassRecursive(OntClass oclass, TreeItem<Individual> root){
-		ExtendedIterator<? extends OntResource> indilist = oclass
-				.listInstances();
-		
-		while(indilist.hasNext()){
-			Individual next =(Individual) indilist.next();
-			TreeItem<Individual> elem = generateSubTreeFromBehindLikeJakobLikesIt(oclass, next, null);
-			elem.setExpanded(true);
-			addToExistingTreeView(root, elem);
-		}
-		return root;
 	}
-	private void addToExistingTreeView(TreeItem<Individual> root, TreeItem<Individual> item){
-		Iterator<TreeItem<Individual>> children  = root.getChildren().iterator();
-		boolean containsElemntAlready = false;
-		while(children.hasNext()){
-			TreeItem<Individual> child = children.next();
-			child.setExpanded(true);
-			if(child.getValue().getLocalName().equals(item.getValue().getLocalName())){ //item already exists -> go deeper jakob
-				containsElemntAlready = true;
-				if(item.getChildren().size() > 0){	
-					log.info(child.getChildren().size());
-					addToExistingTreeView(child, item.getChildren().get(0)); //there is only one element in this list or none
+
+	@FXML
+	public void deleteFromCollection() {
+
+	}
+
+	@FXML
+	public void displayImageFromURL(ActionEvent e) {
+		imageConceptIndividual.setImage(new Image(txtfield_imageURL.getText()));
+	}
+
+	@FXML
+	public void editLabel(ActionEvent e) {
+		log.info("in editLabelmethod");
+		if (selectedOntClass != null && selectedIndividual != null) {
+			log.info("no null Class or Individual");
+			log.info(selectedOntClass.getLocalName());
+			if (selectedOntClass.getLocalName().contains("Concept")) {
+				log.info("test");
+				if (getIndividualbyObjectProperty(selectedIndividual,
+						"prefLabel") != null) {
+
+					if (getDatapropertyFromLabel(getIndividualbyObjectProperty(
+							selectedIndividual, "prefLabel")) != null) {
+						getDatapropertyFromLabel(
+								getIndividualbyObjectProperty(
+										selectedIndividual, "prefLabel"))
+								.changeObject(txtfield_editLabel.getText(),
+										"de");
+					}
+				} else {
+					createLabelRecipe("prefLabel", "",
+							txtfield_editLabel.getText(), "de",
+							selectedIndividual);
+				}
+			} else if (selectedOntClass.getLocalName().contains("Label")) {
+				if (getDatapropertyFromLabel(selectedIndividual) != null) {
+					getDatapropertyFromLabel(selectedIndividual).changeObject(
+							txtfield_editLabel.getText(), "de");
 				}
 			}
 		}
-		
-		//Rekursion or not, thats the question
-		if(containsElemntAlready == false){
-			root.getChildren().add(item);
-		}
 	}
-	
+
 	private TreeItem<Individual> generateSubTreeFromBehindLikeJakobLikesIt(OntClass oclass, Individual i, TreeItem<Individual> child){
 		if(child == null) { //start of the recursion
 			child = new TreeItem<Individual>();
@@ -603,6 +583,591 @@ public class SkosEditorController implements Initializable {
 		}
 		return child;
 	}
+
+	private Statement getDatapropertyFromLabel(Resource label) {
+		StmtIterator iter = label.listProperties();
+		while (iter.hasNext()) {
+			Statement s = iter.next();
+			log.info(s.getPredicate().getLocalName());
+			if (s.getPredicate().getLocalName().equals("literalForm")) {
+				return s;
+			}
+		}
+		return null;
+	}
+
+	private Resource getIndividualbyObjectProperty(Individual individual,
+			String objectproperty) {
+		if (individual != null) {
+			StmtIterator iter = individual.listProperties();
+			while (iter.hasNext()) {
+				Statement s = iter.next();
+				if (s.getPredicate().getLocalName().equals(objectproperty)
+						&& s.getObject().isResource()) {
+					return s.getObject().asResource();
+				}
+			}
+		}
+		return null;
+	}
+
+	// private void printToConsole() throws IOException {
+	// File file =null ;
+	// FileOutputStream out = null;
+	// try {
+	// file = new File("./RDFDaten/outputfromProgramm.owl");
+	// out = new FileOutputStream(file);
+	// model.write(out, "RDF/XML");
+	// log.info("label hinzufügen");
+	//
+	// } finally{
+	// out.close();
+	// }
+	//
+	// }
+	public ArrayList<Resource> getIndividualsbyObjectProperty(
+			Individual individual, String objectproperty) {
+		ArrayList<Resource> result = new ArrayList<Resource>();
+		if (individual != null) {
+			StmtIterator iter = individual.listProperties();
+			while (iter.hasNext()) {
+				Statement s = iter.next();
+				if (s.getPredicate().getLocalName().equals(objectproperty)
+						&& s.getObject().isResource()) {
+					result.add(s.getObject().asResource());
+				}
+			}
+		}
+		if (result.isEmpty())
+			return null;
+		return result;
+	}
+
+	public void initialize(URL location, ResourceBundle resources) {
+		localizedBundle = resources;
+		counter = 1;
+		cnt = 0;
+		vboxAddPrefLabel.autosize();
+		choiceboxPrefLabel0.setItems(languages);
+		choiceboxeditLabel.setItems(languages);
+		choiceboxPrefLabel0.setValue(localizedBundle.getLocale().getLanguage());
+		btnAddPrefLabel0.setId("btnaddtxtfields");
+		btnEditPrefLabel.setId("btnaddtxtfields");
+		label_uri2.setText("");
+		label_uri.setText(OntClassNS);
+
+		treeview_indi.setCursor(Cursor.HAND);
+		listview_classes.setCursor(Cursor.HAND);
+		// TreeItem<String> TItem = new TreeItem<String>();
+		// for (String indi : items) {
+		// TItem.getChildren().add(new TreeItem<String>(indi));
+		// }
+		//
+		// treeview_indi.setRoot(TItem);
+		listview_classes.setItems(classes);
+
+		listviewCollectionChoise.setItems(liste_choicedindis);
+		listviewCollectionChoise
+				.setCellFactory(new Callback<ListView<Individual>, ListCell<Individual>>() {
+					@Override
+					public ListCell<Individual> call(ListView<Individual> param) {
+						return new IndividualChoiceCell(liste_selectedindis);
+					}
+				});
+
+		listviewCollectionSelected.setItems(liste_selectedindis);
+		listviewCollectionSelected
+				.setCellFactory(new Callback<ListView<Individual>, ListCell<Individual>>() {
+					@Override
+					public ListCell<Individual> call(ListView<Individual> param) {
+						return new IndividualSelectCell(liste_selectedindis);
+					}
+				});
+
+		choiseBoxCollectionFilter.getSelectionModel().selectedItemProperty()
+				.addListener(new ChangeListener<String>() {
+
+					@Override
+					public void changed(ObservableValue<? extends String> arg0,
+							String arg1, String arg2) {
+						setFilteredItems();
+
+					}
+				});
+		imageConceptIndividual.setOnDragEntered(new EventHandler<DragEvent>() {
+			public void handle(DragEvent event) {
+				/* the drag-and-drop gesture entered the target */
+				log.info("Set On Drag Entered");
+				System.out.println("onDragEntered");
+				/* show to the user that it is an actual gesture target */
+				if (event.getGestureSource() != imageConceptIndividual
+						&& event.getDragboard().hasString()) {
+					try {
+						imageConceptIndividual.setImage(event.getDragboard()
+								.getImage());
+						txtfield_imageURL.setText(event.getDragboard()
+								.getString());
+					} catch (Exception e) {
+						log.error(e,e);
+					}
+
+				}
+
+				event.consume();
+			}
+		});
+
+	}
+
+	/** supporting method to generalize the insertion of elems into a collection **/
+	private void insertElemsToCollectionRecipe(Individual collection,
+			ListView<Individual> elems) {
+		// is the listview not empty? otherwise we can skip the insertion
+		if (!elems.getItems().isEmpty()) {
+			// is the collection really a Collection item? otherwise we should
+			// not execute this operation!
+			boolean collectionIsValid = false;
+			// StmtIterator iter = model.getIndividual(skosNS +
+			// COLLECTION).listProperties();
+			StmtIterator iter = collection.listProperties();
+			while (iter.hasNext()) {
+				Statement statement = iter.next();
+				log.info(statement.getPredicate().getLocalName() + "    "
+						+ statement.getObject().asResource().getLocalName());
+				if (statement.getPredicate().getLocalName().equals(TYPE)
+						&& statement.getObject().asResource().getLocalName()
+								.equals(COLLECTION)) {
+					// collection is a Collection item
+					collectionIsValid = true;
+				}
+			}
+			log.info(collectionIsValid);
+			// only continue if you found out that collection is narrower
+			// Collection
+			if (collectionIsValid) {
+				Iterator<Individual> i = elems.getItems().iterator();
+				while (i.hasNext()) {
+					Individual indi = i.next();
+					ObjectProperty property = model.getObjectProperty(skosNS
+							+ MEMBER);
+					log.info(property.getURI());
+					model.add(collection, property, indi);
+				}
+			}
+
+		}
+
+	}
+
+	@FXML
+	public void insertToCollection() {
+
+	}
+
+	/**
+	 * 
+	 * This Method loads an Ontology which this Controller works with. Also it
+	 * gets the Namespaces, Objectproperties and all Individuals of the Ontology
+	 * Model for the TreeView and Choiceboxes.
+	 * 
+	 */
+	public void loadOntology() {
+		// if (model.isEmpty()) {
+		try {
+			model = ModelFacadeTEST.getOntModel();
+			// Path input =
+			// Paths.get("C:\\Users\\VRage\\Documents\\SpiderOak Hive\\studium\\5_Semester\\projekt\\",
+			// "test1.rdf");
+			//
+			// model.read(input.toUri().toString(), "RDF/XML");
+			// model = ModelFacadeTEST.getOntModel();
+			model.read("./RDFDaten/test1.rdf");
+			// model = TripleModel.getAllTriples();
+			// Model m = FusekiModel.getDatasetAccessor().getModel();
+			// model.add(ModelFacadeTEST.getOntModel());
+
+			// model = ModelFacadeTEST.getAktModel();
+			// model = ModelFacadeTEST.ontModel;
+
+			baseNS = model.getNsPrefixURI("");
+			log.info("Base NS set to: " + baseNS);
+			skosNS = model.getNsPrefixURI("skos");
+			log.info("Skos NS set to: " + skosNS);
+			skosxlNS = model.getNsPrefixURI("skos-xl");
+			log.info("Skosxl NS set to: " + skosxlNS);
+			dctNS = model.getNsPrefixURI("dct");
+			log.info("dct NS set to: " + dctNS);
+			// showOPropertiesInChoicebox();
+			// showAllIndividualsInChoicebox();
+			showOntClassInTree();
+			showAllIndividualsInChoicebox();
+			setChoiseboxItems();
+			setFilteredItems();
+			treeview_indi.setCellFactory(new Callback<TreeView<Individual>, TreeCell<Individual>>() {
+
+				@Override
+				public TreeCell<Individual> call(TreeView<Individual> param) {
+					return new IndividualofOntClassCell(param, model);
+				}
+			});
+			log.info("Ontologie loaded");
+		} catch (Exception e) {
+			log.error(e, e);
+		}
+		// }
+	}
+
+	/**
+	 * 
+	 * Debug Method, saves Ontology into a File
+	 * (fuseki/Data/outputfromProgramm.owl) Will be deleted in deployed version.
+	 * 
+	 * @param event
+	 */
+	@FXML
+	private void printToConsole(ActionEvent event) {
+		try {
+			File file = new File("./fuseki/Data/outputfromProgramm.owl");
+			FileOutputStream out = new FileOutputStream(file);
+			model.write(out, "RDF/XML");
+			log.info("label hinzufügen");
+
+		} catch (FileNotFoundException e) {
+			log.error(e,e);
+		}
+
+	}
+
+	/**
+	 * 
+	 * Method started from MouseClick on Individual of a Ontology Class
+	 * ListView. Get the clicked Individual set it to the selectedIndividual and
+	 * displays object and data property. Double click gives you the possibility
+	 * to delete a Individual.
+	 * 
+	 * @param event
+	 */
+	@FXML
+	private void selectIndividualOfOntClass(MouseEvent event) {
+		System.out.println("Bla");
+		if (!treeview_indi.getSelectionModel().isEmpty()) {
+			// selectedIndividual = model.getIndividual(liste_indi.get(
+			// treeview_indi.getSelectionModel().getSelectedIndex())
+			// .getURI());
+			// label_uri2.setText(liste_indi.get(
+			// treeview_indi.getSelectionModel().getSelectedIndex())
+			// .getURI());
+	
+			selectedIndividual = treeview_indi.getSelectionModel()
+					.getSelectedItem().getValue();
+			/*
+			 * model.getIndividual(
+			 * liste_indi.get(liste_indi.indexOf(treeview_indi
+			 * .getSelectionModel().getSelectedItem().getValue())).getURI());
+			 */
+			label_uri2.setText(selectedIndividual.getURI());
+	
+			label_uri2.setText(selectedIndividual.getURI());
+	
+			showObjectProperties(selectedIndividual);
+			showDataProperties(selectedIndividual);
+			if(acc_editLabel.isExpanded()){
+				txtfield_individiaulname.setText(selectedIndividual.getURI()
+						.substring(baseNS.length()) + "/");
+				switch(selectedOntClass.getLocalName()){
+					case "Label":
+							selectedIndiLocalname
+							.setText(selectedIndividual.getLocalName());
+					txtfield_editLabel.setText(getDatapropertyFromLabel(
+							selectedIndividual).getString());
+					break;
+					case "Concept":
+						if(cnt>0){
+							for(int i =1; i<cnt ;i++){
+								vboxEditPrefLabel.getChildren().remove(1);
+							}
+							cnt=0;
+						}
+
+						DatatypeProperty dprop = model.getDatatypeProperty(skosNS + "notation");
+						DatatypeProperty dproplit = model.getDatatypeProperty(skosxlNS	+ "literalForm");
+						btn_editLabel.setText(localizedBundle.getString("btnAddLabel"));
+						
+						if (getIndividualbyObjectProperty(selectedIndividual,"prefLabel") != null) {
+							Individual labelindi = model.getIndividual(getIndividualbyObjectProperty(selectedIndividual,"prefLabel").getURI());
+							selectedIndiLocalname.setText(getIndividualbyObjectProperty(selectedIndividual, "prefLabel").getLocalName());
+							btn_editLabel.setText(localizedBundle.getString("btnEditLabel"));
+							NodeIterator nodeiter = labelindi.listPropertyValues(dproplit);
+							while(nodeiter.hasNext()){
+								Literal liter = (Literal)nodeiter.next();
+								if(cnt >0){
+
+									HBox newHBox = new HBox();
+									TextField newTextfield = new TextField();
+									Button newBtn = new Button();
+									Pane newPane = new Pane();
+									ChoiceBox<String> newChoiceBox = new ChoiceBox<String>();
+
+									newChoiceBox.setItems(languages);
+									newBtn.setId("btndeltxtfields");
+									HBox.setHgrow(newTextfield, Priority.ALWAYS);
+									newChoiceBox.setPrefWidth(144.0);
+									newBtn.setPrefWidth(30.0);
+									newBtn.setOnAction((ev) -> {
+										vboxEditPrefLabel.getChildren().remove(newHBox);
+										cnt--;
+									});
+									newTextfield.setText(liter.getString());
+									newChoiceBox.setValue(liter.getLanguage());
+									newHBox.autosize();
+									newTextfield.setPrefWidth(231.0);
+									newTextfield.setMaxWidth(Region.USE_COMPUTED_SIZE);
+									newPane.setPrefWidth(15.0);
+									newHBox.getChildren().addAll(newTextfield, newPane, newChoiceBox,
+											newBtn);
+									vboxEditPrefLabel.getChildren().add(1, newHBox);
+								}else{
+									txtfield_editLabel.setText(liter.getString());
+									choiceboxeditLabel.setValue(liter.getLanguage());
+								}
+								cnt++;
+							}
+//							if (getDatapropertyFromLabel(getIndividualbyObjectProperty(selectedIndividual, "prefLabel")) != null) {
+//								txtfield_editLabel.setText(getDatapropertyFromLabel(getIndividualbyObjectProperty(
+//												selectedIndividual, "prefLabel")).getString());
+//								choiceboxeditLabel.setValue(getDatapropertyFromLabel(getIndividualbyObjectProperty(
+//													selectedIndividual, "prefLabel")).getLanguage());
+//								
+//							}
+						}else {
+							txtfield_editLabel.setText("");
+						}
+						if(getIndividualbyObjectProperty(selectedIndividual, "altLabel")!= null){
+							btn_editLabel.setText(localizedBundle.getString("btnEditLabel"));
+							if (getDatapropertyFromLabel(getIndividualbyObjectProperty(
+									selectedIndividual, "altLabel")) != null){
+							txtfield_EditialtLabel.setText(getDatapropertyFromLabel(
+									getIndividualbyObjectProperty(
+											selectedIndividual, "altLabel"))
+									.getString());
+							}
+						}else{
+							txtfield_EditialtLabel.setText("");
+						}
+						Property aprop = model.getProperty(dctNS + "description");
+						if(selectedIndividual.getPropertyValue(aprop) != null){
+							txtarea_EditDescription.setText(selectedIndividual.getPropertyValue(aprop).asLiteral().getString());
+						}else{
+							txtarea_EditDescription.setText("");
+						}
+						
+						if(selectedIndividual.getPropertyValue(dprop) != null)
+						{
+							txtfield_EditimageURL.setText(selectedIndividual.getPropertyValue(dprop).asLiteral().getString());
+							imageEditIndividual.setImage(new Image(selectedIndividual.getPropertyValue(dprop).asLiteral().getString()));
+						}else{
+							txtfield_EditimageURL.setText("");
+							
+							
+						}
+						break;
+						default:
+							selectedIndiLocalname.setText("");
+							txtfield_editLabel.setText("");
+							break;
+				}
+			}
+			if (event.getClickCount() == 2) {
+				String selected = model.getIndividual(
+						liste_indi.get(
+								treeview_indi.getSelectionModel()
+										.getSelectedIndex()).getURI())
+						.getLocalName();
+				int delete = JOptionPane.showConfirmDialog(null,
+						localizedBundle.getString("delIndi") + selected,
+						localizedBundle.getString("delIndiWindow"),
+						JOptionPane.YES_NO_OPTION);
+				if (delete == JOptionPane.YES_OPTION) {
+					model.getIndividual(
+							liste_indi.get(
+									treeview_indi.getSelectionModel()
+											.getSelectedIndex()).getURI())
+							.remove();
+					showIndividualsOfOntClass(selectedOntClass);
+					showObjectProperties(selectedIndividual);
+					showDataProperties(selectedIndividual);
+				}
+			}
+		}
+	}
+
+	/**
+	 * This function recognizes which ontology class the user has selected,
+	 * displays the URI and call a function to get all Individual in this
+	 * ontology class.
+	 * 
+	 * Also if no valid Class is selected you can't use buttons to add
+	 * Individuals/Properties or Labels
+	 * 
+	 * @param e
+	 */
+	@FXML
+	public void selectOntClass(MouseEvent e) {
+		if (!listview_classes.getSelectionModel().isEmpty()) {
+			txtfield_IndiLabel0.setDisable(false);
+			selectedOntClass = model.getOntClass(liste_classes.get(
+					listview_classes.getSelectionModel().getSelectedIndex())
+					.getURI());
+
+			OntClassNS = liste_classes.get(
+					listview_classes.getSelectionModel().getSelectedIndex())
+					.getURI();
+			label_uri.setText(OntClassNS);
+
+			showIndividualsOfOntClass(selectedOntClass);
+			switch (selectedOntClass.getLocalName()) {
+			case "Concept":
+				acc_addIndi.setExpanded(true);
+				break;
+			case "Label":
+				acc_editLabel.setExpanded(true);
+				txtfield_IndiLabel0.setDisable(true);
+				btn_editLabel
+						.setText(localizedBundle.getString("btnEditLabel"));
+				break;
+			case "OrderedCollection":
+			case "Collection":
+				acc_addCollection.setExpanded(true);
+				break;
+			default:
+				break;
+			}
+
+		}
+	}
+
+	private void setChoiseboxItems() {
+		ObservableList<String> elems = FXCollections.observableArrayList();
+		elems.add(localizedBundle.getString("noFilter"));
+		ExtendedIterator<Individual> i = model.listIndividuals();
+		while (i.hasNext()) {
+			Individual fuck = (Individual) i.next();
+			elems.add(fuck.getLocalName());
+		}
+		choiseBoxCollectionFilter.setItems(elems);
+		choiseBoxCollectionFilter.setValue(localizedBundle
+				.getString("noFilter"));
+	}
+
+	private void setFilteredItems() {
+		liste_choicedindis.clear();
+		String selected = choiseBoxCollectionFilter.getValue();
+		Individual ind = null;
+
+		if (selected != localizedBundle.getString("noFilter")) {
+			ExtendedIterator<Individual> i = model.listIndividuals();
+			// search for current individual
+			while (i.hasNext()) {
+				ind = (Individual) i.next();
+				if (ind.getLocalName().equals(selected)) {
+					break;
+				}
+			}
+			if (ind != null) {
+				StmtIterator properties = ind.listProperties();
+				while (properties.hasNext()) {
+					Statement s = properties.next();
+
+					System.out.println(s.getPredicate().getLocalName());
+					if (s.getPredicate().getLocalName().equals("narrower")) {
+						// liste_choicedindis.add((Individual)s.getObject().getModel());
+						i = model.listIndividuals();
+						while (i.hasNext()) {
+							Individual ind2 = (Individual) i.next();
+							if (ind2.getLocalName().equals(
+									s.getObject().asResource().getLocalName())) {
+								liste_choicedindis.add(ind2);
+							}
+						}
+					}
+				}
+			}
+		} else {
+			ExtendedIterator<Individual> i = model.listIndividuals();
+			while (i.hasNext()) {
+				liste_choicedindis.add((Individual) i.next());
+			}
+		}
+		listviewCollectionChoise.setItems(liste_choicedindis);
+	}
+
+	/**
+	 * 
+	 * Show all Object properties in a choicebox from loaded Ontology
+	 * 
+	 */
+	// private void showOPropertiesInChoicebox() {
+	// ExtendedIterator list_prop = model.listObjectProperties();
+	// while (list_prop.hasNext()) {
+	// ObjectProperty prop = (ObjectProperty) list_prop.next();
+	// props.add(prop.getLabel("en"));
+	// propNS.add(prop.getURI());
+	// log.info("property added: " + prop.getLocalName());
+	// }
+	// }
+
+	private void showAllIndividualsInChoicebox() {
+		indis.clear();
+
+		ExtendedIterator<Individual> list_indis = model.listIndividuals();
+		while (list_indis.hasNext()) {
+			Individual indi = (Individual) list_indis.next();
+			indis.add(indi);
+			log.info("Individual added: " + indi.getLocalName());
+
+		}
+	}
+
+	/**
+	 * 
+	 * Displays all data properties of the selected Individual in a Listview.
+	 * 
+	 * @param selectedIndividual
+	 */
+	private void showDataProperties(Individual selectedIndividual) {
+		// Property Window ID: listview_objprop
+		listview_objprop.setItems(null);
+		if (selectedIndividual != null) {
+			StmtIterator iterProperties = selectedIndividual.listProperties();
+			ObservableList<String> items = FXCollections.observableArrayList();
+			String predicate = "";
+			String object = "";
+			while (iterProperties.hasNext()) {
+				Statement nextProperty = iterProperties.next();
+				if (nextProperty.getPredicate().getNameSpace().equals(skosNS)
+						|| nextProperty.getPredicate().getNameSpace()
+								.equals(skosxlNS)) {
+					try {
+
+						if (nextProperty.getObject().isLiteral()) {
+							predicate = nextProperty.getPredicate()
+									.getLocalName();
+							object = nextProperty.getObject().asLiteral()
+									.toString();
+							items.add("'" + predicate + "'" + " " + object
+									+ "\n\n");
+						}
+					} catch (ResourceRequiredException e) {
+						log.error(e, e);
+					}
+				}
+				if (!items.isEmpty()) {
+					listview_objprop.setItems(items);
+				}
+			}
+		}
+	}
+
 	/**
 	 * 
 	 * Shows all Individuals of selected Ontology Class in a Listview
@@ -638,192 +1203,17 @@ public class SkosEditorController implements Initializable {
 
 	}
 
-	/**
-	 * 
-	 * Debug Method, saves Ontology into a File
-	 * (fuseki/Data/outputfromProgramm.owl) Will be deleted in deployed version.
-	 * 
-	 * @param event
-	 */
-	@FXML
-	private void printToConsole(ActionEvent event) {
-		try {
-			File file = new File("./fuseki/Data/outputfromProgramm.owl");
-			FileOutputStream out = new FileOutputStream(file);
-			model.write(out, "RDF/XML");
-			log.info("label hinzufügen");
-
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	public TreeItem<Individual> showIndividualsOfOntClassRecursive(OntClass oclass, TreeItem<Individual> root){
+		ExtendedIterator<? extends OntResource> indilist = oclass
+				.listInstances();
+		
+		while(indilist.hasNext()){
+			Individual next =(Individual) indilist.next();
+			TreeItem<Individual> elem = generateSubTreeFromBehindLikeJakobLikesIt(oclass, next, null);
+			elem.setExpanded(true);
+			addToExistingTreeView(root, elem);
 		}
-
-	}
-
-	/**
-	 * 
-	 * Adds Label to the selected Individual. Executed after clicking the button
-	 * btn_addLabel.
-	 * 
-	 * Recipe: Creates Individual in Label-Class and adding DataProperty
-	 * "literalForm" with the Userinput as literal. Creates Object property
-	 * "preferred Label" between created Label individual and selected
-	 * individual.
-	 * 
-	 * 
-	 * @param event
-	 */
-	@FXML
-	private void addLabel(ActionEvent event) {
-		if ((selectedOntClass.getLocalName().equals("Concept"))
-				&& (selectedIndividual != null)) {
-
-			Object antwort = JOptionPane.showInputDialog(null,
-					localizedBundle.getString("EnterLabel"),
-					localizedBundle.getString("InputWindow"),
-					JOptionPane.INFORMATION_MESSAGE, null, null, null);
-			if (antwort != null) {
-				String name = (String) antwort;
-				model.getOntClass(skosxlNS + "Label").createIndividual(
-						baseNS + "LabelFor" + name);
-				Individual indi = model.getIndividual(baseNS + "LabelFor"
-						+ name);
-				DatatypeProperty dprop = model.getDatatypeProperty(skosxlNS
-						+ "literalForm");
-				log.info("datatypeProp" + dprop.getLocalName());
-				indi.addProperty(dprop, model.createLiteral(name, "de"));
-				ObjectProperty Oprop = model.getObjectProperty(skosxlNS
-						+ "prefLabel");
-				model.add(selectedIndividual, Oprop, indi);
-			}
-		}
-
-	}
-
-	/**
-	 * 
-	 * Method started from MouseClick on Individual of a Ontology Class
-	 * ListView. Get the clicked Individual set it to the selectedIndividual and
-	 * displays object and data property. Double click gives you the possibility
-	 * to delete a Individual.
-	 * 
-	 * @param event
-	 */
-	@FXML
-	private void selectIndividualOfOntClass(MouseEvent event) {
-		System.out.println("Bla");
-		if (!treeview_indi.getSelectionModel().isEmpty()) {
-			// selectedIndividual = model.getIndividual(liste_indi.get(
-			// treeview_indi.getSelectionModel().getSelectedIndex())
-			// .getURI());
-			// label_uri2.setText(liste_indi.get(
-			// treeview_indi.getSelectionModel().getSelectedIndex())
-			// .getURI());
-
-			selectedIndividual = treeview_indi.getSelectionModel()
-					.getSelectedItem().getValue();
-			/*
-			 * model.getIndividual(
-			 * liste_indi.get(liste_indi.indexOf(treeview_indi
-			 * .getSelectionModel().getSelectedItem().getValue())).getURI());
-			 */
-			label_uri2.setText(selectedIndividual.getURI());
-
-			label_uri2.setText(selectedIndividual.getURI());
-
-			showObjectProperties(selectedIndividual);
-			showDataProperties(selectedIndividual);
-
-			txtfield_individiaulname.setText(selectedIndividual.getURI()
-					.substring(baseNS.length()) + "/");
-			if (selectedOntClass.getLocalName().contains("Label")) {
-				selectedIndiLocalname
-						.setText(selectedIndividual.getLocalName());
-				txtfield_editLabel.setText(getDatapropertyFromLabel(
-						selectedIndividual).getString());
-			} else if (selectedOntClass.getLocalName().contains("Concept")) {
-				btn_editLabel.setText(localizedBundle.getString("btnAddLabel"));
-				if (getIndividualbyObjectProperty(selectedIndividual,
-						"prefLabel") != null) {
-					btn_editLabel.setText(localizedBundle
-							.getString("btnEditLabel"));
-					selectedIndiLocalname
-							.setText(getIndividualbyObjectProperty(
-									selectedIndividual, "prefLabel")
-									.getLocalName());
-					if (getDatapropertyFromLabel(getIndividualbyObjectProperty(
-							selectedIndividual, "prefLabel")) != null) {
-						txtfield_editLabel.setText(getDatapropertyFromLabel(
-								getIndividualbyObjectProperty(
-										selectedIndividual, "prefLabel"))
-								.getString());
-					}
-				} else {
-					selectedIndiLocalname.setText("");
-					txtfield_editLabel.setText("");
-				}
-			}
-			if (event.getClickCount() == 2) {
-				String selected = model.getIndividual(
-						liste_indi.get(
-								treeview_indi.getSelectionModel()
-										.getSelectedIndex()).getURI())
-						.getLocalName();
-				int delete = JOptionPane.showConfirmDialog(null,
-						localizedBundle.getString("delIndi") + selected,
-						localizedBundle.getString("delIndiWindow"),
-						JOptionPane.YES_NO_OPTION);
-				if (delete == JOptionPane.YES_OPTION) {
-					model.getIndividual(
-							liste_indi.get(
-									treeview_indi.getSelectionModel()
-											.getSelectedIndex()).getURI())
-							.remove();
-					showIndividualsOfOntClass(selectedOntClass);
-					showObjectProperties(selectedIndividual);
-					showDataProperties(selectedIndividual);
-				}
-			}
-		}
-	}
-
-	/**
-	 * 
-	 * Method of Button btn_addprop. Set a object property between selected
-	 * Individual and selected individual of a choicebox.
-	 * 
-	 * @param event
-	 */
-	@FXML
-	private void showSubIndividualinListView(MouseEvent event) {
-		setFilteredItems();
-	}
-
-	/**
-	 * 
-	 * Show all Object properties in a choicebox from loaded Ontology
-	 * 
-	 */
-	// private void showOPropertiesInChoicebox() {
-	// ExtendedIterator list_prop = model.listObjectProperties();
-	// while (list_prop.hasNext()) {
-	// ObjectProperty prop = (ObjectProperty) list_prop.next();
-	// props.add(prop.getLabel("en"));
-	// propNS.add(prop.getURI());
-	// log.info("property added: " + prop.getLocalName());
-	// }
-	// }
-
-	private void showAllIndividualsInChoicebox() {
-		indis.clear();
-
-		ExtendedIterator list_indis = model.listIndividuals();
-		while (list_indis.hasNext()) {
-			Individual indi = (Individual) list_indis.next();
-			indis.add(indi);
-			log.info("Individual added: " + indi.getLocalName());
-
-		}
+		return root;
 	}
 
 	/**
@@ -874,370 +1264,40 @@ public class SkosEditorController implements Initializable {
 
 	/**
 	 * 
-	 * Displays all data properties of the selected Individual in a Listview.
+	 * All skos and skosxl OntologyClasses will be shown in the TreeView by this
+	 * method
 	 * 
-	 * @param selectedIndividual
 	 */
-	private void showDataProperties(Individual selectedIndividual) {
-		// Property Window ID: listview_objprop
-		listview_objprop.setItems(null);
-		if (selectedIndividual != null) {
-			StmtIterator iterProperties = selectedIndividual.listProperties();
-			ObservableList<String> items = FXCollections.observableArrayList();
-			String predicate = "";
-			String object = "";
-			while (iterProperties.hasNext()) {
-				Statement nextProperty = iterProperties.next();
-				if (nextProperty.getPredicate().getNameSpace().equals(skosNS)
-						|| nextProperty.getPredicate().getNameSpace()
-								.equals(skosxlNS)) {
-					try {
+	public void showOntClassInTree() {
+		classes.clear();
+		liste_classes.clear();
+		selectedOntClass = null;
 
-						if (nextProperty.getObject().isLiteral()) {
-							predicate = nextProperty.getPredicate()
-									.getLocalName();
-							object = nextProperty.getObject().asLiteral()
-									.toString();
-							items.add("'" + predicate + "'" + " " + object
-									+ "\n\n");
-						}
-					} catch (ResourceRequiredException e) {
-						log.error(e, e);
-					}
-				}
-				if (!items.isEmpty()) {
-					listview_objprop.setItems(items);
-				}
+		ExtendedIterator<OntClass> oclasslist = model.listClasses();
+		while (oclasslist.hasNext()) {
+
+			OntClass oclass = (OntClass) oclasslist.next();
+			if (oclass.toString().contains(skosNS)
+					|| oclass.toString().contains(skosxlNS)) {
+				liste_classes.add(oclass);
+				classes.add(oclass.getLocalName());
 			}
+
 		}
+		log.info("class added to List");
+
 	}
 
 	/**
-	 * Tries to create a new Collection with the given name as long as the name
-	 * doesn't already exist.
+	 * 
+	 * Method of Button btn_addprop. Set a object property between selected
+	 * Individual and selected individual of a choicebox.
+	 * 
+	 * @param event
 	 */
 	@FXML
-	public void createCollection() {
-
-		String collectionString = "/" + COLLECTION + "/";
-		String collectionNameString = baseNS + collectionString
-				+ textfieldCollectionName.getText();
-		String collectionLabelString = baseNS + "LabelForCollection";
-		// + textfieldCollectionName.getText();
-		log.info(selectedOntClass == null);
-		if (model.getIndividual(collectionNameString) == null
-				&& selectedOntClass != null) {
-
-			// Name must not be empty!
-			if (!textfieldCollectionName.getText().equals("")) {
-				// Collection must be seleted!
-				if (selectedOntClass.getLocalName().equals(COLLECTION)) {
-					log.info("Collection selected = true");
-					// Add Individual
-					model.createIndividual(collectionNameString,
-							selectedOntClass);
-
-					// optional Label
-					if (!textfieldCollectionLabelName.getText().isEmpty()) {
-						createLabelRecipe("prefLabel", collectionLabelString,
-								textfieldCollectionLabelName.getText(), "de",
-								model.getIndividual(collectionNameString));
-					} else {
-						log.info("No Label given");
-					}
-
-					// optional fill created collection with individuals and
-					// collections
-					insertElemsToCollectionRecipe(
-							model.getIndividual(collectionNameString),
-							listviewCollectionSelected);
-				}
-				// not implemented yet!
-				else if (selectedOntClass.getLocalName().equals(
-						"OrderedCollection")) {
-					log.info("Ordered Collection selected = true \n not implemented yet!");
-				} else {
-					log.error("Neither Collection nor Ordered Collection selected!");
-				}// end if-else case collection or ordered collection selected
-			} else {
-				log.error("Namefield Empty!");
-			}// end if-case textfield empty check
-		} else {
-			log.error("Name for Collection already taken or No Ontclass selected!");
-		} // end if-else-case collection name already exist
-	}
-
-	@FXML
-	public void insertToCollection() {
-
-	}
-
-	@FXML
-	public void deleteFromCollection() {
-
-	}
-
-	/** supporting method to generalize the insertion of elems into a collection **/
-	private void insertElemsToCollectionRecipe(Individual collection,
-			ListView<Individual> elems) {
-		// is the listview not empty? otherwise we can skip the insertion
-		if (!elems.getItems().isEmpty()) {
-			// is the collection really a Collection item? otherwise we should
-			// not execute this operation!
-			boolean collectionIsValid = false;
-			// StmtIterator iter = model.getIndividual(skosNS +
-			// COLLECTION).listProperties();
-			StmtIterator iter = collection.listProperties();
-			while (iter.hasNext()) {
-				Statement statement = iter.next();
-				log.info(statement.getPredicate().getLocalName() + "    "
-						+ statement.getObject().asResource().getLocalName());
-				if (statement.getPredicate().getLocalName().equals(TYPE)
-						&& statement.getObject().asResource().getLocalName()
-								.equals(COLLECTION)) {
-					// collection is a Collection item
-					collectionIsValid = true;
-				}
-			}
-			log.info(collectionIsValid);
-			// only continue if you found out that collection is narrower
-			// Collection
-			if (collectionIsValid) {
-				Iterator<Individual> i = elems.getItems().iterator();
-				while (i.hasNext()) {
-					Individual indi = i.next();
-					ObjectProperty property = model.getObjectProperty(skosNS
-							+ MEMBER);
-					log.info(property.getURI());
-					model.add(collection, property, indi);
-				}
-			}
-
-		}
-
-	}
-
-	public void createLabelRecipe(String Objectproperty, String name,
-			String description, String language, Individual toindividual) {
-		String labelname = toindividual.getLocalName();
-		model.getOntClass(skosxlNS + "Label").createIndividual(
-				baseNS + PREFIXLABEL + name + labelname);
-		Individual indi = model.getIndividual(baseNS + PREFIXLABEL + name
-				+ labelname);
-		DatatypeProperty dprop = model.getDatatypeProperty(skosxlNS
-				+ "literalForm");
-		log.info("datatypeProp" + dprop.getLocalName());
-		indi.addProperty(dprop, model.createLiteral(description, language));
-		ObjectProperty Oprop = model.getObjectProperty(skosxlNS
-				+ Objectproperty);
-		model.add(toindividual, Oprop, indi);
-
-	}
-
-	@FXML
-	public void editLabel(ActionEvent e) {
-		log.info("in editLabelmethod");
-		if (selectedOntClass != null && selectedIndividual != null) {
-			log.info("no null Class or Individual");
-			log.info(selectedOntClass.getLocalName());
-			if (selectedOntClass.getLocalName().contains("Concept")) {
-				log.info("test");
-				if (getIndividualbyObjectProperty(selectedIndividual,
-						"prefLabel") != null) {
-
-					if (getDatapropertyFromLabel(getIndividualbyObjectProperty(
-							selectedIndividual, "prefLabel")) != null) {
-						getDatapropertyFromLabel(
-								getIndividualbyObjectProperty(
-										selectedIndividual, "prefLabel"))
-								.changeObject(txtfield_editLabel.getText(),
-										"de");
-					}
-				} else {
-					createLabelRecipe("prefLabel", "",
-							txtfield_editLabel.getText(), "de",
-							selectedIndividual);
-				}
-			} else if (selectedOntClass.getLocalName().contains("Label")) {
-				if (getDatapropertyFromLabel(selectedIndividual) != null) {
-					getDatapropertyFromLabel(selectedIndividual).changeObject(
-							txtfield_editLabel.getText(), "de");
-				}
-			}
-		}
-	}
-
-	private Resource getIndividualbyObjectProperty(Individual individual,
-			String objectproperty) {
-		if (individual != null) {
-			StmtIterator iter = individual.listProperties();
-			while (iter.hasNext()) {
-				Statement s = iter.next();
-				if (s.getPredicate().getLocalName().equals(objectproperty)
-						&& s.getObject().isResource()) {
-					return s.getObject().asResource();
-				}
-			}
-		}
-		return null;
-	}
-
-	private Statement getDatapropertyFromLabel(Resource label) {
-		StmtIterator iter = label.listProperties();
-		while (iter.hasNext()) {
-			Statement s = iter.next();
-			log.info(s.getPredicate().getLocalName());
-			if (s.getPredicate().getLocalName().equals("literalForm")) {
-				return s;
-			}
-		}
-		return null;
-	}
-
-	public static void startSKOSController(OntModel ontModel) {
-		model = ontModel;
-	}
-
-	public static OntModel endSKOSController() {
-		return model;
-	}
-
-	private void setChoiseboxItems() {
-		ObservableList<String> elems = FXCollections.observableArrayList();
-		elems.add(localizedBundle.getString("noFilter"));
-		ExtendedIterator i = model.listIndividuals();
-		while (i.hasNext()) {
-			Individual fuck = (Individual) i.next();
-			elems.add(fuck.getLocalName());
-		}
-		choiseBoxCollectionFilter.setItems(elems);
-		choiseBoxCollectionFilter.setValue(localizedBundle
-				.getString("noFilter"));
-	}
-
-	private void setFilteredItems() {
-		liste_choicedindis.clear();
-		String selected = choiseBoxCollectionFilter.getValue();
-		Individual ind = null;
-
-		if (selected != localizedBundle.getString("noFilter")) {
-			ExtendedIterator i = model.listIndividuals();
-			// search for current individual
-			while (i.hasNext()) {
-				ind = (Individual) i.next();
-				if (ind.getLocalName().equals(selected)) {
-					break;
-				}
-			}
-			if (ind != null) {
-				StmtIterator properties = ind.listProperties();
-				while (properties.hasNext()) {
-					Statement s = properties.next();
-
-					System.out.println(s.getPredicate().getLocalName());
-					if (s.getPredicate().getLocalName().equals("narrower")) {
-						// liste_choicedindis.add((Individual)s.getObject().getModel());
-						i = model.listIndividuals();
-						while (i.hasNext()) {
-							Individual ind2 = (Individual) i.next();
-							if (ind2.getLocalName().equals(
-									s.getObject().asResource().getLocalName())) {
-								liste_choicedindis.add(ind2);
-							}
-						}
-					}
-				}
-			}
-		} else {
-			ExtendedIterator i = model.listIndividuals();
-			while (i.hasNext()) {
-				liste_choicedindis.add((Individual) i.next());
-			}
-		}
-		listviewCollectionChoise.setItems(liste_choicedindis);
-	}
-
-	@FXML
-	public void displayImageFromURL(ActionEvent e) {
-		imageConceptIndividual.setImage(new Image(txtfield_imageURL.getText()));
-	}
-
-	@FXML
-	public void addLabelInputfields(ActionEvent e) {
-		log.info("In method: addLabelInputfields");
-		if (counter < languages.size()) {
-			HBox newHBox = new HBox();
-			TextField newTextfield = new TextField();
-			Button newBtn = new Button();
-			Pane newPane = new Pane();
-			ChoiceBox<String> newChoiceBox = new ChoiceBox<String>();
-
-			newChoiceBox.setItems(languages);
-			newBtn.setId("btndeltxtfields");
-			HBox.setHgrow(newTextfield, Priority.ALWAYS);
-			newChoiceBox.setPrefWidth(144.0);
-			newBtn.setPrefWidth(30.0);
-			newBtn.setOnAction((event) -> {
-				vboxAddPrefLabel.getChildren().remove(newHBox);
-				counter--;
-			});
-			newTextfield.setPromptText(localizedBundle.getString("prefLabel"));
-			newHBox.autosize();
-			newTextfield.setPrefWidth(231.0);
-			newTextfield.setMaxWidth(newTextfield.USE_COMPUTED_SIZE);
-			newPane.setPrefWidth(15.0);
-			newHBox.getChildren().addAll(newTextfield, newPane, newChoiceBox,
-					newBtn);
-			vboxAddPrefLabel.getChildren().add(1, newHBox);
-			counter++;
-		}
-	}
-
-	public void createDatapropertyNotation(String description, Individual indi) {
-
-		DatatypeProperty dprop = model.getDatatypeProperty(skosNS + "notation");
-		log.info("datatypeProp" + dprop.getLocalName());
-		indi.addProperty(dprop, model.createLiteral(description));
-	}
-
-	// private void printToConsole() throws IOException {
-	// File file =null ;
-	// FileOutputStream out = null;
-	// try {
-	// file = new File("./RDFDaten/outputfromProgramm.owl");
-	// out = new FileOutputStream(file);
-	// model.write(out, "RDF/XML");
-	// log.info("label hinzufügen");
-	//
-	// } finally{
-	// out.close();
-	// }
-	//
-	// }
-	public ArrayList<Resource> getIndividualsbyObjectProperty(
-			Individual individual, String objectproperty) {
-		ArrayList<Resource> result = new ArrayList<Resource>();
-		if (individual != null) {
-			StmtIterator iter = individual.listProperties();
-			while (iter.hasNext()) {
-				Statement s = iter.next();
-				if (s.getPredicate().getLocalName().equals(objectproperty)
-						&& s.getObject().isResource()) {
-					result.add(s.getObject().asResource());
-				}
-			}
-		}
-		if (result.isEmpty())
-			return null;
-		return result;
-	}
-
-	public static void removeIndividual(Individual indi){
-		if(indi != null){
-			indi.remove();
-		}else{
-			log.error("Individual not found");
-		}
+	private void showSubIndividualinListView(MouseEvent event) {
+		setFilteredItems();
 	}
 	
 }
