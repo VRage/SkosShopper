@@ -4,7 +4,10 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Iterator;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -26,7 +29,13 @@ import main.Main;
 
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntResource;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
+import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 
 import controller.MainController;
 
@@ -148,9 +157,83 @@ public class IndividualofOntClassCell extends TreeCell<Individual> {
 
     }
     
-    public void chancheHirarchyOfModel(Individual draged, Individual droped){
-    	
+    public void chancheHirarchyOfModel(Individual individualToMove, Individual individualDestination){
+    	//First of all we are only able to move individuals of ontclass Concept
+    	if(mcon.skoseditorliteController.selectedOntClass.getLocalName().equals("Concept")){
+    		//We will need the narrower Property alot in this method so we generate it
+    		Property narrower = model.createObjectProperty(mcon.skoseditorliteController.skosNS + "narrower");
+    		System.out.println("Property created: " + narrower);
+    		//Generate a TreeView to work better with the Items
+    		//TreeItem<Individual> root = new TreeItem<Individual>();
+    		/**root = mcon.skoseditorliteController.showIndividualsOfOntClassRecursive(
+    				mcon.skoseditorliteController.selectedOntClass, 
+    				root);*/
+    		TreeItem<Individual> root = mcon.skoseditorliteController.root;
+    		System.out.println("Tree successfully created");
+    		//search the two Items in the view to be able to relocate one of them
+    		TreeItem<Individual> itemToMove      = searchTreeItem(individualToMove, root);
+    		System.out.println("itemToMove created with: " + itemToMove.getValue().getLocalName());
+    		TreeItem<Individual> itemDestination = searchTreeItem(individualDestination, root);
+    		System.out.println("itemDestination created with: " + itemDestination.getValue().getLocalName());
+    		
+    		//Step1: if my item to move has children, i have to link them to the parent of my item to move 
+    		// except the parent is root. Also we need to delelte the link between children and itemToMove
+    		if(!itemToMove.getParent().equals(root) && !itemToMove.getChildren().isEmpty()){
+    			System.out.println("Item has Parent:" + itemToMove.getParent().getValue().getLocalName() + "\n and Children!");
+    			Iterator<TreeItem<Individual>> children = itemToMove.getChildren().iterator();
+    			while(children.hasNext()){
+    				TreeItem<Individual> child = children.next();
+    				System.out.println("Child: " + child.getValue().getLocalName());
+    				itemToMove.getParent().getValue().addProperty(narrower, child.getValue());
+    			}
+    		}
+    		//if item to move has root as parent but has children we need to just delete the parent/child relation
+    		if(!itemToMove.getChildren().isEmpty()){
+    			System.out.println("ItemtoMove has Children to be removed");
+    			Iterator<TreeItem<Individual>> children = itemToMove.getChildren().iterator();
+    			while(children.hasNext()){
+    				TreeItem<Individual> child = children.next();
+    				System.out.println("Child: " + child.getValue().getLocalName());
+    				individualToMove.removeProperty(narrower, child.getValue());
+    			}
+    		}
+    		//after that we are able to move the itemToMove to its new Parent and delete the old relation
+    		individualDestination.addProperty(narrower, individualToMove);
+    		System.out.println("New Relation betwee ItemToMove and itemDestination created");
+    		if(!itemToMove.getParent().equals(root)){
+    		itemToMove.getParent().getValue().removeProperty(narrower, individualToMove);
+    		System.out.println("Old Relation betwee itemToMove and its Parent removed");
+    		}
+    	}
     }
-  
+    
+    private TreeItem<Individual> searchTreeItem(Individual individual, TreeItem<Individual> item){
+    	//if its not the root element, compare it with the individual
+    	System.out.println("searchTreeItem entered!");
+    	if(item.getValue() != null){
+    		System.out.println("ItemValue = " + item.getValue().getLocalName());
+	    	if(item.getValue().equals(individual)){
+	    		System.out.println("Individual found: " + item.getValue().getLocalName());
+	    		return item;
+	    	}
+	    	//otherwise continue with a recursion as long as there are children
+    	}
+    		
+    	if(!item.getChildren().isEmpty()){
+			Iterator<TreeItem<Individual>> children = item.getChildren().iterator();
+			while(children.hasNext()){
+				TreeItem<Individual> child = children.next();
+				System.out.println("Child Found in searchTreeItem: " + child.getValue().getLocalName());
+				TreeItem<Individual> result = searchTreeItem(individual, child);
+				System.out.println("result " + result);
+				if(result != null){
+					return result;
+				}
+	    	
+	    	}
+    	}
+    	System.out.println("Item: " + item.getValue().getLocalName() + " is Leaf and not a match!");
+    	return null;
+    }
 }
 

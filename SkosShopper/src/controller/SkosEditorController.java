@@ -161,6 +161,8 @@ public class SkosEditorController implements Initializable {
 	private static final String NARROWER = "narrower";
 	private static final String MEMBER = "member";
 	private static final String TYPE = "type";
+	
+	public TreeItem<Individual> root;
 
 	// local j4log logger
 	public static final Logger log = Logger
@@ -205,7 +207,7 @@ public class SkosEditorController implements Initializable {
 	// Namespaces of the OntModel
 	private String OntClassNS = "";
 	private String baseNS = "";
-	private String skosNS = "";
+	public String skosNS = "";
 	private String skosxlNS = "";
 	private String dctNS = "";
 
@@ -532,7 +534,7 @@ public class SkosEditorController implements Initializable {
 		}
 	}
 
-	private TreeItem<Individual> showIndividualsOfOntClassRecursive(OntClass oclass, TreeItem<Individual> root){
+	public TreeItem<Individual> showIndividualsOfOntClassRecursive(OntClass oclass, TreeItem<Individual> root){
 		ExtendedIterator<? extends OntResource> indilist = oclass
 				.listInstances();
 		
@@ -598,7 +600,8 @@ public class SkosEditorController implements Initializable {
 			liste_indi.clear();
 			selectedIndividual = null;
 
-			TreeItem<Individual> root = new TreeItem<Individual>();
+			//TreeItem<Individual> root = new TreeItem<Individual>();
+			root = new TreeItem<Individual>();
 			root = showIndividualsOfOntClassRecursive(oclass, root);
 			
 			
@@ -1195,7 +1198,7 @@ public class SkosEditorController implements Initializable {
 	// }
 	//
 	// }
-	private ArrayList<Resource> getIndividualsbyObjectProperty(
+	public ArrayList<Resource> getIndividualsbyObjectProperty(
 			Individual individual, String objectproperty) {
 		ArrayList<Resource> result = new ArrayList<Resource>();
 		if (individual != null) {
