@@ -108,6 +108,11 @@ public class IndividualofOntClassCell extends TreeCell<Individual> {
                 	System.out.println("try to cast");
                 	String valueToMove = dragEvent.getDragboard().getString();
                 	System.out.println(valueToMove);
+                	if(lastItem == null){
+                		 // We accept the transfer!!!!!
+                    	System.out.println("transfer accepted");
+                        dragEvent.acceptTransferModes(TransferMode.MOVE);
+                	}else
                     if (!valueToMove.equals(lastItem.getURI()) ){
                         // We accept the transfer!!!!!
                     	System.out.println("transfer accepted");
@@ -173,9 +178,10 @@ public class IndividualofOntClassCell extends TreeCell<Individual> {
     		//search the two Items in the view to be able to relocate one of them
     		TreeItem<Individual> itemToMove      = searchTreeItem(individualToMove, root);
     		System.out.println("itemToMove created with: " + itemToMove.getValue().getLocalName());
+    		if(individualDestination != null){
     		TreeItem<Individual> itemDestination = searchTreeItem(individualDestination, root);
     		System.out.println("itemDestination created with: " + itemDestination.getValue().getLocalName());
-    		
+    		}
     		//Step1: if my item to move has children, i have to link them to the parent of my item to move 
     		// except the parent is root. Also we need to delelte the link between children and itemToMove
     		if(!itemToMove.getParent().equals(root) && !itemToMove.getChildren().isEmpty()){
@@ -198,7 +204,9 @@ public class IndividualofOntClassCell extends TreeCell<Individual> {
     			}
     		}
     		//after that we are able to move the itemToMove to its new Parent and delete the old relation
-    		individualDestination.addProperty(narrower, individualToMove);
+    		if(individualDestination != null){
+    			individualDestination.addProperty(narrower, individualToMove);
+    		}
     		System.out.println("New Relation betwee ItemToMove and itemDestination created");
     		if(!itemToMove.getParent().equals(root)){
     		itemToMove.getParent().getValue().removeProperty(narrower, individualToMove);
