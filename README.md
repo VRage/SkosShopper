@@ -5,7 +5,7 @@ ontologies.
 
 License
 =======
-Copyright 2014 Arkadius Pawlak, Daniel Lung, Resit Dilek, Matthias Wildberg, Jakob Nisin
+Copyright 2014 Arkadius Pawlak, Daniel Lung, Resit Dilek, Matthias Wildberg, Jakob Nisin, Leopold Schöndorff
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
