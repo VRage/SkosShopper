@@ -61,6 +61,7 @@ import com.hp.hpl.jena.ontology.OntResource;
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.ResourceRequiredException;
 import com.hp.hpl.jena.rdf.model.Statement;
@@ -270,31 +271,60 @@ public class SkosEditorController implements Initializable {
 	@FXML
 	public void addLabelInputfields(ActionEvent e) {
 		log.info("In method: addLabelInputfields");
-		if (counter < languages.size()) {
-			HBox newHBox = new HBox();
-			TextField newTextfield = new TextField();
-			Button newBtn = new Button();
-			Pane newPane = new Pane();
-			ChoiceBox<String> newChoiceBox = new ChoiceBox<String>();
-
-			newChoiceBox.setItems(languages);
-			newBtn.setId("btndeltxtfields");
-			HBox.setHgrow(newTextfield, Priority.ALWAYS);
-			newChoiceBox.setPrefWidth(144.0);
-			newBtn.setPrefWidth(30.0);
-			newBtn.setOnAction((event) -> {
-				vboxAddPrefLabel.getChildren().remove(newHBox);
-				counter--;
-			});
-			newTextfield.setPromptText(localizedBundle.getString("prefLabel"));
-			newHBox.autosize();
-			newTextfield.setPrefWidth(231.0);
-			newTextfield.setMaxWidth(Region.USE_COMPUTED_SIZE);
-			newPane.setPrefWidth(15.0);
-			newHBox.getChildren().addAll(newTextfield, newPane, newChoiceBox,
-					newBtn);
-			vboxAddPrefLabel.getChildren().add(1, newHBox);
-			counter++;
+		if(acc_addIndi.isExpanded()){
+			if (counter < languages.size()) {
+				HBox newHBox = new HBox();
+				TextField newTextfield = new TextField();
+				Button newBtn = new Button();
+				Pane newPane = new Pane();
+				ChoiceBox<String> newChoiceBox = new ChoiceBox<String>();
+	
+				newChoiceBox.setItems(languages);
+				newBtn.setId("btndeltxtfields");
+				HBox.setHgrow(newTextfield, Priority.ALWAYS);
+				newChoiceBox.setPrefWidth(144.0);
+				newBtn.setPrefWidth(30.0);
+				newBtn.setOnAction((event) -> {
+					vboxAddPrefLabel.getChildren().remove(newHBox);
+					counter--;
+				});
+				newTextfield.setPromptText(localizedBundle.getString("prefLabel"));
+				newHBox.autosize();
+				newTextfield.setPrefWidth(231.0);
+				newTextfield.setMaxWidth(Region.USE_COMPUTED_SIZE);
+				newPane.setPrefWidth(15.0);
+				newHBox.getChildren().addAll(newTextfield, newPane, newChoiceBox,
+						newBtn);
+				vboxAddPrefLabel.getChildren().add(1, newHBox);
+				counter++;
+			}
+		}else if(acc_editLabel.isExpanded()){
+			if(cnt< languages.size()){
+				HBox newHBox = new HBox();
+				TextField newTextfield = new TextField();
+				Button newBtn = new Button();
+				Pane newPane = new Pane();
+				ChoiceBox<String> newChoiceBox = new ChoiceBox<String>();
+	
+				newChoiceBox.setItems(languages);
+				newBtn.setId("btndeltxtfields");
+				HBox.setHgrow(newTextfield, Priority.ALWAYS);
+				newChoiceBox.setPrefWidth(144.0);
+				newBtn.setPrefWidth(30.0);
+				newBtn.setOnAction((event) -> {
+					vboxEditPrefLabel.getChildren().remove(newHBox);
+					cnt--;
+				});
+				newTextfield.setPromptText(localizedBundle.getString("prefLabel"));
+				newHBox.autosize();
+				newTextfield.setPrefWidth(231.0);
+				newTextfield.setMaxWidth(Region.USE_COMPUTED_SIZE);
+				newPane.setPrefWidth(15.0);
+				newHBox.getChildren().addAll(newTextfield, newPane, newChoiceBox,
+						newBtn);
+				vboxEditPrefLabel.getChildren().add(cnt, newHBox);
+				cnt++;
+			}
 		}
 	}
 
@@ -529,38 +559,137 @@ public class SkosEditorController implements Initializable {
 	}
 
 	@FXML
-	public void editLabel(ActionEvent e) {
+	private void editLabel(ActionEvent e) {
 		log.info("in editLabelmethod");
 		if (selectedOntClass != null && selectedIndividual != null) {
+			btn_editLabel.setDisable(true);
 			log.info("no null Class or Individual");
 			log.info(selectedOntClass.getLocalName());
 			if (selectedOntClass.getLocalName().contains("Concept")) {
-				log.info("test");
-				if (getIndividualbyObjectProperty(selectedIndividual,
-						"prefLabel") != null) {
-
-					if (getDatapropertyFromLabel(getIndividualbyObjectProperty(
-							selectedIndividual, "prefLabel")) != null) {
-						getDatapropertyFromLabel(
-								getIndividualbyObjectProperty(
-										selectedIndividual, "prefLabel"))
-								.changeObject(txtfield_editLabel.getText(),
-										"de");
-					}
-				} else {
-					createLabelRecipe("prefLabel", "",
-							txtfield_editLabel.getText(), "de",
-							selectedIndividual);
-				}
+				
+				changeLabelofInvidiaul(selectedIndividual);
 			} else if (selectedOntClass.getLocalName().contains("Label")) {
-				if (getDatapropertyFromLabel(selectedIndividual) != null) {
-					getDatapropertyFromLabel(selectedIndividual).changeObject(
-							txtfield_editLabel.getText(), "de");
+				Individual subjectOfLabel = null;
+				Property oproppref = model.getProperty(skosxlNS+"prefLabel");
+				Property opropalt = model.getProperty(skosxlNS+"altLabel");
+				ResIterator resit = model.listSubjectsWithProperty(oproppref, selectedIndividual);
+				while(resit.hasNext()){
+					Resource res = (Resource) resit.next();
+					subjectOfLabel = model.getIndividual(res.getURI());
+					log.info("Subject of this Label is: "+subjectOfLabel);
 				}
+				ResIterator resit2 = model.listSubjectsWithProperty(opropalt, selectedIndividual);
+				while(resit2.hasNext()){
+					Resource res = (Resource) resit2.next();
+					subjectOfLabel = model.getIndividual(res.getURI());
+					log.info("Subject of this Label is: "+subjectOfLabel.getLocalName());
+				}
+				changeLabelofInvidiaul(subjectOfLabel);
+				showIndividualsOfOntClass(selectedOntClass);
 			}
+			
+			btn_editLabel.setDisable(false);
 		}
 	}
-
+	
+	public void changeLabelofInvidiaul(Individual selectedIndividual){
+		DatatypeProperty dprop = model.getDatatypeProperty(skosNS + "notation");
+		DatatypeProperty dproplit = model.getDatatypeProperty(skosxlNS	+ "literalForm");
+		
+		//Save changes for prefered Label
+		if (getIndividualbyObjectProperty(selectedIndividual,"prefLabel") != null) {
+			int tmpcnt =0;
+			Individual labelindi = model.getIndividual(getIndividualbyObjectProperty(selectedIndividual,"prefLabel").getURI());
+			selectedIndiLocalname.setText(getIndividualbyObjectProperty(selectedIndividual, "prefLabel").getLocalName());
+			btn_editLabel.setText(localizedBundle.getString("btnEditLabel"));
+			StmtIterator stateiter = labelindi.listProperties(dproplit);
+			ArrayList<Statement> tmpAList = new ArrayList<Statement>(); 
+			while(stateiter.hasNext()){
+				Statement liter = (Statement)stateiter.next();
+				if(liter !=null){
+					tmpAList.add(liter);
+				}
+			}
+			log.info("Size of ArrayList: "+tmpAList.size());
+			log.info("CNT value: "+ cnt);
+			log.info("TmpCnt value: "+ tmpcnt);
+			if(!tmpAList.isEmpty()){
+				for(Statement liter : tmpAList){
+					if(tmpcnt < cnt){
+						HBox tmpHBox = (HBox) vboxEditPrefLabel.getChildren().get(tmpcnt);
+						TextField tmpTextField = (TextField) tmpHBox.getChildren().get(0);
+						@SuppressWarnings("unchecked")
+						ChoiceBox<String> tmpChoiceBox = (ChoiceBox<String>) tmpHBox.getChildren().get(2);
+						if(tmpTextField != null ){
+							liter.changeObject(tmpTextField.getText(), tmpChoiceBox.getValue());
+						}else{
+							log.error("Textfield is null and choicebox is null");
+						}
+						tmpcnt++;
+						log.info("TmpCnt value in loop: "+ tmpcnt);
+				}
+			}
+			for(;tmpcnt < cnt;tmpcnt++){
+					log.info("in forlopp");
+					HBox tmpHBox = (HBox) vboxEditPrefLabel.getChildren().get(tmpcnt);
+					TextField tmpTextField = (TextField) tmpHBox.getChildren().get(0);
+					@SuppressWarnings("unchecked")
+					ChoiceBox<String> tmpChoiceBox = (ChoiceBox<String>) tmpHBox.getChildren().get(2);
+					if(tmpTextField != null ){
+						log.info("try to add literalform");
+						model.add(getIndividualbyObjectProperty(selectedIndividual, "prefLabel"), dproplit, tmpTextField.getText(), tmpChoiceBox.getValue());
+					}else{
+						log.error("Textfield is null and choicebox is null");
+					}
+				}
+			}
+		} else {
+			createLabelRecipe("prefLabel", "",
+					txtfield_editLabel.getText(), "de",
+					selectedIndividual);
+		}
+		
+		//save changes for alternate label
+		if (getIndividualbyObjectProperty(selectedIndividual,"altLabel") != null) {
+			if(!txtfield_EditialtLabel.getText().isEmpty())
+				getDatapropertyFromLabel(getIndividualbyObjectProperty(selectedIndividual,"altLabel")).changeObject(txtfield_EditialtLabel.getText(), localizedBundle.getLocale().getLanguage());
+			else
+				model.getIndividual(getIndividualbyObjectProperty(selectedIndividual,"altLabel").getURI()).remove();
+		}else {
+			//create new alternate Label if not exist
+			log.info("create new label");
+			createLabelRecipe("altLabel", "alternate",
+					txtfield_EditialtLabel.getText(), localizedBundle.getLocale().getLanguage(),
+					selectedIndividual);
+		}
+		
+		//save changes for description
+		Property aprop = model.getProperty(dctNS + "description");
+		if(selectedIndividual.getProperty(aprop)!=null){
+			if(!txtarea_EditDescription.getText().isEmpty())
+				selectedIndividual.getProperty(aprop).changeObject(txtarea_EditDescription.getText());
+			else
+				selectedIndividual.removeAll(aprop);
+		}else{
+			//create description if not exist
+			log.info("create new description");
+			selectedIndividual.addProperty(aprop, model.createLiteral(txtarea_EditDescription.getText(), localizedBundle.getLocale().getLanguage()));
+			
+		}
+		
+		//save changes for notation
+		if(selectedIndividual.getProperty(dprop)!=null){
+			if(!txtfield_EditimageURL.getText().isEmpty()){
+				selectedIndividual.getProperty(dprop).changeObject(txtfield_EditimageURL.getText());
+			}else{
+				selectedIndividual.removeAll(dprop);
+			}
+		}else{
+			//create notation if not exist
+			createDatapropertyNotation(txtfield_EditimageURL.getText(), selectedIndividual);
+		}
+	}
+	
 	private TreeItem<Individual> generateSubTreeFromBehindLikeJakobLikesIt(OntClass oclass, Individual i, TreeItem<Individual> child){
 		if(child == null) { //start of the recursion
 			child = new TreeItem<Individual>();
@@ -706,6 +835,28 @@ public class SkosEditorController implements Initializable {
 						imageConceptIndividual.setImage(event.getDragboard()
 								.getImage());
 						txtfield_imageURL.setText(event.getDragboard()
+								.getString());
+					} catch (Exception e) {
+						log.error(e,e);
+					}
+
+				}
+
+				event.consume();
+			}
+		});
+		imageEditIndividual.setOnDragEntered(new EventHandler<DragEvent>() {
+			public void handle(DragEvent event) {
+				/* the drag-and-drop gesture entered the target */
+				log.info("Set On Drag Entered");
+				System.out.println("onDragEntered");
+				/* show to the user that it is an actual gesture target */
+				if (event.getGestureSource() != imageConceptIndividual
+						&& event.getDragboard().hasString()) {
+					try {
+						imageEditIndividual.setImage(event.getDragboard()
+								.getImage());
+						txtfield_EditimageURL.setText(event.getDragboard()
 								.getString());
 					} catch (Exception e) {
 						log.error(e,e);
@@ -871,105 +1022,35 @@ public class SkosEditorController implements Initializable {
 	
 			showObjectProperties(selectedIndividual);
 			showDataProperties(selectedIndividual);
+			txtfield_individiaulname.setText(selectedIndividual.getURI()
+					.substring(baseNS.length()) + "/");
+			
 			if(acc_editLabel.isExpanded()){
-				txtfield_individiaulname.setText(selectedIndividual.getURI()
-						.substring(baseNS.length()) + "/");
 				switch(selectedOntClass.getLocalName()){
 					case "Label":
+						Individual subjectOfLabel = null;
 							selectedIndiLocalname
 							.setText(selectedIndividual.getLocalName());
-					txtfield_editLabel.setText(getDatapropertyFromLabel(
-							selectedIndividual).getString());
-					break;
+						txtfield_editLabel.setText(getDatapropertyFromLabel(
+								selectedIndividual).getString());
+						Property oproppref = model.getProperty(skosxlNS+"prefLabel");
+						Property opropalt = model.getProperty(skosxlNS+"altLabel");
+						ResIterator resit = model.listSubjectsWithProperty(oproppref, selectedIndividual);
+						while(resit.hasNext()){
+							Resource res = (Resource) resit.next();
+							subjectOfLabel = model.getIndividual(res.getURI());
+							log.info("Subject of this Label is: "+subjectOfLabel);
+						}
+						ResIterator resit2 = model.listSubjectsWithProperty(opropalt, selectedIndividual);
+						while(resit2.hasNext()){
+							Resource res = (Resource) resit2.next();
+							subjectOfLabel = model.getIndividual(res.getURI());
+							log.info("Subject of this Label is: "+subjectOfLabel.getLocalName());
+						}
+						showLabelsOfIndividual(subjectOfLabel);
+						break;
 					case "Concept":
-						if(cnt>0){
-							for(int i =1; i<cnt ;i++){
-								vboxEditPrefLabel.getChildren().remove(1);
-							}
-							cnt=0;
-						}
-
-						DatatypeProperty dprop = model.getDatatypeProperty(skosNS + "notation");
-						DatatypeProperty dproplit = model.getDatatypeProperty(skosxlNS	+ "literalForm");
-						btn_editLabel.setText(localizedBundle.getString("btnAddLabel"));
-						
-						if (getIndividualbyObjectProperty(selectedIndividual,"prefLabel") != null) {
-							Individual labelindi = model.getIndividual(getIndividualbyObjectProperty(selectedIndividual,"prefLabel").getURI());
-							selectedIndiLocalname.setText(getIndividualbyObjectProperty(selectedIndividual, "prefLabel").getLocalName());
-							btn_editLabel.setText(localizedBundle.getString("btnEditLabel"));
-							NodeIterator nodeiter = labelindi.listPropertyValues(dproplit);
-							while(nodeiter.hasNext()){
-								Literal liter = (Literal)nodeiter.next();
-								if(cnt >0){
-
-									HBox newHBox = new HBox();
-									TextField newTextfield = new TextField();
-									Button newBtn = new Button();
-									Pane newPane = new Pane();
-									ChoiceBox<String> newChoiceBox = new ChoiceBox<String>();
-
-									newChoiceBox.setItems(languages);
-									newBtn.setId("btndeltxtfields");
-									HBox.setHgrow(newTextfield, Priority.ALWAYS);
-									newChoiceBox.setPrefWidth(144.0);
-									newBtn.setPrefWidth(30.0);
-									newBtn.setOnAction((ev) -> {
-										vboxEditPrefLabel.getChildren().remove(newHBox);
-										cnt--;
-									});
-									newTextfield.setText(liter.getString());
-									newChoiceBox.setValue(liter.getLanguage());
-									newHBox.autosize();
-									newTextfield.setPrefWidth(231.0);
-									newTextfield.setMaxWidth(Region.USE_COMPUTED_SIZE);
-									newPane.setPrefWidth(15.0);
-									newHBox.getChildren().addAll(newTextfield, newPane, newChoiceBox,
-											newBtn);
-									vboxEditPrefLabel.getChildren().add(1, newHBox);
-								}else{
-									txtfield_editLabel.setText(liter.getString());
-									choiceboxeditLabel.setValue(liter.getLanguage());
-								}
-								cnt++;
-							}
-//							if (getDatapropertyFromLabel(getIndividualbyObjectProperty(selectedIndividual, "prefLabel")) != null) {
-//								txtfield_editLabel.setText(getDatapropertyFromLabel(getIndividualbyObjectProperty(
-//												selectedIndividual, "prefLabel")).getString());
-//								choiceboxeditLabel.setValue(getDatapropertyFromLabel(getIndividualbyObjectProperty(
-//													selectedIndividual, "prefLabel")).getLanguage());
-//								
-//							}
-						}else {
-							txtfield_editLabel.setText("");
-						}
-						if(getIndividualbyObjectProperty(selectedIndividual, "altLabel")!= null){
-							btn_editLabel.setText(localizedBundle.getString("btnEditLabel"));
-							if (getDatapropertyFromLabel(getIndividualbyObjectProperty(
-									selectedIndividual, "altLabel")) != null){
-							txtfield_EditialtLabel.setText(getDatapropertyFromLabel(
-									getIndividualbyObjectProperty(
-											selectedIndividual, "altLabel"))
-									.getString());
-							}
-						}else{
-							txtfield_EditialtLabel.setText("");
-						}
-						Property aprop = model.getProperty(dctNS + "description");
-						if(selectedIndividual.getPropertyValue(aprop) != null){
-							txtarea_EditDescription.setText(selectedIndividual.getPropertyValue(aprop).asLiteral().getString());
-						}else{
-							txtarea_EditDescription.setText("");
-						}
-						
-						if(selectedIndividual.getPropertyValue(dprop) != null)
-						{
-							txtfield_EditimageURL.setText(selectedIndividual.getPropertyValue(dprop).asLiteral().getString());
-							imageEditIndividual.setImage(new Image(selectedIndividual.getPropertyValue(dprop).asLiteral().getString()));
-						}else{
-							txtfield_EditimageURL.setText("");
-							
-							
-						}
+						showLabelsOfIndividual(selectedIndividual);
 						break;
 						default:
 							selectedIndiLocalname.setText("");
@@ -1012,7 +1093,7 @@ public class SkosEditorController implements Initializable {
 	 * @param e
 	 */
 	@FXML
-	public void selectOntClass(MouseEvent e) {
+	private void selectOntClass(MouseEvent e) {
 		if (!listview_classes.getSelectionModel().isEmpty()) {
 			txtfield_IndiLabel0.setDisable(false);
 			selectedOntClass = model.getOntClass(liste_classes.get(
@@ -1216,6 +1297,105 @@ public class SkosEditorController implements Initializable {
 		return root;
 	}
 
+	
+	public void showLabelsOfIndividual(Individual selectedIndividual){
+		if(cnt>0){
+			for(int i =1; i<cnt ;i++){
+				vboxEditPrefLabel.getChildren().remove(1);
+			}
+			cnt=0;
+		}
+
+		DatatypeProperty dprop = model.getDatatypeProperty(skosNS + "notation");
+		DatatypeProperty dproplit = model.getDatatypeProperty(skosxlNS	+ "literalForm");
+		btn_editLabel.setText(localizedBundle.getString("btnAddLabel"));
+		//TODO
+		if (getIndividualbyObjectProperty(selectedIndividual,"prefLabel") != null) {
+			Individual labelindi = model.getIndividual(getIndividualbyObjectProperty(selectedIndividual,"prefLabel").getURI());
+			selectedIndiLocalname.setText(getIndividualbyObjectProperty(selectedIndividual, "prefLabel").getLocalName());
+			btn_editLabel.setText(localizedBundle.getString("btnEditLabel"));
+			NodeIterator nodeiter = labelindi.listPropertyValues(dproplit);
+			while(nodeiter.hasNext()){
+				Literal liter = (Literal)nodeiter.next();
+				log.info("name of literal: "+liter);
+				if(cnt >0){
+
+					HBox newHBox = new HBox();
+					TextField newTextfield = new TextField();
+					Button newBtn = new Button();
+					Pane newPane = new Pane();
+					ChoiceBox<String> newChoiceBox = new ChoiceBox<String>();
+
+					newChoiceBox.setItems(languages);
+					newBtn.setId("btndeltxtfields");
+					HBox.setHgrow(newTextfield, Priority.ALWAYS);
+					newChoiceBox.setPrefWidth(144.0);
+					newBtn.setPrefWidth(30.0);
+					newBtn.setOnAction((ev) -> {
+						vboxEditPrefLabel.getChildren().remove(newHBox);
+						cnt--;
+					});
+					newTextfield.setText(liter.getString());
+					newChoiceBox.setValue(liter.getLanguage());
+					newHBox.autosize();
+					newTextfield.setPrefWidth(231.0);
+					newTextfield.setMaxWidth(Region.USE_COMPUTED_SIZE);
+					newPane.setPrefWidth(15.0);
+					newHBox.getChildren().addAll(newTextfield, newPane, newChoiceBox,
+							newBtn);
+					vboxEditPrefLabel.getChildren().add(cnt, newHBox);
+				}else{
+					txtfield_editLabel.setText(liter.getString());
+					choiceboxeditLabel.setValue(liter.getLanguage());
+				}
+				cnt++;
+				
+			}
+//			if (getDatapropertyFromLabel(getIndividualbyObjectProperty(selectedIndividual, "prefLabel")) != null) {
+//				txtfield_editLabel.setText(getDatapropertyFromLabel(getIndividualbyObjectProperty(
+//								selectedIndividual, "prefLabel")).getString());
+//				choiceboxeditLabel.setValue(getDatapropertyFromLabel(getIndividualbyObjectProperty(
+//									selectedIndividual, "prefLabel")).getLanguage());
+//				
+//			}
+		}else {
+			txtfield_editLabel.setText("");
+		}
+		if(getIndividualbyObjectProperty(selectedIndividual, "altLabel")!= null){
+			btn_editLabel.setText(localizedBundle.getString("btnEditLabel"));
+			if (getDatapropertyFromLabel(getIndividualbyObjectProperty(
+					selectedIndividual, "altLabel")) != null){
+			txtfield_EditialtLabel.setText(getDatapropertyFromLabel(
+					getIndividualbyObjectProperty(
+							selectedIndividual, "altLabel"))
+					.getString());
+			}
+		}else{
+			txtfield_EditialtLabel.setText("");
+		}
+		Property aprop = model.getProperty(dctNS + "description");
+		if(selectedIndividual.getPropertyValue(aprop) != null){
+			txtarea_EditDescription.setText(selectedIndividual.getPropertyValue(aprop).asLiteral().getString());
+		}else{
+			txtarea_EditDescription.setText("");
+		}
+		
+		if(selectedIndividual.getPropertyValue(dprop) != null)
+		{
+			String url = selectedIndividual.getPropertyValue(dprop).asLiteral().getString();
+			txtfield_EditimageURL.setText(url);
+			if(!url.isEmpty()){
+				imageEditIndividual.setImage(new Image(url));
+			}else{
+				//TODO
+			}
+		}else{
+			txtfield_EditimageURL.setText("");
+			
+			
+		}
+	}
+	
 	/**
 	 * 
 	 * Displays all object properties of the selected Individual in a Listview.
