@@ -28,7 +28,12 @@ public class MainController implements Initializable{
 		mainTabPane.getSelectionModel().selectedItemProperty()
         .addListener((obs, oldTab, newTab) -> {
             if (newTab == tabSKOSEditorLite) {
-            	skoseditorliteController.loadOntology();
+            	try {
+					skoseditorliteController.loadOntology();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
 		

@@ -3,7 +3,8 @@ package controller;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -18,12 +19,14 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
@@ -34,6 +37,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
@@ -46,11 +50,9 @@ import javax.swing.JOptionPane;
 import model.IndividualChoiceCell;
 import model.IndividualSelectCell;
 import model.IndividualofOntClassCell;
-import model.ModelFacadeTEST;
 
 import org.apache.log4j.Logger;
 
-import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.ontology.AnnotationProperty;
 import com.hp.hpl.jena.ontology.DatatypeProperty;
 import com.hp.hpl.jena.ontology.Individual;
@@ -159,7 +161,8 @@ public class SkosEditorController implements Initializable {
 	private Button btnEditPrefLabel;
 	@FXML
 	private TextField txtfield_EditialtLabel;
-
+	@FXML
+	private SplitPane splitpane;
 	@FXML
 	private TextArea txtarea_EditDescription;
 	@FXML
@@ -518,8 +521,33 @@ public class SkosEditorController implements Initializable {
 				showAllIndividualsInChoicebox();
 				showIndividualsOfOntClass(selectedOntClass);
 
-				txtfield_IndiLabel0.clear();
+				//Clear all Textfields
 				txtfield_individiaulname.clear();
+				for(Node node : vboxAddPrefLabel.getChildren()){
+					if(node instanceof TextField){
+						((TextField)node).clear();
+					}
+					if(node instanceof HBox){
+						for(Node hNode : ((HBox)node).getChildren()){
+							if(hNode instanceof TextField){
+								((TextField)hNode).clear();	
+							}
+							if(hNode instanceof TextArea){
+								((TextArea)hNode).clear();
+							}
+						}
+					}
+					if(node instanceof AnchorPane){
+						for(Node hNode : ((AnchorPane)node).getChildren()){
+							if(hNode instanceof TextField){
+								((TextField)hNode).clear();	
+							}
+							if(hNode instanceof TextArea){
+								((TextArea)hNode).clear();
+							}
+						}
+					}
+				}
 				// try {
 				// printToConsole();
 				// } catch (IOException e) {
@@ -922,50 +950,86 @@ public class SkosEditorController implements Initializable {
 	 * Model for the TreeView and Choiceboxes.
 	 * 
 	 */
-	public void loadOntology() {
-		// if (model.isEmpty()) {
-		try {
-			model = ModelFacadeTEST.getOntModel();
-			// Path input =
-			// Paths.get("C:\\Users\\VRage\\Documents\\SpiderOak Hive\\studium\\5_Semester\\projekt\\",
-			// "test1.rdf");
-			//
-			// model.read(input.toUri().toString(), "RDF/XML");
-			// model = ModelFacadeTEST.getOntModel();
-			model.read("./RDFDaten/test1.rdf");
-			// model = TripleModel.getAllTriples();
-			// Model m = FusekiModel.getDatasetAccessor().getModel();
-			// model.add(ModelFacadeTEST.getOntModel());
-
-			// model = ModelFacadeTEST.getAktModel();
-			// model = ModelFacadeTEST.ontModel;
-
-			baseNS = model.getNsPrefixURI("");
-			log.info("Base NS set to: " + baseNS);
-			skosNS = model.getNsPrefixURI("skos");
-			log.info("Skos NS set to: " + skosNS);
-			skosxlNS = model.getNsPrefixURI("skos-xl");
-			log.info("Skosxl NS set to: " + skosxlNS);
-			dctNS = model.getNsPrefixURI("dct");
-			log.info("dct NS set to: " + dctNS);
-			// showOPropertiesInChoicebox();
-			// showAllIndividualsInChoicebox();
-			showOntClassInTree();
-			showAllIndividualsInChoicebox();
-			setChoiseboxItems();
-			setFilteredItems();
-			treeview_indi.setCellFactory(new Callback<TreeView<Individual>, TreeCell<Individual>>() {
-
-				@Override
-				public TreeCell<Individual> call(TreeView<Individual> param) {
-					return new IndividualofOntClassCell(param, model);
+	public void loadOntology() throws URISyntaxException {
+	if (model != null) {
+			try {
+				splitpane.setDisable(false);
+	//			model = ModelFacadeTEST.getOntModel();
+				// Path input =
+				// Paths.get("C:\\Users\\VRage\\Documents\\SpiderOak Hive\\studium\\5_Semester\\projekt\\",
+				// "test1.rdf");
+				//
+				// model.read(input.toUri().toString(), "RDF/XML");
+				// model = ModelFacadeTEST.getOntModel();
+	//			model.read("./RDFDaten/test1.rdf");
+				// model = TripleModel.getAllTriples();
+				// Model m = FusekiModel.getDatasetAccessor().getModel();
+				// model.add(ModelFacadeTEST.getOntModel());
+	
+				// model = ModelFacadeTEST.getAktModel();
+				// model = ModelFacadeTEST.ontModel;
+	
+				
+				if(model.getNsPrefixURI("")!= null){
+					baseNS = model.getNsPrefixURI("");
 				}
-			});
-			log.info("Ontologie loaded");
-		} catch (Exception e) {
-			log.error(e, e);
+				if(baseNS.isEmpty()){
+					boolean validuri = false;
+					String inputValue = JOptionPane.showInputDialog("Base Namespace wasn't found please enter a valid Namespace");
+					while(!validuri){
+						try {
+							URL url = new URL(inputValue);
+							url.toURI();
+							baseNS = inputValue;
+							validuri = true;
+						} catch (MalformedURLException | URISyntaxException e) {
+							inputValue = JOptionPane.showInputDialog("Invalid Namespace please try again!");
+						}
+					}
+				}
+				log.info("Base NS set to: " + baseNS);
+				
+				if(model.getNsPrefixURI("skos")!= null){
+					skosNS = model.getNsPrefixURI("skos");
+				}
+				if(skosNS.isEmpty())
+					skosNS = "http://www.w3.org/2004/02/skos/core#";
+				log.info("Skos NS set to: " + skosNS);
+				if(model.getNsPrefixURI("skos-xl")!= null){
+					skosxlNS = model.getNsPrefixURI("skos-xl");
+				}
+				if(skosxlNS.isEmpty() )
+					skosxlNS = "http://www.w3.org/2008/05/skos-xl#";
+				log.info("Skosxl NS set to: " + skosxlNS);
+				if(model.getNsPrefixURI("dct")!= null){
+					dctNS = model.getNsPrefixURI("dct");
+				}
+				if(dctNS.isEmpty())
+					dctNS = "http://purl.org/dc/terms/";
+				log.info("dct NS set to: " + dctNS);
+				
+				// showOPropertiesInChoicebox();
+				// showAllIndividualsInChoicebox();
+				showOntClassInTree();
+				showAllIndividualsInChoicebox();
+				setChoiseboxItems();
+				setFilteredItems();
+				treeview_indi.setCellFactory(new Callback<TreeView<Individual>, TreeCell<Individual>>() {
+	
+					@Override
+					public TreeCell<Individual> call(TreeView<Individual> param) {
+						return new IndividualofOntClassCell(param, model);
+					}
+				});
+				log.info("Ontologie loaded");
+			} catch (Exception e) {
+				log.error(e, e);
+			}
+		}else{
+			log.error("Modell is null");
+			JOptionPane.showMessageDialog(null,  localizedBundle.getString("modelnotfound"), localizedBundle.getString("alert"), JOptionPane.ERROR_MESSAGE);
+			splitpane.setDisable(true);
 		}
-		// }
 	}
 
 	/**
@@ -1119,6 +1183,7 @@ public class SkosEditorController implements Initializable {
 			case "OrderedCollection":
 			case "Collection":
 				acc_addCollection.setExpanded(true);
+				setFilteredItems();
 				break;
 			default:
 				break;
