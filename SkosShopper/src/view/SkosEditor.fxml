@@ -137,7 +137,29 @@
                               </ScrollPane>
                            </content>
                         </TitledPane>
-                        <TitledPane fx:id="acc_editCollection" animated="false" prefHeight="371.0" prefWidth="442.0" text="%accordion_editCollection" />
+                        <TitledPane fx:id="acc_editCollection" animated="false" text="%accordion_editCollection">
+                           <content>
+                              <ScrollPane>
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="624.0" prefWidth="479.0">
+                                       <children>
+                                          <TextArea prefHeight="171.0" prefWidth="435.0" text="%editCollectionExample" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="14.0" />
+                                          <Label text="Collection:" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="198.0" />
+                                          <Label fx:id="selectedCollection" text="dynamic Text for selected Collection" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="215.0" />
+                                          <Label text="%Label" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="264.0" />
+                                          <TextField AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="280.0" />
+                                          <ListView prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="350.0" />
+                                          <ListView prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="259.0" AnchorPane.topAnchor="350.0" />
+                                          <ChoiceBox prefHeight="30.0" prefWidth="200.0" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="320.0" />
+                                          <Label text="Collection: BLANK" AnchorPane.leftAnchor="259.0" AnchorPane.topAnchor="335.0" />
+                                          <Button mnemonicParsing="false" prefWidth="75.0" text="%btnsave" AnchorPane.rightAnchor="98.0" AnchorPane.topAnchor="215.0" />
+                                          <Button mnemonicParsing="false" prefWidth="75.0" text="%btnCancelCollection" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="215.0" />
+                                          <Button mnemonicParsing="false" prefWidth="75.0" text="%btnDelCollection" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="243.0" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </ScrollPane>
+                           </content></TitledPane>
                     </panes>
                   </Accordion>
                </content>
