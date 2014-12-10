@@ -137,7 +137,7 @@
                               </ScrollPane>
                            </content>
                         </TitledPane>
-                        <TitledPane fx:id="acc_editCollection" animated="false" text="%accordion_editCollection">
+                        <TitledPane fx:id="acc_editCollection" animated="false" onMouseClicked="#updateEditCollectionView" text="%accordion_editCollection">
                            <content>
                               <ScrollPane>
                                 <content>
@@ -145,16 +145,16 @@
                                        <children>
                                           <TextArea prefHeight="171.0" prefWidth="435.0" text="%editCollectionExample" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="14.0" />
                                           <Label text="Collection:" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="198.0" />
-                                          <Label fx:id="selectedCollection" text="dynamic Text for selected Collection" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="215.0" />
+                                          <Label fx:id="selectedCollectionLabel" text="dynamic Text for selected Collection" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="215.0" />
                                           <Label text="%Label" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="264.0" />
-                                          <TextField AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="280.0" />
+                                          <TextField fx:id="TextFieldLabelEditCollection" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="280.0" />
                                           <ListView fx:id="listViewEditCollectionChoise" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="350.0" />
                                           <ListView fx:id="listViewEditCollectionSelected" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="259.0" AnchorPane.topAnchor="350.0" />
                                           <ChoiceBox fx:id="choiseBoxEditCollection" prefHeight="30.0" prefWidth="200.0" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="320.0" />
                                           <Label text="Collection: BLANK" AnchorPane.leftAnchor="259.0" AnchorPane.topAnchor="335.0" />
-                                          <Button mnemonicParsing="false" prefWidth="75.0" text="%btnsave" AnchorPane.rightAnchor="98.0" AnchorPane.topAnchor="215.0" />
-                                          <Button mnemonicParsing="false" prefWidth="75.0" text="%btnCancelCollection" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="215.0" />
-                                          <Button mnemonicParsing="false" prefWidth="75.0" text="%btnDelCollection" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="243.0" />
+                                          <Button mnemonicParsing="false" onAction="#saveEditCollection" prefWidth="75.0" text="%btnsave" AnchorPane.rightAnchor="98.0" AnchorPane.topAnchor="215.0" />
+                                          <Button mnemonicParsing="false" onAction="#cancelEditCollection" prefWidth="75.0" text="%btnCancelCollection" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="215.0" />
+                                          <Button mnemonicParsing="false" onAction="#deleteEditCollection" prefWidth="75.0" text="%btnDelCollection" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="243.0" />
                                        </children>
                                     </AnchorPane>
                                 </content>

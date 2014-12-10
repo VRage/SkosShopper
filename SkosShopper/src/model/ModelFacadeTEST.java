@@ -38,6 +38,7 @@ public class ModelFacadeTEST implements Initializable
 	static OntModel ontModel = ModelFactory.createOntologyModel();
 	public static OntDocumentManager mgr = new OntDocumentManager();
 	static OntModelSpec ontSpec = new OntModelSpec(OntModelSpec.OWL_MEM);
+	//static OntModelSpec ontSpec = new OntModelSpec(PelletReasonerFactory.THE_SPEC);
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
