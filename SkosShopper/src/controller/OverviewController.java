@@ -2,6 +2,7 @@ package controller;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.Socket;
@@ -37,7 +38,9 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebHistory.Entry;
 import javafx.scene.web.WebView;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.util.Callback;
 
 import javax.swing.JOptionPane;
@@ -275,7 +278,22 @@ public class OverviewController implements Initializable {
 				}
 				// save model to file
 			} else if (cb_save_graph.getValue().equals(saveModelTo.get(2))) {
-				log.info("saving to file");
+				FileChooser  fileChooser = new FileChooser();
+				fileChooser.setTitle("Open Resource File");
+				FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("RDF file (*.rdf)", "*.rdf");
+	              fileChooser.getExtensionFilters().add(extFilter);
+				try {
+					   File savedFile = fileChooser.showSaveDialog(null);
+					   FileOutputStream fout = new FileOutputStream(savedFile);
+						ModelFacadeTEST.getOntModel().write(fout);
+						log.info("saving to file "+ savedFile.getAbsolutePath());
+						modelLoaded = false;
+				} catch (Exception e) {
+					// TODO: handle exception
+					log.error("FilePath is null !!");
+				}
+	           
+				
 				// Discard model
 			} else if (cb_save_graph.getValue().equals(saveModelTo.get(3))) {
 				System.out.println("Model is getting deleted");
@@ -344,7 +362,9 @@ public class OverviewController implements Initializable {
 				}
 			}
 			if (btn_file_import.isSelected()) {
+				
 				FileChooser fileChooser = new FileChooser();
+
 				fileChooser.setTitle("Open Resource File");
 				localFile = fileChooser.showOpenDialog(null);
 				ModelFacadeTEST.loadModelFromLocal(localFile);
