@@ -25,8 +25,7 @@
             
          </children>
       </Pane>
-      <Button layoutX="753.0" layoutY="200.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="&lt;" />
-      <Button fx:id="btnHome" layoutX="699.0" layoutY="139.0" mnemonicParsing="false" onAction="#btnHomeOnAction" text="Fuseki Home" />
+      
       <AnchorPane layoutY="233.0" prefHeight="247.0" prefWidth="815.0" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="233.0">
          <children>
             <SplitPane dividerPositions="0.0036900369003690036" layoutX="7.0" layoutY="-132.0" prefHeight="443.0" prefWidth="1000.0" AnchorPane.bottomAnchor="-64.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-185.0" AnchorPane.topAnchor="-132.0">
@@ -77,11 +76,17 @@
                            </bottom></BorderPane>
                         <AnchorPane layoutX="650.0" layoutY="7.0" prefHeight="428.0" prefWidth="309.0" AnchorPane.bottomAnchor="6.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="7.0">
                            <children>
-                              <TableView fx:id="tv_graph_uri" layoutX="14.0" layoutY="14.0" prefHeight="428.0" prefWidth="309.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <TableView fx:id="tv_graph_uri" layoutX="14.0" layoutY="14.0" prefHeight="225.0" prefWidth="309.0" AnchorPane.bottomAnchor="203.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columns>
                                   <TableColumn fx:id="col_graph_uri" prefWidth="308.0" text="List of Graph URI:" />
                                 </columns>
                               </TableView>
+                              <TableView layoutX="9.0" layoutY="225.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                <columns>
+                                  <TableColumn prefWidth="308.0" text="List of loaded Models:" />
+                                </columns>
+                              </TableView>
+                              <ListView fx:id="tv_models" prefHeight="176.0" prefWidth="309.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                            </children>
                         </AnchorPane>
                         <Separator layoutX="622.0" layoutY="7.0" orientation="VERTICAL" prefHeight="428.0" prefWidth="1.0" AnchorPane.bottomAnchor="6.0" AnchorPane.rightAnchor="363.0" AnchorPane.topAnchor="7.0" />
@@ -99,7 +104,7 @@
       </MenuButton>
       <TextField fx:id="tf_curr_loaded_graph" layoutX="695.0" layoutY="61.0" prefHeight="25.0" prefWidth="291.0" AnchorPane.rightAnchor="14.0" />
       <Label fx:id="lab_curr_loaded_graph" layoutX="555.0" layoutY="65.0" text="Currently loaded graph:" AnchorPane.rightAnchor="319.0" />
-      <Button fx:id="btn_save_graph" layoutX="953.0" layoutY="21.0" mnemonicParsing="false" onAction="#saving_graph" text="OK" AnchorPane.rightAnchor="14.0" />
+      <Button fx:id="btn_save_graph" layoutX="953.0" layoutY="21.0" mnemonicParsing="false" onAction="#saveModelToBtnAction" text="OK" AnchorPane.rightAnchor="14.0" />
       <Label fx:id="lab_save_graph" layoutX="643.0" layoutY="25.0" text="Save Graph:" AnchorPane.rightAnchor="294.0" />
       <ComboBox fx:id="cb_save_graph" layoutX="713.0" layoutY="21.0" prefHeight="25.0" prefWidth="230.0" AnchorPane.rightAnchor="57.0" />
    </children>

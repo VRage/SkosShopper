@@ -8,7 +8,10 @@ import java.net.MalformedURLException;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.ResourceBundle;
+
+
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
@@ -22,6 +25,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioMenuItem;
@@ -32,28 +36,38 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebHistory.Entry;
 import javafx.scene.web.WebView;
-import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
-import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.util.Callback;
+
+
 
 import javax.swing.JOptionPane;
 import javax.xml.bind.JAXBException;
 
+
+
 import model.ModelFacadeTEST;
 import model.ServerImporter;
+
+
 
 import org.apache.jena.atlas.web.HttpException;
 import org.apache.jena.riot.RiotException;
 import org.apache.log4j.Logger;
 
+
+
 import com.hp.hpl.jena.ontology.OntDocumentManager;
+import com.hp.hpl.jena.ontology.OntModel;
+
+
 
 import exceptions.fuseki_exceptions.NoDatasetAccessorException;
 
@@ -75,6 +89,9 @@ public class OverviewController implements Initializable {
 	private TableView<String> tv_graph_uri;
 	@FXML
 	private TableView<AltEntriesManager> tv_alt_entries;
+	@FXML private ListView<String> tv_models;
+	
+	private TableColumn<OntModel, String> model_graph;
 	@FXML
 	private TableColumn<String, String> col_graph_uri;
 	@FXML
@@ -84,6 +101,8 @@ public class OverviewController implements Initializable {
 	private ObservableList<AltEntriesManager> altEntryList = FXCollections
 			.observableArrayList();
 	private ObservableList<String> graphURIs = FXCollections
+			.observableArrayList();
+	private ObservableList<String> modelsLoaded = FXCollections
 			.observableArrayList();
 	private final ObservableList<String> saveModelTo = FXCollections
 			.observableArrayList();
@@ -137,6 +156,8 @@ public class OverviewController implements Initializable {
 
 		tv_alt_entries.setItems(altEntryList);
 		tv_graph_uri.setItems(graphURIs);
+		tv_models.setItems(modelsLoaded);
+		
 		ta_log_field.setEditable(false);
 		tf_curr_loaded_graph.setStyle("-fx-text-inner-color: green;");
 		tf_curr_loaded_graph.setEditable(false);
@@ -178,30 +199,6 @@ public class OverviewController implements Initializable {
 	}
 
 	@FXML
-	private void backButtonOnAction(ActionEvent event) {
-		// url = browserHistory.get(browserHistory.size()-2).getUrl();
-		// System.out.println("URRRRL"+url);
-		// for (Entry e : browserHistory) {
-		// System.out.println("LOLOL"+e.getUrl());
-		// }
-		// System.out.println();
-		// webEngine.load(url);
-		// txtFieldURL.setText(url);
-		//
-	}
-
-	@FXML
-	private void btnHomeOnAction(ActionEvent event) {
-		// webEngine.load(initURL+port);
-		// txtFieldURL.setText(initURL+port);
-	}
-
-	@FXML
-	private void OverviewBtnLoadDataFromStorageOnAction(ActionEvent event) {
-		
-	}
-
-	@FXML
 	public void adding_entry(ActionEvent event) {
 		ta_log_field.clear();
 		try {
@@ -216,7 +213,7 @@ public class OverviewController implements Initializable {
 	}
 
 	@FXML
-	public void saving_graph(ActionEvent event) {
+	public void saveModelToBtnAction(ActionEvent event) {
 		if (modelLoaded) {
 			ta_log_field.clear();
 			// send model back to server (add/update)
@@ -370,6 +367,8 @@ public class OverviewController implements Initializable {
 				ModelFacadeTEST.loadModelFromLocal(localFile);
 				ta_log_field.setText(ModelFacadeTEST.modelToString());
 				modelLoaded =true;
+
+				//tv_models.getColumns().add(new TableColumn<OntModel,String>(ModelFacadeTEST.getOntModel().getGraph().toString()));
 			}
 			if (btn_web_import.isSelected()) {
 
@@ -379,9 +378,21 @@ public class OverviewController implements Initializable {
 					"There is already a model in process!", null,
 					JOptionPane.WARNING_MESSAGE);
 		}
+		OntModel searchModel = ModelFacadeTEST.getOntModel();
+		Map <String,String>prefixMap=searchModel.getNsPrefixMap();
+		prefixMap.forEach((Uri,Prefix)->{
+			if(!tv_models.getItems().contains(Uri+"   "+Prefix))
+			{
+				tv_models.getItems().add(Uri+"   "+Prefix);
+			}
+		
+		});
+
+		
+		
 	}
 
-	public void setGraphTable() {
+	public void setGraphTable() {		
 		col_graph_uri
 				.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<String, String>, ObservableValue<String>>() {
 					public ObservableValue<String> call(
