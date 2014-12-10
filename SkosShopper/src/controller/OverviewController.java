@@ -275,7 +275,7 @@ public class OverviewController implements Initializable {
 				}
 				// save model to file
 			} else if (cb_save_graph.getValue().equals(saveModelTo.get(2))) {
-				System.out.println("saving to file");
+				log.info("saving to file");
 				// Discard model
 			} else if (cb_save_graph.getValue().equals(saveModelTo.get(3))) {
 				System.out.println("Model is getting deleted");
@@ -349,6 +349,7 @@ public class OverviewController implements Initializable {
 				localFile = fileChooser.showOpenDialog(null);
 				ModelFacadeTEST.loadModelFromLocal(localFile);
 				ta_log_field.setText(ModelFacadeTEST.modelToString());
+				modelLoaded =true;
 			}
 			if (btn_web_import.isSelected()) {
 
