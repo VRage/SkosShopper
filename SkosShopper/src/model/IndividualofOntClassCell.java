@@ -167,6 +167,7 @@ public class IndividualofOntClassCell extends TreeCell<Individual> {
     	if(mcon.skoseditorliteController.selectedOntClass.getLocalName().equals("Concept")){
     		//We will need the narrower Property alot in this method so we generate it
     		Property narrower = model.createObjectProperty(mcon.skoseditorliteController.skosNS + "narrower");
+    		Property broader  = model.createObjectProperty(mcon.skoseditorliteController.skosNS + "broader");
     		System.out.println("Property created: " + narrower);
     		//Generate a TreeView to work better with the Items
     		//TreeItem<Individual> root = new TreeItem<Individual>();
@@ -191,6 +192,7 @@ public class IndividualofOntClassCell extends TreeCell<Individual> {
     				TreeItem<Individual> child = children.next();
     				System.out.println("Child: " + child.getValue().getLocalName());
     				itemToMove.getParent().getValue().addProperty(narrower, child.getValue());
+    				child.getValue().addProperty(broader, itemToMove.getParent().getValue());
     			}
     		}
     		//if item to move has root as parent but has children we need to just delete the parent/child relation
@@ -201,15 +203,18 @@ public class IndividualofOntClassCell extends TreeCell<Individual> {
     				TreeItem<Individual> child = children.next();
     				System.out.println("Child: " + child.getValue().getLocalName());
     				individualToMove.removeProperty(narrower, child.getValue());
+    				child.getValue().removeProperty(broader, individualToMove);
     			}
     		}
     		//after that we are able to move the itemToMove to its new Parent and delete the old relation
     		if(individualDestination != null){
     			individualDestination.addProperty(narrower, individualToMove);
+    			individualToMove.addProperty(broader, individualDestination);
     		}
     		System.out.println("New Relation betwee ItemToMove and itemDestination created");
     		if(!itemToMove.getParent().equals(root)){
     		itemToMove.getParent().getValue().removeProperty(narrower, individualToMove);
+    		itemToMove.getValue().removeProperty(broader, itemToMove.getParent().getValue());
     		System.out.println("Old Relation betwee itemToMove and its Parent removed");
     		}
     	}
