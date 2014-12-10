@@ -52,6 +52,7 @@ import model.IndividualSelectCell;
 import model.IndividualofOntClassCell;
 
 import org.apache.log4j.Logger;
+import org.mindswap.pellet.jena.PelletReasoner;
 
 import com.hp.hpl.jena.ontology.AnnotationProperty;
 import com.hp.hpl.jena.ontology.DatatypeProperty;
@@ -60,7 +61,9 @@ import com.hp.hpl.jena.ontology.ObjectProperty;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntResource;
+import com.hp.hpl.jena.rdf.model.InfModel;
 import com.hp.hpl.jena.rdf.model.Literal;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.ResIterator;
@@ -68,6 +71,9 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.ResourceRequiredException;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
+import com.hp.hpl.jena.reasoner.Reasoner;
+import com.hp.hpl.jena.reasoner.ValidityReport;
+import com.hp.hpl.jena.reasoner.ValidityReport.Report;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 
 /**
@@ -627,6 +633,18 @@ public class SkosEditorController implements Initializable {
 			}
 			
 			btn_editLabel.setDisable(false);
+			Reasoner res = new PelletReasoner();
+			InfModel infmodel = ModelFactory.createInfModel(res, model);
+			ValidityReport report =infmodel.validate();
+			if(report.isValid()){
+				log.info("Alles oki doki");
+			}else{
+				log.error("Model is not valid");
+				Iterator<Report> iter = report.getReports();
+				while(iter.hasNext()){
+					log.info("Modelvalid error: "+iter.next());
+				}
+			}
 		}
 	}
 	
@@ -1134,7 +1152,8 @@ public class SkosEditorController implements Initializable {
 							selectedIndiLocalname
 							.setText(selectedIndividual.getLocalName());
 						txtfield_editLabel.setText(getDatapropertyFromLabel(
-								selectedIndividual).getString());
+								selectedIndividual)!=null ? getDatapropertyFromLabel(
+										selectedIndividual).getString() : "");
 						Property oproppref = model.getProperty(skosxlNS+"prefLabel");
 						Property opropalt = model.getProperty(skosxlNS+"altLabel");
 						ResIterator resit = model.listSubjectsWithProperty(oproppref, selectedIndividual);
@@ -1149,7 +1168,11 @@ public class SkosEditorController implements Initializable {
 							subjectOfLabel = model.getIndividual(res.getURI());
 							log.info("Subject of this Label is: "+subjectOfLabel.getLocalName());
 						}
-						showLabelsOfIndividual(subjectOfLabel);
+						if(subjectOfLabel!=null){
+							showLabelsOfIndividual(subjectOfLabel);
+						}else{
+							log.error("No subject found");
+						}
 						break;
 					case "Concept":
 						showLabelsOfIndividual(selectedIndividual);
