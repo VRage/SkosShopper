@@ -136,9 +136,15 @@ public class SkosEditorController implements Initializable {
 	@FXML
 	private ChoiceBox<String> choiseBoxCollectionFilter;
 	@FXML
+	private ChoiceBox<String> choiseBoxEditCollection;
+	@FXML
 	private ListView<Individual> listviewCollectionChoise;
 	@FXML
 	private ListView<Individual> listviewCollectionSelected;
+	@FXML
+	private ListView<Individual> listViewEditCollectionSelected;
+	@FXML
+	private ListView<Individual> listViewEditCollectionChoise;
 	@FXML
 	private VBox vboxAddPrefLabel;
 	@FXML
@@ -206,8 +212,12 @@ public class SkosEditorController implements Initializable {
 	// For Listview Individual choiced
 	private ObservableList<Individual> liste_choicedindis = FXCollections
 			.observableArrayList();
+	private ObservableList<Individual> liste_choisedindisEditCollection = FXCollections
+			.observableArrayList();
 
 	private ObservableList<Individual> liste_selectedindis = FXCollections
+			.observableArrayList();
+	private ObservableList<Individual> liste_selectedindisEditCollection = FXCollections
 			.observableArrayList();
 	// Variables for the Dropdownmenu, Individuals
 	private ObservableList<Individual> indis = FXCollections
@@ -831,6 +841,15 @@ public class SkosEditorController implements Initializable {
 						return new IndividualChoiceCell(liste_selectedindis);
 					}
 				});
+		
+		listViewEditCollectionChoise.setItems(liste_choicedindis);
+		listViewEditCollectionChoise
+				.setCellFactory(new Callback<ListView<Individual>, ListCell<Individual>>() {
+					@Override
+					public ListCell<Individual> call(ListView<Individual> param) {
+						return new IndividualChoiceCell(liste_selectedindisEditCollection);
+					}
+				});
 
 		listviewCollectionSelected.setItems(liste_selectedindis);
 		listviewCollectionSelected
@@ -838,6 +857,15 @@ public class SkosEditorController implements Initializable {
 					@Override
 					public ListCell<Individual> call(ListView<Individual> param) {
 						return new IndividualSelectCell(liste_selectedindis);
+					}
+				});
+		
+		listViewEditCollectionSelected.setItems(liste_selectedindis);
+		listViewEditCollectionSelected
+				.setCellFactory(new Callback<ListView<Individual>, ListCell<Individual>>() {
+					@Override
+					public ListCell<Individual> call(ListView<Individual> param) {
+						return new IndividualSelectCell(liste_selectedindisEditCollection);
 					}
 				});
 
@@ -851,6 +879,16 @@ public class SkosEditorController implements Initializable {
 
 					}
 				});
+		choiseBoxEditCollection.getSelectionModel().selectedItemProperty()
+		.addListener(new ChangeListener<String>() {
+
+			@Override
+			public void changed(ObservableValue<? extends String> arg0,
+					String arg1, String arg2) {
+				setFilteredItemsEditCollection();
+
+			}
+		});
 		imageConceptIndividual.setOnDragEntered(new EventHandler<DragEvent>() {
 			public void handle(DragEvent event) {
 				/* the drag-and-drop gesture entered the target */
@@ -1203,6 +1241,11 @@ public class SkosEditorController implements Initializable {
 		choiseBoxCollectionFilter.setItems(elems);
 		choiseBoxCollectionFilter.setValue(localizedBundle
 				.getString("noFilter"));
+		
+		choiseBoxEditCollection.setItems(elems);
+		choiseBoxEditCollection.setValue(localizedBundle
+				.getString("noFilter"));
+		
 	}
 
 	private void setFilteredItems() {
@@ -1245,6 +1288,50 @@ public class SkosEditorController implements Initializable {
 			}
 		}
 		listviewCollectionChoise.setItems(liste_choicedindis);
+		
+	}
+	
+	private void setFilteredItemsEditCollection(){
+		liste_choisedindisEditCollection.clear();
+		String selected = choiseBoxEditCollection.getValue();
+		Individual ind = null;
+
+		if (selected != localizedBundle.getString("noFilter")) {
+			ExtendedIterator<Individual> i = model.listIndividuals();
+			// search for current individual
+			while (i.hasNext()) {
+				ind = (Individual) i.next();
+				if (ind.getLocalName().equals(selected)) {
+					break;
+				}
+			}
+			if (ind != null) {
+				StmtIterator properties = ind.listProperties();
+				while (properties.hasNext()) {
+					Statement s = properties.next();
+
+					System.out.println(s.getPredicate().getLocalName());
+					if (s.getPredicate().getLocalName().equals("narrower")) {
+						// liste_choicedindis.add((Individual)s.getObject().getModel());
+						i = model.listIndividuals();
+						while (i.hasNext()) {
+							Individual ind2 = (Individual) i.next();
+							if (ind2.getLocalName().equals(
+									s.getObject().asResource().getLocalName())) {
+								liste_choisedindisEditCollection.add(ind2);
+							}
+						}
+					}
+				}
+			}
+		} else {
+			ExtendedIterator<Individual> i = model.listIndividuals();
+			while (i.hasNext()) {
+				liste_choisedindisEditCollection.add((Individual) i.next());
+			}
+		}
+		listViewEditCollectionChoise.setItems(liste_choisedindisEditCollection);
+		
 	}
 
 	/**
@@ -1546,8 +1633,13 @@ public class SkosEditorController implements Initializable {
 	}
 	
 	private void updateEditCollectionView(){
-		//if the selected item is an collection then update view else set to no-collection
 		
+		//if the selected item is an collection then update view else set to no-collection
+		if(selectedOntClass.getLocalName().equals(COLLECTION)){
+			
+		}else{
+			
+		}
 	}
 	
 }
