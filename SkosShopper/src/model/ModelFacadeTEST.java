@@ -38,6 +38,7 @@ public class ModelFacadeTEST implements Initializable
 	static OntModel ontModel = ModelFactory.createOntologyModel();
 	public static OntDocumentManager mgr = new OntDocumentManager();
 	static OntModelSpec ontSpec = new OntModelSpec(OntModelSpec.OWL_MEM);
+	ObservableList <OntModel>modelList = FXCollections.observableArrayList();
 	//static OntModelSpec ontSpec = new OntModelSpec(PelletReasonerFactory.THE_SPEC);
 	
 	@Override
@@ -91,10 +92,6 @@ public class ModelFacadeTEST implements Initializable
 		// TODO Auto-generated method stub
 		System.out.println(filePath);
 		ontModel = ModelFactory.createOntologyModel();
-		//model = ModelFactory.createDefaultModel();
-//		InputStream in = FileManager.get().open(filePath);
-//		model.read(in,null);
-//		model.write(System.out);
 		ontModel.read(filePath);
 		
 		//ontModel.write(System.out);

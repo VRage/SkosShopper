@@ -99,6 +99,7 @@
                         <MenuItem mnemonicParsing="false" text="About" />
                      </items>
                   </Menu>
+
                </menus>
             </MenuBar>
              -->

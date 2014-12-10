@@ -32,6 +32,15 @@
               <MenuItem fx:id="menuItemAbout" mnemonicParsing="false" text="%about" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="%Reasoner">
+              <items>
+                  <Menu mnemonicParsing="false" text="Pellet">
+                     <items>
+                        <CheckMenuItem mnemonicParsing="false" text="Start Reasoner" />
+                     </items>
+                  </Menu>
+              </items>
+            </Menu>
         </menus>
       </MenuBar>
    </children>

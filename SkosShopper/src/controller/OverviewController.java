@@ -156,7 +156,6 @@ public class OverviewController implements Initializable {
 
 		tv_alt_entries.setItems(altEntryList);
 		tv_graph_uri.setItems(graphURIs);
-		tv_models.setItems(modelsLoaded);
 		
 		ta_log_field.setEditable(false);
 		tf_curr_loaded_graph.setStyle("-fx-text-inner-color: green;");
@@ -371,7 +370,7 @@ public class OverviewController implements Initializable {
 				//tv_models.getColumns().add(new TableColumn<OntModel,String>(ModelFacadeTEST.getOntModel().getGraph().toString()));
 			}
 			if (btn_web_import.isSelected()) {
-
+				ModelFacadeTEST.loadModelFromWeb(txtFieldURL.getText());
 			}
 		} else {
 			JOptionPane.showMessageDialog(null,
@@ -381,6 +380,8 @@ public class OverviewController implements Initializable {
 		OntModel searchModel = ModelFacadeTEST.getOntModel();
 		Map <String,String>prefixMap=searchModel.getNsPrefixMap();
 		prefixMap.forEach((Uri,Prefix)->{
+			tv_models.getItems().clear();
+			
 			if(!tv_models.getItems().contains(Uri+"   "+Prefix))
 			{
 				tv_models.getItems().add(Uri+"   "+Prefix);
