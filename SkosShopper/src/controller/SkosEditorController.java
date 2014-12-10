@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.Frame;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -91,6 +92,10 @@ public class SkosEditorController implements Initializable {
 		model = ontModel;
 	}
 	// Define FXML Elements
+	@FXML
+	private Label selectedCollectionLabel;
+	@FXML
+	private TextField TextFieldLabelEditCollection;
 	@FXML
 	private Accordion accordionpane;
 	@FXML
@@ -847,7 +852,7 @@ public class SkosEditorController implements Initializable {
 				.setCellFactory(new Callback<ListView<Individual>, ListCell<Individual>>() {
 					@Override
 					public ListCell<Individual> call(ListView<Individual> param) {
-						return new IndividualChoiceCell(liste_selectedindisEditCollection);
+						return new IndividualChoiceCell(liste_selectedindis);
 					}
 				});
 
@@ -865,7 +870,7 @@ public class SkosEditorController implements Initializable {
 				.setCellFactory(new Callback<ListView<Individual>, ListCell<Individual>>() {
 					@Override
 					public ListCell<Individual> call(ListView<Individual> param) {
-						return new IndividualSelectCell(liste_selectedindisEditCollection);
+						return new IndividualSelectCell(liste_selectedindis);
 					}
 				});
 
@@ -879,6 +884,10 @@ public class SkosEditorController implements Initializable {
 
 					}
 				});
+		acc_editCollection.onMouseClickedProperty().addListener((editcevent) -> {
+			setFilteredItemsEditCollection();
+			setChoiseboxItems();
+		});
 		choiseBoxEditCollection.getSelectionModel().selectedItemProperty()
 		.addListener(new ChangeListener<String>() {
 
@@ -1126,7 +1135,7 @@ public class SkosEditorController implements Initializable {
 			showDataProperties(selectedIndividual);
 			txtfield_individiaulname.setText(selectedIndividual.getURI()
 					.substring(baseNS.length()) + "/");
-			
+			updateEditCollectionView();
 			if(acc_editLabel.isExpanded()){
 				switch(selectedOntClass.getLocalName()){
 					case "Label":
@@ -1221,6 +1230,7 @@ public class SkosEditorController implements Initializable {
 			case "OrderedCollection":
 			case "Collection":
 				acc_addCollection.setExpanded(true);
+				updateEditCollectionView();
 				setFilteredItems();
 				break;
 			default:
@@ -1631,15 +1641,132 @@ public class SkosEditorController implements Initializable {
 	private void showSubIndividualinListView(MouseEvent event) {
 		setFilteredItems();
 	}
-	
+	@FXML
 	private void updateEditCollectionView(){
+		liste_selectedindis.clear();
+		selectedCollectionLabel.setText(localizedBundle.getString("labelEditCollectionSelectedCollection"));
+		TextFieldLabelEditCollection.clear();
 		
 		//if the selected item is an collection then update view else set to no-collection
 		if(selectedOntClass.getLocalName().equals(COLLECTION)){
-			
-		}else{
+			//get the selected Collection as long as one is selected
+			if(selectedIndividual != null){
+				log.info(selectedIndividual.getURI());
+				selectedCollectionLabel.setText(selectedIndividual.getLocalName());
+				TextFieldLabelEditCollection.setText(getLabelForCollection(selectedIndividual).getObject().asLiteral().toString());
+				prefilEditCollectionSelectedList(selectedIndividual);
+				setChoiseboxItems();
+				setFilteredItemsEditCollection();
+			}
 			
 		}
+	}
+	
+	private void prefilEditCollectionSelectedList(Individual collection){
+		StmtIterator iter = collection.listProperties();
+		while(iter.hasNext()){
+			Statement state = iter.next();
+			System.out.println(state);
+			if(state.getPredicate().getLocalName().equals("member")){
+				liste_selectedindis.add(model.getIndividual(state.getObject().asResource().getURI()));
+			}
+		}
+	}
+	
+	private Statement getLabelForCollection(Individual collection){
+		StmtIterator statements = collection.listProperties();
+		while(statements.hasNext()){
+			Statement statement = statements.next();
+			if(statement != null){
+				if(statement.getPredicate().getLocalName().equals("prefLabel")){
+					StmtIterator labelIter = model.getIndividual(statement.getObject().asResource().getURI()).listProperties();
+					while(labelIter.hasNext()){
+						statement = labelIter.next();
+						System.out.println(statement);
+						if(statement.getPredicate().getLocalName().equals("literalForm")){
+							return statement;
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+	@FXML
+	private void cancelEditCollection(){
+		//Custom button text
+		Frame frame = new Frame();
+		Object[] options = {localizedBundle.getString("btnOk"),
+		                    localizedBundle.getString("btnCancel")};
+		int n = JOptionPane.showOptionDialog(frame,
+		    localizedBundle.getString("msgCancel"),
+		    localizedBundle.getString("msgCancelTop"),
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.WARNING_MESSAGE,
+		    null,
+		    options,
+		    options[1]);
+		if(n == 0)
+			updateEditCollectionView();
+	}
+	@FXML
+	private void deleteEditCollection(){
+		if(selectedOntClass.getLocalName().equals(COLLECTION)){
+			//get the selected Collection as long as one is selected
+			if(selectedIndividual != null){
+				Frame frame = new Frame();
+				Object[] options = {localizedBundle.getString("btnOk"),
+				                    localizedBundle.getString("btnCancel")};
+				int n = JOptionPane.showOptionDialog(frame,
+				    localizedBundle.getString("msgRemove"),
+				    localizedBundle.getString("msgCancelTop"),
+				    JOptionPane.YES_NO_OPTION,
+				    JOptionPane.WARNING_MESSAGE,
+				    null,
+				    options,
+				    options[1]);
+				if(n == 0){	
+					model.remove(selectedIndividual.listProperties());
+					updateEditCollectionView();
+				}
+			}
+		}
+	}
+	@FXML
+	private void saveEditCollection(){
+		if(selectedOntClass.getLocalName().equals(COLLECTION)){
+			//get the selected Collection as long as one is selected
+			if(selectedIndividual != null){
+				Frame frame = new Frame();
+				Object[] options = {localizedBundle.getString("btnOk"),
+				                    localizedBundle.getString("btnCancel")};
+				int n = JOptionPane.showOptionDialog(frame,
+				    localizedBundle.getString("msgSave"),
+				    localizedBundle.getString("msgCancelTop"),
+				    JOptionPane.YES_NO_OPTION,
+				    JOptionPane.QUESTION_MESSAGE,
+				    null,
+				    options,
+				    options[1]);
+				if(n == 0){	
+					//implement here
+					Statement label = getLabelForCollection(selectedIndividual);
+					if(label != null){
+						Resource subject = label.getSubject();
+						Property predicate = label.getPredicate();
+						String collectionLabelString = baseNS + "LabelForCollection";
+						model.remove(label);
+						createLabelRecipe("prefLabel", collectionLabelString, TextFieldLabelEditCollection.getText(), "de", selectedIndividual);
+					}
+					clearCollection(selectedIndividual);
+					insertElemsToCollectionRecipe(selectedIndividual, listviewCollectionSelected);
+					
+				}
+			}
+		}
+	}
+	private void clearCollection(Individual collection){
+		collection.removeAll(model.getProperty(skosNS + "member"));
 	}
 	
 }
