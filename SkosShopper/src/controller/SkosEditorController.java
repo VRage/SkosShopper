@@ -213,10 +213,7 @@ public class SkosEditorController implements Initializable {
 	// Variables for the ListView, Individuals of a Class
 	private ObservableList<String> items = FXCollections.observableArrayList();
 
-	// Variables for the Dropdownmenu, ObjectProperties
-	// private ObservableList<String> props =
-	// FXCollections.observableArrayList();
-	// private ArrayList<String> propNS = new ArrayList<String>();
+	public final Image defaultimage= new Image("file://"+"./drawable/DROP.png");
 
 	private ArrayList<Individual> liste_indi = new ArrayList<Individual>();
 
@@ -444,139 +441,143 @@ public class SkosEditorController implements Initializable {
 	 */
 	@FXML
 	private void createIndividualforConcept(ActionEvent event) {
-		if (!txtfield_individiaulname.getText().isEmpty()) {
-			log.info("start method addIndi");
-			String antwort = txtfield_individiaulname.getText();
-			if (model.getIndividual(baseNS + (antwort)) == null) {
-				model.createIndividual(baseNS + (antwort), selectedOntClass);
-
-				if (!txtfield_IndiLabel0.getText().isEmpty()) {
-					createLabelRecipe("prefLabel", "",
-							txtfield_IndiLabel0.getText(),
-							choiceboxPrefLabel0.getValue(),
-							model.getIndividual(baseNS + (antwort)));
-					for (int i = 1; i < counter; i++) {
-						HBox hboxx = (HBox) vboxAddPrefLabel.getChildren().get(
-								i);
-						TextField txtfield = (TextField) hboxx.getChildren()
-								.get(0);
-						@SuppressWarnings("unchecked")
-						ChoiceBox<String> choicebox = (ChoiceBox<String>) hboxx.getChildren().get(2);
-						createLabelRecipe("prefLabel", "", txtfield.getText(),
-								choicebox.getValue(),
+		if(selectedOntClass != null){
+			if (!txtfield_individiaulname.getText().isEmpty()) {
+				log.info("start method addIndi");
+				String antwort = txtfield_individiaulname.getText();
+				if (model.getIndividual(baseNS + (antwort)) == null) {
+					model.createIndividual(baseNS + (antwort), selectedOntClass);
+	
+					if (!txtfield_IndiLabel0.getText().isEmpty()) {
+						createLabelRecipe("prefLabel", "",
+								txtfield_IndiLabel0.getText(),
+								choiceboxPrefLabel0.getValue(),
+								model.getIndividual(baseNS + (antwort)));
+						for (int i = 1; i < counter; i++) {
+							HBox hboxx = (HBox) vboxAddPrefLabel.getChildren().get(
+									i);
+							TextField txtfield = (TextField) hboxx.getChildren()
+									.get(0);
+							@SuppressWarnings("unchecked")
+							ChoiceBox<String> choicebox = (ChoiceBox<String>) hboxx.getChildren().get(2);
+							createLabelRecipe("prefLabel", "", txtfield.getText(),
+									choicebox.getValue(),
+									model.getIndividual(baseNS + (antwort)));
+						}
+					}
+					if (!txtfield_IndialtLabel.getText().isEmpty()) {
+						createLabelRecipe("altLabel", "alternativ",
+								txtfield_IndialtLabel.getText(),
+								choiceboxPrefLabel0.getValue(),
 								model.getIndividual(baseNS + (antwort)));
 					}
-				}
-				if (!txtfield_IndialtLabel.getText().isEmpty()) {
-					createLabelRecipe("altLabel", "alternativ",
-							txtfield_IndialtLabel.getText(),
-							choiceboxPrefLabel0.getValue(),
-							model.getIndividual(baseNS + (antwort)));
-				}
-				if (!txtfield_imageURL.getText().isEmpty()) {
-					createDatapropertyNotation(txtfield_imageURL.getText(),
-							model.getIndividual(baseNS + (antwort)));
-				}
-				if (!txtarea_indiDescription.getText().isEmpty()) {
-					AnnotationProperty aprop = model
-							.createAnnotationProperty(dctNS + "description");
-					log.info("aprop is: " + aprop.toString());
-					model.getIndividual(baseNS + (antwort)).addProperty(
-							aprop,
-							model.createLiteral(
-									txtarea_indiDescription.getText(),
-									choiceboxPrefLabel0.getValue()));
-				}
-				int length = baseNS.length();
-				String indinamespace = model.getIndividual(baseNS + (antwort))
-						.getNameSpace();
-
-				/*
-				 * Very complicated string operations, probably PhD needed to
-				 * understand.
-				 * 
-				 * Recipe to add multiple Individuals with one string input.
-				 * Furthermore adding "has narrower" to the created Individuals.
-				 */
-				if (!(length == indinamespace.length())) {
-					String superindi = indinamespace.substring(length,
-							indinamespace.length() - 1);
-					log.info(superindi);
-					String[] stringarray = superindi.split("/");
-					String newindi = baseNS;
-					for (String ss : stringarray) {
-						Individual tempindi = model.getIndividual(newindi + ss);
-						if (tempindi == null) {
-							model.createIndividual(newindi + ss,
-									selectedOntClass);
-							newindi = newindi + ss + "/";
-							log.info("new individual added: " + ss);
-
-						} else {
-							newindi = tempindi.getURI() + "/";
-						}
-						log.info(ss);
+					if (!txtfield_imageURL.getText().isEmpty()) {
+						createDatapropertyNotation(txtfield_imageURL.getText(),
+								model.getIndividual(baseNS + (antwort)));
 					}
-					newindi = baseNS;
-					if (stringarray.length > 0) {
-						for (int i = 0; i < stringarray.length; i++) {
-							Individual tempindi = model.getIndividual(newindi
-									+ stringarray[i]);
-							ObjectProperty oProp = model
-									.getObjectProperty(skosNS + "narrower");
-							if (i < stringarray.length - 1) {
-								Individual nextindi = model
-										.getIndividual(newindi + stringarray[i]
-												+ "/" + stringarray[i + 1]);
-								model.add(tempindi, oProp, nextindi);
+					if (!txtarea_indiDescription.getText().isEmpty()) {
+						AnnotationProperty aprop = model
+								.createAnnotationProperty(dctNS + "description");
+						log.info("aprop is: " + aprop.toString());
+						model.getIndividual(baseNS + (antwort)).addProperty(
+								aprop,
+								model.createLiteral(
+										txtarea_indiDescription.getText(),
+										choiceboxPrefLabel0.getValue()));
+					}
+					int length = baseNS.length();
+					String indinamespace = model.getIndividual(baseNS + (antwort))
+							.getNameSpace();
+	
+					/*
+					 * Very complicated string operations, probably PhD needed to
+					 * understand.
+					 * 
+					 * Recipe to add multiple Individuals with one string input.
+					 * Furthermore adding "has narrower" to the created Individuals.
+					 */
+					if (!(length == indinamespace.length())) {
+						String superindi = indinamespace.substring(length,
+								indinamespace.length() - 1);
+						log.info(superindi);
+						String[] stringarray = superindi.split("/");
+						String newindi = baseNS;
+						for (String ss : stringarray) {
+							Individual tempindi = model.getIndividual(newindi + ss);
+							if (tempindi == null) {
+								model.createIndividual(newindi + ss,
+										selectedOntClass);
+								newindi = newindi + ss + "/";
+								log.info("new individual added: " + ss);
+	
 							} else {
-								Individual nextindi = model
-										.getIndividual(baseNS
-												+ ((String) antwort));
-								model.add(tempindi, oProp, nextindi);
+								newindi = tempindi.getURI() + "/";
 							}
-							newindi = newindi + stringarray[i] + "/";
+							log.info(ss);
+						}
+						newindi = baseNS;
+						if (stringarray.length > 0) {
+							for (int i = 0; i < stringarray.length; i++) {
+								Individual tempindi = model.getIndividual(newindi
+										+ stringarray[i]);
+								ObjectProperty oProp = model
+										.getObjectProperty(skosNS + "narrower");
+								if (i < stringarray.length - 1) {
+									Individual nextindi = model
+											.getIndividual(newindi + stringarray[i]
+													+ "/" + stringarray[i + 1]);
+									model.add(tempindi, oProp, nextindi);
+								} else {
+									Individual nextindi = model
+											.getIndividual(baseNS
+													+ ((String) antwort));
+									model.add(tempindi, oProp, nextindi);
+								}
+								newindi = newindi + stringarray[i] + "/";
+							}
 						}
 					}
+					showAllIndividualsInChoicebox();
+					showIndividualsOfOntClass(selectedOntClass);
+	
+					//Clear all Textfields
+					txtfield_individiaulname.clear();
+					for(Node node : vboxAddPrefLabel.getChildren()){
+						if(node instanceof TextField){
+							((TextField)node).clear();
+						}
+						if(node instanceof HBox){
+							for(Node hNode : ((HBox)node).getChildren()){
+								if(hNode instanceof TextField){
+									((TextField)hNode).clear();	
+								}
+								if(hNode instanceof TextArea){
+									((TextArea)hNode).clear();
+								}
+							}
+						}
+						if(node instanceof AnchorPane){
+							for(Node hNode : ((AnchorPane)node).getChildren()){
+								if(hNode instanceof TextField){
+									((TextField)hNode).clear();	
+								}
+								if(hNode instanceof TextArea){
+									((TextArea)hNode).clear();
+								}
+							}
+						}
+					}
+					
+					imageConceptIndividual.setImage(null);
+					// try {
+					// printToConsole();
+					// } catch (IOException e) {
+					// log.erroer(e,e);
+					// e.printStackTrace();
+					// }
+				} else {
+					log.info("Individual already exist");
 				}
-				showAllIndividualsInChoicebox();
-				showIndividualsOfOntClass(selectedOntClass);
-
-				//Clear all Textfields
-				txtfield_individiaulname.clear();
-				for(Node node : vboxAddPrefLabel.getChildren()){
-					if(node instanceof TextField){
-						((TextField)node).clear();
-					}
-					if(node instanceof HBox){
-						for(Node hNode : ((HBox)node).getChildren()){
-							if(hNode instanceof TextField){
-								((TextField)hNode).clear();	
-							}
-							if(hNode instanceof TextArea){
-								((TextArea)hNode).clear();
-							}
-						}
-					}
-					if(node instanceof AnchorPane){
-						for(Node hNode : ((AnchorPane)node).getChildren()){
-							if(hNode instanceof TextField){
-								((TextField)hNode).clear();	
-							}
-							if(hNode instanceof TextArea){
-								((TextArea)hNode).clear();
-							}
-						}
-					}
-				}
-				// try {
-				// printToConsole();
-				// } catch (IOException e) {
-				// log.erroer(e,e);
-				// e.printStackTrace();
-				// }
-			} else {
-				log.info("Individual already exist");
 			}
 		}
 	}
@@ -682,7 +683,10 @@ public class SkosEditorController implements Initializable {
 						@SuppressWarnings("unchecked")
 						ChoiceBox<String> tmpChoiceBox = (ChoiceBox<String>) tmpHBox.getChildren().get(2);
 						if(tmpTextField != null ){
-							liter.changeObject(tmpTextField.getText(), tmpChoiceBox.getValue());
+							if(!tmpTextField.getText().isEmpty())
+								liter.changeObject(tmpTextField.getText(), tmpChoiceBox.getValue());
+							else
+								liter.remove();
 						}else{
 							log.error("Textfield is null and choicebox is null");
 						}
@@ -698,7 +702,8 @@ public class SkosEditorController implements Initializable {
 					ChoiceBox<String> tmpChoiceBox = (ChoiceBox<String>) tmpHBox.getChildren().get(2);
 					if(tmpTextField != null ){
 						log.info("try to add literalform");
-						model.add(getIndividualbyObjectProperty(selectedIndividual, "prefLabel"), dproplit, tmpTextField.getText(), tmpChoiceBox.getValue());
+						if(!tmpTextField.getText().isEmpty())
+							model.add(getIndividualbyObjectProperty(selectedIndividual, "prefLabel"), dproplit, tmpTextField.getText(), tmpChoiceBox.getValue());
 					}else{
 						log.error("Textfield is null and choicebox is null");
 					}
@@ -1075,6 +1080,7 @@ public class SkosEditorController implements Initializable {
 				
 				// showOPropertiesInChoicebox();
 				// showAllIndividualsInChoicebox();
+				showIndividualsOfOntClass(null);
 				showOntClassInTree();
 				showAllIndividualsInChoicebox();
 				setChoiseboxItems();
@@ -1449,14 +1455,8 @@ public class SkosEditorController implements Initializable {
 
 			//TreeItem<Individual> root = new TreeItem<Individual>();
 			root = new TreeItem<Individual>();
-			root = showIndividualsOfOntClassRecursive(oclass, root);
-			
-			
-			
-			
+			root = showIndividualsOfOntClassRecursive(oclass, root);	
 			treeview_indi.setShowRoot(false);
-
-
 			treeview_indi.setRoot(root);
 			for(TreeItem<Individual> bla : root.getChildren()){
 				log.info(bla.getValue().getLocalName());
@@ -1465,6 +1465,9 @@ public class SkosEditorController implements Initializable {
 			items.clear();
 			liste_indi.clear();
 			selectedIndividual = null;
+			treeview_indi.setRoot(null);
+			showObjectProperties(null);
+			showDataProperties(null);
 		}
 
 	}
@@ -1573,10 +1576,11 @@ public class SkosEditorController implements Initializable {
 				imageEditIndividual.setImage(new Image(url));
 			}else{
 				//TODO
+				imageEditIndividual.setImage(defaultimage);
 			}
 		}else{
 			txtfield_EditimageURL.setText("");
-			
+			imageEditIndividual.setImage(defaultimage);
 			
 		}
 	}
