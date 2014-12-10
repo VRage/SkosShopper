@@ -1545,4 +1545,9 @@ public class SkosEditorController implements Initializable {
 		setFilteredItems();
 	}
 	
+	private void updateEditCollectionView(){
+		//if the selected item is an collection then update view else set to no-collection
+		
+	}
+	
 }
