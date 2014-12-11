@@ -19,6 +19,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.print.Printer;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.control.Accordion;
@@ -39,6 +40,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
@@ -200,8 +205,8 @@ public class SkosEditorController implements Initializable {
 	// local j4log logger
 	public static final Logger log = Logger
 			.getLogger(SkosEditorController.class);
-	private static int counter;
-	private static int cnt;
+	protected static int counter;
+	protected static int cnt;
 
 	private ObservableList<String> languages = FXCollections
 			.observableArrayList("de", "en", "fr", "it", "ru", "pl");
@@ -262,93 +267,65 @@ public class SkosEditorController implements Initializable {
 	 * 
 	 * @param event
 	 */
-	@FXML
-	private void addLabel(ActionEvent event) {
-		if ((selectedOntClass.getLocalName().equals("Concept"))
-				&& (selectedIndividual != null)) {
-
-			Object antwort = JOptionPane.showInputDialog(null,
-					localizedBundle.getString("EnterLabel"),
-					localizedBundle.getString("InputWindow"),
-					JOptionPane.INFORMATION_MESSAGE, null, null, null);
-			if (antwort != null) {
-				String name = (String) antwort;
-				model.getOntClass(skosxlNS + "Label").createIndividual(
-						baseNS + "LabelFor" + name);
-				Individual indi = model.getIndividual(baseNS + "LabelFor"
-						+ name);
-				DatatypeProperty dprop = model.getDatatypeProperty(skosxlNS
-						+ "literalForm");
-				log.info("datatypeProp" + dprop.getLocalName());
-				indi.addProperty(dprop, model.createLiteral(name, "de"));
-				ObjectProperty Oprop = model.getObjectProperty(skosxlNS
-						+ "prefLabel");
-				model.add(selectedIndividual, Oprop, indi);
-			}
-		}
-
-	}
 
 	@FXML
 	public void addLabelInputfields(ActionEvent e) {
 		log.info("In method: addLabelInputfields");
+		//TODO refactoring
 		if(acc_addIndi.isExpanded()){
 			if (counter < languages.size()) {
-				HBox newHBox = new HBox();
-				TextField newTextfield = new TextField();
-				Button newBtn = new Button();
-				Pane newPane = new Pane();
-				ChoiceBox<String> newChoiceBox = new ChoiceBox<String>();
-	
-				newChoiceBox.setItems(languages);
-				newBtn.setId("btndeltxtfields");
-				HBox.setHgrow(newTextfield, Priority.ALWAYS);
-				newChoiceBox.setPrefWidth(144.0);
-				newBtn.setPrefWidth(30.0);
-				newBtn.setOnAction((event) -> {
-					vboxAddPrefLabel.getChildren().remove(newHBox);
-					counter--;
-				});
-				newTextfield.setPromptText(localizedBundle.getString("prefLabel"));
-				newHBox.autosize();
-				newTextfield.setPrefWidth(231.0);
-				newTextfield.setMaxWidth(Region.USE_COMPUTED_SIZE);
-				newPane.setPrefWidth(15.0);
-				newHBox.getChildren().addAll(newTextfield, newPane, newChoiceBox,
-						newBtn);
-				vboxAddPrefLabel.getChildren().add(1, newHBox);
-				counter++;
+				addTextfields(0, vboxAddPrefLabel,null);
 			}
 		}else if(acc_editLabel.isExpanded()){
 			if(cnt< languages.size()){
-				HBox newHBox = new HBox();
-				TextField newTextfield = new TextField();
-				Button newBtn = new Button();
-				Pane newPane = new Pane();
-				ChoiceBox<String> newChoiceBox = new ChoiceBox<String>();
-	
-				newChoiceBox.setItems(languages);
-				newBtn.setId("btndeltxtfields");
-				HBox.setHgrow(newTextfield, Priority.ALWAYS);
-				newChoiceBox.setPrefWidth(144.0);
-				newBtn.setPrefWidth(30.0);
-				newBtn.setOnAction((event) -> {
-					vboxEditPrefLabel.getChildren().remove(newHBox);
-					cnt--;
-				});
-				newTextfield.setPromptText(localizedBundle.getString("prefLabel"));
-				newHBox.autosize();
-				newTextfield.setPrefWidth(231.0);
-				newTextfield.setMaxWidth(Region.USE_COMPUTED_SIZE);
-				newPane.setPrefWidth(15.0);
-				newHBox.getChildren().addAll(newTextfield, newPane, newChoiceBox,
-						newBtn);
-				vboxEditPrefLabel.getChildren().add(cnt, newHBox);
-				cnt++;
+				addTextfields(1, vboxEditPrefLabel,null);
 			}
 		}
 	}
 
+	public void addTextfields(int counter, VBox vbox, Literal liter){
+		HBox newHBox = new HBox();
+		TextField newTextfield = new TextField();
+		Button newBtn = new Button();
+		Pane newPane = new Pane();
+		ChoiceBox<String> newChoiceBox = new ChoiceBox<String>();
+
+		newChoiceBox.setItems(languages);
+		newBtn.setId("btndeltxtfields");
+		HBox.setHgrow(newTextfield, Priority.ALWAYS);
+		newChoiceBox.setPrefWidth(144.0);
+		newBtn.setPrefWidth(30.0);
+		if(counter==0){
+			newBtn.setOnAction((event) -> {
+				vbox.getChildren().remove(newHBox);
+				SkosEditorController.counter--;
+				
+			});
+		}
+		if(counter==1){
+			newBtn.setOnAction((event) -> {
+				vbox.getChildren().remove(newHBox);
+				SkosEditorController.cnt--;
+			});
+		}
+		if(liter!=null){
+			newTextfield.setText(liter.getString());
+			newChoiceBox.setValue(liter.getLanguage());
+		}
+		newTextfield.setPromptText(localizedBundle.getString("prefLabel"));
+		newHBox.autosize();
+		newTextfield.setPrefWidth(231.0);
+		newTextfield.setMaxWidth(Region.USE_COMPUTED_SIZE);
+		newPane.setPrefWidth(15.0);
+		newHBox.getChildren().addAll(newTextfield, newPane, newChoiceBox,
+				newBtn);
+		vbox.getChildren().add(1, newHBox);
+		if(counter==0)
+			this.counter++;
+		if(counter==1)
+			cnt++;
+	}
+	
 	private void addToExistingTreeView(TreeItem<Individual> root, TreeItem<Individual> item){
 		Iterator<TreeItem<Individual>> children  = root.getChildren().iterator();
 		boolean containsElemntAlready = false;
@@ -449,10 +426,19 @@ public class SkosEditorController implements Initializable {
 					model.createIndividual(baseNS + (antwort), selectedOntClass);
 	
 					if (!txtfield_IndiLabel0.getText().isEmpty()) {
-						createLabelRecipe("prefLabel", "",
-								txtfield_IndiLabel0.getText(),
-								choiceboxPrefLabel0.getValue(),
-								model.getIndividual(baseNS + (antwort)));
+						if(txtfield_IndiLabel0.getText().isEmpty()){
+							txtfield_IndiLabel0.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+						}else if ( choiceboxPrefLabel0 ==null){
+							choiceboxPrefLabel0.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+						}else{
+							createLabelRecipe("prefLabel", "",
+									txtfield_IndiLabel0.getText(),
+									choiceboxPrefLabel0.getValue(),
+									model.getIndividual(baseNS + (antwort)));
+							txtfield_IndiLabel0.setStyle("");
+							choiceboxPrefLabel0.setStyle("");
+						}
+
 						for (int i = 1; i < counter; i++) {
 							HBox hboxx = (HBox) vboxAddPrefLabel.getChildren().get(
 									i);
@@ -460,9 +446,17 @@ public class SkosEditorController implements Initializable {
 									.get(0);
 							@SuppressWarnings("unchecked")
 							ChoiceBox<String> choicebox = (ChoiceBox<String>) hboxx.getChildren().get(2);
-							createLabelRecipe("prefLabel", "", txtfield.getText(),
-									choicebox.getValue(),
-									model.getIndividual(baseNS + (antwort)));
+							if(txtfield.getText().isEmpty()){
+								txtfield.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+							}else if ( choicebox.getValue() ==null){
+								choicebox.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+							}else{
+								createLabelRecipe("prefLabel", "", txtfield.getText(),
+										choicebox.getValue(),
+										model.getIndividual(baseNS + (antwort)));
+								choicebox.setStyle("");
+								txtfield.setStyle("");
+							}
 						}
 					}
 					if (!txtfield_IndialtLabel.getText().isEmpty()) {
@@ -569,12 +563,6 @@ public class SkosEditorController implements Initializable {
 					}
 					
 					imageConceptIndividual.setImage(null);
-					// try {
-					// printToConsole();
-					// } catch (IOException e) {
-					// log.erroer(e,e);
-					// e.printStackTrace();
-					// }
 				} else {
 					log.info("Individual already exist");
 				}
@@ -612,7 +600,6 @@ public class SkosEditorController implements Initializable {
 	private void editLabel(ActionEvent e) {
 		log.info("in editLabelmethod");
 		if (selectedOntClass != null && selectedIndividual != null) {
-			btn_editLabel.setDisable(true);
 			log.info("no null Class or Individual");
 			log.info(selectedOntClass.getLocalName());
 			if (selectedOntClass.getLocalName().contains("Concept")) {
@@ -638,7 +625,6 @@ public class SkosEditorController implements Initializable {
 				showIndividualsOfOntClass(selectedOntClass);
 			}
 			
-			btn_editLabel.setDisable(false);
 			Reasoner res = new PelletReasoner();
 			InfModel infmodel = ModelFactory.createInfModel(res, model);
 			ValidityReport report =infmodel.validate();
@@ -657,6 +643,16 @@ public class SkosEditorController implements Initializable {
 	public void changeLabelofInvidiaul(Individual selectedIndividual){
 		DatatypeProperty dprop = model.getDatatypeProperty(skosNS + "notation");
 		DatatypeProperty dproplit = model.getDatatypeProperty(skosxlNS	+ "literalForm");
+
+		//if not exist, create a Label
+		if(getIndividualbyObjectProperty(selectedIndividual,"prefLabel") == null){
+			createLabelRecipe("prefLabel", "",
+					txtfield_editLabel.getText(),
+					(choiceboxeditLabel != null) ? choiceboxeditLabel.getValue() : localizedBundle.getLocale().getLanguage(),
+					selectedIndividual);
+			log.info(getIndividualbyObjectProperty(selectedIndividual,"prefLabel"));
+
+		}
 		
 		//Save changes for prefered Label
 		if (getIndividualbyObjectProperty(selectedIndividual,"prefLabel") != null) {
@@ -664,55 +660,30 @@ public class SkosEditorController implements Initializable {
 			Individual labelindi = model.getIndividual(getIndividualbyObjectProperty(selectedIndividual,"prefLabel").getURI());
 			selectedIndiLocalname.setText(getIndividualbyObjectProperty(selectedIndividual, "prefLabel").getLocalName());
 			btn_editLabel.setText(localizedBundle.getString("btnEditLabel"));
-			StmtIterator stateiter = labelindi.listProperties(dproplit);
-			ArrayList<Statement> tmpAList = new ArrayList<Statement>(); 
-			while(stateiter.hasNext()){
-				Statement liter = (Statement)stateiter.next();
-				if(liter !=null){
-					tmpAList.add(liter);
-				}
-			}
-			log.info("Size of ArrayList: "+tmpAList.size());
-			log.info("CNT value: "+ cnt);
-			log.info("TmpCnt value: "+ tmpcnt);
-			if(!tmpAList.isEmpty()){
-				for(Statement liter : tmpAList){
-					if(tmpcnt < cnt){
-						HBox tmpHBox = (HBox) vboxEditPrefLabel.getChildren().get(tmpcnt);
-						TextField tmpTextField = (TextField) tmpHBox.getChildren().get(0);
-						@SuppressWarnings("unchecked")
-						ChoiceBox<String> tmpChoiceBox = (ChoiceBox<String>) tmpHBox.getChildren().get(2);
-						if(tmpTextField != null ){
-							if(!tmpTextField.getText().isEmpty())
-								liter.changeObject(tmpTextField.getText(), tmpChoiceBox.getValue());
-							else
-								liter.remove();
-						}else{
-							log.error("Textfield is null and choicebox is null");
-						}
-						tmpcnt++;
-						log.info("TmpCnt value in loop: "+ tmpcnt);
-				}
-			}
-			for(;tmpcnt < cnt;tmpcnt++){
-					log.info("in forlopp");
-					HBox tmpHBox = (HBox) vboxEditPrefLabel.getChildren().get(tmpcnt);
-					TextField tmpTextField = (TextField) tmpHBox.getChildren().get(0);
+			
+				labelindi.removeAll(dproplit);
+			
+			for(Node node : vboxEditPrefLabel.getChildren()){
+				if(node instanceof HBox){
+					TextField tmpTextField = (TextField) ((HBox) node).getChildren().get(0);
 					@SuppressWarnings("unchecked")
-					ChoiceBox<String> tmpChoiceBox = (ChoiceBox<String>) tmpHBox.getChildren().get(2);
-					if(tmpTextField != null ){
-						log.info("try to add literalform");
-						if(!tmpTextField.getText().isEmpty())
-							model.add(getIndividualbyObjectProperty(selectedIndividual, "prefLabel"), dproplit, tmpTextField.getText(), tmpChoiceBox.getValue());
-					}else{
-						log.error("Textfield is null and choicebox is null");
-					}
+					ChoiceBox<String> tmpChoiceBox = (ChoiceBox<String>)((HBox)node).getChildren().get(2);
+					
+						if(tmpTextField.getText().isEmpty()){
+							tmpTextField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+						}else if ( tmpChoiceBox.getValue() ==null){
+							tmpChoiceBox.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+						}else{
+					 	model.add(labelindi, dproplit, 
+								tmpTextField.getText(), 
+								(tmpChoiceBox != null) ? tmpChoiceBox.getValue() : localizedBundle.getLocale().getLanguage()	
+								);
+					 	tmpChoiceBox.setStyle("");
+					 	tmpTextField.setStyle("");
+						}
+					
 				}
 			}
-		} else {
-			createLabelRecipe("prefLabel", "",
-					txtfield_editLabel.getText(), "de",
-					selectedIndividual);
 		}
 		
 		//save changes for alternate label
@@ -722,11 +693,13 @@ public class SkosEditorController implements Initializable {
 			else
 				model.getIndividual(getIndividualbyObjectProperty(selectedIndividual,"altLabel").getURI()).remove();
 		}else {
-			//create new alternate Label if not exist
-			log.info("create new label");
-			createLabelRecipe("altLabel", "alternate",
-					txtfield_EditialtLabel.getText(), localizedBundle.getLocale().getLanguage(),
-					selectedIndividual);
+			if(!txtfield_EditialtLabel.getText().isEmpty()){
+				//create new alternate Label if not exist
+				log.info("create new label");
+				createLabelRecipe("altLabel", "alternate",
+						txtfield_EditialtLabel.getText(), localizedBundle.getLocale().getLanguage(),
+						selectedIndividual);
+			}
 		}
 		
 		//save changes for description
@@ -737,10 +710,11 @@ public class SkosEditorController implements Initializable {
 			else
 				selectedIndividual.removeAll(aprop);
 		}else{
-			//create description if not exist
-			log.info("create new description");
-			selectedIndividual.addProperty(aprop, model.createLiteral(txtarea_EditDescription.getText(), localizedBundle.getLocale().getLanguage()));
-			
+			if(!txtarea_EditDescription.getText().isEmpty()){
+				//create description if not exist
+				log.info("create new description");
+				selectedIndividual.addProperty(aprop, model.createLiteral(txtarea_EditDescription.getText(), localizedBundle.getLocale().getLanguage()));
+			}
 		}
 		
 		//save changes for notation
@@ -751,8 +725,10 @@ public class SkosEditorController implements Initializable {
 				selectedIndividual.removeAll(dprop);
 			}
 		}else{
-			//create notation if not exist
-			createDatapropertyNotation(txtfield_EditimageURL.getText(), selectedIndividual);
+			if(!txtfield_EditimageURL.getText().isEmpty()){
+				//create notation if not exist
+				createDatapropertyNotation(txtfield_EditimageURL.getText(), selectedIndividual);
+			}
 		}
 	}
 	
@@ -806,20 +782,6 @@ public class SkosEditorController implements Initializable {
 		return null;
 	}
 
-	// private void printToConsole() throws IOException {
-	// File file =null ;
-	// FileOutputStream out = null;
-	// try {
-	// file = new File("./RDFDaten/outputfromProgramm.owl");
-	// out = new FileOutputStream(file);
-	// model.write(out, "RDF/XML");
-	// log.info("label hinzufügen");
-	//
-	// } finally{
-	// out.close();
-	// }
-	//
-	// }
 	public ArrayList<Resource> getIndividualsbyObjectProperty(
 			Individual individual, String objectproperty) {
 		ArrayList<Resource> result = new ArrayList<Resource>();
@@ -853,12 +815,7 @@ public class SkosEditorController implements Initializable {
 
 		treeview_indi.setCursor(Cursor.HAND);
 		listview_classes.setCursor(Cursor.HAND);
-		// TreeItem<String> TItem = new TreeItem<String>();
-		// for (String indi : items) {
-		// TItem.getChildren().add(new TreeItem<String>(indi));
-		// }
-		//
-		// treeview_indi.setRoot(TItem);
+
 		listview_classes.setItems(classes);
 
 		listviewCollectionChoise.setItems(liste_choicedindis);
@@ -1497,55 +1454,27 @@ public class SkosEditorController implements Initializable {
 		DatatypeProperty dprop = model.getDatatypeProperty(skosNS + "notation");
 		DatatypeProperty dproplit = model.getDatatypeProperty(skosxlNS	+ "literalForm");
 		btn_editLabel.setText(localizedBundle.getString("btnAddLabel"));
-		//TODO
 		if (getIndividualbyObjectProperty(selectedIndividual,"prefLabel") != null) {
 			Individual labelindi = model.getIndividual(getIndividualbyObjectProperty(selectedIndividual,"prefLabel").getURI());
 			selectedIndiLocalname.setText(getIndividualbyObjectProperty(selectedIndividual, "prefLabel").getLocalName());
 			btn_editLabel.setText(localizedBundle.getString("btnEditLabel"));
-			NodeIterator nodeiter = labelindi.listPropertyValues(dproplit);
-			while(nodeiter.hasNext()){
-				Literal liter = (Literal)nodeiter.next();
-				log.info("name of literal: "+liter);
-				if(cnt >0){
-
-					HBox newHBox = new HBox();
-					TextField newTextfield = new TextField();
-					Button newBtn = new Button();
-					Pane newPane = new Pane();
-					ChoiceBox<String> newChoiceBox = new ChoiceBox<String>();
-
-					newChoiceBox.setItems(languages);
-					newBtn.setId("btndeltxtfields");
-					HBox.setHgrow(newTextfield, Priority.ALWAYS);
-					newChoiceBox.setPrefWidth(144.0);
-					newBtn.setPrefWidth(30.0);
-					newBtn.setOnAction((ev) -> {
-						vboxEditPrefLabel.getChildren().remove(newHBox);
+			if(labelindi !=null){
+				NodeIterator nodeiter = labelindi.listPropertyValues(dproplit);
+				while(nodeiter.hasNext()){
+					Literal liter = (Literal)nodeiter.next();
+					log.info("name of literal: "+liter);
+					if(cnt >0){
+						//TODO refactoring
+						addTextfields(1, vboxEditPrefLabel, liter);
 						cnt--;
-					});
-					newTextfield.setText(liter.getString());
-					newChoiceBox.setValue(liter.getLanguage());
-					newHBox.autosize();
-					newTextfield.setPrefWidth(231.0);
-					newTextfield.setMaxWidth(Region.USE_COMPUTED_SIZE);
-					newPane.setPrefWidth(15.0);
-					newHBox.getChildren().addAll(newTextfield, newPane, newChoiceBox,
-							newBtn);
-					vboxEditPrefLabel.getChildren().add(cnt, newHBox);
-				}else{
-					txtfield_editLabel.setText(liter.getString());
-					choiceboxeditLabel.setValue(liter.getLanguage());
+					}else{
+						txtfield_editLabel.setText(liter.getString());
+						choiceboxeditLabel.setValue(liter.getLanguage());
+					}
+					cnt++;
+					
 				}
-				cnt++;
-				
 			}
-//			if (getDatapropertyFromLabel(getIndividualbyObjectProperty(selectedIndividual, "prefLabel")) != null) {
-//				txtfield_editLabel.setText(getDatapropertyFromLabel(getIndividualbyObjectProperty(
-//								selectedIndividual, "prefLabel")).getString());
-//				choiceboxeditLabel.setValue(getDatapropertyFromLabel(getIndividualbyObjectProperty(
-//									selectedIndividual, "prefLabel")).getLanguage());
-//				
-//			}
 		}else {
 			txtfield_editLabel.setText("");
 		}
@@ -1575,7 +1504,6 @@ public class SkosEditorController implements Initializable {
 			if(!url.isEmpty()){
 				imageEditIndividual.setImage(new Image(url));
 			}else{
-				//TODO
 				imageEditIndividual.setImage(defaultimage);
 			}
 		}else{
@@ -1779,8 +1707,8 @@ public class SkosEditorController implements Initializable {
 					//implement here
 					Statement label = getLabelForCollection(selectedIndividual);
 					if(label != null){
-						Resource subject = label.getSubject();
-						Property predicate = label.getPredicate();
+//						Resource subject = label.getSubject();
+//						Property predicate = label.getPredicate();
 						String collectionLabelString = baseNS + "LabelForCollection";
 						model.remove(label);
 						createLabelRecipe("prefLabel", collectionLabelString, TextFieldLabelEditCollection.getText(), "de", selectedIndividual);
