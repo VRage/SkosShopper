@@ -25,17 +25,13 @@
             
          </children>
       </Pane>
+      <ProgressBar fx:id="progressBarState" layoutX="14.0" layoutY="90.0" prefHeight="7.0" prefWidth="456.0" progress="0.0" visible="false" />
       
       <AnchorPane layoutY="233.0" prefHeight="247.0" prefWidth="815.0" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="233.0">
          <children>
-            <SplitPane dividerPositions="0.0036900369003690036" layoutX="7.0" layoutY="-132.0" prefHeight="443.0" prefWidth="1000.0" AnchorPane.bottomAnchor="-64.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-185.0" AnchorPane.topAnchor="-132.0">
+            <SplitPane layoutX="7.0" layoutY="-121.0" prefHeight="432.0" prefWidth="1000.0" AnchorPane.bottomAnchor="-64.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-185.0" AnchorPane.topAnchor="-121.0">
               <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
-                     <children>
-                        <WebView fx:id="webView" layoutX="45.0" layoutY="7.0" prefHeight="245.0" prefWidth="807.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                     </children>
-                  </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="441.0" prefWidth="1042.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="415.0" prefWidth="998.0">
                      <children>
                         <AnchorPane layoutX="25.0" layoutY="7.0" prefHeight="200.0" prefWidth="575.0" AnchorPane.bottomAnchor="234.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="391.0" AnchorPane.topAnchor="7.0">
                            <children>
@@ -107,6 +103,6 @@
       <Button fx:id="btn_save_graph" layoutX="953.0" layoutY="21.0" mnemonicParsing="false" onAction="#saveModelToBtnAction" text="OK" AnchorPane.rightAnchor="14.0" />
       <Label fx:id="lab_save_graph" layoutX="643.0" layoutY="25.0" text="Save Graph:" AnchorPane.rightAnchor="294.0" />
       <ComboBox fx:id="cb_save_graph" layoutX="713.0" layoutY="21.0" prefHeight="25.0" prefWidth="230.0" AnchorPane.rightAnchor="57.0" />
-      <ToggleButton id="toggleButtonState" fx:id="OverViewToggleButton" layoutX="525.0" layoutY="57.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="161.0" text="Method: Override" />
+      <ToggleButton id="toggleButtonState" fx:id="OverViewBtnToggleAddOntology" layoutX="525.0" layoutY="57.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="161.0" text="Method: Override" />
    </children>
 </AnchorPane>

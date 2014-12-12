@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -8,8 +9,15 @@ import java.net.MalformedURLException;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
+
+
+
+
+
+
 
 
 
@@ -17,6 +25,7 @@ import java.util.ResourceBundle;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -29,6 +38,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -51,14 +61,33 @@ import javafx.util.Callback;
 
 
 
+
+
+
+
+
+
 import javax.swing.JOptionPane;
 import javax.xml.bind.JAXBException;
 
 
 
 
+
+
+
+
+
+
+import model.ExtendedOntModel;
 import model.ModelFacadeTEST;
 import model.ServerImporter;
+
+
+
+
+
+
 
 
 
@@ -70,17 +99,33 @@ import org.apache.log4j.Logger;
 
 
 
+
+
+
+
+
+
 import com.hp.hpl.jena.ontology.OntDocumentManager;
 import com.hp.hpl.jena.ontology.OntModel;
 
 
 
 
+
+
+
+
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelChangedListener;
+import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
+
 import exceptions.fuseki_exceptions.NoDatasetAccessorException;
 
 public class OverviewController implements Initializable {
 
 	/* JAVAFX COMPONENTS */
+	@FXML ProgressBar progressBarState;
 	private RadioMenuItem btn_server_import, btn_file_import, btn_web_import;
 	@FXML
 	private ComboBox<String> cb_save_graph;
@@ -97,7 +142,7 @@ public class OverviewController implements Initializable {
 	@FXML
 	private TableView<AltEntriesManager> tv_alt_entries;
 	@FXML private ListView<String> tv_models;
-	@FXML private ToggleButton OverViewToggleButton;
+	@FXML private ToggleButton OverViewBtnToggleAddOntology;
 	private TableColumn<OntModel, String> model_graph;
 	@FXML
 	private TableColumn<String, String> col_graph_uri;
@@ -148,16 +193,19 @@ public class OverviewController implements Initializable {
 			.getLogger(SkosEditorController.class);
 	private ArrayList<Entry> browserHistory = new ArrayList<WebHistory.Entry>();
 	public static OntDocumentManager mgr;
-
+	
 	public void initialize(URL fxmlPath, ResourceBundle resources) {
-		// Initialize overview components
-		OverViewToggleButton.setOnAction((event->
+	
+		
+		OverViewBtnToggleAddOntology.setOnAction((event->
 		{
-			if(OverViewToggleButton.isSelected())
-				OverViewToggleButton.setText("Method: Add to current");
+			if(OverViewBtnToggleAddOntology.isSelected())
+				OverViewBtnToggleAddOntology.setText("Method: Add to current");
 			else 
-				OverViewToggleButton.setText("Method: Override");
+				OverViewBtnToggleAddOntology.setText("Method: Override");
 		}));
+		
+		
 		col_alt_url.prefWidthProperty().bind(
 				tv_alt_entries.widthProperty().multiply(0.5f));
 		col_dest_url.prefWidthProperty().bind(
@@ -184,10 +232,7 @@ public class OverviewController implements Initializable {
 
 		setGraphTable();
 		setMenuButtons();
-
-		webEngine = webView.getEngine();
-		webHistory = webEngine.getHistory();
-		webHistory.setMaxSize(3);
+		
 		try {
 			altEntryList.addAll(new DataSaver().loadEntries());
 			tv_alt_entries.setItems(altEntryList);
@@ -196,14 +241,11 @@ public class OverviewController implements Initializable {
 			e.printStackTrace();
 		}
 		MenuItem mdel = new MenuItem("delete");
-		mdel.setOnAction(new EventHandler<ActionEvent>() {
-
-			@Override
-			public void handle(ActionEvent event) {
+		mdel.setOnAction((event)->{
 				// TODO Auto-generated method stub
 				tv_alt_entries.getItems().remove(
 				tv_alt_entries.getSelectionModel().getSelectedIndex());
-			}
+			
 		});
 		tv_graph_uri.setContextMenu(new ContextMenu(mdel));
 		
@@ -294,8 +336,8 @@ public class OverviewController implements Initializable {
 				try {
 					   File savedFile = fileChooser.showSaveDialog(null);
 					   FileOutputStream fout = new FileOutputStream(savedFile);
-						ModelFacadeTEST.getOntModel().write(fout);
-						log.info("saving to file "+ savedFile.getAbsolutePath());
+					   ModelFacadeTEST.getOntModel().write(fout);
+					   log.info("saving to file "+ savedFile.getAbsolutePath());
 						modelLoaded = false;
 				} catch (Exception e) {
 					// TODO: handle exception
@@ -317,13 +359,18 @@ public class OverviewController implements Initializable {
 			JOptionPane.showMessageDialog(null, "No model available to save",
 					null, JOptionPane.WARNING_MESSAGE);
 		}
+		ModelFacadeTEST.resetModelToDefault();
+		tv_models.getItems().clear();
+		for (ExtendedOntModel ontModel : ModelFacadeTEST.getloadedModels()) {
+			tv_models.getItems().add(ontModel.getShortPath());
+		}
 	}
 
 	@FXML
 	private void OverviewbtnReloadDatasetOnAction(ActionEvent event)
 			throws Exception {
 		graphURIs.clear();
-		if (!modelLoaded) {
+		if (!modelLoaded||OverViewBtnToggleAddOntology.isSelected()) {
 			ta_log_field.clear();
 			if (btn_server_import.isSelected()) {
 				try {
@@ -371,19 +418,19 @@ public class OverviewController implements Initializable {
 				}
 			}
 			if (btn_file_import.isSelected()) {
-				
-				FileChooser fileChooser = new FileChooser();
-
-				fileChooser.setTitle("Open Resource File");
-				localFile = fileChooser.showOpenDialog(null);
-				ModelFacadeTEST.loadModelFromLocal(localFile);
+				try {
+					File file = new File(txtFieldURL.getText());
+					ModelFacadeTEST.loadModelFromLocal(file,OverViewBtnToggleAddOntology.isSelected());
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
 				ta_log_field.setText(ModelFacadeTEST.modelToString());
 				modelLoaded =true;
 
 				//tv_models.getColumns().add(new TableColumn<OntModel,String>(ModelFacadeTEST.getOntModel().getGraph().toString()));
 			}
 			if (btn_web_import.isSelected()) {
-				ModelFacadeTEST.loadModelFromWeb(txtFieldURL.getText());
+				ModelFacadeTEST.loadModelFromWeb(txtFieldURL.getText(), OverViewBtnToggleAddOntology.isSelected());
 				modelLoaded = true;
 			}
 		} else {
@@ -391,19 +438,24 @@ public class OverviewController implements Initializable {
 					"There is already a model in process!", null,
 					JOptionPane.WARNING_MESSAGE);
 		}
-		OntModel searchModel = ModelFacadeTEST.getOntModel();
-		Map <String,String>prefixMap=searchModel.getNsPrefixMap();
-		prefixMap.forEach((Uri,Prefix)->{
-			tv_models.getItems().clear();
-			
-			if(!tv_models.getItems().contains(Uri+"   "+Prefix))
-			{
-				tv_models.getItems().add(Uri+"   "+Prefix);
-			}
-		
-		});
+//		OntModel searchModel = ModelFacadeTEST.getOntModel();
+//		Map <String,String>prefixMap=searchModel.getNsPrefixMap();
+//		prefixMap.forEach((Uri,Prefix)->{
+//			tv_models.getItems().clear();
+//			
+//			if(!tv_models.getItems().contains(Uri+"   "+Prefix))
+//			{
+//				tv_models.getItems().add(Uri+"   "+Prefix);
+//			}
+//		
+//		});
 
-	
+		tv_models.getItems().clear();
+		for (ExtendedOntModel ontModel : ModelFacadeTEST.getloadedModels()) {
+			tv_models.getItems().add(ontModel.getShortPath());
+		}
+
+		progressBarState.setVisible(false);
 		
 	}
 
@@ -457,7 +509,7 @@ public class OverviewController implements Initializable {
 														try {
 															ModelFacadeTEST
 																	.loadModelFromServer(tablecell
-																			.getText());
+																			.getText(), OverViewBtnToggleAddOntology.isSelected());
 														} catch (NoDatasetAccessorException e) {
 															// TODO
 															// Auto-generated
@@ -502,8 +554,32 @@ public class OverviewController implements Initializable {
 	public void setMenuButtons() {
 		group = new ToggleGroup();
 		btn_server_import = new RadioMenuItem("Server Import");
+		btn_server_import.setOnAction((event)->{
+			txtFieldURL.setText(" ");
+			txtFieldURL.setFocusTraversable(true);
+		});
 		btn_file_import = new RadioMenuItem("File Import");
+		btn_file_import.setOnAction((event)->{
+			FileChooser  fileChooser = new FileChooser();
+			fileChooser.setTitle("Open Resource File");
+			FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("RDF file (*.rdf,*.ttl)", "*.rdf");
+            fileChooser.getExtensionFilters().add(extFilter);
+			try {
+//				   File savedFile = fileChooser.showSaveDialog(null);
+				   txtFieldURL.setText(fileChooser.showOpenDialog(null).getAbsolutePath());
+			} catch (Exception e) {
+				// TODO: handle exception
+				txtFieldURL.setText("###ERROR###");
+				log.error("FilePath is null !!");
+			}
+           
+			
+		});
 		btn_web_import = new RadioMenuItem("Web Import");
+		btn_web_import.setOnAction((event)->{
+			txtFieldURL.setText(" ");
+			txtFieldURL.setFocusTraversable(true);
+		});
 		btn_server_import.setToggleGroup(group);
 		btn_file_import.setToggleGroup(group);
 		btn_web_import.setToggleGroup(group);
@@ -532,5 +608,6 @@ public class OverviewController implements Initializable {
 		tv_graph_uri.getContextMenu().show(tv_graph_uri,event.getScreenX(),event.getScreenY());	
 		}
 	}
+	
 
 }
