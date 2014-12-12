@@ -19,7 +19,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.print.Printer;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.control.Accordion;
@@ -40,10 +39,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderStroke;
-import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
@@ -230,8 +225,6 @@ public class SkosEditorController implements Initializable {
 
 	private ObservableList<Individual> liste_selectedindis = FXCollections
 			.observableArrayList();
-	private ObservableList<Individual> liste_selectedindisEditCollection = FXCollections
-			.observableArrayList();
 	// Variables for the Dropdownmenu, Individuals
 	private ObservableList<Individual> indis = FXCollections
 			.observableArrayList();
@@ -321,7 +314,7 @@ public class SkosEditorController implements Initializable {
 				newBtn);
 		vbox.getChildren().add(1, newHBox);
 		if(counter==0)
-			this.counter++;
+			SkosEditorController.counter++;
 		if(counter==1)
 			cnt++;
 	}
@@ -422,6 +415,7 @@ public class SkosEditorController implements Initializable {
 			if (!txtfield_individiaulname.getText().isEmpty()) {
 				log.info("start method addIndi");
 				String antwort = txtfield_individiaulname.getText();
+				antwort = antwort.replaceAll("\\s", "_");
 				if (model.getIndividual(baseNS + (antwort)) == null) {
 					model.createIndividual(baseNS + (antwort), selectedOntClass);
 	
@@ -656,7 +650,6 @@ public class SkosEditorController implements Initializable {
 		
 		//Save changes for prefered Label
 		if (getIndividualbyObjectProperty(selectedIndividual,"prefLabel") != null) {
-			int tmpcnt =0;
 			Individual labelindi = model.getIndividual(getIndividualbyObjectProperty(selectedIndividual,"prefLabel").getURI());
 			selectedIndiLocalname.setText(getIndividualbyObjectProperty(selectedIndividual, "prefLabel").getLocalName());
 			btn_editLabel.setText(localizedBundle.getString("btnEditLabel"));
