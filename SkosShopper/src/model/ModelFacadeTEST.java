@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import org.apache.log4j.Logger;
@@ -38,7 +39,7 @@ public class ModelFacadeTEST implements Initializable
 	static OntModel ontModel = ModelFactory.createOntologyModel();
 	public static OntDocumentManager mgr = new OntDocumentManager();
 	static OntModelSpec ontSpec = new OntModelSpec(OntModelSpec.OWL_MEM);
-	ObservableList <OntModel>modelList = FXCollections.observableArrayList();
+	static ObservableList <ExtendedOntModel>modelList = FXCollections.observableArrayList();
 	//static OntModelSpec ontSpec = new OntModelSpec(PelletReasonerFactory.THE_SPEC);
 	
 	@Override
@@ -160,5 +161,21 @@ public class ModelFacadeTEST implements Initializable
 			result.addAll(mapoo.entrySet());
 			return result;
 			
+	}
+	public static void addModel(ExtendedOntModel exModel){
+		modelList.add(exModel);
+		ontModel.add(exModel.model);
+		
+	}
+
+	
+	class ExtendedOntModel{
+		String path;
+		OntModel model;
+		public ExtendedOntModel(String path,OntModel model) {
+			// TODO Auto-generated constructor stub
+			this.path=path;
+			this.model=model;
+		}
 	}
 }

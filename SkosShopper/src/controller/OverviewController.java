@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 
 
 
+
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -35,6 +36,7 @@ import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
@@ -48,13 +50,16 @@ import javafx.util.Callback;
 
 
 
+
 import javax.swing.JOptionPane;
 import javax.xml.bind.JAXBException;
 
 
 
+
 import model.ModelFacadeTEST;
 import model.ServerImporter;
+
 
 
 
@@ -64,8 +69,10 @@ import org.apache.log4j.Logger;
 
 
 
+
 import com.hp.hpl.jena.ontology.OntDocumentManager;
 import com.hp.hpl.jena.ontology.OntModel;
+
 
 
 
@@ -90,7 +97,7 @@ public class OverviewController implements Initializable {
 	@FXML
 	private TableView<AltEntriesManager> tv_alt_entries;
 	@FXML private ListView<String> tv_models;
-	
+	@FXML private ToggleButton OverViewToggleButton;
 	private TableColumn<OntModel, String> model_graph;
 	@FXML
 	private TableColumn<String, String> col_graph_uri;
@@ -144,7 +151,13 @@ public class OverviewController implements Initializable {
 
 	public void initialize(URL fxmlPath, ResourceBundle resources) {
 		// Initialize overview components
-
+		OverViewToggleButton.setOnAction((event->
+		{
+			if(OverViewToggleButton.isSelected())
+				OverViewToggleButton.setText("Method: Add to current");
+			else 
+				OverViewToggleButton.setText("Method: Override");
+		}));
 		col_alt_url.prefWidthProperty().bind(
 				tv_alt_entries.widthProperty().multiply(0.5f));
 		col_dest_url.prefWidthProperty().bind(
@@ -371,6 +384,7 @@ public class OverviewController implements Initializable {
 			}
 			if (btn_web_import.isSelected()) {
 				ModelFacadeTEST.loadModelFromWeb(txtFieldURL.getText());
+				modelLoaded = true;
 			}
 		} else {
 			JOptionPane.showMessageDialog(null,
@@ -389,7 +403,7 @@ public class OverviewController implements Initializable {
 		
 		});
 
-		
+	
 		
 	}
 

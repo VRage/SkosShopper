@@ -39,6 +39,12 @@
 #btnaddtxtfields:hover{
 	-fx-background-color: green;
 }
+#toggleButtonState{
+	-fx-background-color: white;
+}
+#toggleButtonState{
+	-fx-background-color: #CCDDFF;
+}
 .button{
 	-fx-background-color:#CCDDFF;
 }

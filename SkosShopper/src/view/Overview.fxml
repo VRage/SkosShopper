@@ -96,7 +96,7 @@
             </SplitPane>
          </children>
       </AnchorPane>
-      <Button fx:id="OverviewBtnReload" layoutX="483.0" layoutY="57.0" mnemonicParsing="false" onAction="#OverviewbtnReloadDatasetOnAction" prefHeight="33.0" text="Load" />
+      <Button fx:id="OverviewBtnReload" layoutX="483.0" layoutY="57.0" mnemonicParsing="false" onAction="#OverviewbtnReloadDatasetOnAction" prefHeight="25.0" prefWidth="42.0" text="Load" />
       <MenuButton fx:id="btn_source" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="14.0" layoutY="57.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="33.0" prefWidth="456.0" text="Source">
          <graphic>
             <TextField fx:id="txtFieldURL" prefHeight="25.0" prefWidth="382.0" />
@@ -107,5 +107,6 @@
       <Button fx:id="btn_save_graph" layoutX="953.0" layoutY="21.0" mnemonicParsing="false" onAction="#saveModelToBtnAction" text="OK" AnchorPane.rightAnchor="14.0" />
       <Label fx:id="lab_save_graph" layoutX="643.0" layoutY="25.0" text="Save Graph:" AnchorPane.rightAnchor="294.0" />
       <ComboBox fx:id="cb_save_graph" layoutX="713.0" layoutY="21.0" prefHeight="25.0" prefWidth="230.0" AnchorPane.rightAnchor="57.0" />
+      <ToggleButton id="toggleButtonState" fx:id="OverViewToggleButton" layoutX="525.0" layoutY="57.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="159.0" text="Method: Override" />
    </children>
 </AnchorPane>
