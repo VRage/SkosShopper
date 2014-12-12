@@ -3,6 +3,7 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import model.ModelFacadeTEST;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Tab;
@@ -34,6 +35,10 @@ public class MainController implements Initializable{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+            }
+            if(oldTab == tabSKOSEditorLite){
+            	ModelFacadeTEST.notifyAllControllerEnd();
+            	ModelFacadeTEST.notifyAllControllerSart();
             }
         });
 		
