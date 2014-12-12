@@ -107,6 +107,6 @@
       <Button fx:id="btn_save_graph" layoutX="953.0" layoutY="21.0" mnemonicParsing="false" onAction="#saveModelToBtnAction" text="OK" AnchorPane.rightAnchor="14.0" />
       <Label fx:id="lab_save_graph" layoutX="643.0" layoutY="25.0" text="Save Graph:" AnchorPane.rightAnchor="294.0" />
       <ComboBox fx:id="cb_save_graph" layoutX="713.0" layoutY="21.0" prefHeight="25.0" prefWidth="230.0" AnchorPane.rightAnchor="57.0" />
-      <ToggleButton id="toggleButtonState" fx:id="OverViewToggleButton" layoutX="525.0" layoutY="57.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="159.0" text="Method: Override" />
+      <ToggleButton id="toggleButtonState" fx:id="OverViewToggleButton" layoutX="525.0" layoutY="57.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="161.0" text="Method: Override" />
    </children>
 </AnchorPane>

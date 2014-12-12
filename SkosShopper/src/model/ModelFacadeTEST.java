@@ -94,7 +94,7 @@ public class ModelFacadeTEST implements Initializable
 		System.out.println(filePath);
 		ontModel = ModelFactory.createOntologyModel();
 		ontModel.read(filePath);
-		
+		notifyAllControllerSart();
 		//ontModel.write(System.out);
 
 
