@@ -180,7 +180,7 @@ public class OverviewController implements Initializable {
 
 		// Helpful for copy pasterino url at beginning
 		ta_log_field
-				.setText("For copy pasterino:\nFuseki:\nhttp://localhost:3030/ds/data\nor sesame server:\nhttp://localhost:8080/openrdf-sesame/repositories/test");
+				.setText("For copy pasterino:\nFuseki:\nhttp://i-ti-01.informatik.hs-ulm.de:3030/ds/data\nor sesame server:\nhttp://i-ti-01.informatik.hs-ulm.de:8080/openrdf-sesame/repositories/skos");
 
 		setGraphTable();
 		setMenuButtons();
@@ -489,10 +489,13 @@ public class OverviewController implements Initializable {
 						"Another Model is currently in process! Please save the model or update the Model from Server",
 						null, JOptionPane.WARNING_MESSAGE);
 	}
-
+	
 	public boolean checkServerConnection() {
-		try (Socket s = new Socket("localhost", 3030)) {
+		try {
+			URL url = new URL(txtFieldURL.getText());
+			Socket s = new Socket(url.getHost(), url.getPort());
 			System.out.println("IS ONLINE");
+			s.close();
 			return true;
 		} catch (IOException ex) {
 		}
