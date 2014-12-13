@@ -1,6 +1,5 @@
 package controller;
 
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -9,9 +8,10 @@ import java.net.MalformedURLException;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import java.util.ResourceBundle;
+
+
+
 
 
 
@@ -25,7 +25,6 @@ import java.util.ResourceBundle;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -48,7 +47,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.web.WebEngine;
@@ -67,8 +65,17 @@ import javafx.util.Callback;
 
 
 
+
+
+
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.xml.bind.JAXBException;
+
+
+
 
 
 
@@ -92,9 +99,15 @@ import model.ServerImporter;
 
 
 
+
+
+
 import org.apache.jena.atlas.web.HttpException;
 import org.apache.jena.riot.RiotException;
 import org.apache.log4j.Logger;
+
+
+
 
 
 
@@ -115,10 +128,8 @@ import com.hp.hpl.jena.ontology.OntModel;
 
 
 
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelChangedListener;
-import com.hp.hpl.jena.rdf.model.Statement;
-import com.hp.hpl.jena.rdf.model.StmtIterator;
+
+
 
 import exceptions.fuseki_exceptions.NoDatasetAccessorException;
 
@@ -183,6 +194,7 @@ public class OverviewController implements Initializable {
 	@FXML
 	Button OverviewbtnLoadFromStorage;
 	File localFile = null;
+	public static String url;
 	public static boolean modelLoaded = false;
 	ToggleGroup group = new ToggleGroup();
 
@@ -271,9 +283,26 @@ public class OverviewController implements Initializable {
 			// send model back to server (add/update)
 			if (cb_save_graph.getValue().equals(saveModelTo.get(0))) {
 				// check if server is reachable
+				if(ServerImporter.graphURI == null) {
+					JTextField graphURI = new JTextField();
+					String [] servers = {"Fuseki", "Sesame"};
+				    Object[] message = {"Graph Uri:", graphURI};
+				    String selectedValue = (String) JOptionPane.showInputDialog (null,
+				    		   message, "Add Graph to Server", JOptionPane.INFORMATION_MESSAGE, null,
+				    		   servers, servers[0]);
+				    if(graphURI != null) {
+					    if(selectedValue.equals(servers[0])) {
+					    	ServerImporter.setServiceURI("http://i-ti-01.informatik.hs-ulm.de:3030/ds/data");
+					    } else {
+					    	ServerImporter.setServiceURI("http://i-ti-01.informatik.hs-ulm.de:8080/openrdf-sesame/repositories/skos");
+					    }
+					    url = ServerImporter.serviceURI;
+				    	ServerImporter.graphURI = graphURI.getText();
+				    }
+				}
 				if (checkServerConnection()) {
 					ta_log_field.appendText("1. Trying to reach \""
-							+ txtFieldURL.getText() + "\"\t... OK\n");
+							+ url + "\"\t... OK\n");
 					// try to add/update model from server
 					if (ServerImporter.updateModelOfServer()) {
 						ta_log_field
@@ -292,7 +321,7 @@ public class OverviewController implements Initializable {
 					}
 				} else {
 					ta_log_field.appendText("1. Trying to reach \""
-							+ txtFieldURL.getText() + "\"\t... FAILED\n");
+							+ url + "\"\t... FAILED\n");
 				}
 				// send model back to server (replace)
 			} else if (cb_save_graph.getValue().equals(saveModelTo.get(1))) {
@@ -304,7 +333,7 @@ public class OverviewController implements Initializable {
 									"This will replace the model which is stored in server\nCannot be undone!",
 									null, JOptionPane.WARNING_MESSAGE);
 					ta_log_field.appendText("1. Trying to reach \""
-							+ txtFieldURL.getText() + "\"\t... OK\n");
+							+ url + "\"\t... OK\n");
 					// try to add/update model from server
 					if (ServerImporter.replaceModelOfServer()) {
 						ta_log_field
@@ -323,7 +352,7 @@ public class OverviewController implements Initializable {
 					}
 				} else {
 					ta_log_field.appendText("1. Trying to reach \""
-							+ txtFieldURL.getText() + "\"\t... FAILED\n");
+							+ url + "\"\t... FAILED\n");
 				}
 				// save model to file
 			} else if (cb_save_graph.getValue().equals(saveModelTo.get(2))) {
@@ -373,14 +402,15 @@ public class OverviewController implements Initializable {
 			if (btn_server_import.isSelected()) {
 				try {
 					// check if URL is not malformed
-					new URL(txtFieldURL.getText());
+					url = txtFieldURL.getText();
+					new URL(url);
 					ServerImporter imp = new ServerImporter();
-					imp.setServiceURI(txtFieldURL.getText());
+					ServerImporter.setServiceURI(url);
 
 					// check if server is reachable
 					if (checkServerConnection()) {
 						ta_log_field.appendText("1. Trying to reach \""
-								+ txtFieldURL.getText() + "\"\t... OK\n");
+								+ url + "\"\t... OK\n");
 						// Query server for graphs
 						if (imp.queryServerGraphs()) {
 							ta_log_field
@@ -390,16 +420,14 @@ public class OverviewController implements Initializable {
 
 							// add models to list of graphs
 							for (int i = 0; i < ServerImporter.graphList.size(); i++) {
-								if (!graphURIs
-										.contains(ServerImporter.graphList
-												.get(i))) {
+								if (!graphURIs.contains(ServerImporter.graphList.get(i))) {
 									graphURIs.add(ServerImporter.graphList
 											.get(i));
 								}
 							}
 							// Transaction ok, load server page to web engine
 							ta_log_field.appendText("4. Transaction done");
-							URL url = new URL(ServerImporter.serviceURI);
+							URL url = new URL(this.url);
 							webEngine.load("http://" + url.getHost() + ":"
 									+ url.getPort());
 
@@ -409,7 +437,7 @@ public class OverviewController implements Initializable {
 						}
 					} else {
 						ta_log_field.appendText("1. Trying to reach \""
-								+ txtFieldURL.getText() + "\"\t... FAILED\n");
+								+ url + "\"\t... FAILED\n");
 					}
 				} catch (Exception e) {
 					// not implemented yet
@@ -480,28 +508,19 @@ public class OverviewController implements Initializable {
 									public void handle(MouseEvent event) {
 										if (event.getButton().equals(
 												MouseButton.PRIMARY)) {
-											if (event.getClickCount() == 2
-													&& tablecell.getText() != null) {
+											if (event.getClickCount() == 2 && tablecell.getText() != null) {
 												if (!modelLoaded) {
 													ta_log_field.clear();
-													if (ServerImporter
-															.importNamedGraph(tablecell
-																	.getText())) {
-														ta_log_field.appendText("1. Trying to load named graph: \""
-																+ tablecell
-																		.getText()
-																+ "\"\t... OK");
-														tf_curr_loaded_graph
-																.setText(tablecell
+													if (ServerImporter.importNamedGraph(tablecell.getText())) {
+														ta_log_field.appendText("1. Trying to load named graph: \"" + tablecell.getText() + "\"\t... OK");
+														tf_curr_loaded_graph.setText(tablecell
 																		.getText());
 														try {
 															ModelFacadeTEST
 																	.loadModelFromServer(tablecell
 																			.getText(), OverViewBtnToggleAddOntology.isSelected());
 														} catch (NoDatasetAccessorException e) {
-															// TODO
-															// Auto-generated
-															// catch block
+															e.printStackTrace();
 														}
 														modelLoaded = true;
 													} else {
@@ -532,12 +551,13 @@ public class OverviewController implements Initializable {
 	
 	public boolean checkServerConnection() {
 		try {
-			URL url = new URL(txtFieldURL.getText());
+			URL url = new URL(this.url);
 			Socket s = new Socket(url.getHost(), url.getPort());
 			System.out.println("IS ONLINE");
 			s.close();
 			return true;
 		} catch (IOException ex) {
+			ex.printStackTrace();
 		}
 		return false;
 	}
@@ -546,7 +566,7 @@ public class OverviewController implements Initializable {
 		group = new ToggleGroup();
 		btn_server_import = new RadioMenuItem("Server Import");
 		btn_server_import.setOnAction((event)->{
-			txtFieldURL.setText(" ");
+			//txtFieldURL.setText("");
 			txtFieldURL.setFocusTraversable(true);
 		});
 		btn_file_import = new RadioMenuItem("File Import");
@@ -568,7 +588,7 @@ public class OverviewController implements Initializable {
 		});
 		btn_web_import = new RadioMenuItem("Web Import");
 		btn_web_import.setOnAction((event)->{
-			txtFieldURL.setText(" ");
+			//txtFieldURL.setText(" ");
 			txtFieldURL.setFocusTraversable(true);
 		});
 		btn_server_import.setToggleGroup(group);

@@ -3,6 +3,10 @@ package model;
 import java.util.ArrayList;
 import java.util.Map;
 
+
+
+
+import org.apache.jena.riot.RDFDataMgr;
 import org.mindswap.pellet.jena.PelletReasonerFactory;
 
 import com.hp.hpl.jena.ontology.OntDocumentManager;
@@ -10,11 +14,9 @@ import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.query.DatasetAccessor;
 import com.hp.hpl.jena.query.DatasetAccessorFactory;
 import com.hp.hpl.jena.query.Query;
-import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.query.ResultSetFormatter;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
@@ -27,10 +29,10 @@ public class ServerImporter{
 	public static DatasetAccessor ds;
 	public static OntDocumentManager mgr;
 	public static OntModelSpec spec;
-	public static  String serviceURI = "";
+	public static  String serviceURI = null;
 	public static Map<String, String> uriMap;
 	public static ArrayList<String> graphList;
-	public static String graphURI;
+	public static String graphURI = null;
 	
 	public ServerImporter() {
 		model = ModelFactory.createDefaultModel();
@@ -42,10 +44,11 @@ public class ServerImporter{
 	public static boolean importNamedGraph(String grphURI) {
 		try {
 			graphURI = grphURI;
-			model = ds.getModel(grphURI);
+			model = ds.getModel(graphURI);
 			uriMap = model.getNsPrefixMap();
 			return true;
 		} catch(Exception e) {
+			e.printStackTrace();
 		}
 		return false;
 	}
@@ -54,22 +57,30 @@ public class ServerImporter{
 		try {
 			model = ds.getModel();
 		} catch(Exception e) {
+			e.printStackTrace();
 		}
 	}
 
-	public void setServiceURI(String uri) {
+	public static void setServiceURI(String uri) {
 		serviceURI = uri;
-		ds = DatasetAccessorFactory.createHTTP(serviceURI);
+		// sesame server requires additional information since it is working with repositories
+		if(serviceURI.contains("repositories")) {
+			ds = DatasetAccessorFactory.createHTTP(serviceURI + "/rdf-graphs/service");
+			model = ds.getModel("http://hs-ulm.de/rd_skos_test");
+		} else {
+			ds = DatasetAccessorFactory.createHTTP(serviceURI);
+			model = ds.getModel("http://hs-ulm.de/rd_skos_test");
+		}
 	}
 	
 	// Use this method when you want to write back and update a model to server
 	public static boolean updateModelOfServer() {
 		try {
 			model = ModelFacadeTEST.ontModel.getBaseModel();
-			model.write(System.out);
 			ds.add(graphURI, model);
 			return true;
 		} catch(Exception e) {
+			e.printStackTrace();
 		}
 		return false;
 	}

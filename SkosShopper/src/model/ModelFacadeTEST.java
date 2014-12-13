@@ -145,7 +145,7 @@ public class ModelFacadeTEST implements Initializable {
 			OntClass oclass = (OntClass) oclasslist.next();
 
 		}
-		ExtendedOntModel exM =new ExtendedOntModel(graphURI, temp);
+		ExtendedOntModel exM = new ExtendedOntModel(graphURI, temp);
 		addModel(exM);
 	}
 
