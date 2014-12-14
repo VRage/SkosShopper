@@ -22,6 +22,8 @@ import java.util.ResourceBundle;
 
 
 
+import java.util.function.Consumer;
+
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -68,11 +70,15 @@ import javafx.util.Callback;
 
 
 
+
+
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.xml.bind.JAXBException;
+
+
 
 
 
@@ -102,6 +108,8 @@ import model.ServerImporter;
 
 
 
+
+
 import org.apache.jena.atlas.web.HttpException;
 import org.apache.jena.riot.RiotException;
 import org.apache.log4j.Logger;
@@ -118,8 +126,12 @@ import org.apache.log4j.Logger;
 
 
 
+
+
 import com.hp.hpl.jena.ontology.OntDocumentManager;
 import com.hp.hpl.jena.ontology.OntModel;
+
+
 
 
 
@@ -246,10 +258,14 @@ public class OverviewController implements Initializable {
 		try {
 			altEntryList.addAll(new DataSaver().loadEntries());
 			tv_alt_entries.setItems(altEntryList);
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		tv_alt_entries.getItems().forEach((altEntries)->{
+			ModelFacadeTEST.mgr.addAltEntry(altEntries.getDestUrl(), altEntries.getAltUrl());
+		});
 		MenuItem mdel = new MenuItem("delete");
 		mdel.setOnAction((event)->{
 				// TODO Auto-generated method stub
