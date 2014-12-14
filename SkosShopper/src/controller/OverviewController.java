@@ -241,8 +241,8 @@ public class OverviewController implements Initializable {
 		tv_graph_uri.setItems(graphURIs);
 		
 		ta_log_field.setEditable(false);
-		tf_curr_loaded_graph.setStyle("-fx-text-inner-color: green;");
-		tf_curr_loaded_graph.setEditable(false);
+//		tf_curr_loaded_graph.setStyle("-fx-text-inner-color: green;");
+//		tf_curr_loaded_graph.setEditable(false);
 		saveModelTo.addAll("Add/Update Model from Server",
 				"Replace Model from Server", "Save Model to File",
 				"Discard Model");
@@ -634,6 +634,20 @@ public class OverviewController implements Initializable {
 			System.out.println("left");
 		tv_graph_uri.getContextMenu().show(tv_graph_uri,event.getScreenX(),event.getScreenY());	
 		}
+	}
+	@FXML void btnOnActionLoadFilealtentry(ActionEvent event){
+		String filePath;
+		FileChooser fc = new FileChooser();
+		if(!tf_alt_url.getText().isEmpty()){
+			try {
+				fc.setInitialFileName(tf_alt_url.getText());
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+		tf_alt_url.setText(fc.showOpenDialog(null).getAbsolutePath());
+		
 	}
 	
 
