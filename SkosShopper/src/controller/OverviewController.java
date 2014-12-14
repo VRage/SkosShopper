@@ -22,6 +22,8 @@ import java.util.ResourceBundle;
 
 
 
+import java.util.function.Consumer;
+
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -68,11 +70,15 @@ import javafx.util.Callback;
 
 
 
+
+
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.xml.bind.JAXBException;
+
+
 
 
 
@@ -102,6 +108,8 @@ import model.ServerImporter;
 
 
 
+
+
 import org.apache.jena.atlas.web.HttpException;
 import org.apache.jena.riot.RiotException;
 import org.apache.log4j.Logger;
@@ -118,8 +126,12 @@ import org.apache.log4j.Logger;
 
 
 
+
+
 import com.hp.hpl.jena.ontology.OntDocumentManager;
 import com.hp.hpl.jena.ontology.OntModel;
+
+
 
 
 
@@ -229,8 +241,8 @@ public class OverviewController implements Initializable {
 		tv_graph_uri.setItems(graphURIs);
 		
 		ta_log_field.setEditable(false);
-		tf_curr_loaded_graph.setStyle("-fx-text-inner-color: green;");
-		tf_curr_loaded_graph.setEditable(false);
+//		tf_curr_loaded_graph.setStyle("-fx-text-inner-color: green;");
+//		tf_curr_loaded_graph.setEditable(false);
 		saveModelTo.addAll("Add/Update Model from Server",
 				"Replace Model from Server", "Save Model to File",
 				"Discard Model");
@@ -246,10 +258,14 @@ public class OverviewController implements Initializable {
 		try {
 			altEntryList.addAll(new DataSaver().loadEntries());
 			tv_alt_entries.setItems(altEntryList);
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		tv_alt_entries.getItems().forEach((altEntries)->{
+			ModelFacadeTEST.mgr.addAltEntry(altEntries.getDestUrl(), altEntries.getAltUrl());
+		});
 		MenuItem mdel = new MenuItem("delete");
 		mdel.setOnAction((event)->{
 				// TODO Auto-generated method stub
@@ -618,6 +634,20 @@ public class OverviewController implements Initializable {
 			System.out.println("left");
 		tv_graph_uri.getContextMenu().show(tv_graph_uri,event.getScreenX(),event.getScreenY());	
 		}
+	}
+	@FXML void btnOnActionLoadFilealtentry(ActionEvent event){
+		String filePath;
+		FileChooser fc = new FileChooser();
+		if(!tf_alt_url.getText().isEmpty()){
+			try {
+				fc.setInitialFileName(tf_alt_url.getText());
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+		tf_alt_url.setText(fc.showOpenDialog(null).getAbsolutePath());
+		
 	}
 	
 
