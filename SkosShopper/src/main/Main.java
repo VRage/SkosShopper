@@ -6,12 +6,11 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 	
 
 
@@ -32,7 +31,10 @@ public class Main extends Application {
 			Main.root = loader.load();
 			Main.scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("/style/style.css").toExternalForm());
-			primaryStage.setScene(scene);	
+			
+			primaryStage.setScene(scene);
+			primaryStage.getIcons().add(new Image("style/mardj.png"));
+			primaryStage.setTitle("MARDJ");
 			primaryStage.show();
 
 		} catch (IOException e) {
