@@ -573,7 +573,7 @@ public class OverviewController implements Initializable {
 		btn_file_import.setOnAction((event)->{
 			FileChooser  fileChooser = new FileChooser();
 			fileChooser.setTitle("Open Resource File");
-			FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("RDF file (*.rdf,*.ttl)", "*.rdf");
+			FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("RDF file (*.rdf,*.ttl)", "*.rdf", "*.owl");
             fileChooser.getExtensionFilters().add(extFilter);
 			try {
 //				   File savedFile = fileChooser.showSaveDialog(null);

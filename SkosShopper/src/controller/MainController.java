@@ -14,10 +14,22 @@ public class MainController implements Initializable{
 	@FXML public SkosEditorController skoseditorliteController;
 	@FXML private TabPane mainTabPane;
 	@FXML private Tab tabSKOSEditorLite;
+	@FXML private Tab tabTriplesShow;
+	@FXML private Tab tabProductCategoriesSettings;
+	@FXML private Tab tabProductsShow;
+	@FXML private Tab tabProductCreate;
+	
 	
 	public void adminMode()
 	{
 
+	}
+	
+	private void hideNonImplemented(){
+		mainTabPane.getTabs().remove(tabTriplesShow);
+		mainTabPane.getTabs().remove(tabProductCategoriesSettings);
+		mainTabPane.getTabs().remove(tabProductsShow);
+		mainTabPane.getTabs().remove(tabProductCreate);
 	}
 	
 	public void simpleMode()
@@ -26,6 +38,7 @@ public class MainController implements Initializable{
 	}
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		hideNonImplemented();
 		mainTabPane.getSelectionModel().selectedItemProperty()
         .addListener((obs, oldTab, newTab) -> {
             if (newTab == tabSKOSEditorLite) {
