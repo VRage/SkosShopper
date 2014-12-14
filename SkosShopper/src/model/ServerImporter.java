@@ -66,10 +66,8 @@ public class ServerImporter{
 		// sesame server requires additional information since it is working with repositories
 		if(serviceURI.contains("repositories")) {
 			ds = DatasetAccessorFactory.createHTTP(serviceURI + "/rdf-graphs/service");
-			model = ds.getModel("http://hs-ulm.de/rd_skos_test");
 		} else {
 			ds = DatasetAccessorFactory.createHTTP(serviceURI);
-			model = ds.getModel("http://hs-ulm.de/rd_skos_test");
 		}
 	}
 	
@@ -101,7 +99,6 @@ public class ServerImporter{
 		mgr.addAltEntry(destination, alternativePath);
 	}
 	public static String sendQuery(String query) throws Exception{
-		
 			if(serviceURI != ""){
 			Query graphQuery = QueryFactory.create(query);
 			QueryEngineHTTP qeHttp = QueryExecutionFactory.createServiceRequest(serviceURI, graphQuery);
