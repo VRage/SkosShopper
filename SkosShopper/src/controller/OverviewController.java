@@ -148,7 +148,7 @@ import exceptions.fuseki_exceptions.NoDatasetAccessorException;
 public class OverviewController implements Initializable {
 
 	/* JAVAFX COMPONENTS */
-	@FXML ProgressBar progressBarState;
+	
 	private RadioMenuItem btn_server_import, btn_file_import, btn_web_import;
 	@FXML
 	private ComboBox<String> cb_save_graph;
@@ -487,7 +487,6 @@ public class OverviewController implements Initializable {
 			tv_models.getItems().add(ontModel.getShortPath());
 		}
 
-		progressBarState.setVisible(false);
 		
 	}
 
@@ -529,8 +528,8 @@ public class OverviewController implements Initializable {
 													ta_log_field.clear();
 													if (ServerImporter.importNamedGraph(tablecell.getText())) {
 														ta_log_field.appendText("1. Trying to load named graph: \"" + tablecell.getText() + "\"\t... OK");
-														tf_curr_loaded_graph.setText(tablecell
-																		.getText());
+//														tf_curr_loaded_graph.setText(tablecell
+//																		.getText());
 														try {
 															ModelFacadeTEST
 																	.loadModelFromServer(tablecell
