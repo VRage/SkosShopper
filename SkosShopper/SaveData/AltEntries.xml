@@ -4,4 +4,8 @@
         <altUrl>c://Desktop/facebook.html</altUrl>
         <destUrl>http://facebook</destUrl>
     </listEntryManager>
+    <listEntryManager>
+        <altUrl>C:\Users\MatzeKonto\git\SkosShopper\ServerConnector\fuseki\Data\dani_ont1_01.ttl</altUrl>
+        <destUrl>http:afl.de</destUrl>
+    </listEntryManager>
 </altEntrieswrapper>

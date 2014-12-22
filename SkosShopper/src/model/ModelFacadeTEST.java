@@ -114,11 +114,11 @@ public class ModelFacadeTEST implements Initializable {
 		}
 		setState(ModelState.LOCAL);
 		 
-		ExtendedIterator<OntClass> oclasslist = ontModel.listClasses();
-		while (oclasslist.hasNext()) {
-			OntClass oclass = (OntClass) oclasslist.next();
-
-		}
+//		ExtendedIterator<OntClass> oclasslist = ontModel.listClasses();
+//		while (oclasslist.hasNext()) {
+//			OntClass oclass = (OntClass) oclasslist.next();
+//
+//		}
 		ExtendedOntModel exM =new ExtendedOntModel(file.getAbsolutePath(), temp);
 		addModel(exM);
 

@@ -41,7 +41,8 @@
                            <center>
                               <TableView fx:id="tv_alt_entries" onMouseClicked="#tvGraphOnMouseClicked" prefHeight="234.0" prefWidth="578.0" BorderPane.alignment="CENTER">
                                 <columns>
-                                  <TableColumn fx:id="col_dest_url" prefWidth="333.0" text="Destination URL" />
+                                    <TableColumn fx:id="col_use_bool" prefWidth="44.0" text="Use" />
+                                  <TableColumn fx:id="col_dest_url" prefWidth="364.0" text="Destination URL" />
                                   <TableColumn fx:id="col_alt_url" prefWidth="328.0" text="Alternative URL" />
                                 </columns>
                               </TableView>

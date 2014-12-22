@@ -10,18 +10,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-
-
-
-
-
-
-
-
-
-
-
-
 import java.util.function.Consumer;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -49,6 +37,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.web.WebEngine;
@@ -58,97 +47,29 @@ import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.util.Callback;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.xml.bind.JAXBException;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import model.ExtendedOntModel;
 import model.ModelFacadeTEST;
 import model.ServerImporter;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 import org.apache.jena.atlas.web.HttpException;
 import org.apache.jena.riot.RiotException;
 import org.apache.log4j.Logger;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import com.hp.hpl.jena.ontology.OntDocumentManager;
 import com.hp.hpl.jena.ontology.OntModel;
-
-
-
-
-
-
-
-
-
-
-
-
 
 import exceptions.fuseki_exceptions.NoDatasetAccessorException;
 
 public class OverviewController implements Initializable {
 
 	/* JAVAFX COMPONENTS */
-	
+
 	private RadioMenuItem btn_server_import, btn_file_import, btn_web_import;
 	@FXML
 	private ComboBox<String> cb_save_graph;
@@ -164,11 +85,15 @@ public class OverviewController implements Initializable {
 	private TableView<String> tv_graph_uri;
 	@FXML
 	private TableView<AltEntriesManager> tv_alt_entries;
-	@FXML private ListView<String> tv_models;
-	@FXML private ToggleButton OverViewBtnToggleAddOntology;
+	@FXML
+	private ListView<ExtendedOntModel> tv_models;
+	@FXML
+	private ToggleButton OverViewBtnToggleAddOntology;
 	private TableColumn<OntModel, String> model_graph;
 	@FXML
 	private TableColumn<String, String> col_graph_uri;
+	@FXML
+	private TableColumn<AltEntriesManager, Boolean> col_use_bool;
 	@FXML
 	private TableColumn<AltEntriesManager, String> col_dest_url;
 	@FXML
@@ -217,21 +142,21 @@ public class OverviewController implements Initializable {
 			.getLogger(SkosEditorController.class);
 	private ArrayList<Entry> browserHistory = new ArrayList<WebHistory.Entry>();
 	public static OntDocumentManager mgr;
-	
+
 	public void initialize(URL fxmlPath, ResourceBundle resources) {
-	
-		
-		OverViewBtnToggleAddOntology.setOnAction((event->
-		{
-			if(OverViewBtnToggleAddOntology.isSelected())
+		OverViewBtnToggleAddOntology.setOnAction((event -> {
+			if (OverViewBtnToggleAddOntology.isSelected())
 				OverViewBtnToggleAddOntology.setText("Method: Add to current");
-			else 
+			else
 				OverViewBtnToggleAddOntology.setText("Method: Override");
 		}));
 		col_alt_url.prefWidthProperty().bind(
 				tv_alt_entries.widthProperty().multiply(0.5f));
 		col_dest_url.prefWidthProperty().bind(
 				tv_alt_entries.widthProperty().multiply(0.5f));
+		setBooleanCell();
+		col_use_bool.setCellValueFactory(cellData -> cellData.getValue()
+				.useEntryProperty());
 		col_alt_url.setCellValueFactory(cellData -> cellData.getValue()
 				.altURLProperty());
 		col_dest_url.setCellValueFactory(cellData -> cellData.getValue()
@@ -239,10 +164,10 @@ public class OverviewController implements Initializable {
 
 		tv_alt_entries.setItems(altEntryList);
 		tv_graph_uri.setItems(graphURIs);
-		
+
 		ta_log_field.setEditable(false);
-//		tf_curr_loaded_graph.setStyle("-fx-text-inner-color: green;");
-//		tf_curr_loaded_graph.setEditable(false);
+		// tf_curr_loaded_graph.setStyle("-fx-text-inner-color: green;");
+		// tf_curr_loaded_graph.setEditable(false);
 		saveModelTo.addAll("Add/Update Model from Server",
 				"Replace Model from Server", "Save Model to File",
 				"Discard Model");
@@ -254,27 +179,30 @@ public class OverviewController implements Initializable {
 
 		setGraphTable();
 		setMenuButtons();
-		
+
 		try {
 			altEntryList.addAll(new DataSaver().loadEntries());
 			tv_alt_entries.setItems(altEntryList);
-			
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		tv_alt_entries.getItems().forEach((altEntries)->{
-			ModelFacadeTEST.mgr.addAltEntry(altEntries.getDestUrl(), altEntries.getAltUrl());
-		});
+		tv_alt_entries.getItems().forEach(
+				(altEntries) -> {
+					ModelFacadeTEST.mgr.addAltEntry(altEntries.getDestUrl(),
+							altEntries.getAltUrl());
+				});
 		MenuItem mdel = new MenuItem("delete");
-		mdel.setOnAction((event)->{
-				// TODO Auto-generated method stub
-				tv_alt_entries.getItems().remove(
-				tv_alt_entries.getSelectionModel().getSelectedIndex());
-			
+		mdel.setOnAction((event) -> {
+			// TODO Auto-generated method stub
+			tv_alt_entries.getItems().remove(
+					tv_alt_entries.getSelectionModel().getSelectedIndex());
+
 		});
 		tv_graph_uri.setContextMenu(new ContextMenu(mdel));
-		
+
+		tv_models.setItems(ModelFacadeTEST.getloadedModels());
 
 	}
 
@@ -283,8 +211,8 @@ public class OverviewController implements Initializable {
 		ta_log_field.clear();
 		try {
 			new URL(tf_dest_url.getText());
-			altEntryList.add(new AltEntriesManager(tf_dest_url.getText(),
-					tf_alt_url.getText()));
+			altEntryList.add(new AltEntriesManager(false,
+					tf_dest_url.getText(), tf_alt_url.getText()));
 			ModelFacadeTEST.mgr.addAltEntry(tf_dest_url.getText(),
 					tf_alt_url.getText());
 		} catch (HttpException | MalformedURLException | RiotException e) {
@@ -299,26 +227,30 @@ public class OverviewController implements Initializable {
 			// send model back to server (add/update)
 			if (cb_save_graph.getValue().equals(saveModelTo.get(0))) {
 				// check if server is reachable
-				if(ServerImporter.graphURI == null) {
+				if (ServerImporter.graphURI == null) {
 					JTextField graphURI = new JTextField();
-					String [] servers = {"Fuseki", "Sesame"};
-				    Object[] message = {"Graph Uri:", graphURI};
-				    String selectedValue = (String) JOptionPane.showInputDialog (null,
-				    		   message, "Add Graph to Server", JOptionPane.INFORMATION_MESSAGE, null,
-				    		   servers, servers[0]);
-				    if(graphURI != null) {
-					    if(selectedValue.equals(servers[0])) {
-					    	ServerImporter.setServiceURI("http://i-ti-01.informatik.hs-ulm.de:3030/ds/data");
-					    } else {
-					    	ServerImporter.setServiceURI("http://i-ti-01.informatik.hs-ulm.de:8080/openrdf-sesame/repositories/skos");
-					    }
-					    url = ServerImporter.serviceURI;
-				    	ServerImporter.graphURI = graphURI.getText();
-				    }
+					String[] servers = { "Fuseki", "Sesame" };
+					Object[] message = { "Graph Uri:", graphURI };
+					String selectedValue = (String) JOptionPane
+							.showInputDialog(null, message,
+									"Add Graph to Server",
+									JOptionPane.INFORMATION_MESSAGE, null,
+									servers, servers[0]);
+					if (graphURI != null) {
+						if (selectedValue.equals(servers[0])) {
+							ServerImporter
+									.setServiceURI("http://i-ti-01.informatik.hs-ulm.de:3030/ds/data");
+						} else {
+							ServerImporter
+									.setServiceURI("http://i-ti-01.informatik.hs-ulm.de:8080/openrdf-sesame/repositories/skos");
+						}
+						url = ServerImporter.serviceURI;
+						ServerImporter.graphURI = graphURI.getText();
+					}
 				}
 				if (checkServerConnection()) {
-					ta_log_field.appendText("1. Trying to reach \""
-							+ url + "\"\t... OK\n");
+					ta_log_field.appendText("1. Trying to reach \"" + url
+							+ "\"\t... OK\n");
 					// try to add/update model from server
 					if (ServerImporter.updateModelOfServer()) {
 						ta_log_field
@@ -336,8 +268,8 @@ public class OverviewController implements Initializable {
 										null, JOptionPane.WARNING_MESSAGE);
 					}
 				} else {
-					ta_log_field.appendText("1. Trying to reach \""
-							+ url + "\"\t... FAILED\n");
+					ta_log_field.appendText("1. Trying to reach \"" + url
+							+ "\"\t... FAILED\n");
 				}
 				// send model back to server (replace)
 			} else if (cb_save_graph.getValue().equals(saveModelTo.get(1))) {
@@ -348,8 +280,8 @@ public class OverviewController implements Initializable {
 									null,
 									"This will replace the model which is stored in server\nCannot be undone!",
 									null, JOptionPane.WARNING_MESSAGE);
-					ta_log_field.appendText("1. Trying to reach \""
-							+ url + "\"\t... OK\n");
+					ta_log_field.appendText("1. Trying to reach \"" + url
+							+ "\"\t... OK\n");
 					// try to add/update model from server
 					if (ServerImporter.replaceModelOfServer()) {
 						ta_log_field
@@ -367,35 +299,35 @@ public class OverviewController implements Initializable {
 										null, JOptionPane.WARNING_MESSAGE);
 					}
 				} else {
-					ta_log_field.appendText("1. Trying to reach \""
-							+ url + "\"\t... FAILED\n");
+					ta_log_field.appendText("1. Trying to reach \"" + url
+							+ "\"\t... FAILED\n");
 				}
 				// save model to file
 			} else if (cb_save_graph.getValue().equals(saveModelTo.get(2))) {
-				FileChooser  fileChooser = new FileChooser();
+				FileChooser fileChooser = new FileChooser();
 				fileChooser.setTitle("Open Resource File");
-				FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("RDF file (*.rdf)", "*.rdf");
-	              fileChooser.getExtensionFilters().add(extFilter);
+				FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter(
+						"RDF file (*.rdf)", "*.rdf");
+				fileChooser.getExtensionFilters().add(extFilter);
 				try {
-					   File savedFile = fileChooser.showSaveDialog(null);
-					   FileOutputStream fout = new FileOutputStream(savedFile);
-					   ModelFacadeTEST.getOntModel().write(fout);
-					   log.info("saving to file "+ savedFile.getAbsolutePath());
-						modelLoaded = false;
+					File savedFile = fileChooser.showSaveDialog(null);
+					FileOutputStream fout = new FileOutputStream(savedFile);
+					ModelFacadeTEST.getOntModel().write(fout);
+					log.info("saving to file " + savedFile.getAbsolutePath());
+					modelLoaded = false;
 				} catch (Exception e) {
 					// TODO: handle exception
 					log.error("FilePath is null !!");
 				}
-	           
-				
+
 				// Discard model
 			} else if (cb_save_graph.getValue().equals(saveModelTo.get(3))) {
 				System.out.println("Model is getting deleted");
 				int result = JOptionPane.showConfirmDialog(null,
 						"Changes will be lost, cannot be undone!",
 						"Warning: Discard Model", JOptionPane.OK_CANCEL_OPTION);
-				if(result==0)
-				modelLoaded= false;
+				if (result == 0)
+					modelLoaded = false;
 			}
 		} else {
 			// Warn the user that there is no model
@@ -404,16 +336,17 @@ public class OverviewController implements Initializable {
 		}
 		ModelFacadeTEST.resetModelToDefault();
 		tv_models.getItems().clear();
-		for (ExtendedOntModel ontModel : ModelFacadeTEST.getloadedModels()) {
-			tv_models.getItems().add(ontModel.getShortPath());
-		}
+
+		// for (ExtendedOntModel ontModel : ModelFacadeTEST.getloadedModels()) {
+		// tv_models.getItems().add(ontModel.getShortPath());
+		// }
 	}
 
 	@FXML
 	private void OverviewbtnReloadDatasetOnAction(ActionEvent event)
 			throws Exception {
 		graphURIs.clear();
-		if (!modelLoaded||OverViewBtnToggleAddOntology.isSelected()) {
+		if (!modelLoaded || OverViewBtnToggleAddOntology.isSelected()) {
 			ta_log_field.clear();
 			if (btn_server_import.isSelected()) {
 				try {
@@ -425,8 +358,8 @@ public class OverviewController implements Initializable {
 
 					// check if server is reachable
 					if (checkServerConnection()) {
-						ta_log_field.appendText("1. Trying to reach \""
-								+ url + "\"\t... OK\n");
+						ta_log_field.appendText("1. Trying to reach \"" + url
+								+ "\"\t... OK\n");
 						// Query server for graphs
 						if (imp.queryServerGraphs()) {
 							ta_log_field
@@ -436,7 +369,9 @@ public class OverviewController implements Initializable {
 
 							// add models to list of graphs
 							for (int i = 0; i < ServerImporter.graphList.size(); i++) {
-								if (!graphURIs.contains(ServerImporter.graphList.get(i))) {
+								if (!graphURIs
+										.contains(ServerImporter.graphList
+												.get(i))) {
 									graphURIs.add(ServerImporter.graphList
 											.get(i));
 								}
@@ -452,8 +387,8 @@ public class OverviewController implements Initializable {
 									.appendText("2. Querrying Server Data to to retrieve named graphs\t... FAILED\n");
 						}
 					} else {
-						ta_log_field.appendText("1. Trying to reach \""
-								+ url + "\"\t... FAILED\n");
+						ta_log_field.appendText("1. Trying to reach \"" + url
+								+ "\"\t... FAILED\n");
 					}
 				} catch (Exception e) {
 					// not implemented yet
@@ -462,17 +397,20 @@ public class OverviewController implements Initializable {
 			if (btn_file_import.isSelected()) {
 				try {
 					File file = new File(txtFieldURL.getText());
-					ModelFacadeTEST.loadModelFromLocal(file,OverViewBtnToggleAddOntology.isSelected());
+					ModelFacadeTEST.loadModelFromLocal(file,
+							OverViewBtnToggleAddOntology.isSelected());
 				} catch (Exception e) {
 					// TODO: handle exception
 				}
 				ta_log_field.setText(ModelFacadeTEST.modelToString());
-				modelLoaded =true;
+				modelLoaded = true;
 
-				//tv_models.getColumns().add(new TableColumn<OntModel,String>(ModelFacadeTEST.getOntModel().getGraph().toString()));
+				// tv_models.getColumns().add(new
+				// TableColumn<OntModel,String>(ModelFacadeTEST.getOntModel().getGraph().toString()));
 			}
 			if (btn_web_import.isSelected()) {
-				ModelFacadeTEST.loadModelFromWeb(txtFieldURL.getText(), OverViewBtnToggleAddOntology.isSelected());
+				ModelFacadeTEST.loadModelFromWeb(txtFieldURL.getText(),
+						OverViewBtnToggleAddOntology.isSelected());
 				modelLoaded = true;
 			}
 		} else {
@@ -481,16 +419,14 @@ public class OverviewController implements Initializable {
 					JOptionPane.WARNING_MESSAGE);
 		}
 
-
 		tv_models.getItems().clear();
-		for (ExtendedOntModel ontModel : ModelFacadeTEST.getloadedModels()) {
-			tv_models.getItems().add(ontModel.getShortPath());
-		}
+		// for (ExtendedOntModel ontModel : ModelFacadeTEST.getloadedModels()) {
+		// tv_models.getItems().add(ontModel.getShortPath());
+		// }
 
-		
 	}
 
-	public void setGraphTable() {		
+	public void setGraphTable() {
 		col_graph_uri
 				.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<String, String>, ObservableValue<String>>() {
 					public ObservableValue<String> call(
@@ -523,17 +459,26 @@ public class OverviewController implements Initializable {
 									public void handle(MouseEvent event) {
 										if (event.getButton().equals(
 												MouseButton.PRIMARY)) {
-											if (event.getClickCount() == 2 && tablecell.getText() != null) {
+											if (event.getClickCount() == 2
+													&& tablecell.getText() != null) {
 												if (!modelLoaded) {
 													ta_log_field.clear();
-													if (ServerImporter.importNamedGraph(tablecell.getText())) {
-														ta_log_field.appendText("1. Trying to load named graph: \"" + tablecell.getText() + "\"\t... OK");
-//														tf_curr_loaded_graph.setText(tablecell
-//																		.getText());
+													if (ServerImporter
+															.importNamedGraph(tablecell
+																	.getText())) {
+														ta_log_field.appendText("1. Trying to load named graph: \""
+																+ tablecell
+																		.getText()
+																+ "\"\t... OK");
+														// tf_curr_loaded_graph.setText(tablecell
+														// .getText());
 														try {
 															ModelFacadeTEST
-																	.loadModelFromServer(tablecell
-																			.getText(), OverViewBtnToggleAddOntology.isSelected());
+																	.loadModelFromServer(
+																			tablecell
+																					.getText(),
+																			OverViewBtnToggleAddOntology
+																					.isSelected());
 														} catch (NoDatasetAccessorException e) {
 															e.printStackTrace();
 														}
@@ -563,7 +508,7 @@ public class OverviewController implements Initializable {
 						"Another Model is currently in process! Please save the model or update the Model from Server",
 						null, JOptionPane.WARNING_MESSAGE);
 	}
-	
+
 	public boolean checkServerConnection() {
 		try {
 			URL url = new URL(this.url);
@@ -580,32 +525,34 @@ public class OverviewController implements Initializable {
 	public void setMenuButtons() {
 		group = new ToggleGroup();
 		btn_server_import = new RadioMenuItem("Server Import");
-		btn_server_import.setOnAction((event)->{
-			//txtFieldURL.setText("");
-			txtFieldURL.setFocusTraversable(true);
-		});
+		btn_server_import.setOnAction((event) -> {
+			// txtFieldURL.setText("");
+				txtFieldURL.setFocusTraversable(true);
+			});
 		btn_file_import = new RadioMenuItem("File Import");
-		btn_file_import.setOnAction((event)->{
-			FileChooser  fileChooser = new FileChooser();
-			fileChooser.setTitle("Open Resource File");
-			FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("RDF file (*.rdf,*.ttl)", "*.rdf", "*.owl");
-            fileChooser.getExtensionFilters().add(extFilter);
-			try {
-//				   File savedFile = fileChooser.showSaveDialog(null);
-				   txtFieldURL.setText(fileChooser.showOpenDialog(null).getAbsolutePath());
+		btn_file_import
+				.setOnAction((event) -> {
+					FileChooser fileChooser = new FileChooser();
+					fileChooser.setTitle("Open Resource File");
+					FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter(
+							"RDF file (*.rdf,*.ttl)", "*.rdf", "*.owl");
+					fileChooser.getExtensionFilters().add(extFilter);
+					try {
+						// File savedFile = fileChooser.showSaveDialog(null);
+				txtFieldURL.setText(fileChooser.showOpenDialog(null)
+						.getAbsolutePath());
 			} catch (Exception e) {
 				// TODO: handle exception
 				txtFieldURL.setText("###ERROR###");
 				log.error("FilePath is null !!");
 			}
-           
-			
+
 		});
 		btn_web_import = new RadioMenuItem("Web Import");
-		btn_web_import.setOnAction((event)->{
-			//txtFieldURL.setText(" ");
-			txtFieldURL.setFocusTraversable(true);
-		});
+		btn_web_import.setOnAction((event) -> {
+			// txtFieldURL.setText(" ");
+				txtFieldURL.setFocusTraversable(true);
+			});
 		btn_server_import.setToggleGroup(group);
 		btn_file_import.setToggleGroup(group);
 		btn_web_import.setToggleGroup(group);
@@ -629,25 +576,48 @@ public class OverviewController implements Initializable {
 
 	@FXML
 	void tvGraphOnMouseClicked(MouseEvent event) {
-		if (event.getButton().toString()=="SECONDARY") {
+		if(event.getButton() == MouseButton.PRIMARY){
+			AltEntriesManager altMan =  tv_alt_entries.getSelectionModel().getSelectedItem();
+			if(altMan.useEntryProperty().get()){
+				altMan.useEntryProperty().set(false);
+			ModelFacadeTEST.mgr.forget(altMan.getDestUrl());}
+			else{
+				altMan.useEntryProperty().set(true);
+				ModelFacadeTEST.mgr.addAltEntry(altMan.getDestUrl(), altMan.getDestUrl());
+			}
+		}
+		if (event.getButton().toString() == "SECONDARY") {
 			System.out.println("left");
-		tv_graph_uri.getContextMenu().show(tv_graph_uri,event.getScreenX(),event.getScreenY());	
+			tv_graph_uri.getContextMenu().show(tv_graph_uri,
+					event.getScreenX(), event.getScreenY());
 		}
 	}
-	@FXML void btnOnActionLoadFilealtentry(ActionEvent event){
+
+	@FXML
+	void btnOnActionLoadFilealtentry(ActionEvent event) {
 		String filePath;
 		FileChooser fc = new FileChooser();
-		if(!tf_alt_url.getText().isEmpty()){
+		if (!tf_alt_url.getText().isEmpty()) {
 			try {
 				fc.setInitialFileName(tf_alt_url.getText());
-				
+
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
 		}
 		tf_alt_url.setText(fc.showOpenDialog(null).getAbsolutePath());
-		
+
 	}
-	
+
+	private void setBooleanCell() {
+		// TODO Auto-generated method stub
+		col_use_bool.setCellValueFactory(f -> f.getValue().useEntryProperty());
+		col_use_bool
+				.setCellFactory(cF -> {
+					CheckBoxTableCell cBoxCell = new CheckBoxTableCell<AltEntriesManager, Boolean>();
+					cBoxCell.setEditable(true);
+					return cBoxCell;
+				});
+	}
 
 }

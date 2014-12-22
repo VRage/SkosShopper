@@ -1,5 +1,7 @@
 package controller;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -8,12 +10,15 @@ public class AltEntriesManager {
 	
     private final SimpleStringProperty destURL;
     private final SimpleStringProperty altURL;
+    private final SimpleBooleanProperty useEntry;
 	
-    public AltEntriesManager(String dest, String alt) {
+    public AltEntriesManager(boolean useEntry, String dest, String alt) {
+    	this.useEntry = new SimpleBooleanProperty(useEntry);
         destURL = new SimpleStringProperty(dest);
         altURL = new SimpleStringProperty(alt);
     }
     public AltEntriesManager() {
+    	useEntry = new SimpleBooleanProperty(false);
     	destURL = new SimpleStringProperty("");
         altURL = new SimpleStringProperty("");
 	}
@@ -24,11 +29,7 @@ public class AltEntriesManager {
     public void setDestUrl(String dest) {
     	destURL.set(dest);
     }
-    
-    public StringProperty destURLProperty() {
-    	return destURL;
-    }
-        
+
     public String getAltUrl() {
         return altURL.get();
     }
@@ -38,6 +39,14 @@ public class AltEntriesManager {
     
     public StringProperty altURLProperty() {
     	return altURL;
+    }
+    
+    public StringProperty destURLProperty() {
+    	return destURL;
+    }
+        
+    public BooleanProperty useEntryProperty(){
+    	return useEntry;
     }
 }
 

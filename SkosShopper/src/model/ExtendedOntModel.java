@@ -13,7 +13,9 @@ public class ExtendedOntModel {
 		this.path = path;
 		this.model = model;
 		if(path.length()>30)
-		shortPath =path.substring(0, 10)+"  ...  " + path.substring(path.length()-20, path.length());
+			shortPath =path.substring(0, 10)+"  ...  " + path.substring(path.length()-20, path.length());
+		else 
+			shortPath = path;
 	}
 	public String getShortPath(){
 		return shortPath;
@@ -25,5 +27,10 @@ public class ExtendedOntModel {
 		StringBuilder builder = new StringBuilder();
 		builder.append(path);
 		return builder.toString().hashCode();
+	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return shortPath;
 	}
 }
